@@ -1232,8 +1232,8 @@
     </div>
   </header>
 
-  <!-- Barra de Herramientas Flotante / Sticky Mobile-First -->
-  <nav class="toolbar-nav" aria-label="Herramientas del Misal">
+  <!-- Barra de Herramientas Flotante / Sticky Mobile-First (Visible únicamente al celebrar una Misa) -->
+  <nav id="mainToolbar" class="toolbar-nav" aria-label="Herramientas del Misal" style="display: none;">
     <div class="toolbar-container">
       <!-- Fila Superior en Móvil: Navegación de Misas y Plegarias -->
       <div class="toolbar-row toolbar-row-primary">
@@ -3978,13 +3978,16 @@
       currentView = viewName;
       const homeView = document.getElementById('homeView');
       const massView = document.getElementById('massView');
+      const toolbar = document.getElementById('mainToolbar');
 
       if (viewName === 'home') {
         if (homeView) homeView.classList.add('active');
         if (massView) massView.classList.remove('active');
+        if (toolbar) toolbar.style.display = 'none';
       } else {
         if (homeView) homeView.classList.remove('active');
         if (massView) massView.classList.add('active');
+        if (toolbar) toolbar.style.display = 'block';
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
