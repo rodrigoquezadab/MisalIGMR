@@ -1096,25 +1096,6 @@ htmlParts.push(`<!DOCTYPE html>
       display: block;
     }
 
-    .btn-view-toggle {
-      background: var(--card-bg);
-      color: var(--speaker-color);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 0.45rem 0.65rem;
-      font-size: 0.85rem;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      min-height: 40px;
-      transition: all 0.15s ease;
-    }
-    .btn-view-toggle:hover {
-      border-color: var(--primary-color);
-      color: var(--primary-color);
-    }
 
     /* Portada de Inicio (Home Page) */
     .home-hero-card {
@@ -1354,12 +1335,8 @@ htmlParts.push(`<!DOCTYPE html>
   <!-- Barra de Herramientas Flotante / Sticky Mobile-First -->
   <nav class="toolbar-nav" aria-label="Herramientas del Misal">
     <div class="toolbar-container">
-      <!-- Fila Superior en Móvil: Navegación de Vistas, Misas y Plegarias -->
+      <!-- Fila Superior en Móvil: Navegación de Misas y Plegarias -->
       <div class="toolbar-row toolbar-row-primary">
-        <button type="button" id="btnViewToggle" class="btn-view-toggle" onclick="toggleViewMode()" title="Alternar entre Inicio y la Misa">
-          <span id="btnViewIcon">🏠</span>
-          <span id="btnViewLabel">Inicio</span>
-        </button>
         <button type="button" class="btn-drawer-toggle" onclick="toggleDrawer(true)" title="Abrir Catálogo de Misas">
           <span class="btn-icon">📑</span>
           <span class="btn-text">Índice</span>
@@ -2059,29 +2036,15 @@ const scriptBlock = `
       currentView = viewName;
       const homeView = document.getElementById('homeView');
       const massView = document.getElementById('massView');
-      const btnIcon = document.getElementById('btnViewIcon');
-      const btnLabel = document.getElementById('btnViewLabel');
 
       if (viewName === 'home') {
         if (homeView) homeView.classList.add('active');
         if (massView) massView.classList.remove('active');
-        if (btnIcon) btnIcon.innerText = '📖';
-        if (btnLabel) btnLabel.innerText = 'Misa';
       } else {
         if (homeView) homeView.classList.remove('active');
         if (massView) massView.classList.add('active');
-        if (btnIcon) btnIcon.innerText = '🏠';
-        if (btnLabel) btnLabel.innerText = 'Inicio';
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function toggleViewMode() {
-      if (currentView === 'home') {
-        switchView('mass');
-      } else {
-        switchView('home');
-      }
     }
 
     function refreshIndexAndHome() {
@@ -2122,6 +2085,18 @@ const scriptBlock = `
       quickSelect.innerHTML = '';
       drawerList.innerHTML = '';
 
+      // Opción de Portada e Inicio en el Índice
+      const homeItem = document.createElement('div');
+      homeItem.className = 'drawer-item' + (currentView === 'home' ? ' active' : '');
+      homeItem.style.borderLeft = '3px solid var(--primary-color)';
+      homeItem.style.marginBottom = '8px';
+      homeItem.onclick = () => {
+        switchView('home');
+        toggleDrawer(false);
+      };
+      homeItem.innerHTML = '<span>🏠 Portada y Guía de Inicio</span><span style="font-size:0.75rem; opacity:0.8;">Info</span>';
+      drawerList.appendChild(homeItem);
+
       let currentCat = '';
 
       liturgiaData.misas.forEach(m => {
@@ -2141,10 +2116,11 @@ const scriptBlock = `
         }
 
         const item = document.createElement('div');
-        item.className = 'drawer-item' + (m.id === currentMassId ? ' active' : '');
+        item.className = 'drawer-item' + (m.id === currentMassId && currentView === 'mass' ? ' active' : '');
         item.id = 'drawer-item-' + m.id;
         item.onclick = () => {
           selectMass(m.id);
+          switchView('mass');
           toggleDrawer(false);
         };
         item.innerHTML = '<span>' + m.nombre + '</span><span style="font-size:0.75rem; opacity:0.8;">' + m.tiempo + '</span>';
@@ -2250,6 +2226,9 @@ const scriptBlock = `
       // Conmutar a la plegaria litúrgicamente más adecuada para el día
       const chosenPrayer = explicitPrayer || rec;
       selectPrayer(chosenPrayer);
+
+      // Conmutar a la vista de la Misa
+      switchView('mass');
 
       localStorage.setItem('misal-mass-id', m.id);
     }
