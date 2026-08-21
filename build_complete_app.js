@@ -1330,11 +1330,19 @@ const scriptBlock = `
         '<p>' + m.lectura2.texto + '</p>' +
         '<p class="rubric" style="margin-top:0.8rem;">Palabra de Dios. <span class="response">Te alabamos, Señor.</span></p>';
 
-      // Aleluya
-      document.getElementById('dyn-aleluya').innerHTML = 
-        '<p><span class="speaker">Todos:</span> <span class="response">¡Aleluya, aleluya!</span></p>' +
-        '<p><span class="speaker">V.</span> ' + m.aleluya.versiculo + '</p>' +
-        '<p><span class="speaker">Todos:</span> <span class="response">¡Aleluya!</span></p>';
+      // Aclamación antes del Evangelio / Aleluya
+      const isCuaresma = (m.tiempo === 'Cuaresma' || (m.tiempo === 'Semana Santa' && m.id !== 'pas-vigilia'));
+      if (isCuaresma) {
+        document.getElementById('dyn-aleluya').innerHTML = 
+          '<p><span class="speaker">Todos:</span> <span class="response">Honor y gloria a ti, Señor Jesús.</span></p>' +
+          '<p><span class="speaker">V.</span> ' + (m.aleluya ? m.aleluya.versiculo : '') + '</p>' +
+          '<p><span class="speaker">Todos:</span> <span class="response">Honor y gloria a ti, Señor Jesús.</span></p>';
+      } else {
+        document.getElementById('dyn-aleluya').innerHTML = 
+          '<p><span class="speaker">Todos:</span> <span class="response">¡Aleluya, aleluya!</span></p>' +
+          '<p><span class="speaker">V.</span> ' + (m.aleluya ? m.aleluya.versiculo : '') + '</p>' +
+          '<p><span class="speaker">Todos:</span> <span class="response">¡Aleluya!</span></p>';
+      }
 
       // Evangelio
       document.getElementById('dyn-evangelio').innerHTML = 
