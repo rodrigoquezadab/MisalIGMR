@@ -1403,9 +1403,6 @@ htmlParts.push(`<!DOCTYPE html>
           <button type="button" class="btn-hero-primary" onclick="toggleDrawer(true)">
             <span>📑</span> Seleccionar Misa del Año Litúrgico
           </button>
-          <button type="button" class="btn-hero-secondary" onclick="showIGMR(1)">
-            <span>📜</span> Consultar IGMR (n. 1)
-          </button>
         </div>
       </div>
 
