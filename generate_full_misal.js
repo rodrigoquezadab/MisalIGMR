@@ -1052,6 +1052,8 @@ htmlParts.push(`<!DOCTYPE html>
       .mass-section {
         padding: 2.2rem 2.2rem;
       }
+    }
+
     /* ============================================================
        9. LOGO INTERACTIVO Y VISTA DE PORTADA / INICIO (HOME)
        ============================================================ */
@@ -1089,11 +1091,11 @@ htmlParts.push(`<!DOCTYPE html>
 
     /* Control de Vistas (Home vs Misa) */
     .view-panel {
-      display: none;
+      display: none !important;
       animation: fadeIn 0.25s ease-out;
     }
     .view-panel.active {
-      display: block;
+      display: block !important;
     }
 
 
