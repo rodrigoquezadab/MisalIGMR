@@ -1,0 +1,1419 @@
+const fs = require('fs');
+
+// 1. Cargar IGMR íntegro (399 párrafos)
+const igmrItems = JSON.parse(fs.readFileSync('igmr_full_399.json', 'utf8'));
+const igmrMap = {};
+igmrItems.forEach(it => {
+  if (!igmrMap[it.num]) {
+    igmrMap[it.num] = it;
+  } else {
+    igmrMap[it.num].text += "\n\n" + it.text;
+  }
+});
+
+// 2. Cargar base de datos litúrgica (Misas, Plegarias, Prefacios)
+const liturgiaDB = JSON.parse(fs.readFileSync('liturgia_db.json', 'utf8'));
+
+function range(start, end) {
+  const arr = [];
+  for (let i = start; i <= end; i++) arr.push(i);
+  return arr;
+}
+
+function escapeHTML(str) {
+  if (!str) return '';
+  return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function renderIGMR(title, numList) {
+  let html = `      <div class="igmr-container">\n        <details id="igmr-details-${numList[0]}-${numList[numList.length - 1]}">\n          <summary>IGMR: ${escapeHTML(title)} (nn. ${numList[0]}-${numList[numList.length - 1]})</summary>\n          <div class="igmr-content">\n`;
+  
+  let lastSub = "";
+  let lastSec = "";
+  numList.forEach(n => {
+    const it = igmrMap[n];
+    if (!it) return;
+    if (it.section && it.section !== lastSec) {
+      html += `            <h4 style="color: var(--primary-color); border-bottom: 1px dashed var(--border-color); padding-bottom: 4px; margin-top: 1.2rem;">${escapeHTML(it.section)}</h4>\n`;
+      lastSec = it.section;
+    }
+    if (it.subsection && it.subsection !== lastSub) {
+      html += `            <h4 style="color: var(--secondary-color); margin-top: 1rem;">${escapeHTML(it.subsection)}</h4>\n`;
+      lastSub = it.subsection;
+    }
+    const paragraphs = it.text.split('\n\n').map(p => p.trim()).filter(Boolean);
+    paragraphs.forEach((p, idx) => {
+      if (idx === 0) {
+        html += `            <div class="igmr-num-block" id="igmr-num-${n}">\n              <p><span class="igmr-num">IGMR ${n}:</span> ${escapeHTML(p)}</p>\n            </div>\n`;
+      } else {
+        html += `            <p>${escapeHTML(p)}</p>\n`;
+      }
+    });
+  });
+
+  html += `          </div>\n        </details>\n      </div>\n`;
+  return html;
+}
+
+const usedNumbers = new Set();
+function useRange(title, list) {
+  list.forEach(n => usedNumbers.add(n));
+  return renderIGMR(title, list);
+}
+
+function linkifyIGMR(str) {
+  // 1. Linkify (IGMR ...) or (- IGMR ...:) or IGMR in rubrics
+  let res = str.replace(/IGMR\s+([0-9a-z,\s-]+)/gi, (match, nums) => {
+    let trailing = '';
+    const cleanNums = nums.replace(/[:)]+$/, (m) => {
+      trailing = m;
+      return '';
+    });
+    
+    const parts = cleanNums.split(',').map(s => s.trim()).filter(Boolean);
+    const badges = parts.map(part => {
+      const m = part.match(/^(\d+)/);
+      if (m) {
+        const baseNum = parseInt(m[1], 10);
+        return `<button type="button" class="igmr-badge" onclick="showIGMR(${baseNum})" title="Consultar numeral ${part} de la IGMR">IGMR ${part}</button>`;
+      }
+      return `IGMR ${part}`;
+    });
+    return badges.join(', ') + trailing;
+  });
+
+  // 2. Linkify internal IGMR cross-references like (cfr. núms. 276-277), (cfr. n. 68), (cfr. núm. 52)
+  res = res.replace(/\(cfr\.\s+n[úu]ms?\.?\s*([0-9\s,-]+)\)/gi, (match, nums) => {
+    const parts = nums.split(/[,–-]/).map(s => s.trim()).filter(Boolean);
+    const firstNum = parts[0] ? parseInt(parts[0], 10) : null;
+    if (firstNum) {
+      return `(cfr. <button type="button" class="igmr-badge" onclick="showIGMR(${firstNum})" title="Consultar numeral ${nums.trim()} de la IGMR">núms. ${nums.trim()}</button>)`;
+    }
+    return match;
+  });
+
+  return res;
+}
+
+// CONSTRUCCIÓN DEL HTML PRINCIPAL
+const htmlParts = [];
+
+htmlParts.push(`<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Misal Romano - Todas las Misas del Año Litúrgico con IGMR Íntegro (nn. 1-399)</title>
+  <style>
+    :root {
+      /* Modo Oscuro (por defecto) */
+      --bg-color: #121316;
+      --card-bg: #1c1e24;
+      --text-color: #e2e8f0;
+      --muted-text: #94a3b8;
+      --border-color: #2e3440;
+      --primary-color: #e63946;       /* Rojo litúrgico */
+      --secondary-color: #f1faee;     /* Texto claro */
+      --accent-color: #457b9d;        /* Azul litúrgico */
+      --rubric-color: #ff6b6b;        /* Rúbricas en rojo litúrgico */
+      --speaker-color: #38bdf8;       /* Sacerdote/Ministro */
+      --header-bg: #0f1013;
+      --toolbar-bg: #1a1c23;
+      --igmr-bg: #161a22;
+      --igmr-border: #3b4252;
+      --igmr-heading: #60a5fa;
+      --igmr-num-color: #38bdf8;
+      --footer-text: #64748b;
+      --drawer-bg: #181a20;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-color: #1e293b;
+      --muted-text: #64748b;
+      --border-color: #e2e8f0;
+      --primary-color: #b91c1c;       /* Rojo carmesí clásico */
+      --secondary-color: #0f172a;
+      --accent-color: #1d4ed8;
+      --rubric-color: #c2410c;        /* Rúbricas bermellón */
+      --speaker-color: #0369a1;
+      --header-bg: #f1f5f9;
+      --toolbar-bg: #e2e8f0;
+      --igmr-bg: #f8fafc;
+      --igmr-border: #cbd5e1;
+      --igmr-heading: #1d4ed8;
+      --igmr-num-color: #0284c7;
+      --footer-text: #64748b;
+      --drawer-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.75;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Encabezado */
+    header {
+      background-color: var(--header-bg);
+      border-bottom: 2px solid var(--primary-color);
+      padding: 2.2rem 1rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      color: var(--primary-color);
+      letter-spacing: 1.5px;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .liturgical-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-top: 0.6rem;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* Barra de herramientas fija */
+    .toolbar-container {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--toolbar-bg);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.6rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .toolbar-group {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .toolbar-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted-text);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-right: 0.2rem;
+    }
+
+    button, select {
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    button:hover, select:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+
+    .btn-primary-action {
+      background: var(--primary-color);
+      color: #ffffff !important;
+      border-color: var(--primary-color);
+    }
+    .btn-primary-action:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* Contenido principal */
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Estructura de secciones */
+    .mass-section {
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 2.2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border: 1px solid var(--border-color);
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .part-title {
+      font-size: 1.35rem;
+      color: var(--speaker-color);
+      margin: 2rem 0 0.8rem;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .part-title::before {
+      content: "§";
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    /* Tipografía litúrgica */
+    .rubric {
+      color: var(--rubric-color);
+      font-style: italic;
+      font-size: 0.95em;
+      margin: 0.7rem 0;
+      display: block;
+    }
+
+    .dialogue {
+      margin: 0.8rem 0;
+      padding-left: 0.8rem;
+    }
+
+    .speaker {
+      font-weight: bold;
+      color: var(--speaker-color);
+    }
+
+    .response {
+      font-weight: bold;
+      color: var(--text-color);
+    }
+
+    .prayer-text {
+      font-size: 1.1em;
+      margin: 1rem 0;
+      padding: 0.8rem 1.2rem;
+      background-color: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--speaker-color);
+      border-radius: 0 6px 6px 0;
+    }
+
+    .scripture-box {
+      background: rgba(0,0,0,0.12);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.4rem;
+      margin: 1.2rem 0;
+    }
+
+    .scripture-citation {
+      font-weight: bold;
+      color: var(--speaker-color);
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .psalm-response {
+      font-weight: bold;
+      color: var(--primary-color);
+      margin: 0.6rem 0;
+      padding: 0.4rem 0.8rem;
+      background: rgba(230, 57, 70, 0.1);
+      border-radius: 4px;
+    }
+
+    /* Paneles de IGMR */
+    .igmr-container {
+      margin: 1.2rem 0 1.8rem 0;
+    }
+
+    details {
+      background-color: var(--igmr-bg);
+      border: 1px solid var(--igmr-border);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    details[open] {
+      border-color: var(--primary-color);
+    }
+
+    summary {
+      font-weight: bold;
+      color: var(--igmr-heading);
+      padding: 0.85rem 1.2rem;
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.08);
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color 0.2s;
+      font-size: 0.98rem;
+    }
+
+    summary:hover {
+      background-color: rgba(230, 57, 70, 0.12);
+      color: var(--primary-color);
+    }
+
+    summary::after {
+      content: "▶";
+      font-size: 0.75rem;
+      transition: transform 0.2s;
+      color: var(--muted-text);
+    }
+
+    details[open] summary::after {
+      transform: rotate(90deg);
+      color: var(--primary-color);
+    }
+
+    .igmr-content {
+      padding: 1.4rem;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.95rem;
+      color: var(--text-color);
+    }
+
+    .igmr-content p {
+      margin-bottom: 0.9rem;
+      line-height: 1.65;
+    }
+
+    .igmr-num-block {
+      margin-top: 1rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed var(--border-color);
+      transition: all 0.5s ease;
+    }
+
+    .igmr-num {
+      font-weight: bold;
+      color: var(--igmr-num-color);
+      font-family: sans-serif;
+      margin-right: 4px;
+    }
+
+    /* Botones y enlaces interactivos para numerales IGMR */
+    .igmr-badge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--igmr-num-color);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 0.88em;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      margin: 0 2px;
+      vertical-align: middle;
+      font-family: inherit;
+    }
+    .igmr-badge:hover {
+      background: var(--igmr-num-color);
+      color: #0f172a;
+      border-color: var(--igmr-num-color);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(56, 189, 248, 0.4);
+    }
+
+    /* Modal de IGMR */
+    .igmr-modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 3000;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      box-sizing: border-box;
+      animation: fadeIn 0.2s ease-out;
+    }
+    .igmr-modal-backdrop.active {
+      display: flex;
+    }
+    .igmr-modal-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      max-width: 750px;
+      width: 100%;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.5);
+      overflow: hidden;
+      animation: slideUp 0.25s ease-out;
+    }
+    .igmr-modal-header {
+      background: var(--header-bg);
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .igmr-modal-title {
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: var(--speaker-color);
+      margin: 0;
+    }
+    .igmr-modal-close {
+      background: transparent;
+      border: none;
+      font-size: 1.6rem;
+      color: var(--muted-text);
+      cursor: pointer;
+      line-height: 1;
+      padding: 0 4px;
+    }
+    .igmr-modal-close:hover {
+      color: #fff;
+    }
+    .igmr-modal-subtitle {
+      padding: 0.6rem 1.25rem 0.4rem;
+      font-size: 0.85rem;
+      color: var(--muted-text);
+      border-bottom: 1px dashed var(--border-color);
+      background: rgba(0,0,0,0.1);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .igmr-modal-body {
+      padding: 1.25rem;
+      overflow-y: auto;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-color);
+    }
+    .igmr-modal-body p {
+      margin-bottom: 0.9rem;
+    }
+    .igmr-modal-footer {
+      padding: 0.85rem 1.25rem;
+      background: var(--toolbar-bg);
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .igmr-highlight-pulse {
+      animation: igmrPulse 3s ease-out;
+      border-left: 4px solid var(--primary-color) !important;
+      padding-left: 8px;
+    }
+
+    /* Drawer / Panel Lateral del Índice Litúrgico */
+    .liturgy-drawer-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(3px);
+      z-index: 2500;
+    }
+    .liturgy-drawer-backdrop.active {
+      display: block;
+    }
+    .liturgy-drawer {
+      position: fixed;
+      top: 0;
+      left: -400px;
+      width: 380px;
+      max-width: 90vw;
+      height: 100vh;
+      background: var(--drawer-bg);
+      border-right: 1px solid var(--border-color);
+      z-index: 2600;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 4px 0 24px rgba(0,0,0,0.5);
+      transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .liturgy-drawer.open {
+      left: 0;
+    }
+    .drawer-header {
+      padding: 1.2rem;
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .drawer-search {
+      padding: 0.8rem 1.2rem;
+      border-bottom: 1px solid var(--border-color);
+      background: var(--toolbar-bg);
+    }
+    .drawer-search input {
+      width: 100%;
+      padding: 0.5rem 0.8rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      color: var(--text-color);
+      font-size: 0.9rem;
+    }
+    .drawer-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem 0.8rem;
+    }
+    .drawer-category-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted-text);
+      margin: 1.2rem 0 0.5rem 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .drawer-item {
+      padding: 0.65rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.15s ease;
+      margin-bottom: 3px;
+      font-size: 0.92rem;
+    }
+    .drawer-item:hover {
+      background: rgba(230, 57, 70, 0.12);
+      color: var(--primary-color);
+    }
+    .drawer-item.active {
+      background: var(--primary-color);
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    footer {
+      background-color: var(--header-bg);
+      color: var(--footer-text);
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      margin-top: 3rem;
+      font-size: 0.95rem;
+      font-family: sans-serif;
+      border-top: 1px solid var(--border-color);
+    }
+
+    footer a {
+      color: var(--secondary-color);
+      text-decoration: underline;
+    }
+
+    @keyframes igmrPulse {
+      0% { background-color: rgba(230, 57, 70, 0.45); }
+      50% { background-color: rgba(56, 189, 248, 0.3); }
+      100% { background-color: transparent; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(20px) scale(0.97); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      .toolbar-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .toolbar-group {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Drawer Lateral del Índice Litúrgico -->
+  <div id="drawerBackdrop" class="liturgy-drawer-backdrop" onclick="toggleDrawer(false)"></div>
+  <aside id="liturgyDrawer" class="liturgy-drawer">
+    <div class="drawer-header">
+      <h3 style="color: var(--primary-color); margin: 0; font-size: 1.2rem;">📑 Índice del Misal Romano</h3>
+      <button class="igmr-modal-close" onclick="toggleDrawer(false)">&times;</button>
+    </div>
+    <div class="drawer-search">
+      <input type="text" id="drawerSearchInput" placeholder="Buscar misa o domingo..." oninput="filterDrawer()">
+    </div>
+    <div class="drawer-content" id="drawerList">
+      <!-- Generado dinámicamente -->
+    </div>
+  </aside>
+
+  <header>
+    <h1>MISAL ROMANO</h1>
+    <h2 id="headerMassTitle" style="font-size: 1.35rem; color: var(--text-color); margin-top: 0.3rem;">Primer Domingo del Tiempo Ordinario</h2>
+    <div id="headerSeasonBadge" class="liturgical-badge" style="background: #16a34a; color: #fff;">Tiempo Ordinario</div>
+    <p style="font-size: 0.95rem; opacity: 0.85; margin-top: 0.6rem;">Con la Instrucción General del Misal Romano (IGMR) Íntegra (nn. 1 al 399)</p>
+  </header>
+
+  <div class="toolbar-container">
+    <div class="toolbar-group">
+      <button class="btn-primary-action" onclick="toggleDrawer(true)" title="Abrir Índice de Todas las Misas">📑 Índice de Misas</button>
+      <select id="quickMassSelect" onchange="selectMass(this.value)" title="Seleccionar Misa"></select>
+      <select id="quickPrayerSelect" onchange="selectPrayer(this.value)" title="Seleccionar Plegaria Eucarística">
+        <option value="1">Plegaria I (Canon Romano)</option>
+        <option value="2" selected>Plegaria II</option>
+        <option value="3">Plegaria III</option>
+        <option value="4">Plegaria IV</option>
+      </select>
+    </div>
+
+    <div class="toolbar-group">
+      <span class="toolbar-label">Letra:</span>
+      <button onclick="changeFontSize(-1)" title="Reducir letra">A -</button>
+      <button onclick="resetFontSize()" title="Restablecer letra">A</button>
+      <button onclick="changeFontSize(1)" title="Aumentar letra">A +</button>
+    </div>
+
+    <div class="toolbar-group">
+      <button id="themeToggle" onclick="toggleTheme()" title="Cambiar Tema">☀️ Modo Claro</button>
+      <button onclick="toggleAllDetails(true)" title="Expandir IGMR">Expandir IGMR</button>
+      <button onclick="toggleAllDetails(false)" title="Colapsar IGMR">Colapsar IGMR</button>
+    </div>
+  </div>
+
+  <main id="content">
+`);
+
+// 0. PROEMIO Y CAP. I (1-26)
+htmlParts.push(`
+    <section class="mass-section" id="proemio-cap1">
+      <h2 class="section-title">0. Proemio y Principios Generales de la Celebración Eucarística</h2>
+`);
+htmlParts.push(useRange("Proemio de la Instrucción General del Misal Romano", range(1, 15)));
+htmlParts.push(useRange("Capítulo I: Importancia y Dignidad de la Celebración Eucarística", range(16, 26)));
+htmlParts.push(`    </section>\n`);
+
+// 1. RITOS INICIALES (27-54)
+htmlParts.push(`
+    <section class="mass-section" id="ritos-iniciales">
+      <h2 class="section-title">1. Ritos Iniciales</h2>
+      <p class="rubric">El pueblo se reúne. Estando el pueblo congregado, el sacerdote con los ministros se acerca al altar, mientras se entona el canto de entrada o se recita la antífona (IGMR 47-48, 120-121). El pueblo permanece de pie durante todos los ritos iniciales (IGMR 43, 120, 124).</p>
+`);
+htmlParts.push(useRange("Estructura General y Posturas del Cuerpo", range(27, 45)));
+htmlParts.push(useRange("Naturaleza de los Ritos Iniciales", range(46, 46)));
+
+htmlParts.push(`
+      <h3 class="part-title">1.1. Entrada y Reverencia al Altar</h3>
+      <div id="dyn-antifona-entrada" class="prayer-text"></div>
+`);
+htmlParts.push(useRange("Canto de Entrada y Procesión", range(47, 49)));
+htmlParts.push(useRange("Disposición y Ornamento del Altar y la Iglesia", range(288, 318)));
+
+htmlParts.push(`
+      <h3 class="part-title">1.2. Saludo Inicial</h3>
+      <div class="dialogue">
+        <p class="rubric">Llegado al presbiterio, el sacerdote con los ministros hace una inclinación profunda al altar (o genuflexión si el Santísimo está en el presbiterio - IGMR 49, 274). Sube al altar, lo venera con un beso (IGMR 49, 123) e inciensa el altar y la cruz si se usa incienso (IGMR 49, 123, 276-277). Luego va a la sede (IGMR 124).</p>
+        <p class="rubric">Estando todos de pie, el sacerdote y los fieles hacen sobre sí la señal de la cruz (IGMR 50, 124):</p>
+        <p><span class="speaker">Sacerdote:</span> En el nombre del Padre, y del Hijo, y del Espíritu Santo.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
+        
+        <p class="rubric">El sacerdote, extendiendo las manos, saluda al pueblo (IGMR 50, 124):</p>
+        <p><span class="speaker">Sacerdote:</span> La gracia de nuestro Señor Jesucristo, el amor del Padre y la comunión del Espíritu Santo estén con todos vosotros.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Y con tu espíritu.</span></p>
+      </div>
+`);
+htmlParts.push(useRange("Saludo al Pueblo", range(50, 50)));
+
+htmlParts.push(`
+      <h3 class="part-title">1.3. Acto Penitencial</h3>
+      <div class="dialogue">
+        <p class="rubric">El sacerdote invita a los fieles al arrepentimiento, haciéndose una breve pausa de silencio (IGMR 51, 125):</p>
+        <p><span class="speaker">Sacerdote:</span> Hermanos: para celebrar dignamente estos sagrados misterios, reconozcamos nuestros pecados.</p>
+        
+        <p class="rubric"><strong>Fórmula 1 (Confiteor / Yo confieso - IGMR 51):</strong></p>
+        <p><span class="speaker">Todos:</span> Yo confieso ante Dios todopoderoso y ante vosotros, hermanos, que he pecado mucho de pensamiento, palabra, obra y omisión.</p>
+        <p class="rubric">(Golpeándose el pecho, dicen - IGMR 51:)</p>
+        <p><span class="speaker">Todos:</span> Por mi culpa, por mi culpa, por mi gran culpa. Por eso ruego a santa María, siempre Virgen, a los ángeles, a los santos y a vosotros, hermanos, que intercedáis por mí ante Dios, nuestro Señor.</p>
+        
+        <p class="rubric">Absolución sacerdotal (IGMR 51):</p>
+        <p><span class="speaker">Sacerdote:</span> Dios todopoderoso tenga misericordia de nosotros, perdone nuestros pecados y nos lleve a la vida eterna.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
+      </div>
+`);
+htmlParts.push(useRange("Acto Penitencial", range(51, 51)));
+
+htmlParts.push(`
+      <h3 class="part-title">1.4. Señor, ten piedad (Kyrie, eleison)</h3>
+      <div class="dialogue">
+        <p><span class="speaker">V.</span> Señor, ten piedad. <span class="speaker">R.</span> <span class="response">Señor, ten piedad.</span></p>
+        <p><span class="speaker">V.</span> Cristo, ten piedad. <span class="speaker">R.</span> <span class="response">Cristo, ten piedad.</span></p>
+        <p><span class="speaker">V.</span> Señor, ten piedad. <span class="speaker">R.</span> <span class="response">Señor, ten piedad.</span></p>
+      </div>
+`);
+htmlParts.push(useRange("Señor, ten piedad (Kyrie)", range(52, 52)));
+
+htmlParts.push(`
+      <h3 class="part-title">1.5. Gloria a Dios en el cielo</h3>
+      <div class="dialogue">
+        <p class="rubric">El sacerdote, o los cantores, o todos juntos, entonan el himno (IGMR 53):</p>
+        <p><span class="speaker">Todos:</span> Gloria a Dios en el cielo, y en la tierra paz a los hombres que ama el Señor. Por tu inmensa gloria te alabamos, te bendecimos, te adoramos, te glorificamos, te damos gracias, Señor Dios, Rey celestial, Dios Padre todopoderoso. Señor, Hijo único, Jesucristo. Señor Dios, Cordero de Dios, Hijo del Padre; tú que quitas el pecado del mundo, ten piedad de nosotros; tú que quitas el pecado del mundo, atiende nuestra súplica; tú que estás sentado a la derecha del Padre, ten piedad de nosotros; porque sólo tú eres Santo, sólo tú Señor, sólo tú Altísimo, Jesucristo, con el Espíritu Santo en la gloria de Dios Padre. Amén.</p>
+      </div>
+`);
+htmlParts.push(useRange("Himno del Gloria", range(53, 53)));
+
+htmlParts.push(`
+      <h3 class="part-title">1.6. Oración Colecta</h3>
+      <div class="dialogue">
+        <p class="rubric">El sacerdote, con las manos juntas, dice: «Oremos». Y todos, junto con el sacerdote, oran en silencio durante unos momentos (IGMR 54, 127). Luego el sacerdote, con las manos extendidas, proclama la oración colecta:</p>
+        <div id="dyn-colecta" class="prayer-text"></div>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
+      </div>
+`);
+htmlParts.push(useRange("Oración Colecta", range(54, 54)));
+htmlParts.push(`    </section>\n`);
+
+// 2. LITURGIA DE LA PALABRA (55-71, 91-111, 134-138)
+htmlParts.push(`
+    <section class="mass-section" id="liturgia-palabra">
+      <h2 class="section-title">2. Liturgia de la Palabra</h2>
+      <p class="rubric">El pueblo se sienta para escuchar las lecturas (IGMR 43, 128). Las lecturas se proclaman siempre desde el ambón (IGMR 58, 309).</p>
+`);
+htmlParts.push(useRange("Naturaleza de la Liturgia de la Palabra y Silencio", range(55, 56)));
+htmlParts.push(useRange("Ministerios y Funciones Litúrgicas en la Misa", range(91, 111)));
+
+htmlParts.push(`
+      <h3 class="part-title">2.1. Primera Lectura</h3>
+      <div id="dyn-lectura-1" class="scripture-box"></div>
+`);
+htmlParts.push(useRange("Primera Lectura Bíblica", range(57, 57)));
+
+htmlParts.push(`
+      <h3 class="part-title">2.2. Salmo Responsorial</h3>
+      <div id="dyn-salmo" class="scripture-box"></div>
+`);
+htmlParts.push(useRange("Salmo Responsorial", range(61, 61)));
+
+htmlParts.push(`
+      <h3 class="part-title">2.3. Segunda Lectura</h3>
+      <div id="dyn-lectura-2" class="scripture-box"></div>
+`);
+htmlParts.push(useRange("Segunda Lectura Apostólica", range(58, 59)));
+
+htmlParts.push(`
+      <h3 class="part-title">2.4. Aclamación antes del Evangelio (Aleluya)</h3>
+      <p class="rubric">El pueblo se pone de pie para aclamar el Evangelio (IGMR 43, 131).</p>
+      <div id="dyn-aleluya" class="dialogue"></div>
+`);
+htmlParts.push(useRange("Aclamación antes del Evangelio", range(62, 64)));
+
+htmlParts.push(`
+      <h3 class="part-title">2.5. Proclamación del Santo Evangelio</h3>
+      <div id="dyn-evangelio" class="scripture-box"></div>
+`);
+htmlParts.push(useRange("Proclamación del Santo Evangelio", range(60, 60)));
+htmlParts.push(useRange("Ritos Propios del Evangelio por el Diácono o Sacerdote", range(134, 135)));
+
+htmlParts.push(`
+      <h3 class="part-title">2.6. Homilía</h3>
+      <p class="rubric">El pueblo se sienta (IGMR 43, 136). El sacerdote o diácono pronuncia la homilía desde la sede o el ambón (IGMR 66, 136). Concluida la homilía, se guarda un breve tiempo de sagrado silencio (IGMR 56, 66).</p>
+`);
+htmlParts.push(useRange("La Homilía", range(65, 66)));
+htmlParts.push(useRange("Normas para la Homilía y el Silencio Sagrado", range(136, 136)));
+
+htmlParts.push(`
+      <h3 class="part-title">2.7. Profesión de Fe (Credo)</h3>
+      <div class="dialogue">
+        <p class="rubric">El pueblo se pone de pie (IGMR 43, 137). El sacerdote con el pueblo recita el Símbolo de la Fe:</p>
+        <p class="rubric"><strong>Opción A: Símbolo Niceno-Constantinopolitano (Credo largo)</strong></p>
+        <p><span class="speaker">Todos:</span> Creo en un solo Dios, Padre todopoderoso, Creador del cielo y de la tierra, de todo lo visible y lo invisible. Creo en un solo Señor, Jesucristo, Hijo único de Dios, nacido del Padre antes de todos los siglos: Dios de Dios, Luz de Luz, Dios verdadero de Dios verdadero, engendrado, no creado, de la misma naturaleza del Padre, por quien todo fue hecho; que por nosotros, los hombres, y por nuestra salvación bajó del cielo,</p>
+        <p class="rubric">(A las palabras que siguen, hasta «se hizo hombre», todos se inclinan profundamente - IGMR 137, 275a:)</p>
+        <p><span class="speaker">Todos:</span> y por obra del Espíritu Santo se encarnó de María, la Virgen, y se hizo hombre;</p>
+        <p class="rubric">(Se incorporan - IGMR 137:)</p>
+        <p><span class="speaker">Todos:</span> y por nuestra causa fue crucificado en tiempos de Poncio Pilato; padeció y fue sepultado, y resucitó al tercer día, según las Escrituras, y subió al cielo, y está sentado a la derecha del Padre; y de nuevo vendrá con gloria para juzgar a, vivos y muertos, y su reino no tendrá fin. Creo en el Espíritu Santo, Señor y dador de vida, que procede del Padre y del Hijo, que con el Padre y el Hijo recibe una misma adoración y gloria, y que habló por los profetas. Creo en la Iglesia, que es una, santa, católica y apostólica. Confieso que hay un solo Bautismo para el perdón de los pecados. Espero la resurrección de los muertos y la vida del mundo futuro. Amén.</p>
+        
+        <p class="rubric"><strong>Opción B: Símbolo de los Apóstoles (Credo corto / Bautismal de la Iglesia Romana - IGMR 68)</strong></p>
+        <p><span class="speaker">Todos:</span> Creo en Dios, Padre todopoderoso, Creador del cielo y de la tierra. Creo en Jesucristo, su único Hijo, nuestro Señor,</p>
+        <p class="rubric">(A las palabras que siguen, hasta «Santa María Virgen», todos se inclinan profundamente - IGMR 137, 275a:)</p>
+        <p><span class="speaker">Todos:</span> que fue concebido por obra y gracia del Espíritu Santo, nació de santa María Virgen,</p>
+        <p class="rubric">(Se incorporan - IGMR 137:)</p>
+        <p><span class="speaker">Todos:</span> padeció bajo el poder de Poncio Pilato, fue crucificado, muerto y sepultado, descendió a los infiernos, al tercer día resucitó de entre los muertos, subió a los cielos y está sentado a la derecha de Dios, Padre todopoderoso. Desde allí ha de venir a juzgar a vivos y muertos. Creo en el Espíritu Santo, la santa Iglesia católica, la comunión de los santos, el perdón de los pecados, la resurrección de la carne y la vida eterna. Amén.</p>
+      </div>
+`);
+htmlParts.push(useRange("El Símbolo o Profesión de Fe", range(67, 68)));
+htmlParts.push(useRange("Rúbricas y Reverencias Corporales en el Credo", range(137, 137)));
+
+htmlParts.push(`
+      <h3 class="part-title">2.8. Oración Universal (Oración de los Fieles)</h3>
+      <div class="dialogue">
+        <p class="rubric">Estando el pueblo en pie, el sacerdote dirige la oración desde la sede (IGMR 71, 138):</p>
+        <p><span class="speaker">Sacerdote:</span> Oremos, hermanos, a Dios Padre todopoderoso, por las necesidades de la Santa Iglesia y de todo el mundo.</p>
+        <p><span class="speaker">Lector:</span> Por la Santa Iglesia de Dios: para que el Señor la guíe, la proteja y congregue en la unidad a todos los pueblos. Roguemos al Señor.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Te rogamos, óyenos.</span></p>
+        <p><span class="speaker">Lector:</span> Por los gobernantes y por la paz de todas las naciones. Roguemos al Señor.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Te rogamos, óyenos.</span></p>
+        <p><span class="speaker">Lector:</span> Por los enfermos, los afligidos y los que sufren. Roguemos al Señor.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Te rogamos, óyenos.</span></p>
+        <p><span class="speaker">Lector:</span> Por nuestra comunidad parroquial y por nuestros difuntos. Roguemos al Señor.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Te rogamos, óyenos.</span></p>
+        <p><span class="speaker">Sacerdote:</span> Escucha, Padre, las oraciones de tu pueblo y concédenos lo que te pedimos con fe. Por Jesucristo, nuestro Señor.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
+      </div>
+`);
+htmlParts.push(useRange("Oración Universal", range(69, 71)));
+htmlParts.push(useRange("Disposición y Moderación de la Oración de los Fieles", range(138, 138)));
+htmlParts.push(`    </section>\n`);
+
+// 3. LITURGIA EUCARÍSTICA (72-89, 112-133, 139-165, 209-236, 281-287, 319-351)
+htmlParts.push(`
+    <section class="mass-section" id="liturgia-eucaristica">
+      <h2 class="section-title">3. Liturgia Eucarística</h2>
+      <p class="rubric">El pueblo se sienta durante la preparación de las ofrendas (IGMR 43). Se colocan sobre el altar el corporal, el purificador, el cáliz, la palia y el misal (IGMR 73, 139).</p>
+`);
+htmlParts.push(useRange("Estructura de la Liturgia Eucarística", range(72, 72)));
+htmlParts.push(useRange("Estructura de la Misa y sus Formas de Celebración", range(112, 133)));
+htmlParts.push(useRange("Pan, Vino y Vasos Sagrados para la Eucaristía", range(319, 351)));
+
+htmlParts.push(`
+      <h3 class="part-title">3.1. Preparación de los Dones (Ofertorio)</h3>
+      <div class="dialogue">
+        <p class="rubric">El sacerdote toma la patena con el pan y dice en voz baja (o en voz alta si no hay canto - IGMR 141):</p>
+        <p><span class="speaker">Sacerdote:</span> Bendito seas, Señor, Dios del universo, por este pan, fruto de la tierra y del trabajo del hombre, que recibimos de tu generosidad y ahora te presentamos; él será para nosotros pan de vida.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Bendito seas por siempre, Señor.</span></p>
+
+        <p class="rubric">El diácono o sacerdote echa vino y un poco de agua en el cáliz diciendo en secreto (IGMR 142, 178):</p>
+        <p><span class="speaker">Sacerdote:</span> El agua unida al vino sea signo de nuestra participación en la divinidad de quien se dignó compartir nuestra condición humana.</p>
+
+        <p class="rubric">Toma el cáliz y dice en voz baja (o alta si no hay canto - IGMR 142):</p>
+        <p><span class="speaker">Sacerdote:</span> Bendito seas, Señor, Dios del universo, por este vino, fruto de la vid y del trabajo del hombre, que recibimos de tu generosidad y ahora te presentamos; él será para nosotros bebida de salvación.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Bendito seas por siempre, Señor.</span></p>
+
+        <p class="rubric">El sacerdote, profundamente inclinado, dice en secreto (IGMR 143, 275a):</p>
+        <p><span class="speaker">Sacerdote:</span> Acepta, Señor, nuestro corazón contrito y nuestro espíritu humilde; que éste sea hoy nuestro sacrificio y que sea grato en tu presencia, Señor, Dios nuestro.</p>
+
+        <p class="rubric">El sacerdote se lava las manos a un lado del altar diciendo en secreto (Lavatorio de manos - IGMR 76, 145):</p>
+        <p><span class="speaker">Sacerdote:</span> Lava del todo mi delito, Señor, y limpia mi pecado.</p>
+
+        <p class="rubric">El sacerdote, de pie en el centro del altar, de cara al pueblo, extiende y junta las manos, invitando a la asamblea (el pueblo se pone de pie - IGMR 43, 146):</p>
+        <p><span class="speaker">Sacerdote:</span> Orad, hermanos, para que este sacrificio, mío y vuestro, sea agradable a Dios, Padre todopoderoso.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">El Señor reciba de tus manos este sacrificio, para alabanza y gloria de su nombre, para nuestro bien y el de toda su santa Iglesia.</span></p>
+      </div>
+`);
+htmlParts.push(useRange("Preparación de las Ofrendas y Ritos del Ofertorio", range(73, 76)));
+htmlParts.push(useRange("Ritos del Sacerdote en la Mesa del Altar", range(139, 145)));
+
+htmlParts.push(`
+      <h3 class="part-title">3.2. Oración sobre las Ofrendas</h3>
+      <div class="dialogue">
+        <p class="rubric">El sacerdote, con las manos extendidas, proclama la oración sobre las ofrendas (IGMR 77, 146):</p>
+        <div id="dyn-ofrendas" class="prayer-text"></div>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
+      </div>
+`);
+htmlParts.push(useRange("Oración sobre las Ofrendas", range(77, 77)));
+htmlParts.push(useRange("Conclusión de la Preparación de las Ofrendas", range(146, 146)));
+
+htmlParts.push(`
+      <h3 class="part-title">3.3. Plegaria Eucarística</h3>
+      <div class="dialogue">
+        <p class="rubric">El sacerdote inicia el diálogo del Prefacio con las manos extendidas (IGMR 79a, 148):</p>
+        <p><span class="speaker">Sacerdote:</span> El Señor esté con vosotros.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Y con tu espíritu.</span></p>
+        <p><span class="speaker">Sacerdote:</span> Levantemos el corazón.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Lo tenemos levantado hacia el Señor.</span></p>
+        <p><span class="speaker">Sacerdote:</span> Demos gracias al Señor, nuestro Dios.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Es justo y necesario.</span></p>
+
+        <div id="dyn-prefacio" class="prayer-text"></div>
+
+        <p class="rubric">El sacerdote con el pueblo aclama el Santo (IGMR 79b, 149):</p>
+        <p><span class="speaker">Todos:</span> Santo, Santo, Santo es el Señor, Dios del Universo. Llenos están el cielo y la tierra de tu gloria. ¡Hosanna en el cielo! Bendito el que viene en nombre del Señor. ¡Hosanna en el cielo!</p>
+      </div>
+
+      <div class="dialogue">
+        <p class="rubric">El pueblo se arrodilla durante la consagración (desde la epíclesis hasta la aclamación después de la consagración, a no ser que lo impida la estrechez del lugar o la salud; o bien, según la costumbre laudable permitida por la IGMR 43, pueden permanecer de rodillas desde el Sanctus hasta la doxología final - IGMR 43, 150).</p>
+      </div>
+
+      <!-- Cuerpo dinámico de la Plegaria Eucarística seleccionada -->
+      <div id="dyn-plegaria-body"></div>
+`);
+htmlParts.push(useRange("Elementos y Estructura de la Plegaria Eucarística", range(78, 79)));
+htmlParts.push(useRange("Normas y Ritos de la Plegaria Eucarística", range(147, 151)));
+htmlParts.push(useRange("Concelebración de la Eucaristía y sus Ritos", range(209, 236)));
+
+htmlParts.push(`
+      <h3 class="part-title">3.4. Rito de la Comunión</h3>
+      <div class="dialogue">
+        <p class="rubric">El pueblo permanece de pie (IGMR 43). El sacerdote, con las manos juntas, introduce la oración dominical (IGMR 81, 152):</p>
+        <p><span class="speaker">Sacerdote:</span> Fieles a la recomendación del Salvador y siguiendo su divina enseñanza, nos atrevemos a decir:</p>
+        <p><span class="speaker">Todos:</span> Padre nuestro, que estás en el cielo, santificado sea tu Nombre; venga a nosotros tu reino; hágase tu voluntad en la tierra como en el cielo. Danos hoy nuestro pan de cada día; perdona nuestras ofensas, como también nosotros perdonamos a los que nos ofenden; no nos dejes caer en la tentación, y líbranos del mal.</p>
+        
+        <p class="rubric">El sacerdote, con las manos extendidas, continúa solo (Embolismo - IGMR 81, 153):</p>
+        <p><span class="speaker">Sacerdote:</span> Líbranos de todos los males, Señor, y concédenos la paz en nuestros días, para que, ayudados por tu misericordia, vivamos siempre libres de pecado y protegidos de toda perturbación, mientras esperamos la gloriosa venida de nuestro Salvador Jesucristo.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Tuyo es el reino, tuyo el poder y la gloria, por siempre, Señor.</span></p>
+
+        <p class="rubric">Rito de la Paz (IGMR 82, 154):</p>
+        <p><span class="speaker">Sacerdote:</span> Señor Jesucristo, que dijiste a tus apóstoles: «La paz os dejo, mi paz os doy», no tengas en cuenta nuestros pecados, sino la fe de tu Iglesia y, conforme a tu palabra, concédele la paz y la unidad. Tú que vives y reinas por los siglos de los siglos.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
+        <p><span class="speaker">Sacerdote:</span> La paz del Señor esté siempre con vosotros.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Y con tu espíritu.</span></p>
+        <p class="rubric">El diácono o el sacerdote añade (IGMR 154):</p>
+        <p><span class="speaker">Diácono o Sacerdote:</span> Daos fraternalmente la paz.</p>
+
+        <p class="rubric">Fracción del Pan y Cordero de Dios (IGMR 83, 155):</p>
+        <p><span class="speaker">Todos:</span> Cordero de Dios, que quitas el pecado del mundo, ten piedad de nosotros.<br>Cordero de Dios, que quitas el pecado del mundo, ten piedad de nosotros.<br>Cordero de Dios, que quitas el pecado del mundo, danos la paz.</p>
+
+        <p class="rubric">El sacerdote parte la Hostia sobre la patena y deja caer una partícula en el cáliz (Conmixtión - IGMR 83, 155), diciendo en secreto:</p>
+        <p><span class="speaker">Sacerdote:</span> El Cuerpo y la Sangre de nuestro Señor Jesucristo, unidos en este cáliz, sean para nosotros, que los vamos a recibir, alimento de vida eterna.</p>
+
+        <p class="rubric">El sacerdote se prepara en secreto para recibir el Sacramento con las manos juntas (IGMR 84, 156):</p>
+        <p><span class="speaker">Sacerdote:</span> Señor Jesucristo, Hijo de Dios vivo, que por voluntad del Padre, cooperando el Espíritu Santo, diste con tu muerte la vida al mundo, líbrame, por la recepción de tu Cuerpo y de tu Sangre, de todas mis culpas y de todo mal; concédeme cumplir siempre tus mandamientos y jamás permitas que me separe de ti.</p>
+
+        <p class="rubric">El sacerdote hace genuflexión, toma la Hostia y sosteniéndola sobre la patena o sobre el cáliz, de cara al pueblo, dice con voz clara (IGMR 84, 157):</p>
+        <p><span class="speaker">Sacerdote:</span> Éste es el Cordero de Dios, que quita el pecado del mundo. Dichosos los invitados a la cena del Señor.</p>
+        <p><span class="speaker">Todos:</span> <span class="response">Señor, no soy digno de que entres en mi casa, pero una palabra tuya bastará para sanarme.</span></p>
+
+        <p class="rubric">El sacerdote comulga el Cuerpo y la Sangre de Cristo y administra la Comunión a los fieles (IGMR 84-86, 158-161). Los fieles se acercan procesionalmente a comulgar (de pie o de rodillas - IGMR 43, 160). Se recita o entona la antífona de comunión:</p>
+        <div id="dyn-antifona-comunion" class="prayer-text"></div>
+
+        <p class="rubric">Purificación de los vasos sagrados en la credencia o en el altar (IGMR 163, 278-280) y sagrado silencio o canto de alabanza (IGMR 88, 164). El pueblo se sienta (IGMR 43).</p>
+      </div>
+`);
+htmlParts.push(useRange("El Rito de la Comunión", range(80, 88)));
+htmlParts.push(useRange("Ritos de la Comunión del Celebrante y del Pueblo", range(152, 163)));
+htmlParts.push(useRange("Comunión bajo las Dos Especies", range(281, 287)));
+
+htmlParts.push(`
+      <h3 class="part-title">3.5. Oración después de la Comunión</h3>
+      <div class="dialogue">
+        <p class="rubric">El pueblo se pone de pie (IGMR 43, 165). El sacerdote dice: «Oremos». Y todos oran en silencio durante unos momentos. Luego el sacerdote, con las manos extendidas, proclama la oración postcomunión (IGMR 89, 165):</p>
+        <div id="dyn-postcomunion" class="prayer-text"></div>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
+      </div>
+`);
+htmlParts.push(useRange("Oración después de la Comunión", range(89, 89)));
+htmlParts.push(useRange("Ritos Finales de la Comunión", range(164, 165)));
+htmlParts.push(`    </section>\n`);
+
+// 4. RITO DE CONCLUSIÓN (90, 166-208, 237-280)
+htmlParts.push(`
+    <section class="mass-section" id="rito-conclusion">
+      <h2 class="section-title">4. Rito de Conclusión</h2>
+      <p class="rubric">El pueblo permanece de pie (IGMR 43, 166). Breves avisos al pueblo si son necesarios (IGMR 90a, 166).</p>
+`);
+htmlParts.push(useRange("Naturaleza del Rito de Conclusión", range(90, 90)));
+htmlParts.push(useRange("Bendición y Despedida del Pueblo", range(166, 170)));
+htmlParts.push(useRange("Misa con Diácono y otros Ministros", range(171, 208)));
+htmlParts.push(useRange("Ritos de Conclusión en la Concelebración", range(237, 251)));
+htmlParts.push(useRange("Misa en la que Participa un solo Ministro", range(252, 272)));
+htmlParts.push(useRange("Normas Generales sobre Incienso, Reverencias y Purificaciones", range(273, 280)));
+
+htmlParts.push(`
+      <div class="dialogue">
+        <p class="rubric">El sacerdote saluda al pueblo con las manos extendidas (IGMR 90b, 167):</p>
+        <p><span class="speaker">Sacerdote:</span> El Señor esté con vosotros.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Y con tu espíritu.</span></p>
+        
+        <p class="rubric">Bendición sacerdotal (IGMR 90b, 167):</p>
+        <p><span class="speaker">Sacerdote:</span> La bendición de Dios todopoderoso, Padre, Hijo, + y Espíritu Santo, descienda sobre vosotros y os acompañe siempre.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
+      </div>
+
+      <div class="dialogue">
+        <p class="rubric">El diácono o el sacerdote despide al pueblo con las manos juntas, de cara al pueblo (IGMR 90c, 168):</p>
+        <p><span class="speaker">Diácono o Sacerdote:</span> Podéis ir en paz.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Demos gracias a Dios.</span></p>
+        
+        <p class="rubric">El sacerdote y el diácono veneran el altar con un beso (IGMR 169), hacen una inclinación profunda con los ministros (IGMR 169, 275a) y se retiran en procesión a la sacristía.</p>
+      </div>
+    </section>
+`);
+
+// 5. APÉNDICES IGMR: NORMAS LITÚRGICAS COMPLEMENTARIAS (352-399)
+htmlParts.push(`
+    <section class="mass-section" id="apendice-igmr">
+      <h2 class="section-title">5. Normas Complementarias de la IGMR</h2>
+`);
+htmlParts.push(useRange("Capítulo VII: Elección de la Misa y de sus Partes", range(352, 367)));
+htmlParts.push(useRange("Capítulo VIII: Misas y Oraciones por Diversas Necesidades y Misas de Difuntos", range(368, 385)));
+htmlParts.push(useRange("Capítulo IX: Adaptaciones que Corresponden a los Obispos y Conferencias Episcopales", range(386, 399)));
+htmlParts.push(`    </section>\n`);
+
+htmlParts.push(`
+  </main>
+
+  <!-- Modal Interactivo para Inspeccionar cualquier Numeral de la IGMR -->
+  <div id="igmrModal" class="igmr-modal-backdrop" onclick="closeIGMRModal(event)">
+    <div class="igmr-modal-box" onclick="event.stopPropagation()">
+      <div class="igmr-modal-header">
+        <h3 class="igmr-modal-title" id="igmrModalTitle">Instrucción General del Misal Romano</h3>
+        <button class="igmr-modal-close" onclick="closeIGMRModal()" aria-label="Cerrar">&times;</button>
+      </div>
+      <div class="igmr-modal-subtitle" id="igmrModalSubtitle"></div>
+      <div class="igmr-modal-body" id="igmrModalBody"></div>
+      <div class="igmr-modal-footer">
+        <button type="button" onclick="closeIGMRModal()">Cerrar</button>
+        <button type="button" id="igmrModalJumpBtn" onclick="jumpToIGMR()" style="background: var(--primary-color); color: #fff; border-color: var(--primary-color);">📍 Ir a su posición en el Misal</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p><strong>Misal Romano - Catálogo Completo de Misas del Año Litúrgico</strong></p>
+    <p>Documento enriquecido con la totalidad de los 399 numerales de la <em>Instrucción General del Misal Romano</em> (IGMR) de la Congregación para el Culto Divino y la Disciplina de los Sacramentos.</p>
+    <p style="margin-top: 1rem;">Fuentes oficiales y documentos de referencia:</p>
+    <p>
+      • <a href="https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_sp.html" target="_blank" rel="noopener">IGMR - Sitio Oficial del Vaticano</a><br>
+      • <a href="https://seminariobogota.arquibogota.org.co/sites/default/files/inline-files/misal-romanopdf.pdf" target="_blank" rel="noopener">Misal Romano PDF (Seminario de Bogotá)</a><br>
+      • <a href="https://liturgiapapal.org/index.php/recursos-lit%C3%BArgicos/libros-lit%C3%BArgicos/604-misal-romano.html" target="_blank" rel="noopener">Misal Romano (Recursos Litúrgicos - Liturgia Papal)</a>
+    </p>
+    <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 1.5rem;">Sitio web desarrollado para estudio litúrgico, oración y uso pastoral.</p>
+  </footer>
+`);
+
+// Linkificar el cuerpo HTML antes de anexar el bloque de script
+const linkifiedBody = linkifyIGMR(htmlParts.join(''));
+
+// Construcción del bloque de JavaScript intacto
+const scriptBlock = `
+  <script>
+    const igmrData = ${JSON.stringify(igmrMap)};
+    const liturgiaData = ${JSON.stringify(liturgiaDB)};
+    
+    let currentMassId = "to-1";
+    let currentPrayerId = "2";
+    let currentModalNum = null;
+
+    let currentFontSize = 18;
+    const content = document.getElementById('content');
+    const htmlElement = document.documentElement;
+    const themeToggleBtn = document.getElementById('themeToggle');
+
+    function applyFontSize() {
+      if (content) content.style.fontSize = currentFontSize + 'px';
+    }
+
+    function changeFontSize(delta) {
+      currentFontSize += delta * 2;
+      if (currentFontSize < 14) currentFontSize = 14;
+      if (currentFontSize > 28) currentFontSize = 28;
+      applyFontSize();
+    }
+
+    function resetFontSize() {
+      currentFontSize = 18;
+      applyFontSize();
+    }
+
+    function updateThemeButton(theme) {
+      if (theme === 'dark') {
+        themeToggleBtn.innerHTML = '☀️ Modo Claro';
+        themeToggleBtn.title = 'Cambiar a Modo Claro';
+      } else {
+        themeToggleBtn.innerHTML = '🌙 Modo Oscuro';
+        themeToggleBtn.title = 'Cambiar a Modo Oscuro';
+      }
+    }
+
+    function toggleTheme() {
+      const currentTheme = htmlElement.getAttribute('data-theme') || 'dark';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      htmlElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('misal-theme', newTheme);
+      updateThemeButton(newTheme);
+    }
+
+    (function initTheme() {
+      const savedTheme = localStorage.getItem('misal-theme');
+      if (savedTheme) {
+        htmlElement.setAttribute('data-theme', savedTheme);
+        updateThemeButton(savedTheme);
+      } else {
+        htmlElement.setAttribute('data-theme', 'dark');
+        updateThemeButton('dark');
+      }
+    })();
+
+    function toggleAllDetails(openState) {
+      const allDetails = document.querySelectorAll('details');
+      allDetails.forEach(detail => {
+        detail.open = openState;
+      });
+    }
+
+    function showIGMR(num) {
+      const it = igmrData[num];
+      if (!it) {
+        console.warn('IGMR numeral not found:', num);
+        return;
+      }
+      currentModalNum = num;
+      document.getElementById('igmrModalTitle').innerText = 'Instrucción General del Misal Romano — Numeral ' + num;
+      let subtitle = '';
+      if (it.section) subtitle += it.section;
+      if (it.subsection) subtitle += (subtitle ? ' · ' : '') + it.subsection;
+      document.getElementById('igmrModalSubtitle').innerText = subtitle || 'Instrucción General del Misal Romano';
+
+      const paras = it.text.split('\\n\\n').map(p => '<p>' + p.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</p>').join('');
+      document.getElementById('igmrModalBody').innerHTML = paras;
+      document.getElementById('igmrModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeIGMRModal(e) {
+      if (e && e.target && e.target.id !== 'igmrModal' && !e.target.classList.contains('igmr-modal-close') && e.target.tagName !== 'BUTTON') {
+        return;
+      }
+      document.getElementById('igmrModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function jumpToIGMR() {
+      if (!currentModalNum) return;
+      const el = document.getElementById('igmr-num-' + currentModalNum);
+      if (el) {
+        document.getElementById('igmrModal').classList.remove('active');
+        document.body.style.overflow = '';
+        let parent = el.closest('details');
+        if (parent) parent.open = true;
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('igmr-highlight-pulse');
+        setTimeout(() => el.classList.remove('igmr-highlight-pulse'), 3000);
+      }
+    }
+
+    // --- GESTIÓN DEL DRAWER Y SELECTORES DE MISAS ---
+    function toggleDrawer(open) {
+      const drawer = document.getElementById('liturgyDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      if (open) {
+        drawer.classList.add('open');
+        backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      } else {
+        drawer.classList.remove('open');
+        backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function populateSelectors() {
+      const quickSelect = document.getElementById('quickMassSelect');
+      const drawerList = document.getElementById('drawerList');
+      
+      quickSelect.innerHTML = '';
+      drawerList.innerHTML = '';
+
+      let currentCat = '';
+      let catDiv = null;
+
+      liturgiaData.misas.forEach(m => {
+        // Quick select
+        const opt = document.createElement('option');
+        opt.value = m.id;
+        opt.innerText = m.nombre;
+        quickSelect.appendChild(opt);
+
+        // Drawer list grouped by category
+        if (m.categoria !== currentCat) {
+          currentCat = m.categoria;
+          const catTitle = document.createElement('div');
+          catTitle.className = 'drawer-category-title';
+          catTitle.innerHTML = '❖ ' + currentCat;
+          drawerList.appendChild(catTitle);
+        }
+
+        const item = document.createElement('div');
+        item.className = 'drawer-item' + (m.id === currentMassId ? ' active' : '');
+        item.id = 'drawer-item-' + m.id;
+        item.onclick = () => {
+          selectMass(m.id);
+          toggleDrawer(false);
+        };
+        item.innerHTML = '<span>' + m.nombre + '</span><span style="font-size:0.75rem; opacity:0.8;">' + m.tiempo + '</span>';
+        drawerList.appendChild(item);
+      });
+    }
+
+    function filterDrawer() {
+      const q = document.getElementById('drawerSearchInput').value.toLowerCase();
+      const items = document.querySelectorAll('.drawer-item');
+      items.forEach(it => {
+        const txt = it.innerText.toLowerCase();
+        it.style.display = txt.includes(q) ? 'flex' : 'none';
+      });
+    }
+
+    function selectMass(massId) {
+      const m = liturgiaData.misas.find(x => x.id === massId) || liturgiaData.misas[0];
+      currentMassId = m.id;
+      document.getElementById('quickMassSelect').value = m.id;
+
+      // Actualizar Header
+      document.getElementById('headerMassTitle').innerText = m.nombre;
+      const badge = document.getElementById('headerSeasonBadge');
+      badge.innerText = m.tiempo;
+      badge.style.background = m.colorHex || '#16a34a';
+      badge.style.color = (m.color === 'blanco') ? '#0f172a' : '#ffffff';
+
+      // Actualizar Active en Drawer
+      document.querySelectorAll('.drawer-item').forEach(it => it.classList.remove('active'));
+      const activeDrawerItem = document.getElementById('drawer-item-' + m.id);
+      if (activeDrawerItem) activeDrawerItem.classList.add('active');
+
+      // Actualizar Textos Propios
+      document.getElementById('dyn-antifona-entrada').innerHTML = '<p><strong>Antífona de Entrada:</strong> ' + m.antifonaEntrada + '</p>';
+      document.getElementById('dyn-colecta').innerHTML = '<p><strong>Oración Colecta:</strong> ' + m.colecta + '</p>';
+      
+      // Lectura 1
+      document.getElementById('dyn-lectura-1').innerHTML = 
+        '<div class="scripture-citation">Primera Lectura (' + m.lectura1.cita + ')</div>' +
+        '<p>' + m.lectura1.texto + '</p>' +
+        '<p class="rubric" style="margin-top:0.8rem;">Palabra de Dios. <span class="response">Te alabamos, Señor.</span></p>';
+
+      // Salmo
+      const stanzas = m.salmo.estrofas.map(s => '<p style="margin-bottom:0.6rem;">' + s + '</p>').join('');
+      document.getElementById('dyn-salmo').innerHTML = 
+        '<div class="scripture-citation">Salmo Responsorial (' + m.salmo.cita + ')</div>' +
+        '<div class="psalm-response">R. ' + m.salmo.respuesta + '</div>' +
+        stanzas;
+
+      // Lectura 2
+      document.getElementById('dyn-lectura-2').innerHTML = 
+        '<div class="scripture-citation">Segunda Lectura (' + m.lectura2.cita + ')</div>' +
+        '<p>' + m.lectura2.texto + '</p>' +
+        '<p class="rubric" style="margin-top:0.8rem;">Palabra de Dios. <span class="response">Te alabamos, Señor.</span></p>';
+
+      // Aleluya
+      document.getElementById('dyn-aleluya').innerHTML = 
+        '<p><span class="speaker">Todos:</span> <span class="response">¡Aleluya, aleluya!</span></p>' +
+        '<p><span class="speaker">V.</span> ' + m.aleluya.versiculo + '</p>' +
+        '<p><span class="speaker">Todos:</span> <span class="response">¡Aleluya!</span></p>';
+
+      // Evangelio
+      document.getElementById('dyn-evangelio').innerHTML = 
+        '<div class="scripture-citation">Santo Evangelio (' + m.evangelio.cita + ')</div>' +
+        '<p><span class="speaker">Diácono o Sacerdote:</span> El Señor esté con vosotros. <span class="response">Y con tu espíritu.</span></p>' +
+        '<p><span class="speaker">Diácono o Sacerdote:</span> Lectura del santo Evangelio según ' + m.evangelio.cita.split(' ')[0] + '. <span class="response">Gloria a ti, Señor.</span></p>' +
+        '<p style="margin-top: 0.8rem;">' + m.evangelio.texto + '</p>' +
+        '<p class="rubric" style="margin-top:0.8rem;">Palabra del Señor. <span class="response">Gloria a ti, Señor Jesús.</span></p>';
+
+      // Ofrendas
+      document.getElementById('dyn-ofrendas').innerHTML = '<p><strong>Oración sobre las Ofrendas:</strong> ' + m.ofrendas + '</p>';
+
+      // Prefacio
+      const pref = liturgiaData.prefacios[m.prefacioId] || liturgiaData.prefacios["to-1"];
+      document.getElementById('dyn-prefacio').innerHTML = 
+        '<p><strong>' + pref.titulo + '</strong></p>' +
+        '<p class="rubric"><em>(' + pref.subtitulo + ')</em></p>' +
+        '<p>' + pref.texto + '</p>';
+
+      // Comunión
+      document.getElementById('dyn-antifona-comunion').innerHTML = '<p><strong>Antífona de Comunión:</strong> ' + m.antifonaComunion + '</p>';
+      document.getElementById('dyn-postcomunion').innerHTML = '<p><strong>Oración después de la Comunión:</strong> ' + m.postcomunion + '</p>';
+
+      localStorage.setItem('misal-mass-id', m.id);
+    }
+
+    function selectPrayer(prayerId) {
+      currentPrayerId = prayerId;
+      document.getElementById('quickPrayerSelect').value = prayerId;
+      const pl = liturgiaData.plegarias[prayerId] || liturgiaData.plegarias["2"];
+      const container = document.getElementById('dyn-plegaria-body');
+
+      let html = '<div class="prayer-text" style="border-left-color: var(--primary-color); margin-top: 1.5rem;">';
+      html += '<h4 style="color: var(--primary-color); margin-bottom: 0.3rem;">' + pl.nombre + '</h4>';
+      html += '<p class="rubric" style="margin-bottom: 1rem;">' + pl.descripcion + '</p>';
+
+      pl.contenido.forEach(it => {
+        if (it.tipo === 'rubrica') {
+          html += '<p class="rubric">' + it.texto + '</p>';
+        } else if (it.speaker) {
+          const respClass = it.response ? ' class="response"' : '';
+          const paras = it.texto.split('\\n\\n').map(p => '<p><span class="speaker">' + it.speaker + ':</span> <span' + respClass + '>' + p + '</span></p>').join('');
+          html += paras;
+        }
+      });
+
+      html += '</div>';
+      container.innerHTML = html;
+      localStorage.setItem('misal-prayer-id', prayerId);
+    }
+
+    // Inicializar selectores y estado
+    window.addEventListener('DOMContentLoaded', () => {
+      populateSelectors();
+      const savedMass = localStorage.getItem('misal-mass-id') || 'to-1';
+      const savedPrayer = localStorage.getItem('misal-prayer-id') || '2';
+      selectMass(savedMass);
+      selectPrayer(savedPrayer);
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeIGMRModal();
+        toggleDrawer(false);
+      }
+    });
+  </script>
+</body>
+</html>
+`;
+
+const finalHTML = linkifiedBody + scriptBlock;
+fs.writeFileSync('misal.html', finalHTML, 'utf8');
+
+console.log('Total characters in generated misal.html:', finalHTML.length);
+console.log('Total IGMR numbers used:', usedNumbers.size);
+
+const unused = [];
+for (let n = 1; n <= 399; n++) {
+  if (!usedNumbers.has(n)) unused.push(n);
+}
+console.log('Unused IGMR numbers (should be empty []):', unused);
