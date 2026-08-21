@@ -1350,14 +1350,14 @@ htmlParts.push(`<!DOCTYPE html>
         <div class="select-wrapper select-season-wrapper">
           <label for="quickSeasonSelect" class="sr-only">Filtrar por Tiempo</label>
           <select id="quickSeasonSelect" onchange="onSeasonFilterChange(this.value)" title="Filtrar por Tiempo Litúrgico">
-            <option value="all">❖ Todos los Tiempos</option>
+            <option value="all">❖ Todos los Tiempos (74)</option>
             <option value="Tiempo de Adviento">🟣 Adviento (4)</option>
-            <option value="Tiempo de Navidad">⚪ Navidad (7)</option>
+            <option value="Tiempo de Navidad">⚪ Navidad y Epifanía (8)</option>
             <option value="Tiempo de Cuaresma">🟣 Cuaresma (7)</option>
-            <option value="Semana Santa & Triduo">🔴 Semana Santa / Triduo (4)</option>
-            <option value="Tiempo Pascual">⚪ Pascua (9)</option>
+            <option value="Semana Santa & Triduo">🔴 Semana Santa y Triduo (8)</option>
+            <option value="Tiempo Pascual">⚪ Pascua (10)</option>
             <option value="Tiempo Ordinario">🟢 T. Ordinario (34)</option>
-            <option value="Solemnidades del Señor">⚪ Solemnidades (4)</option>
+            <option value="Solemnidades del Señor">⚪ Solemnidades (3)</option>
           </select>
         </div>
         <div class="select-wrapper select-mass-wrapper">
@@ -1414,11 +1414,11 @@ htmlParts.push(`<!DOCTYPE html>
         <div class="home-hero-icon">✠</div>
         <h2 class="home-hero-title">Misal Romano Digital con IGMR Íntegra</h2>
         <p class="home-hero-desc">
-          Plataforma litúrgica interactiva con el <strong>Ordinario de la Misa</strong>, las <strong>67 celebraciones de todo el Año Litúrgico</strong>, las <strong>4 Plegarias Eucarísticas</strong>, <strong>25 Prefacios</strong> y la totalidad de los <strong>399 numerales de la Instrucción General del Misal Romano (IGMR)</strong> incorporados de forma interactiva.
+          Plataforma litúrgica interactiva con el <strong>Ordinario de la Misa</strong>, las <strong>74 celebraciones de todo el Año Litúrgico</strong> con sus días concretos (Semana Santa, Jueves Santo, Viernes Santo, Sábado Santo, Octava de Pascua, Domingos y Solemnidades), las <strong>4 Plegarias Eucarísticas</strong>, <strong>25 Prefacios</strong> y la totalidad de los <strong>399 numerales de la Instrucción General del Misal Romano (IGMR)</strong> incorporados de forma interactiva.
         </p>
         <div class="home-cta-group">
           <button type="button" class="btn-hero-primary" onclick="toggleDrawer(true)">
-            <span>📑</span> Seleccionar Misa del Año Litúrgico
+            <span>📑</span> Seleccionar Misa del Año Litúrgico (74 Celebraciones)
           </button>
         </div>
       </div>
@@ -1495,21 +1495,21 @@ htmlParts.push(`<!DOCTYPE html>
           <span class="season-link-text">Ver Misas de Cuaresma →</span>
         </div>
 
-        <div class="season-card" style="border-left-color: #e11d48;" onclick="selectSeasonAndMass('Semana Santa & Triduo', 'pas-jueves-santo');">
+        <div class="season-card" style="border-left-color: #e11d48;" onclick="selectSeasonAndMass('Semana Santa & Triduo', 'cua-jueves-santo');">
           <div class="season-card-top">
-            <span class="season-name">Triduo Pascual</span>
-            <span class="season-badge" style="background:#e11d48; color:#fff;">Blanco / Rojo</span>
+            <span class="season-name">Triduo Pascual y Semana Santa</span>
+            <span class="season-badge" style="background:#e11d48; color:#fff;">Rojo / Blanco</span>
           </div>
-          <p class="season-desc">Misa de la Cena del Señor (Jueves Santo) y Solemne Vigilia Pascual.</p>
-          <span class="season-link-text">Ver Triduo Pascual →</span>
+          <p class="season-desc">Ramos, Lunes a Miércoles Santo, Misa Crismal, Cena del Señor, Viernes Santo, Sábado Santo y Vigilia.</p>
+          <span class="season-link-text">Ver Semana Santa y Triduo →</span>
         </div>
 
-        <div class="season-card" style="border-left-color: #0284c7;" onclick="selectSeasonAndMass('Tiempo Pascual', 'pas-dia');">
+        <div class="season-card" style="border-left-color: #0284c7;" onclick="selectSeasonAndMass('Tiempo Pascual', 'pas-domingo');">
           <div class="season-card-top">
             <span class="season-name">Tiempo Pascual</span>
             <span class="season-badge" style="background:#0284c7; color:#fff;">Blanco / Oro</span>
           </div>
-          <p class="season-desc">Domingo de Resurrección, II al VII de Pascua, Ascensión y Pentecostés.</p>
+          <p class="season-desc">Domingo de Resurrección, Octava de Pascua, II al VII de Pascua, Ascensión y Pentecostés.</p>
           <span class="season-link-text">Ver Tiempo Pascual →</span>
         </div>
 

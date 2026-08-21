@@ -266,7 +266,7 @@ crearMisa({
   id: "adv-1",
   tiempo: "Adviento",
   categoria: "Tiempo de Adviento",
-  nombre: "I Domingo de Adviento",
+  nombre: "Domingo I de Adviento",
   color: "morado",
   colorHex: "#7e22ce",
   antifonaEntrada: "A ti, Señor, levanto mi alma; Dios mío, en ti confío, no quede yo defraudado ni se rían de mí mis enemigos; los que esperan en ti no quedan defraudados. (Sal 24, 1-3)",
@@ -305,7 +305,7 @@ crearMisa({
   id: "adv-2",
   tiempo: "Adviento",
   categoria: "Tiempo de Adviento",
-  nombre: "II Domingo de Adviento",
+  nombre: "Domingo II de Adviento",
   color: "morado",
   colorHex: "#7e22ce",
   antifonaEntrada: "Pueblo de Sión, mira al Señor que viene a salvar a las naciones; el Señor hará oír la majestad de su voz en el júbilo de vuestro corazón. (Cfr. Is 30, 19. 30)",
@@ -344,7 +344,7 @@ crearMisa({
   id: "adv-3",
   tiempo: "Adviento",
   categoria: "Tiempo de Adviento",
-  nombre: "III Domingo de Adviento (Gaudete)",
+  nombre: "Domingo III de Adviento (Gaudete)",
   color: "rosa",
   colorHex: "#ec4899",
   antifonaEntrada: "Estad siempre alegres en el Señor; os lo repito, estad alegres. Que vuestra mesura la conozca todo el mundo. El Señor está cerca. (Flp 4, 4-5)",
@@ -383,7 +383,7 @@ crearMisa({
   id: "adv-4",
   tiempo: "Adviento",
   categoria: "Tiempo de Adviento",
-  nombre: "IV Domingo de Adviento",
+  nombre: "Domingo IV de Adviento",
   color: "morado",
   colorHex: "#7e22ce",
   antifonaEntrada: "Cielos, destilad el rocío de lo alto, y que las nubes lluevan al Justo; ábrase la tierra y brote la salvación. (Cfr. Is 45, 8)",
@@ -425,7 +425,7 @@ crearMisa({
   id: "nav-vigilia",
   tiempo: "Navidad",
   categoria: "Tiempo de Navidad",
-  nombre: "Natividad del Señor: Misa de la Vigilia",
+  nombre: "24 de Diciembre: Misa de la Vigilia de Navidad",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "Hoy sabrán que el Señor vendrá a salvarnos, y mañana contemplarán su gloria. (Cfr. Éx 16, 6-7)",
@@ -464,7 +464,7 @@ crearMisa({
   id: "nav-noche",
   tiempo: "Navidad",
   categoria: "Tiempo de Navidad",
-  nombre: "Natividad del Señor: Misa de Medianoche (Nochebuena)",
+  nombre: "24 de Diciembre: Natividad del Señor (Misa de Medianoche / Nochebuena)",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "El Señor me ha dicho: «Tú eres mi Hijo; yo te he engendrado hoy». (Sal 2, 7)",
@@ -503,7 +503,7 @@ crearMisa({
   id: "nav-aurora",
   tiempo: "Navidad",
   categoria: "Tiempo de Navidad",
-  nombre: "Natividad del Señor: Misa de la Aurora",
+  nombre: "25 de Diciembre: Natividad del Señor (Misa de la Aurora)",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "Hoy brillará una luz sobre nosotros, porque nos ha nacido el Señor; y se llamará Admirable, Dios, Príncipe de la paz, Padre del mundo futuro: su reino no tendrá fin. (Cfr. Is 9, 2. 6; Lc 1, 33)",
@@ -541,7 +541,7 @@ crearMisa({
   id: "nav-dia",
   tiempo: "Navidad",
   categoria: "Tiempo de Navidad",
-  nombre: "Natividad del Señor: Misa del Día",
+  nombre: "25 de Diciembre: Natividad del Señor (Misa del Día)",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "Un niño nos ha nacido, un hijo se nos ha dado: lleva a hombros el principado y es su nombre: Ángel del gran consejo. (Is 9, 6)",
@@ -580,7 +580,7 @@ crearMisa({
   id: "nav-sagrada-familia",
   tiempo: "Navidad",
   categoria: "Tiempo de Navidad",
-  nombre: "La Sagrada Familia: Jesús, María y José",
+  nombre: "Domingo en la Octava de Navidad: La Sagrada Familia (Jesús, María y José)",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "Los pastores fueron corriendo y encontraron a María y a José y al niño acostado en el pesebre. (Lc 2, 16)",
@@ -619,7 +619,7 @@ crearMisa({
   id: "nav-maria-madre",
   tiempo: "Navidad",
   categoria: "Tiempo de Navidad",
-  nombre: "Santa María, Madre de Dios (Octava de Navidad - 1 de Enero)",
+  nombre: "1 de Enero: Santa María, Madre de Dios (Octava de Navidad)",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "Salve, Madre santa, Virgen Madre del Rey que gobierna cielo y tierra por los siglos de los siglos. (Cfr. Sedulio)",
@@ -658,7 +658,7 @@ crearMisa({
   id: "nav-epifania",
   tiempo: "Navidad",
   categoria: "Tiempo de Navidad",
-  nombre: "La Epifanía del Señor",
+  nombre: "6 de Enero: La Epifanía del Señor",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "Ya viene el Señor soberano; en su mano está el reino, la potestad y el imperio. (Cfr. Mal 3, 1; 1 Crón 29, 12)",
@@ -697,7 +697,7 @@ crearMisa({
   id: "nav-bautismo",
   tiempo: "Navidad",
   categoria: "Tiempo de Navidad",
-  nombre: "El Bautismo del Señor (Conclusión del Tiempo de Navidad)",
+  nombre: "Domingo después de Epifanía: El Bautismo del Señor",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "Bautizado el Señor, se abrieron los cielos, y el Espíritu Santo descendió sobre él en forma de paloma, y resonó la voz del Padre: «Éste es mi Hijo amado, en quien me complazco». (Cfr. Mt 3, 16-17)",
@@ -739,7 +739,7 @@ crearMisa({
   id: "cua-ceniza",
   tiempo: "Cuaresma",
   categoria: "Tiempo de Cuaresma",
-  nombre: "Miércoles de Ceniza",
+  nombre: "Miércoles de Ceniza (Inicio de la Cuaresma)",
   color: "morado",
   colorHex: "#7e22ce",
   antifonaEntrada: "Te compadeces de todos, Señor, y no odias nada de lo que has hecho; pasas por alto los pecados de los hombres para que se arrepientan, y los perdonas, porque tú eres el Señor, nuestro Dios. (Sab 11, 24. 25. 27)",
@@ -778,7 +778,7 @@ crearMisa({
   id: "cua-1",
   tiempo: "Cuaresma",
   categoria: "Tiempo de Cuaresma",
-  nombre: "I Domingo de Cuaresma (Las Tentaciones en el Desierto)",
+  nombre: "Domingo I de Cuaresma (Las Tentaciones en el Desierto)",
   color: "morado",
   colorHex: "#7e22ce",
   antifonaEntrada: "Me invocará y lo escucharé; lo defenderé, lo glorificaré, lo saciaré de largos días. (Sal 90, 15-16)",
@@ -817,7 +817,7 @@ crearMisa({
   id: "cua-2",
   tiempo: "Cuaresma",
   categoria: "Tiempo de Cuaresma",
-  nombre: "II Domingo de Cuaresma (La Transfiguración del Señor)",
+  nombre: "Domingo II de Cuaresma (La Transfiguración del Señor)",
   color: "morado",
   colorHex: "#7e22ce",
   antifonaEntrada: "Oigo en mi corazón: «Buscad mi rostro». Tu rostro buscaré, Señor; no me escondas tu rostro. (Sal 26, 8-9)",
@@ -856,7 +856,7 @@ crearMisa({
   id: "cua-3",
   tiempo: "Cuaresma",
   categoria: "Tiempo de Cuaresma",
-  nombre: "III Domingo de Cuaresma (El Agua Viva y la Conversión)",
+  nombre: "Domingo III de Cuaresma (La Samaritana y el Agua Viva)",
   color: "morado",
   colorHex: "#7e22ce",
   antifonaEntrada: "Mis ojos están siempre puestos en el Señor, porque él libra mis pies de la trampa. Mírame, ¡oh Dios!, y ten piedad de mí, que estoy solo y afligido. (Sal 24, 15-16)",
@@ -895,7 +895,7 @@ crearMisa({
   id: "cua-4",
   tiempo: "Cuaresma",
   categoria: "Tiempo de Cuaresma",
-  nombre: "IV Domingo de Cuaresma (Laetare - El Ciego de Nacimiento)",
+  nombre: "Domingo IV de Cuaresma (Laetare - El Ciego de Nacimiento)",
   color: "rosa",
   colorHex: "#ec4899",
   antifonaEntrada: "Alégrate, Jerusalén, y congregaos los que la amáis; alegraos de corazón los que estuvisteis tristes, para que os llenéis de gozo con el consuelo que de ella brota. (Cfr. Is 66, 10-11)",
@@ -934,7 +934,7 @@ crearMisa({
   id: "cua-5",
   tiempo: "Cuaresma",
   categoria: "Tiempo de Cuaresma",
-  nombre: "V Domingo de Cuaresma (La Resurrección de Lázaro)",
+  nombre: "Domingo V de Cuaresma (La Resurrección de Lázaro)",
   color: "morado",
   colorHex: "#7e22ce",
   antifonaEntrada: "Hazme justicia, ¡oh Dios!, y defiende mi causa contra gente sin piedad; líbrame del hombre inicuo y traidor, porque tú eres mi Dios y mi refugio. (Sal 42, 1-2)",
@@ -1011,11 +1011,168 @@ crearMisa({
 // ==========================================
 // 4. TRIDUO PASCUAL
 // ==========================================
+
+crearMisa({
+  id: "sem-lunes",
+  tiempo: "Semana Santa",
+  categoria: "Semana Santa",
+  nombre: "Lunes Santo",
+  color: "morado",
+  colorHex: "#7e22ce",
+  antifonaEntrada: "Combate, Señor, a los que me atacan, pelea contra los que me hacen la guerra; empuña el escudo y la armadura, levántate y ven en mi socorro, Señor, fuerza de mi salvación. (Sal 34, 1-2; Sal 139, 8)",
+  colecta: "Concede, Dios todopoderoso, a cuantos desfallecemos a causa de nuestra debilidad, recobrar las fuerzas por la pasión de tu Hijo unigénito. Él, que vive y reina contigo.",
+  lectura1: {
+    cita: "Isaías 42, 1-7 (Primer Cántico del Siervo)",
+    texto: "Así dice el Señor: «Mirad a mi siervo, a quien sostengo; mi elegido, a quien prefiero. Sobre él he puesto mi espíritu, para que traiga el derecho a las naciones. No gritará, no clamará, no voceará por las calles. La caña cascada no la quebrará, el pabilo vacilante no lo apagará... Yo, el Señor, te he llamado con justicia, te he tomado de la mano, te he formado, y te he hecho alianza de un pueblo, luz de las naciones, para abrir los ojos de los ciegos, para sacar de la cárcel a los presos»."
+  },
+  salmo: {
+    cita: "Salmo 26",
+    respuesta: "El Señor es mi luz y mi salvación.",
+    estrofas: [
+      "El Señor es mi luz y mi salvación, ¿a quién temeré? El Señor es la defensa de mi vida, ¿quién me hará temblar?",
+      "Cuando me asaltan los malvados para devorar mi carne, ellos, enemigos y adversarios, tropiezan y caen.",
+      "Si un ejército acampa contra mí, mi corazón no tiembla; si me declaran la guerra, me siento tranquilo. Espero gozar de la dicha del Señor en el país de la vida."
+    ]
+  },
+  lectura2: {
+    cita: "Hebreos 9, 11-15 (o lectura breve)",
+    texto: "Hermanos: Cristo ha venido como sumo sacerdote de los bienes definitivos... no con sangre de machos cabríos ni de novillos, sino con su propia sangre, entrando en el santuario una vez para siempre, consiguiendo la redención eterna."
+  },
+  aleluya: {
+    versiculo: "Salve, Rey nuestro, obediente al Padre; fuiste llevado a la crucifixión como manso cordero a la matanza."
+  },
+  evangelio: {
+    cita: "Juan 12, 1-11 (La unción de Betania)",
+    texto: "Seis días antes de la Pascua, fue Jesús a Betania, donde vivía Lázaro, a quien había resucitado de entre los muertos. Ellos le ofrecieron una cena; Marta servía y Lázaro era uno de los que estaban a la mesa con él. María tomó una libra de perfume de nardo auténtico, muy costoso, ungió los pies de Jesús y se los enjugó con sus cabellos; y la casa se llenó de la fragancia del perfume. Judas Iscariote, el discípulo que lo iba a entregar, dice: «¿Por qué no se ha vendido este perfume por trescientos denarios para dárselos a los pobres?». Jesús dijo: «Déjala; lo tenía guardado para el día de mi sepultura. Porque a los pobres los tenéis siempre con vosotros, pero a mí no siempre me tenéis»."
+  },
+  ofrendas: "Mira con bondad, Señor, los dones sagrados que te presentamos, y haz que den fruto abundante en nuestras almas los misterios de la pasión de tu Hijo que celebramos. Por Jesucristo, nuestro Señor.",
+  prefacioId: "pasion-2",
+  antifonaComunion: "No me escondas tu rostro en el día de la angustia; inclina tu oído hacia mí: cuando te invoque, escúchame enseguida. (Sal 101, 3)",
+  postcomunion: "Alimentados con tus dones santos, te pedimos, Señor, que, purificados de nuestras antiguas culpas, crezcamos en la vida nueva de la gracia. Por Jesucristo, nuestro Señor."
+});
+
+crearMisa({
+  id: "sem-martes",
+  tiempo: "Semana Santa",
+  categoria: "Semana Santa",
+  nombre: "Martes Santo",
+  color: "morado",
+  colorHex: "#7e22ce",
+  antifonaEntrada: "No me entregues al capricho de mis enemigos, porque se levantan contra mí falsos testigos que respiran violencia. (Sal 26, 12)",
+  colecta: "Dios todopoderoso y eterno, concédenos celebrar de tal manera los misterios de la pasión del Señor, que merezcamos alcanzar tu perdón. Por nuestro Señor Jesucristo.",
+  lectura1: {
+    cita: "Isaías 49, 1-6 (Segundo Cántico del Siervo)",
+    texto: "Escuchadme, islas; atended, pueblos lejanos: El Señor me llamó desde el vientre materno; de las entrañas de mi madre pronunció mi nombre. Hizo de mi boca una espada afilada, me escondió en la sombra de su mano... Y me dijo: «Tú eres mi siervo, Israel, por medio de ti manifestaré mi gloria»... «Es poco que seas mi siervo para restablecer las tribus de Jacob: te hago luz de las naciones, para que mi salvación alcance hasta el confín de la tierra»."
+  },
+  salmo: {
+    cita: "Salmo 70",
+    respuesta: "Mi boca anunciará tu salvación, Señor.",
+    estrofas: [
+      "A ti, Señor, me acojo, no quede yo derrotado para siempre; tú que eres justo, líbrame y ponme a salvo, inclina tu oído hacia mí y sálvame.",
+      "Sé tú mi roca de refugio, el alcázar donde me salve, porque mi peña y mi alcázar eres tú. Dios mío, líbrame de la mano del perverso.",
+      "Porque tú, Señor mío, fuiste mi esperanza desde mi juventud... Mi boca contará tu auxilio, y todo el día tu salvación."
+    ]
+  },
+  lectura2: {
+    cita: "1 Corintios 1, 18-25",
+    texto: "Hermanos: El mensaje de la cruz es necedad para los que se pierden; pero para los que se salvan, para nosotros, es fuerza de Dios... Porque la necedad de Dios es más sabia que los hombres, y la debilidad de Dios es más fuerte que los hombres."
+  },
+  aleluya: {
+    versiculo: "Salve, Rey nuestro, tú solo te has compadecido de nuestros extravíos."
+  },
+  evangelio: {
+    cita: "Juan 13, 21-33. 36-38 (Anuncio de la traición de Judas y negaciones de Pedro)",
+    texto: "En aquel tiempo, estando a la mesa con sus discípulos, Jesús se conmovió profundamente y declaró: «En verdad, en verdad os digo: uno de vosotros me va a entregar»... Mojó un bocado de pan y se lo dio a Judas, hijo de Simón Iscariote. Y tras el bocado, Satanás entró en él. Jesús le dijo: «Lo que vas a hacer, hazlo pronto»... Cuando salió Judas, dijo Jesús: «Ahora ha sido glorificado el Hijo del hombre, y Dios ha sido glorificado en él»... Simón Pedro le dijo: «Señor, ¿adónde vas?... Daré mi vida por ti». Jesús le contestó: «¿Conque darás tu vida por mí? En verdad, en verdad te digo: no cantará el gallo antes de que me hayas negado tres veces»."
+  },
+  ofrendas: "Mira con bondad, Señor, este sacrificio que te ofrecemos, y haz que la entrega de tu Hijo en la cruz obtenga para nosotros el perdón de los pecados. Por Jesucristo, nuestro Señor.",
+  prefacioId: "pasion-2",
+  antifonaComunion: "Dios no perdonó a su propio Hijo, sino que lo entregó por todos nosotros. (Rom 8, 32)",
+  postcomunion: "Saciados con este banquete de salvación, imploramos tu misericordia, Señor, para que el sacramento que nos alimenta en este mundo nos haga partícipes de la vida eterna. Por Jesucristo, nuestro Señor."
+});
+
+crearMisa({
+  id: "sem-miercoles",
+  tiempo: "Semana Santa",
+  categoria: "Semana Santa",
+  nombre: "Miércoles Santo",
+  color: "morado",
+  colorHex: "#7e22ce",
+  antifonaEntrada: "Al nombre de Jesús toda rodilla se doble, en el cielo, en la tierra, en el abismo; porque el Señor se hizo obediente hasta la muerte, y una muerte de cruz; por eso Jesucristo es Señor para gloria de Dios Padre. (Cfr. Flp 2, 10. 8. 11)",
+  colecta: "Señor Dios, que quisiste que tu Hijo padeciera por nosotros el suplicio de la cruz para librarnos del poder del enemigo, concede a tus siervos alcanzar la gracia de la resurrección. Por nuestro Señor Jesucristo.",
+  lectura1: {
+    cita: "Isaías 50, 4-9a (Tercer Cántico del Siervo)",
+    texto: "El Señor Dios me ha dado una lengua de discípulo para saber decir al abatido una palabra de aliento. Cada mañana espabila mi oído para que escuche como los discípulos. El Señor Dios me abrió el oído; yo no me rebelé ni me eché atrás. Ofrecí mi espalda a los que me golpeaban, mis mejillas a los que me mesaban la barba; no oculté mi rostro a los insultos y salivazos. Pero el Señor Dios me ayuda, por eso no sentía los ultrajes; por eso endurecí mi rostro como pedernal, sabiendo que no quedaría defraudado."
+  },
+  salmo: {
+    cita: "Salmo 68",
+    respuesta: "Señor, que tu gran bondad me escuche en el día de tu favor.",
+    estrofas: [
+      "Por ti he aguantado afrentas, la vergüenza cubrió mi rostro. Me he convertido en un extraño para mis hermanos, en un extranjero para los hijos de mi madre; porque me devora el celo de tu casa, las afrentas con que te afrentan caen sobre mí.",
+      "La afrenta me destroza el corazón y desfallezco. Espero compasión, y no la hay; consoladores, y no los encuentro. En mi comida me echaron veneno, para mi sed me dieron vinagre.",
+      "Alabaré el nombre de Dios con un cántico, proclamaré su grandeza con acción de gracias. Miradlo, los humildes, y alegraos; buscad al Señor, y revivirá vuestro corazón."
+    ]
+  },
+  lectura2: {
+    cita: "Hebreos 12, 1-3",
+    texto: "Hermanos: Corramos con constancia en la carrera que nos toca, fijos los ojos en el que inició y consuma la fe, Jesús: el cual, en lugar del gozo que se le proponía, soportó la cruz, sin miedo a la ignominia."
+  },
+  aleluya: {
+    versiculo: "Salve, Rey nuestro; para obedecer al Padre fuiste llevado a la cruz como manso cordero."
+  },
+  evangelio: {
+    cita: "Mateo 26, 14-25 (Judas pacta la entrega por treinta monedas)",
+    texto: "En aquel tiempo, uno de los Doce, llamado Judas Iscariote, fue a los sumos sacerdotes y les propuso: «¿Qué estáis dispuestos a darme si os lo entrego?». Ellos se ajustaron con él en treinta monedas de plata. Y desde entonces andaba buscando una ocasión propicia para entregarlo. El primer día de los Ázimos... al atardecer, se puso a la mesa con los Doce. Mientras comían, dijo: «En verdad os digo que uno de vosotros me va a entregar»... Respondió él: «El que ha metido conmigo la mano en la fuente, ése me va a entregar»... Entonces preguntó Judas, el que lo iba a entregar: «¿Soy yo acaso, Maestro?». Él respondió: «Tú lo has dicho»."
+  },
+  ofrendas: "Acepta, Señor, los dones que te presentamos, y haz que, por la pasión de tu Hijo, alcancemos la remisión de todos nuestros pecados. Por Jesucristo, nuestro Señor.",
+  prefacioId: "pasion-2",
+  antifonaComunion: "El Hijo del hombre no ha venido a ser servido, sino a servir y a dar su vida en rescate por muchos. (Mt 20, 28)",
+  postcomunion: "Dios todopoderoso, concédenos creer y proclamar de tal manera la muerte temporal de tu Hijo, que tengamos la firme esperanza de haber recibido la vida eterna. Por Jesucristo, nuestro Señor."
+});
+
+crearMisa({
+  id: "sem-crismal",
+  tiempo: "Semana Santa",
+  categoria: "Semana Santa",
+  nombre: "Jueves Santo por la mañana: Misa Crismal (Consagración del Crisma y Santos Óleos)",
+  color: "blanco",
+  colorHex: "#e2e8f0",
+  antifonaEntrada: "Jesucristo ha hecho de nosotros un reino y sacerdotes para Dios, su Padre. A él la gloria y el poder por los siglos de los siglos. Amén. (Cfr. Ap 1, 6)",
+  colecta: "Señor Dios, que ungiste a tu Hijo unigénito con el Espíritu Santo y lo constituiste Cristo y Señor, y a nosotros nos hiciste partícipes de su unción, concédenos ser en el mundo testigos de su redención. Por nuestro Señor Jesucristo.",
+  lectura1: {
+    cita: "Isaías 61, 1-3a. 6a. 8b-9",
+    texto: "El Espíritu del Señor Dios está sobre mí, porque el Señor me ha ungido. Me ha enviado para dar la buena noticia a los pobres, para curar los corazones desgarrados, proclamar la amnistía a los cautivos, y a los prisioneros la libertad; para proclamar un año de gracia del Señor... Vosotros os llamaréis: «Sacerdotes del Señor», os dirán: «Ministros de nuestro Dios»."
+  },
+  salmo: {
+    cita: "Salmo 88",
+    respuesta: "Cantaré eternamente las misericordias del Señor.",
+    estrofas: [
+      "Encontré a David, mi siervo, y con mi óleo santo lo ungí. Mi mano estará siempre con él, mi brazo lo hará valiente.",
+      "Mi fidelidad y mi misericordia lo acompañarán, por mi nombre crecerá su poder. Él me invocará: «Tú eres mi Padre, mi Dios, la Roca de mi salvación».",
+      "Le mantendré eternamente mi favor, y mi alianza con él será estable."
+    ]
+  },
+  lectura2: {
+    cita: "Apocalipsis 1, 5-8",
+    texto: "Jesucristo es el testigo fiel, el primogénito de entre los muertos, el príncipe de los reyes de la tierra. A aquel que nos ama, nos ha librado de nuestros pecados con su sangre, y nos ha convertido en un reino y sacerdotes para Dios, su Padre... Él viene entre las nubes y los ojos de todos lo verán."
+  },
+  aleluya: {
+    versiculo: "El Espíritu del Señor está sobre mí; me ha enviado para dar la buena noticia a los pobres. (Is 61, 1)"
+  },
+  evangelio: {
+    cita: "Lucas 4, 16-21 (Jesús en la Sinagoga de Nazaret)",
+    texto: "En aquel tiempo, fue Jesús a Nazaret, donde se había criado, entró en la sinagoga, como era su costumbre los sábados, y se puso en pie para hacer la lectura. Le entregaron el libro del profeta Isaías y, desenrollándolo, encontró el pasaje donde estaba escrito: «El Espíritu del Señor está sobre mí, porque él me ha ungido. Me ha enviado a evangelizar a los pobres... a proclamar el año de gracia del Señor». Enrolló el libro, lo devolvió al que ayudaba y se sentó... Y comenzó a decirles: «Hoy se ha cumplido esta Escritura que acabáis de oír»."
+  },
+  ofrendas: "Que la fuerza de este sacrificio, Señor, destruya en nosotros el hombre viejo y nos haga crecer en la novedad de vida. Por Jesucristo, nuestro Señor.",
+  prefacioId: "crismal",
+  antifonaComunion: "Cantaré eternamente las misericordias del Señor, anunciaré tu fidelidad por todas las edades. (Sal 88, 2)",
+  postcomunion: "Te pedimos, Dios todopoderoso, que los sacramentos que hemos recibido renueven en nosotros la gracia de tu Espíritu Santo. Por Jesucristo, nuestro Señor."
+});
+
 crearMisa({
   id: "cua-jueves-santo",
   tiempo: "Semana Santa",
   categoria: "Triduo Pascual",
-  nombre: "Jueves Santo: Misa de la Cena del Señor (In Coena Domini)",
+  nombre: "Jueves Santo por la tarde: Misa en la Cena del Señor (In Coena Domini)",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "Nosotros debemos gloriarnos en la cruz de nuestro Señor Jesucristo: en él está nuestra salvación, vida y resurrección; él nos ha salvado y liberado. (Cfr. Gál 6, 14)",
@@ -1050,11 +1207,89 @@ crearMisa({
   postcomunion: "Dios todopoderoso, concédenos que, así como somos alimentados en la tierra con la Cena de tu Hijo, merezcamos ser saciados en el banquete eterno del cielo. Por Jesucristo, nuestro Señor."
 });
 
+
+crearMisa({
+  id: "pas-viernes-santo",
+  tiempo: "Semana Santa",
+  categoria: "Triduo Pascual",
+  nombre: "Viernes Santo en la Pasión del Señor (Celebración de la Pasión y Adoración de la Cruz)",
+  color: "rojo",
+  colorHex: "#dc2626",
+  antifonaEntrada: "El sacerdote y los ministros se acercan al altar, hacen postración o se arrodillan en silencio; el pueblo se arrodilla en silencio y ora unos momentos. Luego el sacerdote se dirige a la sede y dice la oración colecta (IGMR 43):",
+  colecta: "Acuérdate, Señor, de tu misericordia y santifica con protección continua a tus siervos, por quienes Cristo, tu Hijo, instituyó por medio de su sangre el misterio pascual. Por Jesucristo, nuestro Señor.",
+  lectura1: {
+    cita: "Isaías 52, 13 — 53, 12 (El Cuarto Cántico del Siervo)",
+    texto: "Mirad, mi siervo tendrá éxito, subirá y crecerá mucho... Despreciado y evitado de los hombres, varón de dolores y acostumbrado a sufrimientos... Él soportó nuestros sufrimientos y aguantó nuestros dolores... Fue traspasado por nuestras rebeliones, triturado por nuestros crímenes. Nuestro castigo saludable cayó sobre él, sus cicatrices nos curaron... Mi siervo justificará a muchos, porque cargó con los crímenes de ellos. Por eso le daré una parte entre los grandes."
+  },
+  salmo: {
+    cita: "Salmo 30",
+    respuesta: "Padre, a tus manos encomiendo mi espíritu.",
+    estrofas: [
+      "A ti, Señor, me acojo, no quede yo nunca defraudado; tú, que eres justo, ponme a salvo. A tus manos encomiendo mi espíritu: tú, el Dios leal, me librarás.",
+      "Soy la burla de todos mis enemigos, la irrisión de mis vecinos, el espanto de mis conocidos; me esquivan los que me ven por la calle. Me han olvidado como a un muerto, me han desechado como a un cacharro inútil.",
+      "Pero yo confío en ti, Señor, te digo: «Tú eres mi Dios». En tus manos están mis azares; líbrame de los enemigos que me persiguen. Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia."
+    ]
+  },
+  lectura2: {
+    cita: "Hebreos 4, 14-16; 5, 7-9 (Sumo Sacerdote Compasivo)",
+    texto: "Hermanos: Puesto que tenemos un gran sumo sacerdote que ha atravesado los cielos, Jesús, el Hijo de Dios, mantengamos firme la confesión de la fe. Pues no tenemos un sumo sacerdote incapaz de compadecerse de nuestras debilidades, sino que ha sido probado en todo exactamente como nosotros, menos en el pecado... Cristo, en los días de su vida mortal, a gritos y con lágrimas, presentó oraciones y súplicas al que podía salvarlo de la muerte... Y, aun siendo Hijo, aprendió sufriendo a obedecer, y, llevado a la consumación, se convirtió para todos los que le obedecen en autor de salvación eterna."
+  },
+  aleluya: {
+    versiculo: "Cristo se hizo por nosotros obediente hasta la muerte, y una muerte de cruz. Por eso Dios lo levantó sobre todo y le concedió el «Nombre-sobre-todo-nombre». (Flp 2, 8-9)"
+  },
+  evangelio: {
+    cita: "Juan 18, 1 — 19, 42 (Pasión de nuestro Señor Jesucristo)",
+    texto: "Pasión de nuestro Señor Jesucristo según san Juan: En aquel tiempo, salió Jesús con sus discípulos al otro lado del torrente Cedrón, donde había un huerto... Judas llegó con la cohorte y los guardias... Jesús les dijo: «¿A quién buscáis?». Le contestaron: «A Jesús, el Nazareno». Les dijo Jesús: «Yo soy»... Llevaron a Jesús ante Caifás y luego al pretorio de Pilato... Pilato les dijo: «Aquí tenéis a vuestro Rey». Ellos gritaron: «¡Fuera, fuera; crucifícalo!»... Jesús, cargando con la cruz, salió hacia el Gólgota. Allí lo crucificaron... Jesús, viendo a su madre y junto a ella al discípulo que amaba, dice a su madre: «Mujer, ahí tienes a tu hijo». Luego dice al discípulo: «Ahí tienes a tu madre»... Jesús dijo: «Todo está cumplido». E inclinando la cabeza, entregó el espíritu (Aquí se arrodillan todos y se hace una breve pausa)... Después vino José de Arimatea y Nicodemo, envolvieron el cuerpo de Jesús en lienzos con aromas y lo depositaron en un sepulcro nuevo excavado en la roca."
+  },
+  ofrendas: "Solemne Oración Universal (por la Santa Iglesia, el Papa, los ministros, los catecúmenos, la unidad, los judíos, los no creyentes y los gobernantes) y Adoración de la Santa Cruz: «¡Mirad el árbol de la Cruz, donde estuvo clavada la salvación del mundo! — ¡Venid a adorarlo!». Sagrada Comunión con las formas consagradas en la Misa de la Cena del Señor (este día no hay consagración eucarística).",
+  prefacioId: "pasion-1",
+  antifonaComunion: "Tu cruz adoramos, Señor, y tu santa resurrección alabamos y glorificamos; pues por el madero de la cruz ha venido la alegría al mundo entero.",
+  postcomunion: "Dios todopoderoso y eterno, que nos has renovado con la santa muerte y resurrección de tu Hijo, conserva en nosotros la obra de tu misericordia, para que, por la participación de este misterio, vivamos consagrados a tu servicio. Por Jesucristo, nuestro Señor. (Oración sobre el pueblo y salida en silencio)."
+});
+
+crearMisa({
+  id: "pas-sabado-santo",
+  tiempo: "Semana Santa",
+  categoria: "Triduo Pascual",
+  nombre: "Sábado Santo: La Sepultura del Señor (Día de silencio y oración junto al Sepulcro)",
+  color: "morado",
+  colorHex: "#7e22ce",
+  antifonaEntrada: "Durante el Sábado Santo la Iglesia permanece junto al sepulcro del Señor, meditando su pasión y muerte, y absteniéndose del sacrificio de la Misa (altar desnudo), hasta que, después de la solemne Vigilia en la noche, se inauguran los gozos pascuales.",
+  colecta: "Dios todopoderoso, cuyo Hijo unigénito descendió a los infiernos y salió glorioso del sepulcro, concede a tus fieles, sepultados con él por el bautismo, resucitar con él a la vida eterna. Por nuestro Señor Jesucristo.",
+  lectura1: {
+    cita: "Lamentaciones 3, 17-26",
+    texto: "Me han arrancado la paz, y ni me acuerdo de la dicha... Bueno es esperar en silencio la salvación del Señor."
+  },
+  salmo: {
+    cita: "Salmo 87",
+    respuesta: "Llegue a tu presencia mi súplica, Señor.",
+    estrofas: [
+      "Señor, Dios de mi salvación, día y noche grito en tu presencia... Mi vida está al borde del abismo, me cuentan con los que bajan a la fosa.",
+      "Me has colocado en lo hondo de la fosa, en las tinieblas del fondo... ¿Harás tú maravillas por los muertos? ¿Se alzarán las sombras para darte gracias?"
+    ]
+  },
+  lectura2: {
+    cita: "1 Pedro 4, 1-8",
+    texto: "Puesto que Cristo padeció en la carne, armaos también vosotros de este mismo pensamiento... Porque para esto fue proclamado el Evangelio también a los muertos."
+  },
+  aleluya: {
+    versiculo: "Cristo murió por nuestros pecados y resucitó para nuestra justificación."
+  },
+  evangelio: {
+    cita: "Mateo 27, 62-66 (La guardia junto al sepulcro)",
+    texto: "Al día siguiente de la Preparación, los sumos sacerdotes y los fariseos se reunieron ante Pilato y dijeron: «Señor, nos hemos acordado de que aquel impostor dijo cuando aún vivía: 'A los tres días resucitaré'. Manda, pues, asegurar el sepulcro hasta el tercer día»... Pilato les dijo: «Ahí tenéis una guardia: id y aseguradlo como sabéis». Ellos fueron y aseguraron el sepulcro sellando la piedra y apostando la guardia."
+  },
+  ofrendas: "Día alitúrgico de meditación: La Iglesia permanece en oración junto al sepulcro del Señor, esperando su gloriosa resurrección en la Vigilia Pascual.",
+  prefacioId: "pasion-1",
+  antifonaComunion: "En paz me acuesto y en seguida me duermo, porque tú solo, Señor, me haces vivir tranquilo. (Sal 4, 9)",
+  postcomunion: "Señor Dios nuestro, que en la sepultura de tu Hijo nos diste el descanso sabático de la redención, concédenos aguardar con viva fe la aurora de la resurrección. Por Jesucristo, nuestro Señor."
+});
+
 crearMisa({
   id: "pas-vigilia",
   tiempo: "Semana Santa",
   categoria: "Triduo Pascual",
-  nombre: "Solemne Vigilia Pascual en la Noche Santa",
+  nombre: "Sábado Santo por la noche: Solemne Vigilia Pascual en la Noche Santa",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "El Señor ha resucitado verdaderamente, aleluya. A él la gloria y el poder por los siglos de los siglos. (Cfr. Lc 24, 34; Ap 1, 6)",
@@ -1096,7 +1331,7 @@ crearMisa({
   id: "pas-domingo",
   tiempo: "Pascua",
   categoria: "Tiempo Pascual",
-  nombre: "Domingo de Pascua de la Resurrección del Señor",
+  nombre: "Domingo de Pascua: Misa de la Resurrección del Señor (Misa del Día)",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "He resucitado y aún estoy contigo, aleluya; has puesto sobre mí tu mano, aleluya; tu sabiduría ha sido maravillosa, aleluya, aleluya. (Cfr. Sal 138, 18. 5. 6)",
@@ -1131,11 +1366,51 @@ crearMisa({
   postcomunion: "Protege con amor continuo, Dios todopoderoso, a tu Iglesia, para que, renovada por los sacramentos pascuales, llegue a la gloria de la resurrección. Por Jesucristo, nuestro Señor."
 });
 
+
+crearMisa({
+  id: "pas-lunes-octava",
+  tiempo: "Pascua",
+  categoria: "Tiempo Pascual",
+  nombre: "Lunes de la Octava de Pascua",
+  color: "blanco",
+  colorHex: "#e2e8f0",
+  antifonaEntrada: "El Señor os ha introducido en una tierra que mana leche y miel, para que la ley del Señor esté siempre en vuestros labios, aleluya. (Cfr. Éx 13, 5. 9)",
+  colecta: "Señor Dios, que por medio de las fiestas pascuales aumentas continuamente tu Iglesia con nuevos hijos, concede a tus siervos manifestar en su vida el sacramento que han recibido en la fe. Por nuestro Señor Jesucristo.",
+  lectura1: {
+    cita: "Hechos de los Apóstoles 2, 14. 22-33 (Discurso de Pedro en Pentecostés)",
+    texto: "El día de Pentecostés, Pedro, de pie con los Once, levantó la voz y dijo: «Judíos y vecinos todos de Jerusalén... A Jesús, el Nazareno, hombre acreditado por Dios ante vosotros con milagros, prodigios y signos... vosotros lo matasteis clavándolo a un madero por manos de hombres inicuos. Pero Dios lo resucitó, librándolo de los dolores de la muerte... Dios resucitó a este Jesús, de lo cual todos nosotros somos testigos»."
+  },
+  salmo: {
+    cita: "Salmo 15",
+    respuesta: "Protégeme, Dios mío, que me refugio en ti.",
+    estrofas: [
+      "Protégeme, Dios mío, que me refugio en ti. Yo digo al Señor: «Tú eres mi Dios». El Señor es el lote de mi heredad y mi copa, mi suerte está en tu mano.",
+      "Bendeciré al Señor, que me aconseja, hasta de noche me instruye internamente. Tengo siempre presente al Señor, con él a mi derecha no vacilaré.",
+      "Por eso se me alegra el corazón, se gozan mis entrañas, y mi carne descansa serena: porque no me abandonarás en la región de los muertos, ni dejarás a tu fiel ver la corrupción."
+    ]
+  },
+  lectura2: {
+    cita: "1 Pedro 1, 3-9",
+    texto: "Bendito sea el Dios y Padre de nuestro Señor Jesucristo, que por su gran misericordia, mediante la resurrección de Jesucristo de entre los muertos, nos ha hecho renacer a una esperanza viva, a una herencia incorruptible."
+  },
+  aleluya: {
+    versiculo: "Éste es el día que hizo el Señor: sea nuestra alegría y nuestro gozo. (Sal 117, 24)"
+  },
+  evangelio: {
+    cita: "Mateo 28, 8-15 (Jesús sale al encuentro de las mujeres)",
+    texto: "En aquel tiempo, las mujeres se marcharon a toda prisa del sepulcro, con miedo y gran alegría, y fueron corriendo a anunciarlo a los discípulos. De pronto, Jesús les salió al encuentro y les dijo: «¡Alegraos!». Ellas se acercaron, le abrazaron los pies y se postraron ante él. Jesús les dijo: «No tengáis miedo: id a comunicar a mis hermanos que vayan a Galilea; allí me verán»... Mientras ellas iban, algunos de la guardia fueron a la ciudad y contaron a los sumos sacerdotes todo lo ocurrido."
+  },
+  ofrendas: "Acepta con bondad, Señor, las ofrendas de tu pueblo (y de los recién bautizados), para que, renovados por la confesión de tu nombre y por el bautismo, consigamos la felicidad eterna. Por Jesucristo, nuestro Señor.",
+  prefacioId: "pas-1",
+  antifonaComunion: "Cristo, habiendo resucitado de entre los muertos, ya no muere más; la muerte ya no tiene dominio sobre él, aleluya. (Rom 6, 9)",
+  postcomunion: "Que la gracia del sacramento pascual que hemos recibido, Señor, permanezca siempre en nuestros corazones. Por Jesucristo, nuestro Señor."
+});
+
 crearMisa({
   id: "pas-2",
   tiempo: "Pascua",
   categoria: "Tiempo Pascual",
-  nombre: "II Domingo de Pascua (o de la Divina Misericordia)",
+  nombre: "Domingo II de Pascua (o de la Divina Misericordia)",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "Como niños recién nacidos, desead la leche espiritual no adulterada, para que por ella crezcáis para la salvación, aleluya. (1 Pe 2, 2)",
@@ -1174,7 +1449,7 @@ crearMisa({
   id: "pas-3",
   tiempo: "Pascua",
   categoria: "Tiempo Pascual",
-  nombre: "III Domingo de Pascua (Los Discípulos de Emaús)",
+  nombre: "Domingo III de Pascua (Los Discípulos de Emaús)",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "Aclamad a Dios, tierra entera; cantad las glorias de su nombre, tributadle honor y alabanza, aleluya. (Sal 65, 1-2)",
@@ -1213,7 +1488,7 @@ crearMisa({
   id: "pas-4",
   tiempo: "Pascua",
   categoria: "Tiempo Pascual",
-  nombre: "IV Domingo de Pascua (Domingo del Buen Pastor)",
+  nombre: "Domingo IV de Pascua (Domingo del Buen Pastor)",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "La tierra está llena de la misericordia del Señor; por la palabra del Señor fueron hechos los cielos, aleluya. (Sal 32, 5-6)",
@@ -1252,7 +1527,7 @@ crearMisa({
   id: "pas-5",
   tiempo: "Pascua",
   categoria: "Tiempo Pascual",
-  nombre: "V Domingo de Pascua (La Vid Verdadera)",
+  nombre: "Domingo V de Pascua (La Vid Verdadera)",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "Cantad al Señor un cántico nuevo, porque ha hecho maravillas; a la vista de las naciones ha revelado su victoria, aleluya. (Sal 97, 1-2)",
@@ -1291,7 +1566,7 @@ crearMisa({
   id: "pas-6",
   tiempo: "Pascua",
   categoria: "Tiempo Pascual",
-  nombre: "VI Domingo de Pascua (El Mandamiento del Amor)",
+  nombre: "Domingo VI de Pascua (El Mandamiento del Amor)",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "Con voz de júbilo proclamadlo, que se oiga, anunciadlo hasta los confines de la tierra: el Señor ha redimido a su pueblo, aleluya. (Cfr. Is 48, 20)",
@@ -1330,7 +1605,7 @@ crearMisa({
   id: "pas-ascension",
   tiempo: "Pascua",
   categoria: "Tiempo Pascual",
-  nombre: "La Ascensión del Señor",
+  nombre: "Domingo VII de Pascua: La Ascensión del Señor",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "Hombres de Galilea, ¿qué hacéis ahí plantados mirando al cielo? El mismo Jesús que os ha sido quitado para subir al cielo volverá tal como le habéis visto marchar, aleluya. (Hch 1, 11)",
@@ -1369,7 +1644,7 @@ crearMisa({
   id: "pas-7",
   tiempo: "Pascua",
   categoria: "Tiempo Pascual",
-  nombre: "VII Domingo de Pascua (La Oración Sacerdotal)",
+  nombre: "Domingo VII de Pascua (La Oración Sacerdotal)",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "Escucha, Señor, mi voz, a ti he gritado; mi corazón me dice: «Busca su rostro». Tu rostro buscaré, Señor; no me escondas tu rostro, aleluya. (Cfr. Sal 26, 7-9)",
@@ -1408,7 +1683,7 @@ crearMisa({
   id: "pas-pentecostes",
   tiempo: "Pascua",
   categoria: "Tiempo Pascual",
-  nombre: "Domingo de Pentecostés (Solemnidad del Espíritu Santo)",
+  nombre: "Domingo de Pentecostés (Conclusión de la Cincuentena Pascual)",
   color: "rojo",
   colorHex: "#dc2626",
   antifonaEntrada: "El Espíritu del Señor llena la tierra, él que todo lo contiene tiene ciencia de la voz, aleluya. (Sab 1, 7)",
@@ -1450,7 +1725,7 @@ crearMisa({
   id: "to-trinidad",
   tiempo: "Tiempo Ordinario",
   categoria: "Solemnidades del Señor",
-  nombre: "La Santísima Trinidad (Primer Domingo después de Pentecostés)",
+  nombre: "Domingo después de Pentecostés: La Santísima Trinidad",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "Bendito sea Dios Padre, y el Hijo unigénito de Dios, y el Espíritu Santo, porque ha tenido misericordia con nosotros. (Cfr. Tob 12, 6)",
@@ -1489,7 +1764,7 @@ crearMisa({
   id: "to-corpus",
   tiempo: "Tiempo Ordinario",
   categoria: "Solemnidades del Señor",
-  nombre: "El Santísimo Cuerpo y Sangre de Cristo (Corpus Christi)",
+  nombre: "Domingo tras la Trinidad: El Santísimo Cuerpo y Sangre de Cristo (Corpus Christi)",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "Los alimentó con flor de harina y los sació con miel silvestre, aleluya. (Cfr. Sal 80, 17)",
@@ -1528,7 +1803,7 @@ crearMisa({
   id: "to-sagrado-corazon",
   tiempo: "Tiempo Ordinario",
   categoria: "Solemnidades del Señor",
-  nombre: "El Sagrado Corazón de Jesús (Viernes posterior a Corpus Christi)",
+  nombre: "Viernes posterior al II Domingo tras Pentecostés: El Sagrado Corazón de Jesús",
   color: "blanco",
   colorHex: "#e2e8f0",
   antifonaEntrada: "Los proyectos de su corazón subsisten de edad en edad, para librar las vidas de la muerte y reanimarlas en tiempo de hambre. (Sal 32, 11. 19)",
@@ -1569,7 +1844,7 @@ crearMisa({
 const domingosOrdinario = [
   {
     num: 1,
-    nombre: "Primer Domingo del Tiempo Ordinario",
+    nombre: "Domingo I del Tiempo Ordinario",
     antEnt: "«Vi sentado en un trono excelso a un hombre, a quien adora una multitud de ángeles, que cantan a una sola voz: He aquí aquel cuyo imperio es eterno». (Cfr. Is 6, 1. 4; Ap 4, 8)",
     col: "Atiende, Señor, con bondad celestial los deseos y súplicas de tu pueblo, para que vea lo que debe hacer y tenga la fuerza necesaria para cumplirlo. Por nuestro Señor Jesucristo, tu Hijo.",
     l1: { cita: "1 Samuel 1, 1-8", texto: "Había un hombre de Ramataim de Zuf, de la montaña de Efraín, que se llamaba Elcaná... Tenía dos mujeres: una se llamaba Ana y la otra Peniná... Elcaná decía: «Ana, ¿por qué lloras y no comes? ¿No te valgo yo más que diez hijos?»." },
@@ -1583,7 +1858,7 @@ const domingosOrdinario = [
   },
   {
     num: 2,
-    nombre: "II Domingo del Tiempo Ordinario",
+    nombre: "Domingo II del Tiempo Ordinario",
     antEnt: "Toda la tierra se postre ante ti, Señor, y cante para ti; que cante a tu nombre, oh Altísimo. (Sal 65, 4)",
     col: "Dios todopoderoso y eterno, que gobiernas los cielos y la tierra, escucha con amor las súplicas de tu pueblo y concede tu paz a nuestros días. Por nuestro Señor Jesucristo.",
     l1: { cita: "1 Samuel 3, 3b-10. 19", texto: "En aquellos días, Samuel estaba acostado en el santuario del Señor... El Señor llamó a Samuel. Éste respondió: «Aquí estoy»... Elí comprendió que era el Señor quien llamaba al joven y le dijo: «Si te llama de nuevo, di: Habla, Señor, que tu siervo escucha»." },
@@ -1680,16 +1955,19 @@ domingosOrdinario.forEach(d => {
 // Asignación litúrgica de Plegaria recomendada según la IGMR n. 365
 const canonRomanoIds = new Set([
   'nav-vigilia', 'nav-noche', 'nav-aurora', 'nav-dia', 'nav-madre-dios', 'nav-epifania',
-  'cua-ramos', 'pas-jueves-santo', 'pas-vigilia', 'pas-dia', 'pas-ascension', 'pas-pentecostes'
+  'cua-ramos', 'sem-crismal', 'cua-jueves-santo', 'pas-vigilia', 'pas-domingo', 'pas-ascension', 'pas-pentecostes'
 ]);
 
 misasDB.forEach(m => {
-  if (canonRomanoIds.has(m.id)) {
+  if (m.id === 'pas-viernes-santo' || m.id === 'pas-sabado-santo') {
+    m.plegariaRecomendada = "3";
+    m.plegariaMotivo = "Celebración alitúrgica / Comunión con la Reserva Eucarística";
+  } else if (canonRomanoIds.has(m.id)) {
     m.plegariaRecomendada = "1";
     m.plegariaMotivo = "IGMR 365 a: Canon Romano por solemnidad con partes propias";
-  } else if (m.id === 'cua-ceniza') {
+  } else if (m.id === 'cua-ceniza' || m.id.startsWith('sem-lunes') || m.id.startsWith('sem-martes') || m.id.startsWith('sem-miercoles')) {
     m.plegariaRecomendada = "2";
-    m.plegariaMotivo = "IGMR 365 b: Plegaria II aconsejada para días entre semana/ferias";
+    m.plegariaMotivo = "IGMR 365 b: Plegaria II aconsejada para días santos y ferias";
   } else {
     m.plegariaRecomendada = "3";
     m.plegariaMotivo = "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas";
