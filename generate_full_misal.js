@@ -102,29 +102,32 @@ htmlParts.push(`<!DOCTYPE html>
 <html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0">
+  <meta name="theme-color" content="#111215">
   <title>Misal Romano - Todas las Misas del Año Litúrgico con IGMR Íntegro (nn. 1-399)</title>
   <style>
     :root {
       /* Modo Oscuro (por defecto) */
-      --bg-color: #121316;
-      --card-bg: #1c1e24;
-      --text-color: #e2e8f0;
+      --bg-color: #111215;
+      --card-bg: #1a1c23;
+      --text-color: #e5e9f0;
       --muted-text: #94a3b8;
-      --border-color: #2e3440;
+      --border-color: #2b303c;
       --primary-color: #e63946;       /* Rojo litúrgico */
       --secondary-color: #f1faee;     /* Texto claro */
-      --accent-color: #457b9d;        /* Azul litúrgico */
-      --rubric-color: #ff6b6b;        /* Rúbricas en rojo litúrgico */
+      --accent-color: #38bdf8;        /* Azul litúrgico */
+      --rubric-color: #f87171;        /* Rúbricas en rojo coral litúrgico */
       --speaker-color: #38bdf8;       /* Sacerdote/Ministro */
-      --header-bg: #0f1013;
-      --toolbar-bg: #1a1c23;
-      --igmr-bg: #161a22;
-      --igmr-border: #3b4252;
+      --header-bg: #0c0d10;
+      --toolbar-bg: rgba(22, 25, 33, 0.95);
+      --igmr-bg: #141720;
+      --igmr-border: #333a48;
       --igmr-heading: #60a5fa;
       --igmr-num-color: #38bdf8;
       --footer-text: #64748b;
-      --drawer-bg: #181a20;
+      --drawer-bg: #16181f;
+      --surface-hover: rgba(230, 57, 70, 0.12);
+      --font-scale: 1;
     }
 
     [data-theme="light"] {
@@ -135,234 +138,411 @@ htmlParts.push(`<!DOCTYPE html>
       --border-color: #e2e8f0;
       --primary-color: #b91c1c;       /* Rojo carmesí clásico */
       --secondary-color: #0f172a;
-      --accent-color: #1d4ed8;
+      --accent-color: #0284c7;
       --rubric-color: #c2410c;        /* Rúbricas bermellón */
       --speaker-color: #0369a1;
-      --header-bg: #f1f5f9;
-      --toolbar-bg: #e2e8f0;
+      --header-bg: #ffffff;
+      --toolbar-bg: rgba(241, 245, 249, 0.96);
       --igmr-bg: #f8fafc;
       --igmr-border: #cbd5e1;
       --igmr-heading: #1d4ed8;
       --igmr-num-color: #0284c7;
       --footer-text: #64748b;
       --drawer-bg: #ffffff;
+      --surface-hover: rgba(185, 28, 28, 0.08);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
     }
 
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
       line-height: 1.75;
-      transition: background-color 0.3s, color 0.3s;
+      font-size: 16px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      overflow-x: hidden;
     }
 
-    /* Encabezado */
-    header {
+    /* ============================================================
+       1. ENCABEZADO (MOBILE FIRST)
+       ============================================================ */
+    .app-header {
       background-color: var(--header-bg);
       border-bottom: 2px solid var(--primary-color);
-      padding: 2.2rem 1rem 1.5rem;
+      padding: 1.4rem 1rem 1rem;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: relative;
     }
 
-    header h1 {
-      font-size: 2.4rem;
+    .header-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .header-cross {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+      line-height: 1;
+      margin-bottom: 0.2rem;
+      opacity: 0.9;
+    }
+
+    .app-title {
+      font-size: 1.6rem;
       color: var(--primary-color);
       letter-spacing: 1.5px;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.25rem;
       text-transform: uppercase;
       font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .mass-title {
+      font-size: 1.1rem;
+      color: var(--text-color);
+      margin: 0.3rem 0;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .badge-wrapper {
+      margin: 0.4rem 0;
     }
 
     .liturgical-badge {
       display: inline-block;
-      padding: 4px 12px;
+      padding: 3px 12px;
       border-radius: 9999px;
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
-      margin-top: 0.6rem;
-      border: 1px solid rgba(255,255,255,0.2);
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
 
-    /* Barra de herramientas fija */
-    .toolbar-container {
+    .header-subtitle {
+      font-size: 0.82rem;
+      color: var(--muted-text);
+      margin-top: 0.4rem;
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+       2. BARRA DE HERRAMIENTAS STICKY (MOBILE FIRST)
+       ============================================================ */
+    .toolbar-nav {
       position: sticky;
       top: 0;
       z-index: 1000;
       background-color: var(--toolbar-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border-color);
-      padding: 0.6rem 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      padding: 0.45rem 0.6rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.22);
     }
 
-    .toolbar-group {
+    .toolbar-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .toolbar-row {
       display: flex;
       align-items: center;
       gap: 0.4rem;
-      flex-wrap: wrap;
+      width: 100%;
     }
 
-    .toolbar-label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--muted-text);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-right: 0.2rem;
+    .toolbar-row-primary {
+      display: flex;
+      align-items: stretch;
+      gap: 0.4rem;
     }
 
-    button, select {
+    .btn-drawer-toggle {
+      background: var(--primary-color);
+      color: #ffffff !important;
+      border: 1px solid var(--primary-color);
+      border-radius: 8px;
+      padding: 0.45rem 0.75rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      flex-shrink: 0;
+      min-height: 40px;
+      box-shadow: 0 2px 6px rgba(230, 57, 70, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-drawer-toggle:active {
+      transform: scale(0.96);
+    }
+
+    .select-wrapper {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .select-mass-wrapper {
+      flex: 1.6;
+    }
+
+    .select-prayer-wrapper {
+      flex: 1;
+    }
+
+    .select-wrapper select {
+      width: 100%;
+      height: 40px;
       background-color: var(--card-bg);
       color: var(--text-color);
       border: 1px solid var(--border-color);
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.9rem;
+      border-radius: 8px;
+      padding: 0 0.5rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
+      cursor: pointer;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      outline: none;
+      transition: border-color 0.2s ease;
     }
 
-    button:hover, select:hover {
+    .select-wrapper select:focus {
+      border-color: var(--primary-color);
+    }
+
+    .toolbar-row-secondary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .toolbar-tool-group {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .toolbar-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--muted-text);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-right: 2px;
+      display: none;
+    }
+
+    .btn-tool {
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 0.35rem 0.55rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.15s ease;
+      touch-action: manipulation;
+    }
+
+    .btn-tool:active {
+      transform: scale(0.94);
+      background-color: var(--surface-hover);
+    }
+
+    .btn-tool:hover {
       border-color: var(--primary-color);
       color: var(--primary-color);
     }
 
-    .btn-primary-action {
-      background: var(--primary-color);
-      color: #ffffff !important;
-      border-color: var(--primary-color);
-    }
-    .btn-primary-action:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
+    .btn-font-reset {
+      font-weight: 800;
+      min-width: 32px;
     }
 
-    /* Contenido principal */
+    .btn-theme {
+      min-width: 80px;
+    }
+
+    .igmr-toggle-buttons {
+      display: flex;
+      gap: 3px;
+    }
+
+    .btn-igmr-toggle {
+      font-size: 0.78rem;
+      padding: 0.35rem 0.45rem;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ============================================================
+       3. CONTENIDO PRINCIPAL Y SECCIONES (MOBILE FIRST)
+       ============================================================ */
     main {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      width: 100%;
+      max-width: 920px;
+      margin: 0.8rem auto 2.5rem;
+      padding: 0 0.5rem;
     }
 
-    /* Estructura de secciones */
     .mass-section {
       background: var(--card-bg);
-      border-radius: 8px;
-      padding: 2.2rem;
-      margin-bottom: 2.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-radius: 10px;
+      padding: 1.1rem 0.85rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
       border: 1px solid var(--border-color);
+      overflow-wrap: break-word;
+      word-wrap: break-word;
     }
 
     .section-title {
-      font-size: 1.8rem;
+      font-size: 1.25rem;
+      line-height: 1.35;
       color: var(--primary-color);
       border-bottom: 2px solid var(--primary-color);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.5px;
+      font-weight: 800;
     }
 
     .part-title {
-      font-size: 1.35rem;
+      font-size: 1.08rem;
+      line-height: 1.35;
       color: var(--speaker-color);
-      margin: 2rem 0 0.8rem;
+      margin: 1.4rem 0 0.6rem;
       display: flex;
       align-items: baseline;
-      gap: 8px;
+      gap: 6px;
+      font-weight: 700;
     }
 
     .part-title::before {
       content: "§";
       color: var(--primary-color);
-      font-weight: bold;
+      font-weight: 900;
     }
 
-    /* Tipografía litúrgica */
     .rubric {
       color: var(--rubric-color);
       font-style: italic;
-      font-size: 0.95em;
-      margin: 0.7rem 0;
+      font-size: 0.94em;
+      margin: 0.6rem 0;
       display: block;
+      line-height: 1.55;
     }
 
     .dialogue {
-      margin: 0.8rem 0;
-      padding-left: 0.8rem;
+      margin: 0.7rem 0;
+      padding-left: 0.4rem;
     }
 
     .speaker {
-      font-weight: bold;
+      font-weight: 700;
       color: var(--speaker-color);
+      margin-right: 3px;
     }
 
     .response {
-      font-weight: bold;
+      font-weight: 700;
       color: var(--text-color);
     }
 
     .prayer-text {
-      font-size: 1.1em;
-      margin: 1rem 0;
-      padding: 0.8rem 1.2rem;
+      font-size: 1.05em;
+      margin: 0.85rem 0;
+      padding: 0.75rem 0.85rem;
       background-color: rgba(255, 255, 255, 0.03);
       border-left: 3px solid var(--speaker-color);
       border-radius: 0 6px 6px 0;
+      line-height: 1.7;
     }
 
     .scripture-box {
       background: rgba(0,0,0,0.12);
       border: 1px solid var(--border-color);
       border-radius: 8px;
-      padding: 1.4rem;
-      margin: 1.2rem 0;
+      padding: 0.9rem;
+      margin: 1rem 0;
     }
 
     .scripture-citation {
-      font-weight: bold;
+      font-weight: 700;
       color: var(--speaker-color);
-      font-size: 1.15rem;
-      margin-bottom: 0.6rem;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
     }
 
     .psalm-response {
-      font-weight: bold;
+      font-weight: 700;
       color: var(--primary-color);
-      margin: 0.6rem 0;
-      padding: 0.4rem 0.8rem;
+      margin: 0.5rem 0;
+      padding: 0.45rem 0.7rem;
       background: rgba(230, 57, 70, 0.1);
-      border-radius: 4px;
+      border-radius: 6px;
+      font-size: 0.96em;
+      line-height: 1.45;
+      border-left: 3px solid var(--primary-color);
     }
 
-    /* Paneles de IGMR */
+    /* ============================================================
+       4. PANELES IGMR Y NUMERALES INTERACTIVOS (MOBILE FIRST)
+       ============================================================ */
     .igmr-container {
-      margin: 1.2rem 0 1.8rem 0;
+      margin: 1rem 0 1.4rem 0;
     }
 
     details {
       background-color: var(--igmr-bg);
       border: 1px solid var(--igmr-border);
-      border-radius: 6px;
+      border-radius: 8px;
       overflow: hidden;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s ease;
     }
 
     details[open] {
@@ -370,29 +550,32 @@ htmlParts.push(`<!DOCTYPE html>
     }
 
     summary {
-      font-weight: bold;
+      font-weight: 700;
       color: var(--igmr-heading);
-      padding: 0.85rem 1.2rem;
+      padding: 0.75rem 0.85rem;
       cursor: pointer;
       background-color: rgba(0, 0, 0, 0.08);
       user-select: none;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      transition: background-color 0.2s;
-      font-size: 0.98rem;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      font-size: 0.88rem;
+      line-height: 1.35;
+      gap: 8px;
     }
 
     summary:hover {
-      background-color: rgba(230, 57, 70, 0.12);
+      background-color: var(--surface-hover);
       color: var(--primary-color);
     }
 
     summary::after {
       content: "▶";
-      font-size: 0.75rem;
-      transition: transform 0.2s;
+      font-size: 0.7rem;
+      transition: transform 0.2s ease;
       color: var(--muted-text);
+      flex-shrink: 0;
     }
 
     details[open] summary::after {
@@ -401,58 +584,64 @@ htmlParts.push(`<!DOCTYPE html>
     }
 
     .igmr-content {
-      padding: 1.4rem;
+      padding: 0.9rem 0.85rem;
       border-top: 1px solid var(--border-color);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--text-color);
-    }
-
-    .igmr-content p {
-      margin-bottom: 0.9rem;
       line-height: 1.65;
     }
 
+    .igmr-content p {
+      margin-bottom: 0.8rem;
+    }
+
     .igmr-num-block {
-      margin-top: 1rem;
-      padding-top: 0.6rem;
+      margin-top: 0.8rem;
+      padding-top: 0.5rem;
       border-top: 1px dashed var(--border-color);
       transition: all 0.5s ease;
     }
 
     .igmr-num {
-      font-weight: bold;
+      font-weight: 700;
       color: var(--igmr-num-color);
       font-family: sans-serif;
       margin-right: 4px;
     }
 
-    /* Botones y enlaces interactivos para numerales IGMR */
+    /* Badges interactivos táctiles para numerales IGMR */
     .igmr-badge {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       background: rgba(56, 189, 248, 0.15);
       color: var(--igmr-num-color);
       border: 1px solid rgba(56, 189, 248, 0.35);
-      border-radius: 4px;
-      padding: 1px 7px;
-      font-size: 0.88em;
-      font-weight: 600;
+      border-radius: 5px;
+      padding: 2px 7px;
+      font-size: 0.85em;
+      font-weight: 700;
       cursor: pointer;
       text-decoration: none;
-      transition: all 0.2s ease;
-      margin: 0 2px;
-      vertical-align: middle;
+      transition: all 0.15s ease;
+      margin: 1px 2px;
+      vertical-align: baseline;
       font-family: inherit;
+      min-height: 26px;
+      touch-action: manipulation;
     }
-    .igmr-badge:hover {
+
+    .igmr-badge:active, .igmr-badge:hover {
       background: var(--igmr-num-color);
       color: #0f172a;
       border-color: var(--igmr-num-color);
-      transform: translateY(-1px);
+      transform: scale(1.04);
       box-shadow: 0 2px 8px rgba(56, 189, 248, 0.4);
     }
 
-    /* Modal de IGMR */
+    /* ============================================================
+       5. MODAL DE INSPECCIÓN IGMR (BOTTOM-SHEET EN MÓVIL)
+       ============================================================ */
     .igmr-modal-backdrop {
       display: none;
       position: fixed;
@@ -460,92 +649,114 @@ htmlParts.push(`<!DOCTYPE html>
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(4px);
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
       z-index: 3000;
       justify-content: center;
-      align-items: center;
-      padding: 1rem;
+      align-items: flex-end; /* Bottom sheet en móvil */
+      padding: 0;
       box-sizing: border-box;
       animation: fadeIn 0.2s ease-out;
     }
+
     .igmr-modal-backdrop.active {
       display: flex;
     }
+
     .igmr-modal-box {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
-      max-width: 750px;
+      border-radius: 16px 16px 0 0; /* Sheet en móvil */
       width: 100%;
-      max-height: 85vh;
+      max-width: 100%;
+      max-height: 88vh;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 16px 36px rgba(0,0,0,0.5);
+      box-shadow: 0 -8px 30px rgba(0,0,0,0.5);
       overflow: hidden;
-      animation: slideUp 0.25s ease-out;
+      animation: slideUpMobile 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
+
     .igmr-modal-header {
       background: var(--header-bg);
-      padding: 1rem 1.25rem;
+      padding: 0.85rem 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid var(--border-color);
     }
+
     .igmr-modal-title {
-      font-size: 1.15rem;
-      font-weight: bold;
+      font-size: 1.02rem;
+      font-weight: 700;
       color: var(--speaker-color);
       margin: 0;
+      line-height: 1.3;
     }
+
     .igmr-modal-close {
       background: transparent;
       border: none;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       color: var(--muted-text);
       cursor: pointer;
       line-height: 1;
-      padding: 0 4px;
+      padding: 4px 8px;
+      min-height: 40px;
+      min-width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+
     .igmr-modal-close:hover {
       color: #fff;
     }
+
     .igmr-modal-subtitle {
-      padding: 0.6rem 1.25rem 0.4rem;
-      font-size: 0.85rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.78rem;
       color: var(--muted-text);
       border-bottom: 1px dashed var(--border-color);
       background: rgba(0,0,0,0.1);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
+      line-height: 1.3;
     }
+
     .igmr-modal-body {
-      padding: 1.25rem;
+      padding: 1rem;
       overflow-y: auto;
-      font-size: 1.05rem;
-      line-height: 1.7;
+      font-size: 0.98rem;
+      line-height: 1.68;
       color: var(--text-color);
+      -webkit-overflow-scrolling: touch;
     }
+
     .igmr-modal-body p {
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.85rem;
     }
+
     .igmr-modal-footer {
-      padding: 0.85rem 1.25rem;
+      padding: 0.75rem 1rem;
       background: var(--toolbar-bg);
       border-top: 1px solid var(--border-color);
       display: flex;
       justify-content: space-between;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
     }
+
     .igmr-highlight-pulse {
       animation: igmrPulse 3s ease-out;
       border-left: 4px solid var(--primary-color) !important;
       padding-left: 8px;
     }
 
-    /* Drawer / Panel Lateral del Índice Litúrgico */
+    /* ============================================================
+       6. DRAWER / PANEL LATERAL DEL ÍNDICE (MOBILE FIRST)
+       ============================================================ */
     .liturgy-drawer-backdrop {
       display: none;
       position: fixed;
@@ -553,98 +764,205 @@ htmlParts.push(`<!DOCTYPE html>
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(3px);
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
       z-index: 2500;
     }
+
     .liturgy-drawer-backdrop.active {
       display: block;
     }
+
     .liturgy-drawer {
       position: fixed;
       top: 0;
-      left: -400px;
-      width: 380px;
-      max-width: 90vw;
+      left: -100%;
+      width: min(340px, 86vw);
       height: 100vh;
       background: var(--drawer-bg);
       border-right: 1px solid var(--border-color);
       z-index: 2600;
       display: flex;
       flex-direction: column;
-      box-shadow: 4px 0 24px rgba(0,0,0,0.5);
-      transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 6px 0 28px rgba(0,0,0,0.55);
+      transition: left 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
     }
+
     .liturgy-drawer.open {
       left: 0;
     }
+
     .drawer-header {
-      padding: 1.2rem;
+      padding: 0.9rem 1rem;
       background: var(--header-bg);
       border-bottom: 1px solid var(--border-color);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .drawer-search {
-      padding: 0.8rem 1.2rem;
-      border-bottom: 1px solid var(--border-color);
-      background: var(--toolbar-bg);
-    }
-    .drawer-search input {
-      width: 100%;
-      padding: 0.5rem 0.8rem;
-      border-radius: 6px;
-      border: 1px solid var(--border-color);
-      background: var(--card-bg);
-      color: var(--text-color);
-      font-size: 0.9rem;
-    }
-    .drawer-content {
-      flex: 1;
-      overflow-y: auto;
-      padding: 1rem 0.8rem;
-    }
-    .drawer-category-title {
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--muted-text);
-      margin: 1.2rem 0 0.5rem 0.6rem;
+
+    .drawer-title-group {
       display: flex;
       align-items: center;
       gap: 6px;
     }
+
+    .drawer-icon {
+      font-size: 1.1rem;
+    }
+
+    .drawer-title {
+      color: var(--primary-color);
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .drawer-close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.7rem;
+      color: var(--muted-text);
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+      min-height: 40px;
+      min-width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .drawer-search {
+      padding: 0.65rem 0.85rem;
+      border-bottom: 1px solid var(--border-color);
+      background: var(--toolbar-bg);
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      font-size: 0.85rem;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .drawer-search input {
+      width: 100%;
+      height: 38px;
+      padding: 0.4rem 0.8rem 0.4rem 2.2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      color: var(--text-color);
+      font-size: 0.88rem;
+      outline: none;
+    }
+
+    .drawer-search input:focus {
+      border-color: var(--primary-color);
+    }
+
+    .drawer-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0.8rem 0.6rem;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .drawer-category-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted-text);
+      margin: 1rem 0 0.4rem 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
     .drawer-item {
       padding: 0.65rem 0.8rem;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: space-between;
       transition: all 0.15s ease;
       margin-bottom: 3px;
-      font-size: 0.92rem;
+      font-size: 0.88rem;
+      min-height: 40px;
+      touch-action: manipulation;
     }
+
+    .drawer-item:active {
+      transform: scale(0.98);
+    }
+
     .drawer-item:hover {
-      background: rgba(230, 57, 70, 0.12);
+      background: var(--surface-hover);
       color: var(--primary-color);
     }
+
     .drawer-item.active {
       background: var(--primary-color);
-      color: #ffffff;
+      color: #ffffff !important;
       font-weight: 700;
+    }
+
+    /* ============================================================
+       7. BOTÓN FLOTANTE (FAB) VOLVER ARRIBA
+       ============================================================ */
+    .fab-scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+      cursor: pointer;
+      font-size: 1.3rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1500;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(15px);
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .fab-scroll-top.visible {
+      opacity: 0.95;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .fab-scroll-top:active {
+      transform: scale(0.92);
     }
 
     footer {
       background-color: var(--header-bg);
       color: var(--footer-text);
       text-align: center;
-      padding: 3rem 1rem 2rem;
-      margin-top: 3rem;
-      font-size: 0.95rem;
-      font-family: sans-serif;
+      padding: 2.2rem 1rem 2rem;
+      margin-top: 2.5rem;
+      font-size: 0.88rem;
       border-top: 1px solid var(--border-color);
     }
 
@@ -662,18 +980,80 @@ htmlParts.push(`<!DOCTYPE html>
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    @keyframes slideUp {
+    @keyframes slideUpMobile {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes slideUpDesktop {
       from { transform: translateY(20px) scale(0.97); opacity: 0; }
       to { transform: translateY(0) scale(1); opacity: 1; }
     }
 
-    @media (max-width: 600px) {
-      .toolbar-container {
-        flex-direction: column;
-        align-items: stretch;
+    /* ============================================================
+       8. PROGRESSIVE ENHANCEMENT: TABLETS & DESKTOPS
+       ============================================================ */
+    @media (min-width: 640px) {
+      .app-header {
+        padding: 2rem 1.5rem 1.4rem;
       }
-      .toolbar-group {
-        justify-content: center;
+      .app-title {
+        font-size: 2.2rem;
+      }
+      .mass-title {
+        font-size: 1.3rem;
+      }
+      .toolbar-label {
+        display: inline-block;
+      }
+      main {
+        padding: 0 1rem;
+        margin: 1.5rem auto 3rem;
+      }
+      .mass-section {
+        padding: 1.8rem 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+      }
+      .section-title {
+        font-size: 1.55rem;
+      }
+      .part-title {
+        font-size: 1.22rem;
+      }
+      .igmr-modal-backdrop {
+        align-items: center; /* Centrado en pantallas medianas */
+        padding: 1.5rem;
+      }
+      .igmr-modal-box {
+        border-radius: 14px;
+        max-width: 720px;
+        max-height: 85vh;
+        animation: slideUpDesktop 0.25s ease-out;
+      }
+    }
+
+    @media (min-width: 920px) {
+      .toolbar-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .toolbar-row-primary {
+        width: auto;
+        flex: 1.5;
+      }
+      .toolbar-row-secondary {
+        width: auto;
+        flex: 1;
+        justify-content: flex-end;
+        gap: 0.75rem;
+      }
+      .mass-section {
+        padding: 2.2rem 2.2rem;
+      }
+      .liturgy-drawer {
+        width: 380px;
       }
     }
   </style>
@@ -682,51 +1062,90 @@ htmlParts.push(`<!DOCTYPE html>
 
   <!-- Drawer Lateral del Índice Litúrgico -->
   <div id="drawerBackdrop" class="liturgy-drawer-backdrop" onclick="toggleDrawer(false)"></div>
-  <aside id="liturgyDrawer" class="liturgy-drawer">
+  <aside id="liturgyDrawer" class="liturgy-drawer" aria-label="Índice Litúrgico">
     <div class="drawer-header">
-      <h3 style="color: var(--primary-color); margin: 0; font-size: 1.2rem;">📑 Índice del Misal Romano</h3>
-      <button class="igmr-modal-close" onclick="toggleDrawer(false)">&times;</button>
+      <div class="drawer-title-group">
+        <span class="drawer-icon">📑</span>
+        <h3 class="drawer-title">Índice del Misal Romano</h3>
+      </div>
+      <button class="drawer-close-btn" onclick="toggleDrawer(false)" aria-label="Cerrar índice">&times;</button>
     </div>
     <div class="drawer-search">
-      <input type="text" id="drawerSearchInput" placeholder="Buscar misa o domingo..." oninput="filterDrawer()">
+      <div class="search-input-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="search" id="drawerSearchInput" placeholder="Buscar misa, domingo, fiesta..." oninput="filterDrawer()" autocomplete="off">
+      </div>
     </div>
     <div class="drawer-content" id="drawerList">
       <!-- Generado dinámicamente -->
     </div>
   </aside>
 
-  <header>
-    <h1>MISAL ROMANO</h1>
-    <h2 id="headerMassTitle" style="font-size: 1.35rem; color: var(--text-color); margin-top: 0.3rem;">Primer Domingo del Tiempo Ordinario</h2>
-    <div id="headerSeasonBadge" class="liturgical-badge" style="background: #16a34a; color: #fff;">Tiempo Ordinario</div>
-    <p style="font-size: 0.95rem; opacity: 0.85; margin-top: 0.6rem;">Con la Instrucción General del Misal Romano (IGMR) Íntegra (nn. 1 al 399)</p>
+  <!-- Encabezado Principal -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="header-cross">✠</div>
+      <h1 class="app-title">MISAL ROMANO</h1>
+      <h2 id="headerMassTitle" class="mass-title">Primer Domingo del Tiempo Ordinario</h2>
+      <div class="badge-wrapper">
+        <span id="headerSeasonBadge" class="liturgical-badge">Tiempo Ordinario</span>
+      </div>
+      <p class="header-subtitle">Instrucción General del Misal Romano (IGMR) Íntegra (nn. 1 al 399)</p>
+    </div>
   </header>
 
-  <div class="toolbar-container">
-    <div class="toolbar-group">
-      <button class="btn-primary-action" onclick="toggleDrawer(true)" title="Abrir Índice de Todas las Misas">📑 Índice de Misas</button>
-      <select id="quickMassSelect" onchange="selectMass(this.value)" title="Seleccionar Misa"></select>
-      <select id="quickPrayerSelect" onchange="selectPrayer(this.value)" title="Seleccionar Plegaria Eucarística">
-        <option value="1">Plegaria I (Canon Romano)</option>
-        <option value="2" selected>Plegaria II</option>
-        <option value="3">Plegaria III</option>
-        <option value="4">Plegaria IV</option>
-      </select>
-    </div>
+  <!-- Barra de Herramientas Flotante / Sticky Mobile-First -->
+  <nav class="toolbar-nav" aria-label="Herramientas del Misal">
+    <div class="toolbar-container">
+      <!-- Fila Superior en Móvil: Navegación de Misas y Plegarias -->
+      <div class="toolbar-row toolbar-row-primary">
+        <button type="button" class="btn-drawer-toggle" onclick="toggleDrawer(true)" title="Abrir Catálogo de Misas">
+          <span class="btn-icon">📑</span>
+          <span class="btn-text">Índice</span>
+        </button>
+        <div class="select-wrapper select-mass-wrapper">
+          <label for="quickMassSelect" class="sr-only">Seleccionar Misa</label>
+          <select id="quickMassSelect" onchange="selectMass(this.value)" title="Seleccionar Misa"></select>
+        </div>
+        <div class="select-wrapper select-prayer-wrapper">
+          <label for="quickPrayerSelect" class="sr-only">Plegaria Eucarística</label>
+          <select id="quickPrayerSelect" onchange="selectPrayer(this.value)" title="Seleccionar Plegaria Eucarística">
+            <option value="1">Plegaria I</option>
+            <option value="2" selected>Plegaria II</option>
+            <option value="3">Plegaria III</option>
+            <option value="4">Plegaria IV</option>
+          </select>
+        </div>
+      </div>
 
-    <div class="toolbar-group">
-      <span class="toolbar-label">Letra:</span>
-      <button onclick="changeFontSize(-1)" title="Reducir letra">A -</button>
-      <button onclick="resetFontSize()" title="Restablecer letra">A</button>
-      <button onclick="changeFontSize(1)" title="Aumentar letra">A +</button>
-    </div>
+      <!-- Fila Inferior en Móvil: Herramientas de Lectura (Letra, Tema, IGMR) -->
+      <div class="toolbar-row toolbar-row-secondary">
+        <div class="toolbar-tool-group font-controls">
+          <span class="toolbar-label">Letra:</span>
+          <button type="button" class="btn-tool" onclick="changeFontSize(-1)" title="Reducir tamaño de letra" aria-label="Reducir letra">A-</button>
+          <button type="button" class="btn-tool btn-font-reset" onclick="resetFontSize()" title="Tamaño por defecto" aria-label="Restablecer letra">A</button>
+          <button type="button" class="btn-tool" onclick="changeFontSize(1)" title="Aumentar tamaño de letra" aria-label="Aumentar letra">A+</button>
+        </div>
 
-    <div class="toolbar-group">
-      <button id="themeToggle" onclick="toggleTheme()" title="Cambiar Tema">☀️ Modo Claro</button>
-      <button onclick="toggleAllDetails(true)" title="Expandir IGMR">Expandir IGMR</button>
-      <button onclick="toggleAllDetails(false)" title="Colapsar IGMR">Colapsar IGMR</button>
+        <div class="toolbar-tool-group view-controls">
+          <button type="button" id="themeToggle" class="btn-tool btn-theme" onclick="toggleTheme()" title="Cambiar tema claro/oscuro">
+            <span class="theme-icon">☀️</span> <span class="theme-label">Claro</span>
+          </button>
+          <div class="igmr-toggle-buttons">
+            <button type="button" class="btn-tool btn-igmr-toggle" onclick="toggleAllDetails(true)" title="Expandir todas las instrucciones IGMR">
+              <span>+</span> IGMR
+            </button>
+            <button type="button" class="btn-tool btn-igmr-toggle" onclick="toggleAllDetails(false)" title="Colapsar todas las instrucciones IGMR">
+              <span>−</span> IGMR
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </nav>
+
+  <!-- Botón flotante para volver arriba (FAB) -->
+  <button id="fabScrollTop" class="fab-scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Volver al inicio" aria-label="Volver arriba">↑</button>
 
   <main id="content">
 `);
@@ -1152,11 +1571,12 @@ const scriptBlock = `
     }
 
     function updateThemeButton(theme) {
+      if (!themeToggleBtn) return;
       if (theme === 'dark') {
-        themeToggleBtn.innerHTML = '☀️ Modo Claro';
+        themeToggleBtn.innerHTML = '<span class="theme-icon">☀️</span> <span class="theme-label">Claro</span>';
         themeToggleBtn.title = 'Cambiar a Modo Claro';
       } else {
-        themeToggleBtn.innerHTML = '🌙 Modo Oscuro';
+        themeToggleBtn.innerHTML = '<span class="theme-icon">🌙</span> <span class="theme-label">Oscuro</span>';
         themeToggleBtn.title = 'Cambiar a Modo Oscuro';
       }
     }
@@ -1179,6 +1599,17 @@ const scriptBlock = `
         updateThemeButton('dark');
       }
     })();
+
+    // Control de scroll para el botón flotante (FAB)
+    window.addEventListener('scroll', () => {
+      const fab = document.getElementById('fabScrollTop');
+      if (!fab) return;
+      if (window.scrollY > 300) {
+        fab.classList.add('visible');
+      } else {
+        fab.classList.remove('visible');
+      }
+    });
 
     function toggleAllDetails(openState) {
       const allDetails = document.querySelectorAll('details');
