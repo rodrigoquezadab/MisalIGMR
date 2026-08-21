@@ -1721,7 +1721,7 @@ const scriptBlock = `
       });
     }
 
-    function selectMass(massId) {
+    function selectMass(massId, explicitPrayer = null) {
       const m = liturgiaData.misas.find(x => x.id === massId) || liturgiaData.misas[0];
       currentMassId = m.id;
       document.getElementById('quickMassSelect').value = m.id;
@@ -1797,16 +1797,37 @@ const scriptBlock = `
       document.getElementById('dyn-antifona-comunion').innerHTML = '<p><strong>Antífona de Comunión:</strong> ' + m.antifonaComunion + '</p>';
       document.getElementById('dyn-postcomunion').innerHTML = '<p><strong>Oración después de la Comunión:</strong> ' + m.postcomunion + '</p>';
 
+      // Actualizar opciones del selector de Plegaria indicando la más adecuada según la IGMR 365
+      const rec = m.plegariaRecomendada || "3";
+      const prayerSelect = document.getElementById('quickPrayerSelect');
+      if (prayerSelect) {
+        prayerSelect.options[0].text = "Plegaria I" + (rec === "1" ? " ★ (Recomendada IGMR 365a)" : "");
+        prayerSelect.options[1].text = "Plegaria II" + (rec === "2" ? " ★ (Recomendada IGMR 365b)" : "");
+        prayerSelect.options[2].text = "Plegaria III" + (rec === "3" ? " ★ (Recomendada IGMR 365c)" : "");
+        prayerSelect.options[3].text = "Plegaria IV" + (rec === "4" ? " ★ (Recomendada IGMR 365d)" : "");
+      }
+
+      // Conmutar a la plegaria litúrgicamente más adecuada para el día
+      const chosenPrayer = explicitPrayer || rec;
+      selectPrayer(chosenPrayer);
+
       localStorage.setItem('misal-mass-id', m.id);
     }
 
     function selectPrayer(prayerId) {
       currentPrayerId = prayerId;
       document.getElementById('quickPrayerSelect').value = prayerId;
-      const pl = liturgiaData.plegarias[prayerId] || liturgiaData.plegarias["2"];
+      const pl = liturgiaData.plegarias[prayerId] || liturgiaData.plegarias["3"];
       const container = document.getElementById('dyn-plegaria-body');
 
+      const m = liturgiaData.misas.find(x => x.id === currentMassId);
+      const isRec = m && (m.plegariaRecomendada === prayerId);
+      const recBadge = isRec 
+        ? ('<div style="margin-bottom:0.8rem;"><span class="liturgical-badge" style="background: var(--primary-color); color:#fff; font-size:0.75rem; border:none;">★ ' + (m.plegariaMotivo || 'Aconsejada para hoy según IGMR n. 365') + '</span></div>')
+        : '';
+
       let html = '<div class="prayer-text" style="border-left-color: var(--primary-color); margin-top: 1.5rem;">';
+      html += recBadge;
       html += '<h4 style="color: var(--primary-color); margin-bottom: 0.3rem;">' + pl.nombre + '</h4>';
       html += '<p class="rubric" style="margin-bottom: 1rem;">' + pl.descripcion + '</p>';
 
@@ -1829,9 +1850,7 @@ const scriptBlock = `
     window.addEventListener('DOMContentLoaded', () => {
       populateSelectors();
       const savedMass = localStorage.getItem('misal-mass-id') || 'to-1';
-      const savedPrayer = localStorage.getItem('misal-prayer-id') || '2';
       selectMass(savedMass);
-      selectPrayer(savedPrayer);
     });
 
     window.addEventListener('keydown', (e) => {

@@ -1677,6 +1677,25 @@ domingosOrdinario.forEach(d => {
   });
 });
 
+// Asignación litúrgica de Plegaria recomendada según la IGMR n. 365
+const canonRomanoIds = new Set([
+  'nav-vigilia', 'nav-noche', 'nav-aurora', 'nav-dia', 'nav-madre-dios', 'nav-epifania',
+  'cua-ramos', 'pas-jueves-santo', 'pas-vigilia', 'pas-dia', 'pas-ascension', 'pas-pentecostes'
+]);
+
+misasDB.forEach(m => {
+  if (canonRomanoIds.has(m.id)) {
+    m.plegariaRecomendada = "1";
+    m.plegariaMotivo = "IGMR 365 a: Canon Romano por solemnidad con partes propias";
+  } else if (m.id === 'cua-ceniza') {
+    m.plegariaRecomendada = "2";
+    m.plegariaMotivo = "IGMR 365 b: Plegaria II aconsejada para días entre semana/ferias";
+  } else {
+    m.plegariaRecomendada = "3";
+    m.plegariaMotivo = "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas";
+  }
+});
+
 const fullData = {
   plegarias: plegariasEucaristicas,
   prefacios: prefaciosLiturgicos,

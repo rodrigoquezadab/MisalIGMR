@@ -553,7 +553,9 @@
       "ofrendas": "Acepta, Señor, estos dones que recibimos de tu generosidad y ahora te presentamos; concédenos que la celebración fervorosa de estos misterios en el tiempo presente sea para nosotros prenda de redención eterna. Por Jesucristo, nuestro Señor.",
       "prefacioId": "adv-1",
       "antifonaComunion": "El Señor nos dará la lluvia y nuestra tierra dará su fruto. (Sal 84, 13)",
-      "postcomunion": "Te pedimos, Señor, que nos aproveche la participación en estos sacramentos con los que nos enseñas a valorar los bienes del cielo y a buscar los que duran para siempre en medio de las realidades pasajeras de este mundo. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Te pedimos, Señor, que nos aproveche la participación en estos sacramentos con los que nos enseñas a valorar los bienes del cielo y a buscar los que duran para siempre en medio de las realidades pasajeras de este mundo. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "adv-2",
@@ -591,7 +593,9 @@
       "ofrendas": "Que las súplicas y las ofrendas de nuestra pobreza te conmuevan, Señor, y, al vernos desprovistos de méritos propios, socórrenos con el auxilio de tu misericordia. Por Jesucristo, nuestro Señor.",
       "prefacioId": "adv-1",
       "antifonaComunion": "Levántate, Jerusalén, ponte en pie en la altura y contempla el gozo que te viene de tu Dios. (Bar 5, 5; 4, 36)",
-      "postcomunion": "Saciados con este alimento espiritual, te suplicamos, Señor, que nos enseñes a valorar las realidades de la tierra según la sabiduría de la cruz y a poner nuestro corazón en los bienes del cielo. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Saciados con este alimento espiritual, te suplicamos, Señor, que nos enseñes a valorar las realidades de la tierra según la sabiduría de la cruz y a poner nuestro corazón en los bienes del cielo. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "adv-3",
@@ -629,7 +633,9 @@
       "ofrendas": "Que este sacrificio, Señor, ofrecido sin cesar en tu presencia, realice plenamente el misterio instituido y actúe con eficacia en nosotros tu salvación. Por Jesucristo, nuestro Señor.",
       "prefacioId": "adv-2",
       "antifonaComunion": "Decid a los cobardes de corazón: «Sed fuertes, no temáis; mirad a vuestro Dios que viene a salvaros». (Cfr. Is 35, 4)",
-      "postcomunion": "Imploramos, Señor, tu clemencia, para que este sacramento divino nos purifique de nuestros pecados y nos disponga para las fiestas que se acercan. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Imploramos, Señor, tu clemencia, para que este sacramento divino nos purifique de nuestros pecados y nos disponga para las fiestas que se acercan. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "adv-4",
@@ -667,7 +673,9 @@
       "ofrendas": "Que el mismo Espíritu Santo que santificó el seno virginal de María santifique, Señor, estos dones que hemos colocado sobre tu altar. Por Jesucristo, nuestro Señor.",
       "prefacioId": "adv-2",
       "antifonaComunion": "Mirad: la Virgen concebirá y dará a luz un hijo, y le pondrá por nombre Emmanuel. (Is 7, 14)",
-      "postcomunion": "Habiendo recibido la prenda de la redención eterna, te pedimos, Dios todopoderoso, que, cuanto más se acerca el día de nuestra salvación, con mayor fervor nos preparemos para celebrar dignamente el misterio del nacimiento de tu Hijo. Que vive y reina por los siglos de los siglos."
+      "postcomunion": "Habiendo recibido la prenda de la redención eterna, te pedimos, Dios todopoderoso, que, cuanto más se acerca el día de nuestra salvación, con mayor fervor nos preparemos para celebrar dignamente el misterio del nacimiento de tu Hijo. Que vive y reina por los siglos de los siglos.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "nav-vigilia",
@@ -705,7 +713,9 @@
       "ofrendas": "Al celebrar la víspera de la fiesta de nuestra redención, te pedimos, Señor, que nos concedas presentarnos con corazón puro a la sagrada mesa y festejar con fervor la encarnación de tu Hijo. Por Jesucristo, nuestro Señor.",
       "prefacioId": "nav-1",
       "antifonaComunion": "Se manifestará la gloria del Señor y todos los hombres verán la salvación de Dios. (Cfr. Is 40, 5)",
-      "postcomunion": "Concédenos, Señor, renovar nuestra vida al celebrar el nacimiento de tu Hijo unigénito, cuya celestial liturgia es para nosotros manantial inagotable de gracia. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Concédenos, Señor, renovar nuestra vida al celebrar el nacimiento de tu Hijo unigénito, cuya celestial liturgia es para nosotros manantial inagotable de gracia. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "1",
+      "plegariaMotivo": "IGMR 365 a: Canon Romano por solemnidad con partes propias"
     },
     {
       "id": "nav-noche",
@@ -743,7 +753,9 @@
       "ofrendas": "Acepta, Señor, la ofrenda de la fiesta de hoy, y concédenos, por este santo intercambio de dones, que nos configuremos con Cristo, en quien nuestra sustancia mortal se une a tu divinidad. Por Jesucristo, nuestro Señor.",
       "prefacioId": "nav-1",
       "antifonaComunion": "La Palabra se hizo carne y contemplamos su gloria. (Jn 1, 14)",
-      "postcomunion": "Señor y Dios nuestro, concede a los que celebramos con gozo el nacimiento de nuestro Redentor que, por una vida santa, merezcamos gozar de su presencia en el cielo. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Señor y Dios nuestro, concede a los que celebramos con gozo el nacimiento de nuestro Redentor que, por una vida santa, merezcamos gozar de su presencia en el cielo. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "1",
+      "plegariaMotivo": "IGMR 365 a: Canon Romano por solemnidad con partes propias"
     },
     {
       "id": "nav-aurora",
@@ -780,7 +792,9 @@
       "ofrendas": "Que nuestros dones, Señor, sean dignos de los misterios de la Natividad que hoy celebramos, para que, así como el recién nacido resplandeció como Dios y como hombre, este fruto de la tierra nos confiera lo que es divino. Por Jesucristo, nuestro Señor.",
       "prefacioId": "nav-2",
       "antifonaComunion": "Alégrate, hija de Sión; canta jubiloso, pueblo de Jerusalén: mira a tu Rey que viene a ti, Santo y Salvador del mundo. (Cfr. Zac 9, 9)",
-      "postcomunion": "Te pedimos, Señor, que la fiesta entrañable del nacimiento de tu Hijo restaure siempre nuestras fuerzas, a cuantos celebramos con devoción su admirable misterio. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Te pedimos, Señor, que la fiesta entrañable del nacimiento de tu Hijo restaure siempre nuestras fuerzas, a cuantos celebramos con devoción su admirable misterio. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "1",
+      "plegariaMotivo": "IGMR 365 a: Canon Romano por solemnidad con partes propias"
     },
     {
       "id": "nav-dia",
@@ -818,7 +832,9 @@
       "ofrendas": "Santifica, Señor, nuestras ofrendas en la fiesta del nacimiento de tu Hijo, y haz que, por este santo intercambio de dones, seamos purificados de nuestros pecados. Por Jesucristo, nuestro Señor.",
       "prefacioId": "nav-1",
       "antifonaComunion": "Todos los confines de la tierra han contemplado la salvación de nuestro Dios. (Sal 97, 3)",
-      "postcomunion": "Dios misericordioso, que el Salvador del mundo, nacido en este día para ser autor de nuestro nacimiento divino, sea también el autor de nuestra inmortalidad. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Dios misericordioso, que el Salvador del mundo, nacido en este día para ser autor de nuestro nacimiento divino, sea también el autor de nuestra inmortalidad. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "1",
+      "plegariaMotivo": "IGMR 365 a: Canon Romano por solemnidad con partes propias"
     },
     {
       "id": "nav-sagrada-familia",
@@ -856,7 +872,9 @@
       "ofrendas": "Te ofrecemos, Señor, este sacrificio de reconciliación, y te suplicamos humildemente que, por la intercesión de la Virgen Madre de Dios y de san José, establezcas firmemente a nuestras familias en tu gracia y en tu paz. Por Jesucristo, nuestro Señor.",
       "prefacioId": "sagrada-familia",
       "antifonaComunion": "Nuestro Dios ha aparecido en el mundo y ha vivido entre los hombres. (Bar 3, 38)",
-      "postcomunion": "Padre clementísimo, haz que los que hemos sido alimentados con este sacramento celestial imitemos constantemente los ejemplos de la Sagrada Familia, para que, tras las dificultades de esta vida, consigamos la eterna compañía de Cristo. Que vive y reina por los siglos de los siglos."
+      "postcomunion": "Padre clementísimo, haz que los que hemos sido alimentados con este sacramento celestial imitemos constantemente los ejemplos de la Sagrada Familia, para que, tras las dificultades de esta vida, consigamos la eterna compañía de Cristo. Que vive y reina por los siglos de los siglos.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "nav-maria-madre",
@@ -894,7 +912,9 @@
       "ofrendas": "Señor Dios, que con bondad comienzas y llevas a término todo bien, concédenos que, al celebrar llenos de gozo la fiesta de la Santa Madre de Dios, nos gloriemos de las primicias de tu gracia y alcancemos su plenitud. Por Jesucristo, nuestro Señor.",
       "prefacioId": "santa-maria",
       "antifonaComunion": "Jesucristo es el mismo ayer y hoy y siempre. (Heb 13, 8)",
-      "postcomunion": "Señor, hemos recibido con alegría los sacramentos celestiales; concédenos que nos sirvan para la vida eterna a cuantos nos gloriamos de proclamar a la siempre Virgen María como Madre de tu Hijo y Madre de la Iglesia. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Señor, hemos recibido con alegría los sacramentos celestiales; concédenos que nos sirvan para la vida eterna a cuantos nos gloriamos de proclamar a la siempre Virgen María como Madre de tu Hijo y Madre de la Iglesia. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "nav-epifania",
@@ -932,7 +952,9 @@
       "ofrendas": "Mira con bondad, Señor, los dones de tu Iglesia, que no son ya oro, incienso y mirra, sino lo que en esos dones se manifiesta, se inmola y se toma como alimento: Jesucristo, tu Hijo. Que vive y reina por los siglos de los siglos.",
       "prefacioId": "epifania",
       "antifonaComunion": "Hemos visto su estrella en el oriente y venimos con dones a adorar al Señor. (Cfr. Mt 2, 2)",
-      "postcomunion": "Que tu luz celestial nos guíe siempre y en todo lugar, Señor, para que contemplemos con ojos limpios y recibamos con amor sincero el misterio de cuya participación nos has hecho dignos. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Que tu luz celestial nos guíe siempre y en todo lugar, Señor, para que contemplemos con ojos limpios y recibamos con amor sincero el misterio de cuya participación nos has hecho dignos. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "1",
+      "plegariaMotivo": "IGMR 365 a: Canon Romano por solemnidad con partes propias"
     },
     {
       "id": "nav-bautismo",
@@ -970,7 +992,9 @@
       "ofrendas": "Acepta, Señor, los dones que te presentamos en la manifestación de tu Hijo amado, para que la oblación de tus siervos se transforme en el sacrificio de aquel que quiso en su misericordia lavar los pecados del mundo. Por Jesucristo, nuestro Señor.",
       "prefacioId": "bautismo",
       "antifonaComunion": "Éste es aquel de quien decía Juan: «Yo lo he visto y he dado testimonio de que éste es el Hijo de Dios». (Jn 1, 32. 34)",
-      "postcomunion": "Saciados con este sagrado alimento, imploramos con devoción tu clemencia, Señor, para que, escuchando fielmente a tu Unigénito, seamos llamados y seamos de verdad hijos tuyos. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Saciados con este sagrado alimento, imploramos con devoción tu clemencia, Señor, para que, escuchando fielmente a tu Unigénito, seamos llamados y seamos de verdad hijos tuyos. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "cua-ceniza",
@@ -1008,7 +1032,9 @@
       "ofrendas": "Al ofrecerte este sacrificio solemne al comienzo de la Cuaresma, te suplicamos, Señor, que, por las obras de penitencia y caridad, dominemos las malas pasiones y, limpios de pecado, merezcamos celebrar con fervor la pasión de tu Hijo. Que vive y reina por los siglos de los siglos.",
       "prefacioId": "cua-1",
       "antifonaComunion": "El que medita la ley del Señor día y noche, da fruto en su sazón. (Cfr. Sal 1, 2-3)",
-      "postcomunion": "Que este sacramento que hemos recibido, Señor, nos sirva de ayuda para que nuestro ayuno sea agradable a tus ojos y provechoso para la curación de nuestras almas. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Que este sacramento que hemos recibido, Señor, nos sirva de ayuda para que nuestro ayuno sea agradable a tus ojos y provechoso para la curación de nuestras almas. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "2",
+      "plegariaMotivo": "IGMR 365 b: Plegaria II aconsejada para días entre semana/ferias"
     },
     {
       "id": "cua-1",
@@ -1046,7 +1072,9 @@
       "ofrendas": "Te pedimos, Señor, que nos hagas dignos de ofrecerte estos dones, con los que celebramos el inicio de este sacramento venerable. Por Jesucristo, nuestro Señor.",
       "prefacioId": "cua-1",
       "antifonaComunion": "No sólo de pan vive el hombre, sino de toda palabra que sale de la boca de Dios. (Mt 4, 4)",
-      "postcomunion": "Saciados con este pan del cielo que nutre la fe, consolida la esperanza y fortalece la caridad, te pedimos, Señor, que nos enseñes a tener hambre de aquel que es el pan vivo y verdadero, y a vivir de toda palabra que sale de tu boca. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Saciados con este pan del cielo que nutre la fe, consolida la esperanza y fortalece la caridad, te pedimos, Señor, que nos enseñes a tener hambre de aquel que es el pan vivo y verdadero, y a vivir de toda palabra que sale de tu boca. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "cua-2",
@@ -1084,7 +1112,9 @@
       "ofrendas": "Te pedimos, Señor, que estas ofrendas borren nuestros pecados y santifiquen los cuerpos y las almas de tus fieles para celebrar con fruto las fiestas pascuales. Por Jesucristo, nuestro Señor.",
       "prefacioId": "cua-transf",
       "antifonaComunion": "Éste es mi Hijo amado, en quien me complazco; escuchadlo. (Mt 17, 5)",
-      "postcomunion": "Te damos gracias, Señor, porque al participar en estos gloriosos misterios nos permites pregustar ya en la tierra los bienes celestiales. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Te damos gracias, Señor, porque al participar en estos gloriosos misterios nos permites pregustar ya en la tierra los bienes celestiales. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "cua-3",
@@ -1122,7 +1152,9 @@
       "ofrendas": "Por este sacrificio de reconciliación, concédenos, Señor, que, al pedir perdón por nuestras faltas, perdonemos sinceramente a nuestros hermanos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "cua-2",
       "antifonaComunion": "El que beba del agua que yo le daré —dice el Señor— tendrá en su interior un manantial de agua que salta hasta la vida eterna. (Jn 4, 13-14)",
-      "postcomunion": "Alimentados ya en la tierra con el pan del cielo, prenda de salvación futura, te pedimos, Señor, que manifiestes plenamente en nuestra vida el misterio celebrado. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Alimentados ya en la tierra con el pan del cielo, prenda de salvación futura, te pedimos, Señor, que manifiestes plenamente en nuestra vida el misterio celebrado. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "cua-4",
@@ -1160,7 +1192,9 @@
       "ofrendas": "Te presentamos, Señor, con gozo estos dones para el sacrificio eterno, pidiéndote la gracia de celebrarlo con fe sincera y ofrecerlo dignamente por la salvación del mundo. Por Jesucristo, nuestro Señor.",
       "prefacioId": "cua-1",
       "antifonaComunion": "El Señor ungió mis ojos: fui, me lavé, vi y creí en Dios. (Cfr. Jn 9, 11. 38)",
-      "postcomunion": "Señor Dios, luz que ilumina a todo hombre que viene a este mundo, alumbra nuestros corazones con el resplandor de tu gracia, para que nuestros pensamientos sean siempre dignos de ti y podamos amarte con sincero corazón. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Señor Dios, luz que ilumina a todo hombre que viene a este mundo, alumbra nuestros corazones con el resplandor de tu gracia, para que nuestros pensamientos sean siempre dignos de ti y podamos amarte con sincero corazón. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "cua-5",
@@ -1198,7 +1232,9 @@
       "ofrendas": "Escúchanos, Dios todopoderoso, y, por la eficacia de este sacrificio, purifica a tus siervos a quienes has instruido en la fe cristiana. Por Jesucristo, nuestro Señor.",
       "prefacioId": "cua-2",
       "antifonaComunion": "Todo el que vive y cree en mí no morirá para siempre —dice el Señor—. (Jn 11, 26)",
-      "postcomunion": "Te pedimos, Dios todopoderoso, que nos cuentes siempre entre los miembros de Cristo, cuyo Cuerpo y Sangre hemos recibido. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Te pedimos, Dios todopoderoso, que nos cuentes siempre entre los miembros de Cristo, cuyo Cuerpo y Sangre hemos recibido. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "cua-ramos",
@@ -1236,7 +1272,9 @@
       "ofrendas": "Por la pasión de tu Hijo unigénito apresura, Señor, el momento de nuestra reconciliación, y concédenos alcanzar por este único y admirable sacrificio la misericordia que no merecen nuestras obras. Por Jesucristo, nuestro Señor.",
       "prefacioId": "cua-ramos",
       "antifonaComunion": "Padre mío, si no es posible que este cáliz pase sin que yo lo beba, hágase tu voluntad. (Mt 26, 42)",
-      "postcomunion": "Saciados con estos dones santos, te pedimos, Señor, que, así como nos has fortalecido en la esperanza de los bienes eternos por la muerte de tu Hijo, nos hagas llegar a la meta deseada por su gloriosa resurrección. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Saciados con estos dones santos, te pedimos, Señor, que, así como nos has fortalecido en la esperanza de los bienes eternos por la muerte de tu Hijo, nos hagas llegar a la meta deseada por su gloriosa resurrección. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "1",
+      "plegariaMotivo": "IGMR 365 a: Canon Romano por solemnidad con partes propias"
     },
     {
       "id": "cua-jueves-santo",
@@ -1274,7 +1312,9 @@
       "ofrendas": "Concédenos, Señor, participar dignamente en estos misterios, pues cada vez que se celebra el memorial de este sacrificio se realiza la obra de nuestra redención. Por Jesucristo, nuestro Señor.",
       "prefacioId": "jueves-santo",
       "antifonaComunion": "Éste es mi cuerpo que se entrega por vosotros; éste es el cáliz de la nueva alianza en mi sangre —dice el Señor—; haced esto en memoria mía cuantas veces lo bebáis. (1 Cor 11, 24-25)",
-      "postcomunion": "Dios todopoderoso, concédenos que, así como somos alimentados en la tierra con la Cena de tu Hijo, merezcamos ser saciados en el banquete eterno del cielo. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Dios todopoderoso, concédenos que, así como somos alimentados en la tierra con la Cena de tu Hijo, merezcamos ser saciados en el banquete eterno del cielo. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "pas-vigilia",
@@ -1312,7 +1352,9 @@
       "ofrendas": "Acepta, Señor, las súplicas y ofrendas de tu pueblo, para que lo que ha comenzado en estos misterios pascuales nos sirva con tu auxilio de medicina para la eternidad. Por Jesucristo, nuestro Señor.",
       "prefacioId": "pas-1",
       "antifonaComunion": "Ha resucitado Cristo, nuestra Pascua: celebremos la fiesta con los panes ázimos de la sinceridad y la verdad, aleluya. (1 Cor 5, 7-8)",
-      "postcomunion": "Infunde en nosotros, Señor, el espíritu de tu caridad, para que vivan concordes en el amor los que has saciado con los sacramentos pascuales. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Infunde en nosotros, Señor, el espíritu de tu caridad, para que vivan concordes en el amor los que has saciado con los sacramentos pascuales. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "1",
+      "plegariaMotivo": "IGMR 365 a: Canon Romano por solemnidad con partes propias"
     },
     {
       "id": "pas-domingo",
@@ -1350,7 +1392,9 @@
       "ofrendas": "Rebosantes de gozo pascual, te ofrecemos, Señor, el sacrificio por el cual tu Iglesia de modo admirable renace y se alimenta. Por Jesucristo, nuestro Señor.",
       "prefacioId": "pas-1",
       "antifonaComunion": "Ha resucitado Cristo, nuestra Pascua, aleluya; celebremos la fiesta con los panes ázimos de la sinceridad y de la verdad, aleluya, aleluya. (1 Cor 5, 7-8)",
-      "postcomunion": "Protege con amor continuo, Dios todopoderoso, a tu Iglesia, para que, renovada por los sacramentos pascuales, llegue a la gloria de la resurrección. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Protege con amor continuo, Dios todopoderoso, a tu Iglesia, para que, renovada por los sacramentos pascuales, llegue a la gloria de la resurrección. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "pas-2",
@@ -1388,7 +1432,9 @@
       "ofrendas": "Recibe, Señor, las ofrendas de tu pueblo (y de los recién bautizados), y haz que, renovados por la confesión de tu nombre y por el bautismo, consigamos la felicidad eterna. Por Jesucristo, nuestro Señor.",
       "prefacioId": "pas-1",
       "antifonaComunion": "Acerca tu mano y palpa el lugar de los clavos, y no seas incrédulo, sino creyente, aleluya. (Cfr. Jn 20, 27)",
-      "postcomunion": "Concédenos, Dios todopoderoso, que la gracia recibida en este sacramento pascual permanezca siempre viva en nuestros corazones. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Concédenos, Dios todopoderoso, que la gracia recibida en este sacramento pascual permanezca siempre viva en nuestros corazones. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "pas-3",
@@ -1426,7 +1472,9 @@
       "ofrendas": "Recibe, Señor, las ofrendas de tu Iglesia exultante de júbilo, y ya que le diste motivo de tanto gozo, concédele disfrutar de la alegría eterna. Por Jesucristo, nuestro Señor.",
       "prefacioId": "pas-2",
       "antifonaComunion": "Era necesario que el Cristo padeciera y resucitara de entre los muertos al tercer día, y que en su nombre se predicara la conversión y el perdón de los pecados a todos los pueblos, aleluya. (Lc 24, 46. 47)",
-      "postcomunion": "Mira con bondad, Señor, a tu pueblo, y concédele alcanzar la gloria incorruptible de la resurrección a los que te has dignado renovar con estos misterios sagrados. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Mira con bondad, Señor, a tu pueblo, y concédele alcanzar la gloria incorruptible de la resurrección a los que te has dignado renovar con estos misterios sagrados. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "pas-4",
@@ -1464,7 +1512,9 @@
       "ofrendas": "Concédenos, Señor, vivir siempre llenos de gratitud por estos misterios pascuales que celebramos, para que la continua acción de tu gracia sea motivo de gozo incesante. Por Jesucristo, nuestro Señor.",
       "prefacioId": "pas-2",
       "antifonaComunion": "Ha resucitado el buen Pastor, que dio la vida por sus ovejas y se dignó morir por su grey, aleluya. (Misal Romano)",
-      "postcomunion": "Pastor bondadoso, vela con solicitud por tu grey y dígnate conducir a las verdes praderas de la vida eterna a las ovejas que redimiste con la sangre preciosa de tu Hijo. Que vive y reina por los siglos de los siglos."
+      "postcomunion": "Pastor bondadoso, vela con solicitud por tu grey y dígnate conducir a las verdes praderas de la vida eterna a las ovejas que redimiste con la sangre preciosa de tu Hijo. Que vive y reina por los siglos de los siglos.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "pas-5",
@@ -1502,7 +1552,9 @@
       "ofrendas": "Señor Dios, que por este santo intercambio de dones nos haces partícipes de tu suprema y única divinidad, concédenos que, así como hemos conocido tu verdad, la hagamos realidad con una conducta santa. Por Jesucristo, nuestro Señor.",
       "prefacioId": "pas-1",
       "antifonaComunion": "Yo soy la verdadera vid, y vosotros los sarmientos —dice el Señor—. El que permanece en mí y yo en él, ése da fruto abundante, aleluya. (Jn 15, 5)",
-      "postcomunion": "Acompáñanos, Señor, con tu auxilio bondadoso a los que has alimentado con los sacramentos celestiales, y haz que pasemos del hombre viejo al hombre nuevo en Cristo Jesús. Que vive y reina por los siglos de los siglos."
+      "postcomunion": "Acompáñanos, Señor, con tu auxilio bondadoso a los que has alimentado con los sacramentos celestiales, y haz que pasemos del hombre viejo al hombre nuevo en Cristo Jesús. Que vive y reina por los siglos de los siglos.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "pas-6",
@@ -1540,7 +1592,9 @@
       "ofrendas": "Suban a ti, Señor, nuestras súplicas con la ofrenda del sacrificio, para que, purificados por tu bondad, correspondamos a los sacramentos de tu inmenso amor. Por Jesucristo, nuestro Señor.",
       "prefacioId": "pas-2",
       "antifonaComunion": "Si me amáis, guardaréis mis mandamientos —dice el Señor—; y yo le pediré al Padre que os dé otro Consolador, que permanezca para siempre con vosotros, aleluya. (Jn 14, 15-16)",
-      "postcomunion": "Dios todopoderoso y eterno, que en la resurrección de Cristo nos has restaurado para la vida eterna, multiplica en nosotros los frutos del sacramento pascual e infunde en nuestros corazones la fuerza del alimento celestial. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Dios todopoderoso y eterno, que en la resurrección de Cristo nos has restaurado para la vida eterna, multiplica en nosotros los frutos del sacramento pascual e infunde en nuestros corazones la fuerza del alimento celestial. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "pas-ascension",
@@ -1578,7 +1632,9 @@
       "ofrendas": "Te ofrecemos con humildad, Señor, este sacrificio para celebrar la admirable ascensión de tu Hijo; concédenos, por este santo intercambio de dones, elevarnos con Cristo a los gozos celestiales. Por Jesucristo, nuestro Señor.",
       "prefacioId": "ascension",
       "antifonaComunion": "Mirad que yo estoy con vosotros todos los días, hasta el fin del mundo, aleluya. (Mt 28, 20)",
-      "postcomunion": "Dios todopoderoso y eterno, que concedes a la Iglesia en la tierra gustar ya de los misterios divinos, haz que el anhelo de nuestra patria celestial nos conduzca hacia Cristo, en quien nuestra naturaleza humana habita ya junto a ti. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Dios todopoderoso y eterno, que concedes a la Iglesia en la tierra gustar ya de los misterios divinos, haz que el anhelo de nuestra patria celestial nos conduzca hacia Cristo, en quien nuestra naturaleza humana habita ya junto a ti. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "1",
+      "plegariaMotivo": "IGMR 365 a: Canon Romano por solemnidad con partes propias"
     },
     {
       "id": "pas-7",
@@ -1616,7 +1672,9 @@
       "ofrendas": "Acepta, Señor, las oraciones y las ofrendas de tus fieles, y haz que este banquete de caridad nos una cada vez más estrechamente en el amor mutuo y en la adoración a tu Nombre. Por Jesucristo, nuestro Señor.",
       "prefacioId": "ascension",
       "antifonaComunion": "Padre, te ruego por ellos para que sean uno como nosotros somos uno, aleluya. (Cfr. Jn 17, 22)",
-      "postcomunion": "Escúchanos, Dios Salvador nuestro, y por estos sagrados misterios concédenos la firme esperanza de que todo el cuerpo de la Iglesia alcanzará la misma gloria que ya posee su Cabeza. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Escúchanos, Dios Salvador nuestro, y por estos sagrados misterios concédenos la firme esperanza de que todo el cuerpo de la Iglesia alcanzará la misma gloria que ya posee su Cabeza. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "pas-pentecostes",
@@ -1654,7 +1712,9 @@
       "ofrendas": "Te pedimos, Señor, que, según la promesa de tu Hijo, el Espíritu Santo nos haga comprender más profundamente la realidad misteriosa de este sacrificio y nos revele la plenitud de la verdad. Por Jesucristo, nuestro Señor.",
       "prefacioId": "pent-1",
       "antifonaComunion": "Se llenaron todos de Espíritu Santo y proclamaban las maravillas de Dios, aleluya. (Hch 2, 4. 11)",
-      "postcomunion": "Señor Dios, que comunicas a tu Iglesia los dones del cielo, conserva en nosotros la gracia que nos has dado, para que el Espíritu Santo sea siempre nuestra fuerza y este alimento espiritual nos sirva para la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Señor Dios, que comunicas a tu Iglesia los dones del cielo, conserva en nosotros la gracia que nos has dado, para que el Espíritu Santo sea siempre nuestra fuerza y este alimento espiritual nos sirva para la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "1",
+      "plegariaMotivo": "IGMR 365 a: Canon Romano por solemnidad con partes propias"
     },
     {
       "id": "to-trinidad",
@@ -1692,7 +1752,9 @@
       "ofrendas": "Santifica, Señor Dios nuestro, por la invocación de tu santo Nombre, estos dones de nuestra entrega, y transfórmanos por ellos en oblación eterna para ti. Por Jesucristo, nuestro Señor.",
       "prefacioId": "trinidad",
       "antifonaComunion": "Por ser vosotros hijos, Dios envió a vuestros corazones el Espíritu de su Hijo, que clama: «¡Abbá, Padre!». (Gál 4, 6)",
-      "postcomunion": "Señor y Dios nuestro, que la comunión en este sacramento y la profesión de nuestra fe en la eterna y santa Trinidad y en su indivisible Unidad nos aproveche para la salvación del cuerpo y del alma. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Señor y Dios nuestro, que la comunión en este sacramento y la profesión de nuestra fe en la eterna y santa Trinidad y en su indivisible Unidad nos aproveche para la salvación del cuerpo y del alma. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-corpus",
@@ -1730,7 +1792,9 @@
       "ofrendas": "Concede, Señor, a tu Iglesia los dones de la paz y de la unidad, místicamente significados en las ofrendas que te presentamos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "corpus",
       "antifonaComunion": "El que come mi carne y bebe mi sangre habita en mí y yo en él —dice el Señor—. (Jn 6, 57)",
-      "postcomunion": "Concédenos, Señor Jesucristo, saciarnos del gozo eterno de tu divinidad, que pregustamos en la recepción temporal de tu Cuerpo y de tu Sangre preciosísimos. Tú que vives y reinas por los siglos de los siglos."
+      "postcomunion": "Concédenos, Señor Jesucristo, saciarnos del gozo eterno de tu divinidad, que pregustamos en la recepción temporal de tu Cuerpo y de tu Sangre preciosísimos. Tú que vives y reinas por los siglos de los siglos.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-sagrado-corazon",
@@ -1768,7 +1832,9 @@
       "ofrendas": "Mira, Señor, el amor inefable del Corazón de tu Hijo amado, para que la ofrenda que te presentamos sea grata a tus ojos y sirva de expiación por nuestros pecados. Por Jesucristo, nuestro Señor.",
       "prefacioId": "sagrado-corazon",
       "antifonaComunion": "Dice el Señor: «El que tenga sed, que venga a mí y beba el que cree en mí; de sus entrañas manarán torrentes de agua viva». (Jn 7, 37-38)",
-      "postcomunion": "Que este sacramento de amor, Señor, encienda en nosotros el fuego de la caridad divina, para que, atraídos continuamente hacia tu Hijo, aprendamos a reconocerlo en nuestros hermanos. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Que este sacramento de amor, Señor, encienda en nosotros el fuego de la caridad divina, para que, atraídos continuamente hacia tu Hijo, aprendamos a reconocerlo en nuestros hermanos. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-1",
@@ -1806,7 +1872,9 @@
       "ofrendas": "Te pedimos, Señor, que te sea grata la ofrenda de tu pueblo, por la cual nos purificamos y alcanzamos lo que devotamente pedimos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-1",
       "antifonaComunion": "«Conmigo está la fuente de la vida, y en tu luz vemos la luz». (Sal 35, 10)",
-      "postcomunion": "Alimentados con estos dones celestiales, te suplicamos, Dios todopoderoso, que nos concedas servirte dignamente con una vida que te sea agradable. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Alimentados con estos dones celestiales, te suplicamos, Dios todopoderoso, que nos concedas servirte dignamente con una vida que te sea agradable. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-2",
@@ -1844,7 +1912,9 @@
       "ofrendas": "Concédenos, Señor, participar dignamente en estos misterios, pues cada vez que se celebra el memorial de este sacrificio se realiza la obra de nuestra redención. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-2",
       "antifonaComunion": "Nosotros hemos conocido el amor que Dios nos tiene y hemos creído en él. (1 Jn 4, 16)",
-      "postcomunion": "Infunde en nosotros, Señor, el espíritu de tu caridad, para que vivan concordes en el amor los que has saciado con un mismo pan del cielo. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Infunde en nosotros, Señor, el espíritu de tu caridad, para que vivan concordes en el amor los que has saciado con un mismo pan del cielo. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-3",
@@ -1882,7 +1952,9 @@
       "ofrendas": "Acepta benignamente, Señor, nuestras ofrendas y santifícalas, para que se conviertan en fuente de salvación para nosotros. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-3",
       "antifonaComunion": "Mirad al Señor y quedaréis radiantes; vuestro rostro no se avergonzará. (Sal 33, 6)",
-      "postcomunion": "Concédenos, Dios todopoderoso, que, al recibir tu gracia vivificadora en estos sacramentos, nos gloriemos siempre del don que nos haces. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Concédenos, Dios todopoderoso, que, al recibir tu gracia vivificadora en estos sacramentos, nos gloriemos siempre del don que nos haces. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-4",
@@ -1920,7 +1992,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-2",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-5",
@@ -1958,7 +2032,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-1",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-6",
@@ -1996,7 +2072,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-2",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-7",
@@ -2034,7 +2112,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-1",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-8",
@@ -2072,7 +2152,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-2",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-9",
@@ -2110,7 +2192,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-1",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-10",
@@ -2148,7 +2232,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-2",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-11",
@@ -2186,7 +2272,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-1",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-12",
@@ -2224,7 +2312,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-2",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-13",
@@ -2262,7 +2352,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-1",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-14",
@@ -2300,7 +2392,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-2",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-15",
@@ -2338,7 +2432,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-1",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-16",
@@ -2376,7 +2472,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-2",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-17",
@@ -2414,7 +2512,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-1",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-18",
@@ -2452,7 +2552,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-2",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-19",
@@ -2490,7 +2592,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-1",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-20",
@@ -2528,7 +2632,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-2",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-21",
@@ -2566,7 +2672,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-1",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-22",
@@ -2604,7 +2712,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-2",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-23",
@@ -2642,7 +2752,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-1",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-24",
@@ -2680,7 +2792,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-2",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-25",
@@ -2718,7 +2832,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-1",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-26",
@@ -2756,7 +2872,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-2",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-27",
@@ -2794,7 +2912,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-1",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-28",
@@ -2832,7 +2952,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-2",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-29",
@@ -2870,7 +2992,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-1",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-30",
@@ -2908,7 +3032,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-2",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-31",
@@ -2946,7 +3072,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-1",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-32",
@@ -2984,7 +3112,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-2",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-33",
@@ -3022,7 +3152,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "to-1",
       "antifonaComunion": "Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia. Señor, que no quede defraudado de haberte invocado. (Sal 30, 17-18)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     },
     {
       "id": "to-34",
@@ -3060,7 +3192,9 @@
       "ofrendas": "Acepta, Señor, estos dones que tu generosidad pone en nuestras manos para que te los ofrezcamos, y haz que la acción de tu gracia santifique nuestro vivir cotidiano y nos conduzca a los gozos eternos. Por Jesucristo, nuestro Señor.",
       "prefacioId": "rey-universo",
       "antifonaComunion": "El Señor se sienta como rey eterno; el Señor bendecirá a su pueblo con la paz. (Sal 28, 10-11)",
-      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor."
+      "postcomunion": "Habiendo participado en este sagrado banquete, te pedimos, Señor, que este sacramento de unidad y caridad fructifique en nosotros y nos alcance la salvación eterna. Por Jesucristo, nuestro Señor.",
+      "plegariaRecomendada": "3",
+      "plegariaMotivo": "IGMR 365 c: Plegaria III aconsejada preferentemente para domingos y fiestas"
     }
   ]
 }
