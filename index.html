@@ -1197,6 +1197,35 @@
       align-items: center;
       gap: 4px;
     }
+    .season-sublinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+    .btn-sub-season {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      border-radius: 6px;
+      padding: 0.28rem 0.55rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-sub-season:hover {
+      background: var(--surface-hover);
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+    .hidden-liturgy-container {
+      display: none !important;
+    }
+    .visible-liturgy-container {
+      display: block !important;
+    }
   </style>
 </head>
 <body>
@@ -1393,12 +1422,17 @@
           <span class="season-link-text">Ver Misas de Cuaresma →</span>
         </div>
 
-        <div class="season-card" style="border-left-color: #e11d48;" onclick="selectSeasonAndMass('Semana Santa & Triduo', 'cua-jueves-santo');">
+        <div class="season-card" style="border-left-color: #e11d48;" onclick="selectSeasonAndMass('Semana Santa & Triduo', 'pas-viernes-santo');">
           <div class="season-card-top">
             <span class="season-name">Triduo Pascual y Semana Santa</span>
             <span class="season-badge" style="background:#e11d48; color:#fff;">Rojo / Blanco</span>
           </div>
           <p class="season-desc">Ramos, Lunes a Miércoles Santo, Misa Crismal, Cena del Señor, Viernes Santo, Sábado Santo y Vigilia.</p>
+          <div class="season-sublinks">
+            <button type="button" class="btn-sub-season" onclick="event.stopPropagation(); selectSeasonAndMass('Semana Santa & Triduo', 'cua-jueves-santo');">⚪ Jueves Santo</button>
+            <button type="button" class="btn-sub-season" onclick="event.stopPropagation(); selectSeasonAndMass('Semana Santa & Triduo', 'pas-viernes-santo');" style="border-color:#dc2626; color:#f87171; background:rgba(220,38,38,0.15);">🔴 Viernes Santo (Pasión)</button>
+            <button type="button" class="btn-sub-season" onclick="event.stopPropagation(); selectSeasonAndMass('Semana Santa & Triduo', 'pas-vigilia');">⚪ Vigilia Pascual</button>
+          </div>
           <span class="season-link-text">Ver Semana Santa y Triduo →</span>
         </div>
 
@@ -3436,275 +3470,6 @@
         <p class="rubric">El sacerdote y el diácono veneran el altar con un beso (<button type="button" class="igmr-badge" onclick="showIGMR(169)" title="Consultar numeral 169 de la IGMR">IGMR 169</button>), hacen una inclinación profunda con los ministros (<button type="button" class="igmr-badge" onclick="showIGMR(169)" title="Consultar numeral 169 de la IGMR">IGMR 169</button>, <button type="button" class="igmr-badge" onclick="showIGMR(275)" title="Consultar numeral 275a de la IGMR">IGMR 275a</button>) y se retiran en procesión a la sacristía.</p>
       </div>
     </section>
-  </div><!-- Fin #standardMassContainer -->
-
-  <!-- ============================================================
-       CELEBRACIÓN PROPIA DE VIERNES SANTO EN LA PASIÓN DEL SEÑOR
-       (Sin Liturgia Eucarística, sin consagración, 4 partes canónicas)
-       ============================================================ -->
-  <div id="goodFridayContainer" class="special-liturgy-container" style="display: none;">
-    <div class="liturgy-special-banner" style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(15, 23, 42, 0.9)); border-left: 4px solid #dc2626; padding: 1.25rem; border-radius: 8px; margin-bottom: 2rem;">
-      <div style="display:flex; align-items:center; gap: 0.75rem; margin-bottom: 0.5rem;">
-        <span style="font-size: 1.8rem;">✠</span>
-        <h2 style="margin:0; font-size: 1.4rem; color: #f87171;">Viernes Santo en la Pasión del Señor</h2>
-      </div>
-      <p class="rubric" style="margin: 0; color: var(--text-secondary);">
-        <strong>Norma Canónica y Litúrgica:</strong> En este día la Iglesia no celebra el sacrificio de la Misa (no hay consagración, ni ofertorio de pan y vino, ni plegaria eucarística). La celebración consta de cuatro partes: <em>1. Liturgia de la Palabra</em> (con la Proclamación solemne de la Pasión según San Juan y la Gran Oración Universal), <em>2. Adoración de la Santa Cruz</em>, <em>3. Sagrada Comunión</em> (con las formas consagradas en la Misa del Jueves Santo) y <em>4. Rito de Despedida en silencio</em>.
-      </p>
-    </div>
-
-    <!-- PARTE 1: LITURGIA DE LA PALABRA -->
-    <section class="mass-section" id="vs-parte1">
-      <h2 class="section-title">Primera Parte: Liturgia de la Palabra</h2>
-      <div class="dialogue">
-        <p class="rubric"><strong>Entrada en silencio y postración:</strong> El sacerdote y los ministros sagrados, vestidos de color rojo como para la Misa, se acercan al altar en silencio. Al llegar, hacen una reverencia y se postran rostro en tierra (o se arrodillan). Todos los fieles se arrodillan y oran en silencio durante unos momentos (<button type="button" class="igmr-badge" onclick="showIGMR(43)" title="Consultar numeral 43 de la IGMR">IGMR 43</button>, <button type="button" class="igmr-badge" onclick="showIGMR(274)" title="Consultar numeral 274 de la IGMR">IGMR 274</button>).</p>
-        <p class="rubric">Luego el sacerdote, con los ministros, va a la sede, y vuelto hacia el pueblo dice con las manos extendidas, sin decir «Oremos» ni saludo previo:</p>
-        <div class="prayer-text">
-          <p><strong>Oración Colecta:</strong> Acuérdate, Señor, de tu misericordia y santifica con protección continua a tus siervos, por quienes Cristo, tu Hijo, instituyó por medio de su sangre el misterio pascual. Él, que vive y reina por los siglos de los siglos.</p>
-          <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
-        </div>
-      </div>
-
-      <h3 class="part-title">1.1. Primera Lectura</h3>
-      <div class="scripture-box">
-        <div class="scripture-citation">Primera Lectura (Isaías 52, 13 — 53, 12 — El Cuarto Cántico del Siervo de Dios)</div>
-        <p>Mirad, mi siervo tendrá éxito, subirá y crecerá mucho. Como muchos se espantaron de él, porque desfigurado no parecía hombre, ni tenía aspecto humano, así asombrará a muchos pueblos, ante él los reyes cerrarán la boca, al ver algo inenarrable y contemplar algo inaudito...</p>
-        <p>¿Quién creyó nuestro anuncio? ¿A quién se reveló el brazo del Señor? Creció en su presencia como brote, como raíz en tierra árida, sin figura, sin belleza. Lo vimos sin aspecto atrayente, despreciado y evitado de los hombres, varón de dolores y acostumbrado a sufrimientos, ante el cual se ocultaban los rostros, despreciado y desestimado.</p>
-        <p>Él soportó nuestros sufrimientos y aguantó nuestros dolores; nosotros lo estimamos leproso, herido de Dios y humillado; pero él fue traspasado por nuestras rebeliones, triturado por nuestros crímenes. Nuestro castigo saludable cayó sobre él, sus cicatrices nos curaron...</p>
-        <p>Maltratado, voluntariamente se humillaba y no abría la boca: como cordero llevado al matadero, como oveja ante el esquilador, enmudecía y no abría la boca. Sin defensa, sin justicia, se lo llevaron, ¿quién meditó en su destino? Lo arrancaron de la tierra de los vivos, por los pecados de mi pueblo lo hirieron...</p>
-        <p>Mi siervo justificará a muchos, porque cargó con los crímenes de ellos. Por eso le daré una parte entre los grandes y con los poderosos repartirá despojos, porque expuso su vida a la muerte y fue contado entre los pecadores, él que tomó el pecado de muchos e intercedió por los pecadores.</p>
-        <p class="rubric" style="margin-top:0.8rem;">Palabra de Dios. <span class="response">Te alabamos, Señor.</span></p>
-      </div>
-
-      <h3 class="part-title">1.2. Salmo Responsorial</h3>
-      <div class="scripture-box">
-        <div class="scripture-citation">Salmo Responsorial (Salmo 30, 2 y 6. 12-13. 15-16. 17 y 25)</div>
-        <div class="psalm-response">R. Padre, a tus manos encomiendo mi espíritu.</div>
-        <p style="margin-bottom:0.6rem;">A ti, Señor, me acojo, no quede yo nunca defraudado; tú, que eres justo, ponme a salvo. A tus manos encomiendo mi espíritu: tú, el Dios leal, me librarás.</p>
-        <p style="margin-bottom:0.6rem;">Soy la burla de todos mis enemigos, la irrisión de mis vecinos, el espanto de mis conocidos; me esquivan los que me ven por la calle. Me han olvidado como a un muerto, me han desechado como a un cacharro inútil.</p>
-        <p style="margin-bottom:0.6rem;">Pero yo confío en ti, Señor, te digo: «Tú eres mi Dios». En tus manos están mis azares; líbrame de los enemigos que me persiguen. Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia.</p>
-        <p style="margin-bottom:0.6rem;">Sed fuertes y valientes de corazón, los que esperáis en el Señor.</p>
-      </div>
-
-      <h3 class="part-title">1.3. Segunda Lectura</h3>
-      <div class="scripture-box">
-        <div class="scripture-citation">Segunda Lectura (Hebreos 4, 14-16; 5, 7-9)</div>
-        <p>Hermanos: Puesto que tenemos un gran sumo sacerdote que ha atravesado los cielos, Jesús, el Hijo de Dios, mantengamos firme la confesión de la fe. Pues no tenemos un sumo sacerdote incapaz de compadecerse de nuestras debilidades, sino que ha sido probado en todo exactamente como nosotros, menos en el pecado. Por eso, acerquémonos con seguridad al trono de la gracia, para alcanzar misericordia y encontrar gracia que nos auxilie oportunamente.</p>
-        <p>Cristo, en los días de su vida mortal, a gritos y con lágrimas, presentó oraciones y súplicas al que podía salvarlo de la muerte, y fue escuchado por su piedad filial. Y, aun siendo Hijo, aprendió sufriendo a obedecer; y, consumado, se convirtió, para todos los que le obedecen, en autor de salvación eterna.</p>
-        <p class="rubric" style="margin-top:0.8rem;">Palabra de Dios. <span class="response">Te alabamos, Señor.</span></p>
-      </div>
-
-      <h3 class="part-title">1.4. Aclamación antes del Evangelio</h3>
-      <div class="dialogue">
-        <p><span class="speaker">Todos:</span> <span class="response">Honor y gloria a ti, Señor Jesús.</span></p>
-        <p><span class="speaker">V.</span> Cristo se hizo por nosotros obediente hasta la muerte, y una muerte de cruz. Por eso Dios lo levantó sobre todo y le concedió el «Nombre-sobre-todo-nombre». (Flp 2, 8-9)</p>
-        <p><span class="speaker">Todos:</span> <span class="response">Honor y gloria a ti, Señor Jesús.</span></p>
-      </div>
-
-      <h3 class="part-title">1.5. Proclamación de la Pasión de nuestro Señor Jesucristo según San Juan</h3>
-      <div class="scripture-box">
-        <div class="scripture-citation">Santo Evangelio (Juan 18, 1 — 19, 42 — Pasión de nuestro Señor Jesucristo)</div>
-        <p class="rubric">No se llevan cirios ni incienso, ni se hace el saludo al pueblo ni se signa el libro. La pasión puede ser proclamada por lectores, reservando al sacerdote las palabras de Cristo.</p>
-        <p>Pasión de nuestro Señor Jesucristo según san Juan: En aquel tiempo, salió Jesús con sus discípulos al otro lado del torrente Cedrón, donde había un huerto, en el que entraron él y sus discípulos. También Judas, el que lo iba a entregar, conocía el sitio... Jesús, sabiendo todo lo que venía sobre él, se adelantó y les dijo: «¿A quién buscáis?». Le contestaron: «A Jesús, el Nazareno». Les dijo Jesús: «Yo soy»...</p>
-        <p>Prendieron a Jesús, lo ataron y lo llevaron primero a Anás, suegro de Caifás... Simón Pedro y otro discípulo seguían a Jesús... Condujeron a Jesús de casa de Caifás al pretorio. Pilato salió afuera y les dijo: «¿Qué acusación traéis contra este hombre?»... Pilato entró de nuevo en el pretorio, llamó a Jesús y le dijo: «¿Eres tú el rey de los judíos?»... Jesús respondió: «Mi reino no es de este mundo... Yo para esto he nacido y para esto he venido al mundo: para dar testimonio de la verdad»...</p>
-        <p>Pilato tomó a Jesús y mandó azotarlo. Los soldados trenzaron una corona de espinas, se la pusieron en la cabeza y le echaron por encima un manto color púrpura... Pilato sacó a Jesús afuera... «Aquí tenéis a vuestro rey». Ellos gritaron: «¡Fuera, fuera; crucifícalo!»... Y se lo entregó para que lo crucificaran.</p>
-        <p>Jesús, cargando con la cruz, salió al sitio llamado «de la Calavera» (que en hebreo se dice Gólgota), donde lo crucificaron, y con él a otros dos... Junto a la cruz de Jesús estaban su madre, la hermana de su madre, María la de Cleofás, y María la Magdalena. Jesús, al ver a su madre y junto a ella al discípulo que amaba, dice a su madre: «Mujer, ahí tienes a tu hijo». Luego dice al discípulo: «Ahí tienes a tu madre». Y desde aquella hora el discípulo la acogió en su casa.</p>
-        <p>Después de esto, sabiendo Jesús que ya todo estaba cumplido, para que se cumpliera la Escritura, dijo: «Tengo sed». Había allí un jarro lleno de vinagre. Sujetaron una esponja empapada en vinagre a una caña de hisopo y se la acercaron a la boca. Jesús, cuando tomó el vinagre, dijo: «Está cumplido». E inclinando la cabeza, entregó el espíritu.</p>
-        <p class="rubric" style="text-align:center; font-weight:bold; margin: 1rem 0; color: #dc2626;">(Aquí se arrodillan todos y se hace una pausa de sagrado silencio)</p>
-        <p>Como era el día de la Preparación, para que no se quedaran los cuerpos en la cruz el sábado... los soldados fueron y quebraron las piernas al primero y luego al otro que habían crucificado con él; pero al llegar a Jesús, viendo que ya había muerto, no le quebraron las piernas, sino que uno de los soldados, con la lanza, le traspasó el costado, y al punto salió sangre y agua...</p>
-        <p>Después de esto, José de Arimatea y Nicodemo tomaron el cuerpo de Jesús y lo envolvieron en lienzos con los aromas, según se acostumbra a enterrar entre los judíos. Había un huerto en el sitio donde lo crucificaron, y en el huerto un sepulcro nuevo en el que nadie había sido enterrado todavía. Y allí, por ser el día de la Preparación de los judíos y porque el sepulcro estaba cerca, pusieron a Jesús.</p>
-        <p class="rubric" style="margin-top:0.8rem;">Palabra del Señor. <span class="response">Gloria a ti, Señor Jesús.</span></p>
-      </div>
-
-      <h3 class="part-title">1.6. Breve Homilía y Solemne Oración Universal (Las 10 Grandes Plegarias)</h3>
-      <div class="dialogue">
-        <p class="rubric">El sacerdote pronuncia una breve homilía. Luego tiene lugar la Solemne Oración Universal. Para cada intención, el diácono o el sacerdote invita a orar, todos oran en silencio de rodillas o de pie, y el sacerdote proclama la oración con las manos extendidas:</p>
-        
-        <!-- 1. Por la Santa Iglesia -->
-        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
-          <p><strong>I. Por la Santa Iglesia:</strong></p>
-          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos, queridos hermanos, por la santa Iglesia de Dios, para que el Señor le dé la paz, la mantenga en la unidad, la proteja en toda la tierra y nos conceda una vida tranquila para gloria de Dios, Padre todopoderoso.</p>
-          <p class="rubric">(Oración en silencio - El sacerdote prosigue con las manos extendidas:)</p>
-          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, que en Cristo manifestaste tu gloria a todas las naciones, vela con amor por la obra de tu misericordia, para que la Iglesia, extendida por todo el mundo, persevere con fe inquebrantable en la confesión de tu Nombre. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
-        </div>
-
-        <!-- 2. Por el Papa -->
-        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
-          <p><strong>II. Por el Santo Padre:</strong></p>
-          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos por nuestro Santo Padre, el Papa, para que Dios nuestro Señor, que lo eligió en el orden episcopal, lo conserve sano y salvo para bien de su santa Iglesia, como guía del pueblo santo de Dios.</p>
-          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
-          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, cuya providencia gobierna el universo, escucha nuestras súplicas y protege con tu amor al Pastor que has elegido para nosotros, para que el pueblo cristiano que tú mismo gobiernas prospere en el crecimiento de su fe. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
-        </div>
-
-        <!-- 3. Por todos los órdenes y fieles -->
-        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
-          <p><strong>III. Por todos los órdenes sagrados y por los fieles:</strong></p>
-          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos por nuestro Obispo, por todos los obispos, presbíteros y diáconos de la Iglesia, y por todo el pueblo santo de Dios.</p>
-          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
-          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, que con tu Espíritu santificas y gobiernas a todo el cuerpo de la Iglesia, escucha nuestras súplicas por todos los ministros y fieles, para que, con la ayuda de tu gracia, todos te sirvan con fidelidad. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
-        </div>
-
-        <!-- 4. Por los catecúmenos -->
-        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
-          <p><strong>IV. Por los catecúmenos:</strong></p>
-          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos por los catecúmenos, para que Dios nuestro Señor les abra el corazón y las puertas de su misericordia, y habiendo recibido el perdón de todos sus pecados por el bautismo, sean incorporados a Cristo Jesús, Señor nuestro.</p>
-          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
-          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, que haces crecer continuamente a tu Iglesia dándole nuevos hijos, acrecienta la fe y la inteligencia de nuestros catecúmenos, para que, renacidos en la fuente bautismal, sean contados entre tus hijos de adopción. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
-        </div>
-
-        <!-- 5. Por la unidad de los cristianos -->
-        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
-          <p><strong>V. Por la unidad de los cristianos:</strong></p>
-          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos por todos los hermanos que creen en Cristo, para que Dios nuestro Señor congregue en su única Iglesia y conserve en la paz a todos los que viven en la verdad.</p>
-          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
-          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, que reúnes a los dispersos y mantienes a los congregados, mira con bondad a la grey de tu Hijo, para que a cuantos consagró un solo bautismo los una la integridad de la fe y el vínculo de la caridad. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
-        </div>
-
-        <!-- 6. Por los judíos -->
-        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
-          <p><strong>VI. Por el pueblo judío:</strong></p>
-          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos por el pueblo judío, a quien Dios nuestro Señor habló primero por los profetas, para que les conceda crecer en el amor de su Nombre y en la fidelidad a su alianza.</p>
-          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
-          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, que confiaste tus promesas a Abraham y a su descendencia, escucha bondadoso las súplicas de tu Iglesia, para que el pueblo que adquiriste como propiedad tuya alcance la plenitud de la redención. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
-        </div>
-
-        <!-- 7. Por los que no creen en Cristo -->
-        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
-          <p><strong>VII. Por los que no creen en Cristo:</strong></p>
-          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos por los que no creen en Cristo, para que, iluminados por el Espíritu Santo, puedan entrar también ellos en el camino de la salvación.</p>
-          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
-          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, concede a los que no creen en Cristo caminar en tu presencia con rectitud de corazón para encontrar la verdad, y a nosotros concédenos crecer en el amor mutuo y ser testigos más fieles de tu amor en el mundo. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
-        </div>
-
-        <!-- 8. Por los que no creen en Dios -->
-        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
-          <p><strong>VIII. Por los que no creen en Dios:</strong></p>
-          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos por los que no reconocen a Dios, para que, buscando de corazón lo que es recto, merezcan llegar al conocimiento de su Creador.</p>
-          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
-          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, que creaste a todos los hombres para que deseándote te busquen y encontrándote descansen en ti, concédeles que, en medio de las dificultades del mundo, reconozcan los signos de tu amor y lleguen con gozo a confesarte como único Dios verdadero. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
-        </div>
-
-        <!-- 9. Por los gobernantes -->
-        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
-          <p><strong>IX. Por los gobernantes:</strong></p>
-          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos por todos los gobernantes de las naciones, para que Dios nuestro Señor guíe sus mentes y corazones hacia la paz y la libertad verdadera de todos los pueblos.</p>
-          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
-          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, en cuyas manos residen los derechos de los pueblos y las riendas de los gobiernos, mira con bondad a los que rigen los destinos de las naciones, para que se afiance en toda la tierra la prosperidad, la paz duradera y la libertad religiosa. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
-        </div>
-
-        <!-- 10. Por los que sufren -->
-        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
-          <p><strong>X. Por los que sufren y los atribulados:</strong></p>
-          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos a Dios Padre todopoderoso por todos los que sufren en el mundo: para que libre a la tierra de errores, cure a los enfermos, libre de hambre a los necesitados, abra las prisiones, rompa las cadenas, conceda un regreso seguro a los peregrinos, salud a los moribundos y una santa muerte a los agonizantes.</p>
-          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
-          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, consuelo de los afligidos y fortaleza de los que sufren, lleguen a ti los clamores de los que te invocan en cualquier tribulación, para que todos experimenten con gozo el socorro de tu misericordia en sus necesidades. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PARTE 2: ADORACIÓN DE LA SANTA CRUZ -->
-    <section class="mass-section" id="vs-parte2">
-      <h2 class="section-title">Segunda Parte: Adoración de la Santa Cruz</h2>
-      <div class="dialogue">
-        <p class="rubric"><strong>Ostensión de la Cruz:</strong> La Santa Cruz, acompañada de dos ministros con cirios encendidos, es presentada ante la asamblea. El sacerdote (o el diácono) la eleva ante el pueblo cantando tres veces en tonos cada vez más altos:</p>
-        
-        <div style="background: rgba(220,38,38,0.15); border: 1px solid rgba(220,38,38,0.4); border-radius: 8px; padding: 1.2rem; text-align: center; margin: 1.2rem 0;">
-          <p style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.6rem; color: #f87171;">
-            <span class="speaker">Sacerdote o Diácono:</span> ¡Mirad el árbol de la Cruz, donde estuvo clavada la salvación del mundo!
-          </p>
-          <p style="font-size: 1.2rem; font-weight: bold; color: var(--text-color);">
-            <span class="speaker">Todos:</span> <span class="response">¡Venid a adorarlo!</span>
-          </p>
-          <p class="rubric" style="margin-top: 0.6rem;">(Tras cada aclamación, todos se arrodillan y adoran la Cruz en silencio durante unos momentos)</p>
-        </div>
-
-        <p class="rubric"><strong>Veneración de la Cruz:</strong> El sacerdote, los ministros sagrados y los fieles se acercan procesionalmente a adorar la Cruz, haciéndole una genuflexión o inclinación profunda y besándola con devoción. Mientras tanto se cantan los <em>Improperios</em> («Pueblo mío, ¿qué te he hecho o en qué te he ofendido? Respóndeme»), el himno <em>Crux fidelis</em> y cantos a la Cruz redentora.</p>
-      </div>
-    </section>
-
-    <!-- PARTE 3: SAGRADA COMUNIÓN -->
-    <section class="mass-section" id="vs-parte3">
-      <h2 class="section-title">Tercera Parte: Sagrada Comunión</h2>
-      <div class="dialogue">
-        <p class="rubric"><strong>Preparación del Altar:</strong> Se extiende sobre el altar desnudo un mantel blanco, el corporal y el misal. No hay ofertorio de pan y vino ni incensación de dones (<button type="button" class="igmr-badge" onclick="showIGMR(43)" title="Consultar numeral 43 de la IGMR">IGMR 43</button>). El diácono o el sacerdote va al Monumento (lugar de la reserva) y trae el Santísimo Sacramento con las formas consagradas en la Misa del Jueves Santo, acompañado de dos cirios encendidos. Lo coloca sobre el altar sobre el corporal.</p>
-
-        <p class="rubric">El sacerdote se acerca al altar, hace genuflexión y con las manos juntas introduce la oración del Señor:</p>
-        <p><span class="speaker">Sacerdote:</span> Fieles a la recomendación del Salvador y siguiendo su divina enseñanza, nos atrevemos a decir:</p>
-        <p><span class="speaker">Todos:</span> Padre nuestro, que estás en el cielo, santificado sea tu Nombre; venga a nosotros tu reino; hágase tu voluntad en la tierra como en el cielo. Danos hoy nuestro pan de cada día; perdona nuestras ofensas, como también nosotros perdonamos a los que nos ofenden; no nos dejes caer en la tentación, y líbranos del mal.</p>
-
-        <p class="rubric">El sacerdote continúa solo con las manos extendidas:</p>
-        <p><span class="speaker">Sacerdote:</span> Líbranos de todos los males, Señor, y concédenos la paz en nuestros días, para que, ayudados por tu misericordia, vivamos siempre libres de pecado y protegidos de toda perturbación, mientras esperamos la gloriosa venida de nuestro Salvador Jesucristo.</p>
-        <p><span class="speaker">Pueblo:</span> <span class="response">Tuyo es el reino, tuyo el poder y la gloria, por siempre, Señor.</span></p>
-
-        <p class="rubric">El sacerdote dice en secreto:</p>
-        <p><span class="speaker">Sacerdote:</span> Señor Jesucristo, la comunión de tu Cuerpo no sea para mí causa de juicio y condenación, sino que, por tu piedad, me aproveche para defensa de alma y cuerpo y como medicina saludable.</p>
-
-        <p class="rubric">El sacerdote hace genuflexión, toma una partícula de la Hostia consagrada y mostrándola al pueblo dice con voz clara:</p>
-        <p><span class="speaker">Sacerdote:</span> Éste es el Cordero de Dios, que quita el pecado del mundo. Dichosos los invitados a la cena del Señor.</p>
-        <p><span class="speaker">Todos:</span> <span class="response">Señor, no soy digno de que entres en mi casa, pero una palabra tuya bastará para sanarme.</span></p>
-
-        <p class="rubric">El sacerdote y los fieles comulgan reverentemente el Cuerpo de Cristo reservado. Concluida la comunión, el copón se lleva a un lugar digno fuera de la nave de la iglesia. Se purifica el altar y se guarda un tiempo de sagrado silencio.</p>
-
-        <p class="rubric">El sacerdote dice en pie: «Oremos». Y con las manos extendidas proclama:</p>
-        <div class="prayer-text">
-          <p><strong>Oración después de la Comunión:</strong> Dios todopoderoso y eterno, que nos has renovado con la santa muerte y resurrección de tu Hijo, conserva en nosotros la obra de tu misericordia, para que, por la participación de este misterio, vivamos consagrados a tu servicio. Por Jesucristo, nuestro Señor.</p>
-          <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PARTE 4: RITO DE CONCLUSIÓN Y DESPEDIDA -->
-    <section class="mass-section" id="vs-parte4">
-      <h2 class="section-title">Cuarta Parte: Despedida en Silencio</h2>
-      <div class="dialogue">
-        <p class="rubric">El diácono o el sacerdote dice al pueblo: «Inclinaos para recibir la bendición».</p>
-        <p class="rubric">El sacerdote, extendiendo las manos sobre el pueblo, dice la Oración sobre el pueblo:</p>
-        <div class="prayer-text">
-          <p><strong>Oración sobre el Pueblo:</strong> Que descienda, Señor, tu bendición abundante sobre este pueblo tuyo, que ha celebrado la muerte de tu Hijo con la esperanza de su santa resurrección; llegue a él tu perdón, reciba tu consuelo, se acreciente su santa fe y se asegure su redención eterna. Por Jesucristo, nuestro Señor.</p>
-          <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
-        </div>
-        <p class="rubric" style="margin-top: 1rem; color: #dc2626; font-weight: bold;">
-          Todos se retiran en profundo silencio. El altar queda totalmente despojado y desnudo.
-        </p>
-      </div>
-    </section>
-  </div>
-
-  <!-- ============================================================
-       SÁBADO SANTO: LA SEPULTURA DEL SEÑOR
-       ============================================================ -->
-  <div id="holySaturdayContainer" class="special-liturgy-container" style="display: none;">
-    <div class="liturgy-special-banner" style="background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(15, 23, 42, 0.9)); border-left: 4px solid #9333ea; padding: 1.25rem; border-radius: 8px; margin-bottom: 2rem;">
-      <div style="display:flex; align-items:center; gap: 0.75rem; margin-bottom: 0.5rem;">
-        <span style="font-size: 1.8rem;">🕊️</span>
-        <h2 style="margin:0; font-size: 1.4rem; color: #c084fc;">Sábado Santo: La Sepultura del Señor</h2>
-      </div>
-      <p class="rubric" style="margin: 0; color: var(--text-secondary);">
-        <strong>Día Alitúrgico de Silencio y Espera:</strong> Durante el Sábado Santo la Iglesia permanece junto al sepulcro del Señor, meditando su pasión y muerte, absteniéndose absolutamente del sacrificio de la Misa (el altar permanece desnudo), hasta que, llegada la noche con la <strong>Solemne Vigilia Pascual</strong>, estallan los gozos de la Resurrección.
-      </p>
-    </div>
-
-    <section class="mass-section">
-      <h2 class="section-title">Meditación Litúrgica y Lecturas de la Tradición de la Iglesia</h2>
-      <div class="scripture-box" style="margin-bottom: 1.5rem;">
-        <div class="scripture-citation">De una antigua Homilía sobre el Santo y Gran Sábado (Oficio de Lecturas)</div>
-        <p>«¿Qué es lo que pasa? Un gran silencio envuelve hoy la tierra; un gran silencio y una gran soledad. Un gran silencio, porque el Rey duerme. La tierra está temerosa y sobrecogida, porque Dios se ha dormido en la carne y ha ido a despertar a los que dormían desde antiguo...»</p>
-        <p>«Va a buscar a Adán, nuestro primer padre, como a la oveja perdida. Quiere visitar a los que yacen en tinieblas y en sombras de muerte... El Señor llega a ellos llevando en sus manos las armas victoriosas de la cruz... Y tomándolo de la mano lo levanta diciendo: <em>'Despierta, tú que duermes, levántate de entre los muertos y Cristo te iluminará. Yo soy tu Dios, que por ti me he hecho tu hijo. Despierta y salgamos de aquí, porque tú en mí y yo en ti formamos una sola e indivisible persona'</em>».</p>
-      </div>
-
-      <div class="dialogue">
-        <p class="rubric">Oración:</p>
-        <div class="prayer-text">
-          <p><strong>Oración:</strong> Dios todopoderoso, cuyo Hijo unigénito descendió a los infiernos y salió glorioso del sepulcro, concede a tus fieles, sepultados con él por el bautismo, resucitar con él a la vida eterna en la gloria de la Pascua. Por nuestro Señor Jesucristo, tu Hijo, que vive y reina contigo en la unidad del Espíritu Santo y es Dios por los siglos de los siglos. <span class="response">Amén.</span></p>
-        </div>
-        <div style="text-align: center; margin-top: 2rem;">
-          <button type="button" class="btn-hero-primary" onclick="selectMass('pas-vigilia');" style="font-size: 1rem; padding: 0.8rem 1.6rem;">
-            Ir a la Solemne Vigilia Pascual en la Noche Santa →
-          </button>
-        </div>
-      </div>
-    </section>
-  </div>
 
     <section class="mass-section" id="apendice-igmr">
       <h2 class="section-title">5. Normas Complementarias de la IGMR</h2>
@@ -4105,6 +3870,275 @@
         </details>
       </div>
     </section>
+  </div><!-- Fin #standardMassContainer -->
+
+  <!-- ============================================================
+       CELEBRACIÓN PROPIA DE VIERNES SANTO EN LA PASIÓN DEL SEÑOR
+       (Sin Liturgia Eucarística, sin consagración, 4 partes canónicas)
+       ============================================================ -->
+  <div id="goodFridayContainer" class="special-liturgy-container" style="display: none;">
+    <div class="liturgy-special-banner" style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(15, 23, 42, 0.9)); border-left: 4px solid #dc2626; padding: 1.25rem; border-radius: 8px; margin-bottom: 2rem;">
+      <div style="display:flex; align-items:center; gap: 0.75rem; margin-bottom: 0.5rem;">
+        <span style="font-size: 1.8rem;">✠</span>
+        <h2 style="margin:0; font-size: 1.4rem; color: #f87171;">Viernes Santo en la Pasión del Señor</h2>
+      </div>
+      <p class="rubric" style="margin: 0; color: var(--text-secondary);">
+        <strong>Norma Canónica y Litúrgica:</strong> En este día la Iglesia no celebra el sacrificio de la Misa (no hay consagración, ni ofertorio de pan y vino, ni plegaria eucarística). La celebración consta de cuatro partes: <em>1. Liturgia de la Palabra</em> (con la Proclamación solemne de la Pasión según San Juan y la Gran Oración Universal), <em>2. Adoración de la Santa Cruz</em>, <em>3. Sagrada Comunión</em> (con las formas consagradas en la Misa del Jueves Santo) y <em>4. Rito de Despedida en silencio</em>.
+      </p>
+    </div>
+
+    <!-- PARTE 1: LITURGIA DE LA PALABRA -->
+    <section class="mass-section" id="vs-parte1">
+      <h2 class="section-title">Primera Parte: Liturgia de la Palabra</h2>
+      <div class="dialogue">
+        <p class="rubric"><strong>Entrada en silencio y postración:</strong> El sacerdote y los ministros sagrados, vestidos de color rojo como para la Misa, se acercan al altar en silencio. Al llegar, hacen una reverencia y se postran rostro en tierra (o se arrodillan). Todos los fieles se arrodillan y oran en silencio durante unos momentos (<button type="button" class="igmr-badge" onclick="showIGMR(43)" title="Consultar numeral 43 de la IGMR">IGMR 43</button>, <button type="button" class="igmr-badge" onclick="showIGMR(274)" title="Consultar numeral 274 de la IGMR">IGMR 274</button>).</p>
+        <p class="rubric">Luego el sacerdote, con los ministros, va a la sede, y vuelto hacia el pueblo dice con las manos extendidas, sin decir «Oremos» ni saludo previo:</p>
+        <div class="prayer-text">
+          <p><strong>Oración Colecta:</strong> Acuérdate, Señor, de tu misericordia y santifica con protección continua a tus siervos, por quienes Cristo, tu Hijo, instituyó por medio de su sangre el misterio pascual. Él, que vive y reina por los siglos de los siglos.</p>
+          <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
+        </div>
+      </div>
+
+      <h3 class="part-title">1.1. Primera Lectura</h3>
+      <div class="scripture-box">
+        <div class="scripture-citation">Primera Lectura (Isaías 52, 13 — 53, 12 — El Cuarto Cántico del Siervo de Dios)</div>
+        <p>Mirad, mi siervo tendrá éxito, subirá y crecerá mucho. Como muchos se espantaron de él, porque desfigurado no parecía hombre, ni tenía aspecto humano, así asombrará a muchos pueblos, ante él los reyes cerrarán la boca, al ver algo inenarrable y contemplar algo inaudito...</p>
+        <p>¿Quién creyó nuestro anuncio? ¿A quién se reveló el brazo del Señor? Creció en su presencia como brote, como raíz en tierra árida, sin figura, sin belleza. Lo vimos sin aspecto atrayente, despreciado y evitado de los hombres, varón de dolores y acostumbrado a sufrimientos, ante el cual se ocultaban los rostros, despreciado y desestimado.</p>
+        <p>Él soportó nuestros sufrimientos y aguantó nuestros dolores; nosotros lo estimamos leproso, herido de Dios y humillado; pero él fue traspasado por nuestras rebeliones, triturado por nuestros crímenes. Nuestro castigo saludable cayó sobre él, sus cicatrices nos curaron...</p>
+        <p>Maltratado, voluntariamente se humillaba y no abría la boca: como cordero llevado al matadero, como oveja ante el esquilador, enmudecía y no abría la boca. Sin defensa, sin justicia, se lo llevaron, ¿quién meditó en su destino? Lo arrancaron de la tierra de los vivos, por los pecados de mi pueblo lo hirieron...</p>
+        <p>Mi siervo justificará a muchos, porque cargó con los crímenes de ellos. Por eso le daré una parte entre los grandes y con los poderosos repartirá despojos, porque expuso su vida a la muerte y fue contado entre los pecadores, él que tomó el pecado de muchos e intercedió por los pecadores.</p>
+        <p class="rubric" style="margin-top:0.8rem;">Palabra de Dios. <span class="response">Te alabamos, Señor.</span></p>
+      </div>
+
+      <h3 class="part-title">1.2. Salmo Responsorial</h3>
+      <div class="scripture-box">
+        <div class="scripture-citation">Salmo Responsorial (Salmo 30, 2 y 6. 12-13. 15-16. 17 y 25)</div>
+        <div class="psalm-response">R. Padre, a tus manos encomiendo mi espíritu.</div>
+        <p style="margin-bottom:0.6rem;">A ti, Señor, me acojo, no quede yo nunca defraudado; tú, que eres justo, ponme a salvo. A tus manos encomiendo mi espíritu: tú, el Dios leal, me librarás.</p>
+        <p style="margin-bottom:0.6rem;">Soy la burla de todos mis enemigos, la irrisión de mis vecinos, el espanto de mis conocidos; me esquivan los que me ven por la calle. Me han olvidado como a un muerto, me han desechado como a un cacharro inútil.</p>
+        <p style="margin-bottom:0.6rem;">Pero yo confío en ti, Señor, te digo: «Tú eres mi Dios». En tus manos están mis azares; líbrame de los enemigos que me persiguen. Haz brillar tu rostro sobre tu siervo, sálvame por tu misericordia.</p>
+        <p style="margin-bottom:0.6rem;">Sed fuertes y valientes de corazón, los que esperáis en el Señor.</p>
+      </div>
+
+      <h3 class="part-title">1.3. Segunda Lectura</h3>
+      <div class="scripture-box">
+        <div class="scripture-citation">Segunda Lectura (Hebreos 4, 14-16; 5, 7-9)</div>
+        <p>Hermanos: Puesto que tenemos un gran sumo sacerdote que ha atravesado los cielos, Jesús, el Hijo de Dios, mantengamos firme la confesión de la fe. Pues no tenemos un sumo sacerdote incapaz de compadecerse de nuestras debilidades, sino que ha sido probado en todo exactamente como nosotros, menos en el pecado. Por eso, acerquémonos con seguridad al trono de la gracia, para alcanzar misericordia y encontrar gracia que nos auxilie oportunamente.</p>
+        <p>Cristo, en los días de su vida mortal, a gritos y con lágrimas, presentó oraciones y súplicas al que podía salvarlo de la muerte, y fue escuchado por su piedad filial. Y, aun siendo Hijo, aprendió sufriendo a obedecer; y, consumado, se convirtió, para todos los que le obedecen, en autor de salvación eterna.</p>
+        <p class="rubric" style="margin-top:0.8rem;">Palabra de Dios. <span class="response">Te alabamos, Señor.</span></p>
+      </div>
+
+      <h3 class="part-title">1.4. Aclamación antes del Evangelio</h3>
+      <div class="dialogue">
+        <p><span class="speaker">Todos:</span> <span class="response">Honor y gloria a ti, Señor Jesús.</span></p>
+        <p><span class="speaker">V.</span> Cristo se hizo por nosotros obediente hasta la muerte, y una muerte de cruz. Por eso Dios lo levantó sobre todo y le concedió el «Nombre-sobre-todo-nombre». (Flp 2, 8-9)</p>
+        <p><span class="speaker">Todos:</span> <span class="response">Honor y gloria a ti, Señor Jesús.</span></p>
+      </div>
+
+      <h3 class="part-title">1.5. Proclamación de la Pasión de nuestro Señor Jesucristo según San Juan</h3>
+      <div class="scripture-box">
+        <div class="scripture-citation">Santo Evangelio (Juan 18, 1 — 19, 42 — Pasión de nuestro Señor Jesucristo)</div>
+        <p class="rubric">No se llevan cirios ni incienso, ni se hace el saludo al pueblo ni se signa el libro. La pasión puede ser proclamada por lectores, reservando al sacerdote las palabras de Cristo.</p>
+        <p>Pasión de nuestro Señor Jesucristo según san Juan: En aquel tiempo, salió Jesús con sus discípulos al otro lado del torrente Cedrón, donde había un huerto, en el que entraron él y sus discípulos. También Judas, el que lo iba a entregar, conocía el sitio... Jesús, sabiendo todo lo que venía sobre él, se adelantó y les dijo: «¿A quién buscáis?». Le contestaron: «A Jesús, el Nazareno». Les dijo Jesús: «Yo soy»...</p>
+        <p>Prendieron a Jesús, lo ataron y lo llevaron primero a Anás, suegro de Caifás... Simón Pedro y otro discípulo seguían a Jesús... Condujeron a Jesús de casa de Caifás al pretorio. Pilato salió afuera y les dijo: «¿Qué acusación traéis contra este hombre?»... Pilato entró de nuevo en el pretorio, llamó a Jesús y le dijo: «¿Eres tú el rey de los judíos?»... Jesús respondió: «Mi reino no es de este mundo... Yo para esto he nacido y para esto he venido al mundo: para dar testimonio de la verdad»...</p>
+        <p>Pilato tomó a Jesús y mandó azotarlo. Los soldados trenzaron una corona de espinas, se la pusieron en la cabeza y le echaron por encima un manto color púrpura... Pilato sacó a Jesús afuera... «Aquí tenéis a vuestro rey». Ellos gritaron: «¡Fuera, fuera; crucifícalo!»... Y se lo entregó para que lo crucificaran.</p>
+        <p>Jesús, cargando con la cruz, salió al sitio llamado «de la Calavera» (que en hebreo se dice Gólgota), donde lo crucificaron, y con él a otros dos... Junto a la cruz de Jesús estaban su madre, la hermana de su madre, María la de Cleofás, y María la Magdalena. Jesús, al ver a su madre y junto a ella al discípulo que amaba, dice a su madre: «Mujer, ahí tienes a tu hijo». Luego dice al discípulo: «Ahí tienes a tu madre». Y desde aquella hora el discípulo la acogió en su casa.</p>
+        <p>Después de esto, sabiendo Jesús que ya todo estaba cumplido, para que se cumpliera la Escritura, dijo: «Tengo sed». Había allí un jarro lleno de vinagre. Sujetaron una esponja empapada en vinagre a una caña de hisopo y se la acercaron a la boca. Jesús, cuando tomó el vinagre, dijo: «Está cumplido». E inclinando la cabeza, entregó el espíritu.</p>
+        <p class="rubric" style="text-align:center; font-weight:bold; margin: 1rem 0; color: #dc2626;">(Aquí se arrodillan todos y se hace una pausa de sagrado silencio)</p>
+        <p>Como era el día de la Preparación, para que no se quedaran los cuerpos en la cruz el sábado... los soldados fueron y quebraron las piernas al primero y luego al otro que habían crucificado con él; pero al llegar a Jesús, viendo que ya había muerto, no le quebraron las piernas, sino que uno de los soldados, con la lanza, le traspasó el costado, y al punto salió sangre y agua...</p>
+        <p>Después de esto, José de Arimatea y Nicodemo tomaron el cuerpo de Jesús y lo envolvieron en lienzos con los aromas, según se acostumbra a enterrar entre los judíos. Había un huerto en el sitio donde lo crucificaron, y en el huerto un sepulcro nuevo en el que nadie había sido enterrado todavía. Y allí, por ser el día de la Preparación de los judíos y porque el sepulcro estaba cerca, pusieron a Jesús.</p>
+        <p class="rubric" style="margin-top:0.8rem;">Palabra del Señor. <span class="response">Gloria a ti, Señor Jesús.</span></p>
+      </div>
+
+      <h3 class="part-title">1.6. Breve Homilía y Solemne Oración Universal (Las 10 Grandes Plegarias)</h3>
+      <div class="dialogue">
+        <p class="rubric">El sacerdote pronuncia una breve homilía. Luego tiene lugar la Solemne Oración Universal. Para cada intención, el diácono o el sacerdote invita a orar, todos oran en silencio de rodillas o de pie, y el sacerdote proclama la oración con las manos extendidas:</p>
+        
+        <!-- 1. Por la Santa Iglesia -->
+        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
+          <p><strong>I. Por la Santa Iglesia:</strong></p>
+          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos, queridos hermanos, por la santa Iglesia de Dios, para que el Señor le dé la paz, la mantenga en la unidad, la proteja en toda la tierra y nos conceda una vida tranquila para gloria de Dios, Padre todopoderoso.</p>
+          <p class="rubric">(Oración en silencio - El sacerdote prosigue con las manos extendidas:)</p>
+          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, que en Cristo manifestaste tu gloria a todas las naciones, vela con amor por la obra de tu misericordia, para que la Iglesia, extendida por todo el mundo, persevere con fe inquebrantable en la confesión de tu Nombre. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
+        </div>
+
+        <!-- 2. Por el Papa -->
+        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
+          <p><strong>II. Por el Santo Padre:</strong></p>
+          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos por nuestro Santo Padre, el Papa, para que Dios nuestro Señor, que lo eligió en el orden episcopal, lo conserve sano y salvo para bien de su santa Iglesia, como guía del pueblo santo de Dios.</p>
+          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
+          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, cuya providencia gobierna el universo, escucha nuestras súplicas y protege con tu amor al Pastor que has elegido para nosotros, para que el pueblo cristiano que tú mismo gobiernas prospere en el crecimiento de su fe. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
+        </div>
+
+        <!-- 3. Por todos los órdenes y fieles -->
+        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
+          <p><strong>III. Por todos los órdenes sagrados y por los fieles:</strong></p>
+          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos por nuestro Obispo, por todos los obispos, presbíteros y diáconos de la Iglesia, y por todo el pueblo santo de Dios.</p>
+          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
+          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, que con tu Espíritu santificas y gobiernas a todo el cuerpo de la Iglesia, escucha nuestras súplicas por todos los ministros y fieles, para que, con la ayuda de tu gracia, todos te sirvan con fidelidad. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
+        </div>
+
+        <!-- 4. Por los catecúmenos -->
+        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
+          <p><strong>IV. Por los catecúmenos:</strong></p>
+          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos por los catecúmenos, para que Dios nuestro Señor les abra el corazón y las puertas de su misericordia, y habiendo recibido el perdón de todos sus pecados por el bautismo, sean incorporados a Cristo Jesús, Señor nuestro.</p>
+          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
+          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, que haces crecer continuamente a tu Iglesia dándole nuevos hijos, acrecienta la fe y la inteligencia de nuestros catecúmenos, para que, renacidos en la fuente bautismal, sean contados entre tus hijos de adopción. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
+        </div>
+
+        <!-- 5. Por la unidad de los cristianos -->
+        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
+          <p><strong>V. Por la unidad de los cristianos:</strong></p>
+          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos por todos los hermanos que creen en Cristo, para que Dios nuestro Señor congregue en su única Iglesia y conserve en la paz a todos los que viven en la verdad.</p>
+          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
+          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, que reúnes a los dispersos y mantienes a los congregados, mira con bondad a la grey de tu Hijo, para que a cuantos consagró un solo bautismo los una la integridad de la fe y el vínculo de la caridad. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
+        </div>
+
+        <!-- 6. Por los judíos -->
+        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
+          <p><strong>VI. Por el pueblo judío:</strong></p>
+          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos por el pueblo judío, a quien Dios nuestro Señor habló primero por los profetas, para que les conceda crecer en el amor de su Nombre y en la fidelidad a su alianza.</p>
+          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
+          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, que confiaste tus promesas a Abraham y a su descendencia, escucha bondadoso las súplicas de tu Iglesia, para que el pueblo que adquiriste como propiedad tuya alcance la plenitud de la redención. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
+        </div>
+
+        <!-- 7. Por los que no creen en Cristo -->
+        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
+          <p><strong>VII. Por los que no creen en Cristo:</strong></p>
+          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos por los que no creen en Cristo, para que, iluminados por el Espíritu Santo, puedan entrar también ellos en el camino de la salvación.</p>
+          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
+          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, concede a los que no creen en Cristo caminar en tu presencia con rectitud de corazón para encontrar la verdad, y a nosotros concédenos crecer en el amor mutuo y ser testigos más fieles de tu amor en el mundo. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
+        </div>
+
+        <!-- 8. Por los que no creen en Dios -->
+        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
+          <p><strong>VIII. Por los que no creen en Dios:</strong></p>
+          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos por los que no reconocen a Dios, para que, buscando de corazón lo que es recto, merezcan llegar al conocimiento de su Creador.</p>
+          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
+          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, que creaste a todos los hombres para que deseándote te busquen y encontrándote descansen en ti, concédeles que, en medio de las dificultades del mundo, reconozcan los signos de tu amor y lleguen con gozo a confesarte como único Dios verdadero. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
+        </div>
+
+        <!-- 9. Por los gobernantes -->
+        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
+          <p><strong>IX. Por los gobernantes:</strong></p>
+          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos por todos los gobernantes de las naciones, para que Dios nuestro Señor guíe sus mentes y corazones hacia la paz y la libertad verdadera de todos los pueblos.</p>
+          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
+          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, en cuyas manos residen los derechos de los pueblos y las riendas de los gobiernos, mira con bondad a los que rigen los destinos de las naciones, para que se afiance en toda la tierra la prosperidad, la paz duradera y la libertad religiosa. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
+        </div>
+
+        <!-- 10. Por los que sufren -->
+        <div style="border-left: 3px solid #dc2626; padding-left: 1rem; margin-bottom: 1.25rem;">
+          <p><strong>X. Por los que sufren y los atribulados:</strong></p>
+          <p><span class="speaker">Diácono o Sacerdote:</span> Oremos a Dios Padre todopoderoso por todos los que sufren en el mundo: para que libre a la tierra de errores, cure a los enfermos, libre de hambre a los necesitados, abra las prisiones, rompa las cadenas, conceda un regreso seguro a los peregrinos, salud a los moribundos y una santa muerte a los agonizantes.</p>
+          <p class="rubric">(Oración en silencio - El sacerdote prosigue:)</p>
+          <p><span class="speaker">Sacerdote:</span> Dios todopoderoso y eterno, consuelo de los afligidos y fortaleza de los que sufren, lleguen a ti los clamores de los que te invocan en cualquier tribulación, para que todos experimenten con gozo el socorro de tu misericordia en sus necesidades. Por Jesucristo, nuestro Señor. <span class="response">Amén.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTE 2: ADORACIÓN DE LA SANTA CRUZ -->
+    <section class="mass-section" id="vs-parte2">
+      <h2 class="section-title">Segunda Parte: Adoración de la Santa Cruz</h2>
+      <div class="dialogue">
+        <p class="rubric"><strong>Ostensión de la Cruz:</strong> La Santa Cruz, acompañada de dos ministros con cirios encendidos, es presentada ante la asamblea. El sacerdote (o el diácono) la eleva ante el pueblo cantando tres veces en tonos cada vez más altos:</p>
+        
+        <div style="background: rgba(220,38,38,0.15); border: 1px solid rgba(220,38,38,0.4); border-radius: 8px; padding: 1.2rem; text-align: center; margin: 1.2rem 0;">
+          <p style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.6rem; color: #f87171;">
+            <span class="speaker">Sacerdote o Diácono:</span> ¡Mirad el árbol de la Cruz, donde estuvo clavada la salvación del mundo!
+          </p>
+          <p style="font-size: 1.2rem; font-weight: bold; color: var(--text-color);">
+            <span class="speaker">Todos:</span> <span class="response">¡Venid a adorarlo!</span>
+          </p>
+          <p class="rubric" style="margin-top: 0.6rem;">(Tras cada aclamación, todos se arrodillan y adoran la Cruz en silencio durante unos momentos)</p>
+        </div>
+
+        <p class="rubric"><strong>Veneración de la Cruz:</strong> El sacerdote, los ministros sagrados y los fieles se acercan procesionalmente a adorar la Cruz, haciéndole una genuflexión o inclinación profunda y besándola con devoción. Mientras tanto se cantan los <em>Improperios</em> («Pueblo mío, ¿qué te he hecho o en qué te he ofendido? Respóndeme»), el himno <em>Crux fidelis</em> y cantos a la Cruz redentora.</p>
+      </div>
+    </section>
+
+    <!-- PARTE 3: SAGRADA COMUNIÓN -->
+    <section class="mass-section" id="vs-parte3">
+      <h2 class="section-title">Tercera Parte: Sagrada Comunión</h2>
+      <div class="dialogue">
+        <p class="rubric"><strong>Preparación del Altar:</strong> Se extiende sobre el altar desnudo un mantel blanco, el corporal y el misal. No hay ofertorio de pan y vino ni incensación de dones (<button type="button" class="igmr-badge" onclick="showIGMR(43)" title="Consultar numeral 43 de la IGMR">IGMR 43</button>). El diácono o el sacerdote va al Monumento (lugar de la reserva) y trae el Santísimo Sacramento con las formas consagradas en la Misa del Jueves Santo, acompañado de dos cirios encendidos. Lo coloca sobre el altar sobre el corporal.</p>
+
+        <p class="rubric">El sacerdote se acerca al altar, hace genuflexión y con las manos juntas introduce la oración del Señor:</p>
+        <p><span class="speaker">Sacerdote:</span> Fieles a la recomendación del Salvador y siguiendo su divina enseñanza, nos atrevemos a decir:</p>
+        <p><span class="speaker">Todos:</span> Padre nuestro, que estás en el cielo, santificado sea tu Nombre; venga a nosotros tu reino; hágase tu voluntad en la tierra como en el cielo. Danos hoy nuestro pan de cada día; perdona nuestras ofensas, como también nosotros perdonamos a los que nos ofenden; no nos dejes caer en la tentación, y líbranos del mal.</p>
+
+        <p class="rubric">El sacerdote continúa solo con las manos extendidas:</p>
+        <p><span class="speaker">Sacerdote:</span> Líbranos de todos los males, Señor, y concédenos la paz en nuestros días, para que, ayudados por tu misericordia, vivamos siempre libres de pecado y protegidos de toda perturbación, mientras esperamos la gloriosa venida de nuestro Salvador Jesucristo.</p>
+        <p><span class="speaker">Pueblo:</span> <span class="response">Tuyo es el reino, tuyo el poder y la gloria, por siempre, Señor.</span></p>
+
+        <p class="rubric">El sacerdote dice en secreto:</p>
+        <p><span class="speaker">Sacerdote:</span> Señor Jesucristo, la comunión de tu Cuerpo no sea para mí causa de juicio y condenación, sino que, por tu piedad, me aproveche para defensa de alma y cuerpo y como medicina saludable.</p>
+
+        <p class="rubric">El sacerdote hace genuflexión, toma una partícula de la Hostia consagrada y mostrándola al pueblo dice con voz clara:</p>
+        <p><span class="speaker">Sacerdote:</span> Éste es el Cordero de Dios, que quita el pecado del mundo. Dichosos los invitados a la cena del Señor.</p>
+        <p><span class="speaker">Todos:</span> <span class="response">Señor, no soy digno de que entres en mi casa, pero una palabra tuya bastará para sanarme.</span></p>
+
+        <p class="rubric">El sacerdote y los fieles comulgan reverentemente el Cuerpo de Cristo reservado. Concluida la comunión, el copón se lleva a un lugar digno fuera de la nave de la iglesia. Se purifica el altar y se guarda un tiempo de sagrado silencio.</p>
+
+        <p class="rubric">El sacerdote dice en pie: «Oremos». Y con las manos extendidas proclama:</p>
+        <div class="prayer-text">
+          <p><strong>Oración después de la Comunión:</strong> Dios todopoderoso y eterno, que nos has renovado con la santa muerte y resurrección de tu Hijo, conserva en nosotros la obra de tu misericordia, para que, por la participación de este misterio, vivamos consagrados a tu servicio. Por Jesucristo, nuestro Señor.</p>
+          <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTE 4: RITO DE CONCLUSIÓN Y DESPEDIDA -->
+    <section class="mass-section" id="vs-parte4">
+      <h2 class="section-title">Cuarta Parte: Despedida en Silencio</h2>
+      <div class="dialogue">
+        <p class="rubric">El diácono o el sacerdote dice al pueblo: «Inclinaos para recibir la bendición».</p>
+        <p class="rubric">El sacerdote, extendiendo las manos sobre el pueblo, dice la Oración sobre el pueblo:</p>
+        <div class="prayer-text">
+          <p><strong>Oración sobre el Pueblo:</strong> Que descienda, Señor, tu bendición abundante sobre este pueblo tuyo, que ha celebrado la muerte de tu Hijo con la esperanza de su santa resurrección; llegue a él tu perdón, reciba tu consuelo, se acreciente su santa fe y se asegure su redención eterna. Por Jesucristo, nuestro Señor.</p>
+          <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
+        </div>
+        <p class="rubric" style="margin-top: 1rem; color: #dc2626; font-weight: bold;">
+          Todos se retiran en profundo silencio. El altar queda totalmente despojado y desnudo.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================================
+       SÁBADO SANTO: LA SEPULTURA DEL SEÑOR
+       ============================================================ -->
+  <div id="holySaturdayContainer" class="special-liturgy-container" style="display: none;">
+    <div class="liturgy-special-banner" style="background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(15, 23, 42, 0.9)); border-left: 4px solid #9333ea; padding: 1.25rem; border-radius: 8px; margin-bottom: 2rem;">
+      <div style="display:flex; align-items:center; gap: 0.75rem; margin-bottom: 0.5rem;">
+        <span style="font-size: 1.8rem;">🕊️</span>
+        <h2 style="margin:0; font-size: 1.4rem; color: #c084fc;">Sábado Santo: La Sepultura del Señor</h2>
+      </div>
+      <p class="rubric" style="margin: 0; color: var(--text-secondary);">
+        <strong>Día Alitúrgico de Silencio y Espera:</strong> Durante el Sábado Santo la Iglesia permanece junto al sepulcro del Señor, meditando su pasión y muerte, absteniéndose absolutamente del sacrificio de la Misa (el altar permanece desnudo), hasta que, llegada la noche con la <strong>Solemne Vigilia Pascual</strong>, estallan los gozos de la Resurrección.
+      </p>
+    </div>
+
+    <section class="mass-section">
+      <h2 class="section-title">Meditación Litúrgica y Lecturas de la Tradición de la Iglesia</h2>
+      <div class="scripture-box" style="margin-bottom: 1.5rem;">
+        <div class="scripture-citation">De una antigua Homilía sobre el Santo y Gran Sábado (Oficio de Lecturas)</div>
+        <p>«¿Qué es lo que pasa? Un gran silencio envuelve hoy la tierra; un gran silencio y una gran soledad. Un gran silencio, porque el Rey duerme. La tierra está temerosa y sobrecogida, porque Dios se ha dormido en la carne y ha ido a despertar a los que dormían desde antiguo...»</p>
+        <p>«Va a buscar a Adán, nuestro primer padre, como a la oveja perdida. Quiere visitar a los que yacen en tinieblas y en sombras de muerte... El Señor llega a ellos llevando en sus manos las armas victoriosas de la cruz... Y tomándolo de la mano lo levanta diciendo: <em>'Despierta, tú que duermes, levántate de entre los muertos y Cristo te iluminará. Yo soy tu Dios, que por ti me he hecho tu hijo. Despierta y salgamos de aquí, porque tú en mí y yo en ti formamos una sola e indivisible persona'</em>».</p>
+      </div>
+
+      <div class="dialogue">
+        <p class="rubric">Oración:</p>
+        <div class="prayer-text">
+          <p><strong>Oración:</strong> Dios todopoderoso, cuyo Hijo unigénito descendió a los infiernos y salió glorioso del sepulcro, concede a tus fieles, sepultados con él por el bautismo, resucitar con él a la vida eterna en la gloria de la Pascua. Por nuestro Señor Jesucristo, tu Hijo, que vive y reina contigo en la unidad del Espíritu Santo y es Dios por los siglos de los siglos. <span class="response">Amén.</span></p>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+          <button type="button" class="btn-hero-primary" onclick="selectMass('pas-vigilia');" style="font-size: 1rem; padding: 0.8rem 1.6rem;">
+            Ir a la Solemne Vigilia Pascual en la Noche Santa →
+          </button>
+        </div>
+      </div>
+    </section>
+  </div><!-- Fin #holySaturdayContainer -->
 
     </div><!-- Fin #massView -->
   </main>
@@ -4345,9 +4379,21 @@
       const goodFridayContainer = document.getElementById('goodFridayContainer');
       const holySaturdayContainer = document.getElementById('holySaturdayContainer');
       const prayerWrapper = document.querySelector('.select-prayer-wrapper');
-      if (standardContainer) standardContainer.style.display = 'block';
-      if (goodFridayContainer) goodFridayContainer.style.display = 'none';
-      if (holySaturdayContainer) holySaturdayContainer.style.display = 'none';
+      if (standardContainer) {
+        standardContainer.style.display = 'block';
+        standardContainer.classList.remove('hidden-liturgy-container');
+        standardContainer.classList.add('visible-liturgy-container');
+      }
+      if (goodFridayContainer) {
+        goodFridayContainer.style.display = 'none';
+        goodFridayContainer.classList.add('hidden-liturgy-container');
+        goodFridayContainer.classList.remove('visible-liturgy-container');
+      }
+      if (holySaturdayContainer) {
+        holySaturdayContainer.style.display = 'none';
+        holySaturdayContainer.classList.add('hidden-liturgy-container');
+        holySaturdayContainer.classList.remove('visible-liturgy-container');
+      }
       if (prayerWrapper) prayerWrapper.style.display = 'block';
 
       // 3. Ocultar título y badge de la Misa en el Header
@@ -4541,19 +4587,55 @@
       const prayerWrapper = document.querySelector('.select-prayer-wrapper');
 
       if (m.id === 'pas-viernes-santo') {
-        if (standardContainer) standardContainer.style.display = 'none';
-        if (goodFridayContainer) goodFridayContainer.style.display = 'block';
-        if (holySaturdayContainer) holySaturdayContainer.style.display = 'none';
+        if (standardContainer) {
+          standardContainer.style.display = 'none';
+          standardContainer.classList.add('hidden-liturgy-container');
+          standardContainer.classList.remove('visible-liturgy-container');
+        }
+        if (goodFridayContainer) {
+          goodFridayContainer.style.display = 'block';
+          goodFridayContainer.classList.remove('hidden-liturgy-container');
+          goodFridayContainer.classList.add('visible-liturgy-container');
+        }
+        if (holySaturdayContainer) {
+          holySaturdayContainer.style.display = 'none';
+          holySaturdayContainer.classList.add('hidden-liturgy-container');
+          holySaturdayContainer.classList.remove('visible-liturgy-container');
+        }
         if (prayerWrapper) prayerWrapper.style.display = 'none';
       } else if (m.id === 'pas-sabado-santo') {
-        if (standardContainer) standardContainer.style.display = 'none';
-        if (goodFridayContainer) goodFridayContainer.style.display = 'none';
-        if (holySaturdayContainer) holySaturdayContainer.style.display = 'block';
+        if (standardContainer) {
+          standardContainer.style.display = 'none';
+          standardContainer.classList.add('hidden-liturgy-container');
+          standardContainer.classList.remove('visible-liturgy-container');
+        }
+        if (goodFridayContainer) {
+          goodFridayContainer.style.display = 'none';
+          goodFridayContainer.classList.add('hidden-liturgy-container');
+          goodFridayContainer.classList.remove('visible-liturgy-container');
+        }
+        if (holySaturdayContainer) {
+          holySaturdayContainer.style.display = 'block';
+          holySaturdayContainer.classList.remove('hidden-liturgy-container');
+          holySaturdayContainer.classList.add('visible-liturgy-container');
+        }
         if (prayerWrapper) prayerWrapper.style.display = 'none';
       } else {
-        if (standardContainer) standardContainer.style.display = 'block';
-        if (goodFridayContainer) goodFridayContainer.style.display = 'none';
-        if (holySaturdayContainer) holySaturdayContainer.style.display = 'none';
+        if (standardContainer) {
+          standardContainer.style.display = 'block';
+          standardContainer.classList.remove('hidden-liturgy-container');
+          standardContainer.classList.add('visible-liturgy-container');
+        }
+        if (goodFridayContainer) {
+          goodFridayContainer.style.display = 'none';
+          goodFridayContainer.classList.add('hidden-liturgy-container');
+          goodFridayContainer.classList.remove('visible-liturgy-container');
+        }
+        if (holySaturdayContainer) {
+          holySaturdayContainer.style.display = 'none';
+          holySaturdayContainer.classList.add('hidden-liturgy-container');
+          holySaturdayContainer.classList.remove('visible-liturgy-container');
+        }
         if (prayerWrapper) prayerWrapper.style.display = 'block';
       }
 

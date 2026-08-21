@@ -1297,6 +1297,35 @@ htmlParts.push(`<!DOCTYPE html>
       align-items: center;
       gap: 4px;
     }
+    .season-sublinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+    .btn-sub-season {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      border-radius: 6px;
+      padding: 0.28rem 0.55rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-sub-season:hover {
+      background: var(--surface-hover);
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+    .hidden-liturgy-container {
+      display: none !important;
+    }
+    .visible-liturgy-container {
+      display: block !important;
+    }
   </style>
 </head>
 <body>
@@ -1495,12 +1524,17 @@ htmlParts.push(`<!DOCTYPE html>
           <span class="season-link-text">Ver Misas de Cuaresma →</span>
         </div>
 
-        <div class="season-card" style="border-left-color: #e11d48;" onclick="selectSeasonAndMass('Semana Santa & Triduo', 'cua-jueves-santo');">
+        <div class="season-card" style="border-left-color: #e11d48;" onclick="selectSeasonAndMass('Semana Santa & Triduo', 'pas-viernes-santo');">
           <div class="season-card-top">
             <span class="season-name">Triduo Pascual y Semana Santa</span>
             <span class="season-badge" style="background:#e11d48; color:#fff;">Rojo / Blanco</span>
           </div>
           <p class="season-desc">Ramos, Lunes a Miércoles Santo, Misa Crismal, Cena del Señor, Viernes Santo, Sábado Santo y Vigilia.</p>
+          <div class="season-sublinks">
+            <button type="button" class="btn-sub-season" onclick="event.stopPropagation(); selectSeasonAndMass('Semana Santa & Triduo', 'cua-jueves-santo');">⚪ Jueves Santo</button>
+            <button type="button" class="btn-sub-season" onclick="event.stopPropagation(); selectSeasonAndMass('Semana Santa & Triduo', 'pas-viernes-santo');" style="border-color:#dc2626; color:#f87171; background:rgba(220,38,38,0.15);">🔴 Viernes Santo (Pasión)</button>
+            <button type="button" class="btn-sub-season" onclick="event.stopPropagation(); selectSeasonAndMass('Semana Santa & Triduo', 'pas-vigilia');">⚪ Vigilia Pascual</button>
+          </div>
           <span class="season-link-text">Ver Semana Santa y Triduo →</span>
         </div>
 
@@ -1873,8 +1907,21 @@ htmlParts.push(`
         <p class="rubric">El sacerdote y el diácono veneran el altar con un beso (IGMR 169), hacen una inclinación profunda con los ministros (IGMR 169, 275a) y se retiran en procesión a la sacristía.</p>
       </div>
     </section>
-  </div><!-- Fin #standardMassContainer -->
+`);
 
+// 5. APÉNDICES IGMR: NORMAS LITÚRGICAS COMPLEMENTARIAS (352-399)
+htmlParts.push(`
+    <section class="mass-section" id="apendice-igmr">
+      <h2 class="section-title">5. Normas Complementarias de la IGMR</h2>
+`);
+htmlParts.push(useRange("Capítulo VII: Elección de la Misa y de sus Partes", range(352, 367)));
+htmlParts.push(useRange("Capítulo VIII: Misas y Oraciones por Diversas Necesidades y Misas de Difuntos", range(368, 385)));
+htmlParts.push(useRange("Capítulo IX: Adaptaciones que Corresponden a los Obispos y Conferencias Episcopales", range(386, 399)));
+htmlParts.push(`    </section>
+  </div><!-- Fin #standardMassContainer -->
+`);
+
+htmlParts.push(`
   <!-- ============================================================
        CELEBRACIÓN PROPIA DE VIERNES SANTO EN LA PASIÓN DEL SEÑOR
        (Sin Liturgia Eucarística, sin consagración, 4 partes canónicas)
@@ -2141,18 +2188,8 @@ htmlParts.push(`
         </div>
       </div>
     </section>
-  </div>
+  </div><!-- Fin #holySaturdayContainer -->
 `);
-
-// 5. APÉNDICES IGMR: NORMAS LITÚRGICAS COMPLEMENTARIAS (352-399)
-htmlParts.push(`
-    <section class="mass-section" id="apendice-igmr">
-      <h2 class="section-title">5. Normas Complementarias de la IGMR</h2>
-`);
-htmlParts.push(useRange("Capítulo VII: Elección de la Misa y de sus Partes", range(352, 367)));
-htmlParts.push(useRange("Capítulo VIII: Misas y Oraciones por Diversas Necesidades y Misas de Difuntos", range(368, 385)));
-htmlParts.push(useRange("Capítulo IX: Adaptaciones que Corresponden a los Obispos y Conferencias Episcopales", range(386, 399)));
-htmlParts.push(`    </section>\n`);
 
 htmlParts.push(`
     </div><!-- Fin #massView -->
@@ -2400,9 +2437,21 @@ const scriptBlock = `
       const goodFridayContainer = document.getElementById('goodFridayContainer');
       const holySaturdayContainer = document.getElementById('holySaturdayContainer');
       const prayerWrapper = document.querySelector('.select-prayer-wrapper');
-      if (standardContainer) standardContainer.style.display = 'block';
-      if (goodFridayContainer) goodFridayContainer.style.display = 'none';
-      if (holySaturdayContainer) holySaturdayContainer.style.display = 'none';
+      if (standardContainer) {
+        standardContainer.style.display = 'block';
+        standardContainer.classList.remove('hidden-liturgy-container');
+        standardContainer.classList.add('visible-liturgy-container');
+      }
+      if (goodFridayContainer) {
+        goodFridayContainer.style.display = 'none';
+        goodFridayContainer.classList.add('hidden-liturgy-container');
+        goodFridayContainer.classList.remove('visible-liturgy-container');
+      }
+      if (holySaturdayContainer) {
+        holySaturdayContainer.style.display = 'none';
+        holySaturdayContainer.classList.add('hidden-liturgy-container');
+        holySaturdayContainer.classList.remove('visible-liturgy-container');
+      }
       if (prayerWrapper) prayerWrapper.style.display = 'block';
 
       // 3. Ocultar título y badge de la Misa en el Header
@@ -2596,19 +2645,55 @@ const scriptBlock = `
       const prayerWrapper = document.querySelector('.select-prayer-wrapper');
 
       if (m.id === 'pas-viernes-santo') {
-        if (standardContainer) standardContainer.style.display = 'none';
-        if (goodFridayContainer) goodFridayContainer.style.display = 'block';
-        if (holySaturdayContainer) holySaturdayContainer.style.display = 'none';
+        if (standardContainer) {
+          standardContainer.style.display = 'none';
+          standardContainer.classList.add('hidden-liturgy-container');
+          standardContainer.classList.remove('visible-liturgy-container');
+        }
+        if (goodFridayContainer) {
+          goodFridayContainer.style.display = 'block';
+          goodFridayContainer.classList.remove('hidden-liturgy-container');
+          goodFridayContainer.classList.add('visible-liturgy-container');
+        }
+        if (holySaturdayContainer) {
+          holySaturdayContainer.style.display = 'none';
+          holySaturdayContainer.classList.add('hidden-liturgy-container');
+          holySaturdayContainer.classList.remove('visible-liturgy-container');
+        }
         if (prayerWrapper) prayerWrapper.style.display = 'none';
       } else if (m.id === 'pas-sabado-santo') {
-        if (standardContainer) standardContainer.style.display = 'none';
-        if (goodFridayContainer) goodFridayContainer.style.display = 'none';
-        if (holySaturdayContainer) holySaturdayContainer.style.display = 'block';
+        if (standardContainer) {
+          standardContainer.style.display = 'none';
+          standardContainer.classList.add('hidden-liturgy-container');
+          standardContainer.classList.remove('visible-liturgy-container');
+        }
+        if (goodFridayContainer) {
+          goodFridayContainer.style.display = 'none';
+          goodFridayContainer.classList.add('hidden-liturgy-container');
+          goodFridayContainer.classList.remove('visible-liturgy-container');
+        }
+        if (holySaturdayContainer) {
+          holySaturdayContainer.style.display = 'block';
+          holySaturdayContainer.classList.remove('hidden-liturgy-container');
+          holySaturdayContainer.classList.add('visible-liturgy-container');
+        }
         if (prayerWrapper) prayerWrapper.style.display = 'none';
       } else {
-        if (standardContainer) standardContainer.style.display = 'block';
-        if (goodFridayContainer) goodFridayContainer.style.display = 'none';
-        if (holySaturdayContainer) holySaturdayContainer.style.display = 'none';
+        if (standardContainer) {
+          standardContainer.style.display = 'block';
+          standardContainer.classList.remove('hidden-liturgy-container');
+          standardContainer.classList.add('visible-liturgy-container');
+        }
+        if (goodFridayContainer) {
+          goodFridayContainer.style.display = 'none';
+          goodFridayContainer.classList.add('hidden-liturgy-container');
+          goodFridayContainer.classList.remove('visible-liturgy-container');
+        }
+        if (holySaturdayContainer) {
+          holySaturdayContainer.style.display = 'none';
+          holySaturdayContainer.classList.add('hidden-liturgy-container');
+          holySaturdayContainer.classList.remove('visible-liturgy-container');
+        }
         if (prayerWrapper) prayerWrapper.style.display = 'block';
       }
 
