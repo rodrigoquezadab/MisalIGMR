@@ -1052,9 +1052,263 @@ htmlParts.push(`<!DOCTYPE html>
       .mass-section {
         padding: 2.2rem 2.2rem;
       }
-      .liturgy-drawer {
-        width: 380px;
+    /* ============================================================
+       9. LOGO INTERACTIVO Y VISTA DE PORTADA / INICIO (HOME)
+       ============================================================ */
+    .app-logo-clickable {
+      cursor: pointer;
+      display: inline-block;
+      user-select: none;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+    }
+    .app-logo-clickable:hover {
+      background: var(--surface-hover);
+      transform: scale(1.02);
+    }
+    .app-logo-clickable:active {
+      transform: scale(0.97);
+    }
+    .logo-badge-refresh {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 0.2rem;
+      padding: 2px 9px;
+      background: rgba(230, 57, 70, 0.12);
+      color: var(--primary-color);
+      border: 1px solid rgba(230, 57, 70, 0.35);
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    /* Control de Vistas (Home vs Misa) */
+    .view-panel {
+      display: none;
+      animation: fadeIn 0.25s ease-out;
+    }
+    .view-panel.active {
+      display: block;
+    }
+
+    .btn-view-toggle {
+      background: var(--card-bg);
+      color: var(--speaker-color);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.45rem 0.65rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      min-height: 40px;
+      transition: all 0.15s ease;
+    }
+    .btn-view-toggle:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+
+    /* Portada de Inicio (Home Page) */
+    .home-hero-card {
+      background: linear-gradient(145deg, var(--card-bg) 0%, rgba(230, 57, 70, 0.09) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.8rem 1.1rem;
+      margin-bottom: 1.8rem;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .home-hero-icon {
+      font-size: 2.6rem;
+      color: var(--primary-color);
+      margin-bottom: 0.4rem;
+      line-height: 1;
+    }
+    .home-hero-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      margin-bottom: 0.6rem;
+      line-height: 1.25;
+    }
+    .home-hero-desc {
+      font-size: 0.95rem;
+      color: var(--text-color);
+      max-width: 720px;
+      margin: 0 auto 1.4rem;
+      line-height: 1.65;
+      opacity: 0.92;
+    }
+    .home-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+    }
+    .btn-hero-primary {
+      background: var(--primary-color);
+      color: #fff !important;
+      font-weight: 700;
+      padding: 0.65rem 1.3rem;
+      border-radius: 8px;
+      border: 1px solid var(--primary-color);
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(230, 57, 70, 0.35);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-hero-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(230, 57, 70, 0.5);
+    }
+    .btn-hero-secondary {
+      background: var(--card-bg);
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      font-weight: 700;
+      padding: 0.65rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-hero-secondary:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+
+    .home-section-heading {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--speaker-color);
+      margin: 1.8rem 0 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .home-features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+      margin-bottom: 2rem;
+    }
+    @media (min-width: 640px) {
+      .home-features-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
+    }
+    .home-feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.15rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .home-feature-card:hover {
+      border-color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+    .feature-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.5rem;
+    }
+    .feature-icon {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+    }
+    .feature-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text-color);
+      margin: 0;
+    }
+    .feature-body {
+      font-size: 0.88rem;
+      color: var(--muted-text);
+      line-height: 1.6;
+    }
+
+    .home-seasons-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (min-width: 580px) {
+      .home-seasons-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 900px) {
+      .home-seasons-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .season-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 110px;
+    }
+    .season-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+    .season-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+    }
+    .season-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-color);
+    }
+    .season-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+    }
+    .season-desc {
+      font-size: 0.82rem;
+      color: var(--muted-text);
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+    .season-link-text {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
   </style>
 </head>
@@ -1081,11 +1335,14 @@ htmlParts.push(`<!DOCTYPE html>
     </div>
   </aside>
 
-  <!-- Encabezado Principal -->
+  <!-- Encabezado Principal con Logo Clickeable -->
   <header class="app-header">
     <div class="header-inner">
-      <div class="header-cross">✠</div>
-      <h1 class="app-title">MISAL ROMANO</h1>
+      <div class="app-logo-clickable" onclick="refreshIndexAndHome()" title="Click para volver al Inicio y refrescar el Catálogo" role="button" tabindex="0">
+        <div class="header-cross">✠</div>
+        <h1 class="app-title">MISAL ROMANO</h1>
+        <span class="logo-badge-refresh">↻ Refrescar Catálogo</span>
+      </div>
       <h2 id="headerMassTitle" class="mass-title">Primer Domingo del Tiempo Ordinario</h2>
       <div class="badge-wrapper">
         <span id="headerSeasonBadge" class="liturgical-badge">Tiempo Ordinario</span>
@@ -1097,8 +1354,12 @@ htmlParts.push(`<!DOCTYPE html>
   <!-- Barra de Herramientas Flotante / Sticky Mobile-First -->
   <nav class="toolbar-nav" aria-label="Herramientas del Misal">
     <div class="toolbar-container">
-      <!-- Fila Superior en Móvil: Navegación de Misas y Plegarias -->
+      <!-- Fila Superior en Móvil: Navegación de Vistas, Misas y Plegarias -->
       <div class="toolbar-row toolbar-row-primary">
+        <button type="button" id="btnViewToggle" class="btn-view-toggle" onclick="toggleViewMode()" title="Alternar entre Inicio y la Misa">
+          <span id="btnViewIcon">🏠</span>
+          <span id="btnViewLabel">Inicio</span>
+        </button>
         <button type="button" class="btn-drawer-toggle" onclick="toggleDrawer(true)" title="Abrir Catálogo de Misas">
           <span class="btn-icon">📑</span>
           <span class="btn-text">Índice</span>
@@ -1111,8 +1372,8 @@ htmlParts.push(`<!DOCTYPE html>
           <label for="quickPrayerSelect" class="sr-only">Plegaria Eucarística</label>
           <select id="quickPrayerSelect" onchange="selectPrayer(this.value)" title="Seleccionar Plegaria Eucarística">
             <option value="1">Plegaria I</option>
-            <option value="2" selected>Plegaria II</option>
-            <option value="3">Plegaria III</option>
+            <option value="2">Plegaria II</option>
+            <option value="3" selected>Plegaria III</option>
             <option value="4">Plegaria IV</option>
           </select>
         </div>
@@ -1148,6 +1409,135 @@ htmlParts.push(`<!DOCTYPE html>
   <button id="fabScrollTop" class="fab-scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Volver al inicio" aria-label="Volver arriba">↑</button>
 
   <main id="content">
+
+    <!-- ============================================================
+         PORTADA / PÁGINA DE INICIO INFORMATIVA (HOME VIEW)
+         ============================================================ -->
+    <div id="homeView" class="view-panel active">
+      <div class="home-hero-card">
+        <div class="home-hero-icon">✠</div>
+        <h2 class="home-hero-title">Misal Romano Digital con IGMR Íntegra</h2>
+        <p class="home-hero-desc">
+          Plataforma litúrgica interactiva con el <strong>Ordinario de la Misa</strong>, las <strong>67 celebraciones de todo el Año Litúrgico</strong>, las <strong>4 Plegarias Eucarísticas</strong>, <strong>25 Prefacios</strong> y la totalidad de los <strong>399 numerales de la Instrucción General del Misal Romano (IGMR)</strong> incorporados de forma interactiva.
+        </p>
+        <div class="home-cta-group">
+          <button type="button" class="btn-hero-primary" onclick="switchView('mass')">
+            <span>📖</span> Comenzar Celebración / Ir a la Misa
+          </button>
+          <button type="button" class="btn-hero-secondary" onclick="toggleDrawer(true)">
+            <span>📑</span> Abrir Catálogo Completo (67 Misas)
+          </button>
+          <button type="button" class="btn-hero-secondary" onclick="showIGMR(1)">
+            <span>📜</span> Consultar IGMR (n. 1)
+          </button>
+        </div>
+      </div>
+
+      <h3 class="home-section-heading"><span>❖</span> Características Principales</h3>
+      <div class="home-features-grid">
+        <div class="home-feature-card">
+          <div class="feature-card-header">
+            <span class="feature-icon">📜</span>
+            <h4 class="feature-title">IGMR Íntegra (1-399)</h4>
+          </div>
+          <p class="feature-body">
+            Cada rúbrica y oración contiene insignias interactivas (ej. <em>IGMR 43</em>, <em>IGMR 54</em>) que abren al instante la normativa oficial de la Santa Sede sin abandonar la lectura.
+          </p>
+        </div>
+
+        <div class="home-feature-card">
+          <div class="feature-card-header">
+            <span class="feature-icon">🕊️</span>
+            <h4 class="feature-title">Plegarias según IGMR 365</h4>
+          </div>
+          <p class="feature-body">
+            Selección canónica automática de la Plegaria Eucarística: <strong>Canon Romano</strong> en Solemnidades, <strong>Plegaria III</strong> en Domingos y <strong>Plegaria II</strong> en Ferias.
+          </p>
+        </div>
+
+        <div class="home-feature-card">
+          <div class="feature-card-header">
+            <span class="feature-icon">📅</span>
+            <h4 class="feature-title">Año Litúrgico Completo</h4>
+          </div>
+          <p class="feature-body">
+            Contiene todas las oraciones (Colecta, Ofrendas, Postcomunión), lecturas bíblicas completas, salmos responsoriales y prefacios propios para cada domingo y fiesta.
+          </p>
+        </div>
+
+        <div class="home-feature-card">
+          <div class="feature-card-header">
+            <span class="feature-icon">📱</span>
+            <h4 class="feature-title">Mobile-First & Accesible</h4>
+          </div>
+          <p class="feature-body">
+            Diseñado para uso cómodo en el altar, ambón o dispositivos móviles, con escalador de letra, modo oscuro/claro y panel de índice con búsqueda instantánea.
+          </p>
+        </div>
+      </div>
+
+      <h3 class="home-section-heading"><span>❖</span> Explorar por Tiempos Litúrgicos</h3>
+      <div class="home-seasons-grid">
+        <div class="season-card" style="border-left-color: #a855f7;" onclick="selectMass('adv-1'); switchView('mass');">
+          <div class="season-card-top">
+            <span class="season-name">Tiempo de Adviento</span>
+            <span class="season-badge" style="background:#a855f7; color:#fff;">Morado</span>
+          </div>
+          <p class="season-desc">4 Domingos de espera y preparación a la venida del Señor.</p>
+          <span class="season-link-text">Ver Misas de Adviento →</span>
+        </div>
+
+        <div class="season-card" style="border-left-color: #3b82f6;" onclick="selectMass('nav-noche'); switchView('mass');">
+          <div class="season-card-top">
+            <span class="season-name">Tiempo de Navidad</span>
+            <span class="season-badge" style="background:#3b82f6; color:#fff;">Blanco</span>
+          </div>
+          <p class="season-desc">Vigilia, Nochebuena, Aurora, Día, Sagrada Familia, Santa María y Epifanía.</p>
+          <span class="season-link-text">Ver Misas de Navidad →</span>
+        </div>
+
+        <div class="season-card" style="border-left-color: #9333ea;" onclick="selectMass('cua-ceniza'); switchView('mass');">
+          <div class="season-card-top">
+            <span class="season-name">Tiempo de Cuaresma</span>
+            <span class="season-badge" style="background:#9333ea; color:#fff;">Morado</span>
+          </div>
+          <p class="season-desc">Miércoles de Ceniza, Domingos I al V y Domingo de Ramos en la Pasión.</p>
+          <span class="season-link-text">Ver Misas de Cuaresma →</span>
+        </div>
+
+        <div class="season-card" style="border-left-color: #e11d48;" onclick="selectMass('pas-jueves-santo'); switchView('mass');">
+          <div class="season-card-top">
+            <span class="season-name">Triduo Pascual</span>
+            <span class="season-badge" style="background:#e11d48; color:#fff;">Blanco / Rojo</span>
+          </div>
+          <p class="season-desc">Misa de la Cena del Señor (Jueves Santo) y Solemne Vigilia Pascual.</p>
+          <span class="season-link-text">Ver Triduo Pascual →</span>
+        </div>
+
+        <div class="season-card" style="border-left-color: #0284c7;" onclick="selectMass('pas-dia'); switchView('mass');">
+          <div class="season-card-top">
+            <span class="season-name">Tiempo Pascual</span>
+            <span class="season-badge" style="background:#0284c7; color:#fff;">Blanco / Oro</span>
+          </div>
+          <p class="season-desc">Domingo de Resurrección, II al VII de Pascua, Ascensión y Pentecostés.</p>
+          <span class="season-link-text">Ver Tiempo Pascual →</span>
+        </div>
+
+        <div class="season-card" style="border-left-color: #16a34a;" onclick="selectMass('to-1'); switchView('mass');">
+          <div class="season-card-top">
+            <span class="season-name">Tiempo Ordinario</span>
+            <span class="season-badge" style="background:#16a34a; color:#fff;">Verde</span>
+          </div>
+          <p class="season-desc">34 Domingos completos y Solemnidades del Señor (Trinidad, Corpus, Corazón).</p>
+          <span class="season-link-text">Ver Tiempo Ordinario →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         VISTA DE LA CELEBRACIÓN LITÚRGICA COMPLETA (MASS VIEW)
+         ============================================================ -->
+    <div id="massView" class="view-panel">
 `);
 
 // 0. PROEMIO Y CAP. I (1-26)
@@ -1505,6 +1895,7 @@ htmlParts.push(useRange("Capítulo IX: Adaptaciones que Corresponden a los Obisp
 htmlParts.push(`    </section>\n`);
 
 htmlParts.push(`
+    </div><!-- Fin #massView -->
   </main>
 
   <!-- Modal Interactivo para Inspeccionar cualquier Numeral de la IGMR -->
@@ -1545,8 +1936,9 @@ const scriptBlock = `
     const igmrData = ${JSON.stringify(igmrMap)};
     const liturgiaData = ${JSON.stringify(liturgiaDB)};
     
+    let currentView = 'home'; // 'home' | 'mass'
     let currentMassId = "to-1";
-    let currentPrayerId = "2";
+    let currentPrayerId = "3";
     let currentModalNum = null;
 
     let currentFontSize = 18;
@@ -1647,16 +2039,65 @@ const scriptBlock = `
 
     function jumpToIGMR() {
       if (!currentModalNum) return;
+      switchView('mass');
       const el = document.getElementById('igmr-num-' + currentModalNum);
       if (el) {
         document.getElementById('igmrModal').classList.remove('active');
         document.body.style.overflow = '';
         let parent = el.closest('details');
         if (parent) parent.open = true;
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        el.classList.add('igmr-highlight-pulse');
-        setTimeout(() => el.classList.remove('igmr-highlight-pulse'), 3000);
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.classList.add('igmr-highlight-pulse');
+          setTimeout(() => el.classList.remove('igmr-highlight-pulse'), 3000);
+        }, 150);
       }
+    }
+
+    // --- GESTIÓN DE VISTAS (HOME vs MISA) ---
+    function switchView(viewName) {
+      currentView = viewName;
+      const homeView = document.getElementById('homeView');
+      const massView = document.getElementById('massView');
+      const btnIcon = document.getElementById('btnViewIcon');
+      const btnLabel = document.getElementById('btnViewLabel');
+
+      if (viewName === 'home') {
+        if (homeView) homeView.classList.add('active');
+        if (massView) massView.classList.remove('active');
+        if (btnIcon) btnIcon.innerText = '📖';
+        if (btnLabel) btnLabel.innerText = 'Misa';
+      } else {
+        if (homeView) homeView.classList.remove('active');
+        if (massView) massView.classList.add('active');
+        if (btnIcon) btnIcon.innerText = '🏠';
+        if (btnLabel) btnLabel.innerText = 'Inicio';
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleViewMode() {
+      if (currentView === 'home') {
+        switchView('mass');
+      } else {
+        switchView('home');
+      }
+    }
+
+    function refreshIndexAndHome() {
+      // 1. Limpiar búsqueda del índice
+      const searchInput = document.getElementById('drawerSearchInput');
+      if (searchInput) {
+        searchInput.value = '';
+        filterDrawer();
+      }
+
+      // 2. Refrescar catálogo
+      populateSelectors();
+
+      // 3. Volver a la portada de Inicio
+      switchView('home');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     // --- GESTIÓN DEL DRAWER Y SELECTORES DE MISAS ---
@@ -1682,7 +2123,6 @@ const scriptBlock = `
       drawerList.innerHTML = '';
 
       let currentCat = '';
-      let catDiv = null;
 
       liturgiaData.misas.forEach(m => {
         // Quick select
@@ -1851,6 +2291,8 @@ const scriptBlock = `
       populateSelectors();
       const savedMass = localStorage.getItem('misal-mass-id') || 'to-1';
       selectMass(savedMass);
+      // Comenzar en la vista de Inicio para dar la bienvenida e información completa
+      switchView('home');
     });
 
     window.addEventListener('keydown', (e) => {
