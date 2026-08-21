@@ -305,12 +305,16 @@ htmlParts.push(`<!DOCTYPE html>
       min-width: 0;
     }
 
+    .select-season-wrapper {
+      flex: 1.15;
+    }
+
     .select-mass-wrapper {
-      flex: 1.6;
+      flex: 1.45;
     }
 
     .select-prayer-wrapper {
-      flex: 1;
+      flex: 1.05;
     }
 
     .select-wrapper select {
@@ -1343,6 +1347,19 @@ htmlParts.push(`<!DOCTYPE html>
           <span class="btn-icon">📑</span>
           <span class="btn-text">Índice</span>
         </button>
+        <div class="select-wrapper select-season-wrapper">
+          <label for="quickSeasonSelect" class="sr-only">Filtrar por Tiempo</label>
+          <select id="quickSeasonSelect" onchange="onSeasonFilterChange(this.value)" title="Filtrar por Tiempo Litúrgico">
+            <option value="all">❖ Todos los Tiempos</option>
+            <option value="Tiempo de Adviento">🟣 Adviento (4)</option>
+            <option value="Tiempo de Navidad">⚪ Navidad (7)</option>
+            <option value="Tiempo de Cuaresma">🟣 Cuaresma (7)</option>
+            <option value="Semana Santa & Triduo">🔴 Semana Santa / Triduo (4)</option>
+            <option value="Tiempo Pascual">⚪ Pascua (9)</option>
+            <option value="Tiempo Ordinario">🟢 T. Ordinario (34)</option>
+            <option value="Solemnidades del Señor">⚪ Solemnidades (4)</option>
+          </select>
+        </div>
         <div class="select-wrapper select-mass-wrapper">
           <label for="quickMassSelect" class="sr-only">Seleccionar Misa</label>
           <select id="quickMassSelect" onchange="selectMass(this.value)" title="Seleccionar Misa"></select>
@@ -1451,7 +1468,7 @@ htmlParts.push(`<!DOCTYPE html>
 
       <h3 class="home-section-heading"><span>❖</span> Explorar por Tiempos Litúrgicos</h3>
       <div class="home-seasons-grid">
-        <div class="season-card" style="border-left-color: #a855f7;" onclick="selectMass('adv-1'); switchView('mass');">
+        <div class="season-card" style="border-left-color: #a855f7;" onclick="selectSeasonAndMass('Tiempo de Adviento', 'adv-1');">
           <div class="season-card-top">
             <span class="season-name">Tiempo de Adviento</span>
             <span class="season-badge" style="background:#a855f7; color:#fff;">Morado</span>
@@ -1460,7 +1477,7 @@ htmlParts.push(`<!DOCTYPE html>
           <span class="season-link-text">Ver Misas de Adviento →</span>
         </div>
 
-        <div class="season-card" style="border-left-color: #3b82f6;" onclick="selectMass('nav-noche'); switchView('mass');">
+        <div class="season-card" style="border-left-color: #3b82f6;" onclick="selectSeasonAndMass('Tiempo de Navidad', 'nav-noche');">
           <div class="season-card-top">
             <span class="season-name">Tiempo de Navidad</span>
             <span class="season-badge" style="background:#3b82f6; color:#fff;">Blanco</span>
@@ -1469,7 +1486,7 @@ htmlParts.push(`<!DOCTYPE html>
           <span class="season-link-text">Ver Misas de Navidad →</span>
         </div>
 
-        <div class="season-card" style="border-left-color: #9333ea;" onclick="selectMass('cua-ceniza'); switchView('mass');">
+        <div class="season-card" style="border-left-color: #9333ea;" onclick="selectSeasonAndMass('Tiempo de Cuaresma', 'cua-ceniza');">
           <div class="season-card-top">
             <span class="season-name">Tiempo de Cuaresma</span>
             <span class="season-badge" style="background:#9333ea; color:#fff;">Morado</span>
@@ -1478,7 +1495,7 @@ htmlParts.push(`<!DOCTYPE html>
           <span class="season-link-text">Ver Misas de Cuaresma →</span>
         </div>
 
-        <div class="season-card" style="border-left-color: #e11d48;" onclick="selectMass('pas-jueves-santo'); switchView('mass');">
+        <div class="season-card" style="border-left-color: #e11d48;" onclick="selectSeasonAndMass('Semana Santa & Triduo', 'pas-jueves-santo');">
           <div class="season-card-top">
             <span class="season-name">Triduo Pascual</span>
             <span class="season-badge" style="background:#e11d48; color:#fff;">Blanco / Rojo</span>
@@ -1487,7 +1504,7 @@ htmlParts.push(`<!DOCTYPE html>
           <span class="season-link-text">Ver Triduo Pascual →</span>
         </div>
 
-        <div class="season-card" style="border-left-color: #0284c7;" onclick="selectMass('pas-dia'); switchView('mass');">
+        <div class="season-card" style="border-left-color: #0284c7;" onclick="selectSeasonAndMass('Tiempo Pascual', 'pas-dia');">
           <div class="season-card-top">
             <span class="season-name">Tiempo Pascual</span>
             <span class="season-badge" style="background:#0284c7; color:#fff;">Blanco / Oro</span>
@@ -1496,7 +1513,7 @@ htmlParts.push(`<!DOCTYPE html>
           <span class="season-link-text">Ver Tiempo Pascual →</span>
         </div>
 
-        <div class="season-card" style="border-left-color: #16a34a;" onclick="selectMass('to-1'); switchView('mass');">
+        <div class="season-card" style="border-left-color: #16a34a;" onclick="selectSeasonAndMass('Tiempo Ordinario', 'to-1');">
           <div class="season-card-top">
             <span class="season-name">Tiempo Ordinario</span>
             <span class="season-badge" style="background:#16a34a; color:#fff;">Verde</span>
@@ -1911,8 +1928,56 @@ const scriptBlock = `
     
     let currentView = 'home'; // 'home' | 'mass'
     let currentMassId = null;
+    let currentSeasonFilter = 'all';
     let currentPrayerId = "3";
     let currentModalNum = null;
+
+    function getSeasonCategoryForMass(m) {
+      if (m.categoria === 'Semana Santa' || m.categoria === 'Triduo Pascual') {
+        return 'Semana Santa & Triduo';
+      }
+      return m.categoria;
+    }
+
+    function onSeasonFilterChange(season) {
+      currentSeasonFilter = season;
+      updateMassDropdownOptions();
+    }
+
+    function updateMassDropdownOptions(selectedId = null) {
+      const quickSelect = document.getElementById('quickMassSelect');
+      if (!quickSelect) return;
+      quickSelect.innerHTML = '';
+
+      let filtered = liturgiaData.misas;
+      if (currentSeasonFilter === 'Semana Santa & Triduo') {
+        filtered = liturgiaData.misas.filter(m => m.categoria === 'Semana Santa' || m.categoria === 'Triduo Pascual');
+      } else if (currentSeasonFilter !== 'all') {
+        filtered = liturgiaData.misas.filter(m => m.categoria === currentSeasonFilter);
+      }
+
+      const placeholderOpt = document.createElement('option');
+      placeholderOpt.value = '';
+      placeholderOpt.disabled = true;
+      placeholderOpt.selected = !selectedId && !currentMassId;
+      placeholderOpt.innerText = '— Seleccionar Misa (' + filtered.length + ') —';
+      quickSelect.appendChild(placeholderOpt);
+
+      filtered.forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m.id;
+        opt.selected = (m.id === (selectedId || currentMassId));
+        opt.innerText = m.nombre;
+        quickSelect.appendChild(opt);
+      });
+    }
+
+    function selectSeasonAndMass(season, massId) {
+      currentSeasonFilter = season;
+      const seasonSelect = document.getElementById('quickSeasonSelect');
+      if (seasonSelect) seasonSelect.value = season;
+      selectMass(massId);
+    }
 
     let currentFontSize = 18;
     const content = document.getElementById('content');
@@ -2054,8 +2119,11 @@ const scriptBlock = `
         filterDrawer();
       }
 
-      // 2. Resetear selección de misa y refrescar catálogo
+      // 2. Resetear selección de misa y filtro de tiempo
       currentMassId = null;
+      currentSeasonFilter = 'all';
+      const seasonSelect = document.getElementById('quickSeasonSelect');
+      if (seasonSelect) seasonSelect.value = 'all';
       populateSelectors();
 
       // 3. Ocultar título y badge de la Misa en el Header
@@ -2085,19 +2153,12 @@ const scriptBlock = `
     }
 
     function populateSelectors() {
-      const quickSelect = document.getElementById('quickMassSelect');
-      const drawerList = document.getElementById('drawerList');
-      
-      quickSelect.innerHTML = '';
-      drawerList.innerHTML = '';
+      const seasonSelect = document.getElementById('quickSeasonSelect');
+      if (seasonSelect) seasonSelect.value = currentSeasonFilter;
+      updateMassDropdownOptions();
 
-      // Opción predeterminada vacía en el selector
-      const placeholderOpt = document.createElement('option');
-      placeholderOpt.value = '';
-      placeholderOpt.disabled = true;
-      placeholderOpt.selected = !currentMassId;
-      placeholderOpt.innerText = '— Seleccionar Misa del Año Litúrgico —';
-      quickSelect.appendChild(placeholderOpt);
+      const drawerList = document.getElementById('drawerList');
+      drawerList.innerHTML = '';
 
       // Opción de Portada e Inicio en el Índice
       const homeItem = document.createElement('div');
@@ -2114,13 +2175,6 @@ const scriptBlock = `
       let currentCat = '';
 
       liturgiaData.misas.forEach(m => {
-        // Quick select
-        const opt = document.createElement('option');
-        opt.value = m.id;
-        opt.selected = (m.id === currentMassId);
-        opt.innerText = m.nombre;
-        quickSelect.appendChild(opt);
-
         // Drawer list grouped by category
         if (m.categoria !== currentCat) {
           currentCat = m.categoria;
@@ -2155,6 +2209,14 @@ const scriptBlock = `
       if (!massId) return;
       const m = liturgiaData.misas.find(x => x.id === massId) || liturgiaData.misas[0];
       currentMassId = m.id;
+
+      // Sincronizar selector de tiempo litúrgico
+      const seasonKey = getSeasonCategoryForMass(m);
+      currentSeasonFilter = seasonKey;
+      const seasonSelect = document.getElementById('quickSeasonSelect');
+      if (seasonSelect) seasonSelect.value = seasonKey;
+      updateMassDropdownOptions(m.id);
+
       document.getElementById('quickMassSelect').value = m.id;
 
       // Actualizar Header
