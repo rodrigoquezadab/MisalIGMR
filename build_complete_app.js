@@ -1414,7 +1414,7 @@ htmlParts.push(`<!DOCTYPE html>
         <div class="home-hero-icon">✠</div>
         <h2 class="home-hero-title">Misal Romano Digital con IGMR Íntegra</h2>
         <p class="home-hero-desc">
-          Plataforma litúrgica interactiva con el <strong>Ordinario de la Misa</strong>, las <strong>74 celebraciones de todo el Año Litúrgico</strong> con sus días concretos (Semana Santa, Jueves Santo, Viernes Santo, Sábado Santo, Octava de Pascua, Domingos y Solemnidades), las <strong>4 Plegarias Eucarísticas</strong>, <strong>25 Prefacios</strong> y la totalidad de los <strong>399 numerales de la Instrucción General del Misal Romano (IGMR)</strong> incorporados de forma interactiva.
+          Plataforma litúrgica interactiva con el <strong>Ordinario de la Misa</strong>, las <strong>74 celebraciones de todo el Año Litúrgico</strong> con sus días concretos (Semana Santa, Jueves Santo, Viernes Santo, Sábado Santo, Octava de Pascua, Domingos y Solemnidades), las <strong>4 Plegarias Eucarísticas</strong>, <strong>28 Prefacios</strong> y la totalidad de los <strong>399 numerales de la Instrucción General del Misal Romano (IGMR)</strong> incorporados de forma interactiva.
         </p>
         <div class="home-cta-group">
           <button type="button" class="btn-hero-primary" onclick="toggleDrawer(true)">

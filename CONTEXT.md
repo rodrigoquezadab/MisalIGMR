@@ -1,62 +1,110 @@
-# Contexto del Proyecto: Ordinario de la Misa con IGMR
+# Contexto del Proyecto: Misal Romano Digital con IGMR Íntegra
 
-## 1. Prompt Inicial / Requerimientos Fundacionales
+## 1. Misión y Requerimientos Fundacionales
 
-El proyecto se originó con el siguiente requerimiento explícito:
+El proyecto tiene como objetivo ofrecer una plataforma litúrgica y pastoral completa, interactiva y rigurosamente fiel al Magisterio y las normas litúrgicas de la **Iglesia Católica Apostólica Romana**, reuniendo en una sola aplicación web autocontenida:
 
-> *"Quiero crear un sitio web que tenga todas las partes de la misa ordenadas como aparece en el misal, si bien existen diferentes misas usaremos una estándar del tiempo ordinario, debe aparecer las partes separadas por títulos según la parte de la misa y estos títulos deben estar numerados, debe aparecer el texto de forma clara con la capacidad de ampliar la letra o reducirla según necesidad del usuario. En cada parte de la misa y donde corresponda debemos incluir todo la instrucción general del misal romano, la idea es poder tener todas las instrucciones, también según su temática, en cada sección de la misa y sin dejar nada fuera, para poder saber qué elementos corresponden en cada parte de la misa, estas deben aparecer con títulos y colapsables que permitan ver las instrucciones. Utiliza la referencia web del misal romano [https://seminariobogota.arquibogota.org.co/sites/default/files/inline-files/misal-romanopdf.pdf](https://seminariobogota.arquibogota.org.co/sites/default/files/inline-files/misal-romanopdf.pdf) y la web del la instrucción general del misal romano [https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_sp.html](https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_sp.html)"*
-
----
-
-## 2. Fuentes y Documentos de Referencia
-1. **Misal Romano (Edición típica para Tiempo Ordinario)**:
-   - Enlace oficial / referencia: [Misal Romano PDF (Seminario Conciliar de Bogotá)](https://seminariobogota.arquibogota.org.co/sites/default/files/inline-files/misal-romanopdf.pdf)
-   - Uso: Estructura del Ordinario de la Misa, oraciones del sacerdote, rúbricas ceremoniales, diálogos y respuestas de la asamblea.
-2. **Instrucción General del Misal Romano (IGMR)**:
-   - Enlace oficial del Vaticano: [Instrucción General del Misal Romano - Congregación para el Culto Divino y la Disciplina de los Sacramentos](https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_sp.html)
-   - Uso: Fundamentación teológica, normas litúrgicas, disposiciones de posturas corporales y detalles de cada rito integrados de forma exhaustiva y temática.
-3. **Misal Romano (Recursos Litúrgicos - Liturgia Papal)**:
-   - Enlace de referencia: [Misal Romano en Liturgia Papal](https://liturgiapapal.org/index.php/recursos-lit%C3%BArgicos/libros-lit%C3%BArgicos/604-misal-romano.html)
-   - Uso: Consulta de rúbricas ceremoniales completas, oraciones secretas del celebrante, ordo missae y fórmulas alternativas.
+1. El **Ordinario de la Misa** íntegro según la *Tercera Edición Típica del Misal Romano*.
+2. El **Catálogo Completo del Año Litúrgico** con **74 celebraciones concretas**, cada una con sus textos propios completos (Antífona de Entrada, Colecta, I Lectura, Salmo Responsorial con respuesta y estrofas, II Lectura, Aclamación/Aleluya, Santo Evangelio, Oración sobre las Ofrendas, Prefacio Propio, Antífona de Comunión y Postcomunión).
+3. La **totalidad de los 399 numerales de la Instrucción General del Misal Romano (IGMR)** integrados temáticamente en cada sección de la Misa y accesibles mediante botones interactivos (`.igmr-badge`) y ventana modal de inspección instantánea.
+4. Las **4 Plegarias Eucarísticas Oficiales** (Canon Romano I, Plegaria II, Plegaria III y Plegaria IV) con asignación automática canónica según la **IGMR n. 365**.
+5. Los **28 Prefacios Litúrgicos** correspondientes a todos los Tiempos, Solemnidades y Fiestas del Año Cristiano.
+6. **Estructuras litúrgicas canónicas adaptativas**:
+   - Misa Ordinaria (72 celebraciones).
+   - **Viernes Santo en la Pasión del Señor**: Adaptación estricta a las 4 partes canónicas (Liturgia de la Palabra con Pasión de San Juan y las 10 Solemnes Plegarias Universales, Adoración de la Santa Cruz, Sagrada Comunión con la Reserva del Jueves Santo y Despedida en Silencio), suprimiendo la Liturgia Eucarística y la Consagración según prescribe el Misal Romano.
+   - **Sábado Santo**: Celebración alitúrgica de silencio y meditación junto al Sepulcro del Señor.
+7. **Diseño Mobile-First y Portabilidad Absoluta**: Aplicación responsiva con aislamiento estricto entre la Portada/Guía de Inicio y la Celebración, conmutador de tema oscuro/claro, escalador de letra para ambón/altar y panel lateral con buscador en tiempo real.
 
 ---
 
-## 3. Especificaciones Funcionales y de Diseño
+## 2. Fuentes Oficiales y Documentos de Referencia
 
-| Requisito del Prompt | Implementación en la Web |
-| :--- | :--- |
-| **Catálogo completo de Misas del Año Litúrgico** | Formularios completos para **todas las Misas y Tiempos Litúrgicos**: Tiempo Ordinario (34 Domingos completos hasta Cristo Rey), Tiempo de Adviento (I al IV Domingo), Tiempo de Navidad (Medianoche / Nochebuena, Epifanía), Tiempo de Cuaresma (Miércoles de Ceniza, Domingo de Ramos), Tiempo Pascual (Domingo de Pascua, Domingo de Pentecostés). Cada Misa incluye sus textos propios: Antífonas de entrada y comunión, Colecta, I Lectura, Salmo Responsorial con respuesta y estrofas, II Lectura, Aclamación/Aleluya, Santo Evangelio, Oración sobre las Ofrendas, Prefacios Propios y Oración después de la Comunión. |
-| **Índice Litúrgico Desplegable (Drawer)** | Panel lateral accesible desde la barra superior (`📑 Índice de Misas`), con búsqueda en tiempo real, organización por tiempos litúrgicos y distintivos visuales de color litúrgico. |
-| **4 Plegarias Eucarísticas Completas (I, II, III, IV)** | Selector instantáneo en la barra de herramientas para conmutar entre el Canon Romano (I), Plegaria Eucarística II, Plegaria Eucarística III y Plegaria Eucarística IV, con todas sus oraciones secretas, epíclesis, consagración, memoriales, intercesiones y doxología. |
-| **Títulos numerados y categorizados** | Estructura jerárquica: `0. Proemio y Principios Generales`, `1. Ritos Iniciales`, `1.1 Entrada...`, `2. Liturgia de la Palabra`, `3. Liturgia Eucarística`, `4. Rito de Conclusión`, `5. Normas Complementarias de la IGMR`. |
-| **Control de tamaño de letra** | Barra fija con botones `A -`, `A` (reset 18px), `A +` con límites accesibles (14px - 28px). |
-| **Instrucciones IGMR exhaustivas (1 al 399)** | **Integración literal e íntegra del 100% de la IGMR** (Proemio y los 9 Capítulos completos, párrafos 1 al 399 sin omisiones ni resúmenes). |
-| **IGMR colapsables con títulos** | Elementos semánticos `<details>` y `<summary>` con flecha indicadora y botones globales "Expandir todas las IGMR / Colapsar todas las IGMR". |
-| **Referencias interactivas e inspección instantánea** | Todos los numerales de la IGMR citados en el texto litúrgico (ej. `IGMR 43`, `IGMR 152`) son **botones interactivos (`.igmr-badge`)**. Al hacer clic en cualquiera de ellos, se abre de inmediato una **ventana modal con el texto íntegro y literal del numeral**, junto con un botón para **saltar directamente a su ubicación en el Misal** con apertura automática del panel y animación de resaltado. |
-| **Modo Oscuro por defecto** | Paleta litúrgica oscura de alto contraste (`#121316`) con botón de conmutación y persistencia (`localStorage`). |
+| Documento | Entidad Emisora / Fuente | Uso en la Aplicación |
+| :--- | :--- | :--- |
+| **Misal Romano (Tercera Edición Típica en Español)** | Santa Sede / Congregación para el Culto Divino y la Disciplina de los Sacramentos | Textos litúrgicos del Ordinario, oraciones presidenciales, rúbricas ceremoniales, diálogos, plegarias eucarísticas y formularios propios de los 74 días litúrgicos. [Seminario Conciliar de Bogotá](https://seminariobogota.arquibogota.org.co/sites/default/files/inline-files/misal-romanopdf.pdf) |
+| **Instrucción General del Misal Romano (IGMR)** | Congregación para el Culto Divino y la Disciplina de los Sacramentos (17 de marzo de 2003 / 2008) | Incorporación íntegra de los 399 numerales (Proemio y Capítulos I al IX), normativa de posturas corporales, rúbricas y criterios de elección litúrgica. [Sitio Oficial del Vaticano](https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_sp.html) |
+| **Normas Universales sobre el Año Litúrgico y el Calendario Romano General** | Santa Sede | Ordenación canónica de los 8 Tiempos Litúrgicos, precedencias y colores litúrgicos. |
+| **Recursos Litúrgicos - Liturgia Papal** | Liturgia Papal | Cotejo y verificación de rúbricas ceremoniales, oraciones secretas del celebrante y fórmulas alternativas. [Liturgia Papal](https://liturgiapapal.org/index.php/recursos-lit%C3%BArgicos/libros-lit%C3%BArgicos/604-misal-romano.html) |
 
 ---
 
-## 4. Arquitectura del Archivo `misal.html`
+## 3. Especificaciones Funcionales y de Arquitectura
 
-- **Naturaleza**: Archivo único y autocontenido (`misal.html`) para máxima portabilidad (sin servidor ni dependencias externas).
-- **Semántica HTML5**: `<header>`, `<aside id="liturgyDrawer">`, `<div class="toolbar-container">`, `<main id="content">`, `<section class="mass-section">`, `<details>`, `<summary>`, `<div id="igmrModal">`, `<footer>`.
-- **Diseño CSS**:
-  - Variables personalizadas (`:root` y `[data-theme="light"]`).
-  - Paleta litúrgica cuidada: rojo litúrgico / coral para rúbricas (`.rubric`), azul suave para títulos de ministros (`.speaker`), blanco/negro contrastado para la asamblea (`.response`).
-  - Panel deslizante lateral (*drawer*) con desenfoque de fondo y transiciones de aceleración suave.
-  - Ventana modal con fondo desenfocado (`backdrop-filter`), animaciones fluidas y resaltado dinámico (`igmr-highlight-pulse`).
-- **Lógica JavaScript**:
-  - `populateSelectors()` / `selectMass(massId)` / `selectPrayer(prayerId)`: Actualización reactiva instantánea del formulario litúrgico, lecturas bíblicas, oraciones y prefacios sin recargar la página.
-  - `toggleDrawer(state)` / `filterDrawer()`: Navegación y filtrado en el catálogo completo de Misas.
-  - `changeFontSize(delta)` / `resetFontSize()`: Ajuste dinámico del tamaño tipográfico.
-  - `toggleAllDetails(shouldOpen)`: Apertura o cierre masivo de los paneles de instrucción.
-  - `showIGMR(num)` / `closeIGMRModal()` / `jumpToIGMR()`: Motor de consulta rápida y navegación contextual a cualquier numeral de la IGMR.
-  - `initTheme()`, `setTheme(theme)`, `toggleTheme()`: Control de tema claro/oscuro y almacenamiento local.
+### 3.1. Aislamiento Estricto de Vistas (Home View vs. Mass View)
+- **Portada y Guía de Inicio (`#homeView`)**:
+  - Al iniciar la aplicación, se muestra **únicamente** la portada informativa con la guía del Misal, resumen de características y las 6 tarjetas de exploración por tiempos litúrgicos.
+  - La barra de herramientas de la Misa (`#mainToolbar`) y los textos de la celebración permanecen ocultos para evitar confusión o filtración visual de partes de la Misa antes de elegir una celebración.
+  - El logotipo superior `MISAL ROMANO ✠` y la opción `🏠 Portada y Guía de Inicio` en el catálogo lateral permiten regresar y resetear el índice en cualquier momento.
+- **Vista de la Celebración (`#massView`)**:
+  - Se activa inmediatamente al seleccionar cualquier Misa desde el selector superior, el catálogo desplegable o las tarjetas de la portada.
+  - Muestra el título y distintivo litúrgico de la Misa en la cabecera superior y despliega la barra de herramientas de lectura.
+
+### 3.2. Doble Selector en Cascada (Tiempo Litúrgico ➔ Misa)
+Para facilitar la navegación entre las 74 celebraciones sin necesidad de desplazarse por una lista interminable:
+1. **Selector de Tiempo Litúrgico (`#quickSeasonSelect`)**:
+   - `❖ Todos los Tiempos (74)`
+   - `🟣 Adviento (4)`
+   - `⚪ Navidad y Epifanía (8)`
+   - `🟣 Cuaresma (7)`
+   - `🔴 Semana Santa y Triduo (8)`
+   - `⚪ Pascua (10)`
+   - `🟢 Tiempo Ordinario (34)`
+   - `⚪ Solemnidades (3)`
+2. **Selector de Misa Filtrado (`#quickMassSelect`)**:
+   - Se actualiza automáticamente al cambiar el tiempo litúrgico, mostrando únicamente las celebraciones pertenecientes al tiempo elegido.
+   - Cuenta con sincronización bidireccional: al seleccionar una misa desde el índice lateral, el filtro de tiempo se auto-ajusta a la categoría correspondiente.
+
+### 3.3. Estructuras Litúrgicas Canónicas Adaptativas
+
+#### A. Celebraciones Eucarísticas Estándar (72 Misas)
+Se estructuran en 5 secciones numeradas y categorizadas:
+- **0. Proemio y Principios Generales** (IGMR 1-26).
+- **1. Ritos Iniciales** (IGMR 27-54, 288-318): Entrada con Antífona Propia, Saludo, Acto Penitencial (Fórmulas 1, 2 y 3), Kyrie, Gloria (según el tiempo litúrgico) y Oración Colecta propia.
+- **2. Liturgia de la Palabra** (IGMR 55-71, 91-111, 134-138): I Lectura con cita bíblica completa, Salmo Responsorial con respuesta y estrofas, II Lectura, Aclamación antes del Evangelio (Aleluya o versículo cuaresmal), Santo Evangelio, Homilía, Profesión de Fe (Credo Niceno-Constantinopolitano o Apostólico) y Oración de los Fieles.
+- **3. Liturgia Eucarística** (IGMR 72-89, 112-133, 139-165, 209-236, 281-287, 319-351): Preparación de los Dones, Oración sobre las Ofrendas propia, Diálogo del Prefacio, Prefacio Propio (de los 28 prefacios), Sanctus, Plegaria Eucarística seleccionada (I, II, III o IV con rúbricas de consagración y genuflexión) y Rito de la Comunión (Padrenuestro, Embolismo, Rito de la Paz, Fracción del Pan, Cordero de Dios, Antífona de Comunión propia y Postcomunión propia).
+- **4. Rito de Conclusión** (IGMR 90, 166-208, 237-280): Bendición sacerdotal y Despedida.
+- **5. Normas Complementarias de la IGMR** (IGMR 352-399): Capítulos VII, VIII y IX para referencia canónica permanente.
+
+#### B. Viernes Santo en la Pasión del Señor (`pas-viernes-santo`)
+En estricto cumplimiento del Misal Romano, se suprime la Liturgia Eucarística, el ofertorio, las plegarias eucarísticas y la consagración, desplegando sus **4 partes canónicas**:
+1. **Primera Parte: Liturgia de la Palabra**:
+   - Entrada en silencio, postración rostro en tierra de los ministros y Oración Colecta sin saludo previo.
+   - I Lectura (*Isaías 52, 13 — 53, 12: Cuarto Cántico del Siervo*).
+   - Salmo 30 (*«Padre, a tus manos encomiendo mi espíritu»*).
+   - II Lectura (*Hebreos 4, 14-16; 5, 7-9: Jesús, Sumo Sacerdote compasivo*).
+   - Aclamación a Cristo en su Pasión (*Flp 2, 8-9*).
+   - Proclamación de la **Pasión de nuestro Señor Jesucristo según San Juan** (*Jn 18, 1 — 19, 42*) con pausa y arrodillamiento tras la muerte del Señor.
+   - **Solemne Oración Universal (Las 10 Grandes Plegarias)**: por la Santa Iglesia, el Papa, el clero y fieles, los catecúmenos, la unidad de los cristianos, los judíos, los que no creen en Cristo, los que no creen en Dios, los gobernantes y los que sufren.
+2. **Segunda Parte: Adoración de la Santa Cruz**:
+   - Triple ostensión con el canto solemne: *«¡Mirad el árbol de la Cruz, donde estuvo clavada la salvación del mundo! — ¡Venid a adorarlo!»*.
+   - Rito de veneración con los *Improperios* y el himno *Crux Fidelis*.
+3. **Tercera Parte: Sagrada Comunión**:
+   - Traslado del Santísimo Sacramento desde el Monumento (formas consagradas el Jueves Santo).
+   - Padrenuestro, Embolismo, *Cordero de Dios*, Comunión de los fieles y Oración Postcomunión.
+4. **Cuarta Parte: Despedida en Silencio**:
+   - Oración sobre el pueblo, despojo del altar y salida en silencio (sin bendición final ordinaria).
+
+#### C. Sábado Santo (`pas-sabado-santo`)
+- Presenta la meditación litúrgica patrística de la Sepultura del Señor y el Oficio de Lecturas («Un gran silencio envuelve hoy la tierra»), recordando el carácter alitúrgico del día hasta la llegada de la Solemne Vigilia Pascual.
 
 ---
 
-## 5. Distribución Temática de la IGMR Íntegra (nn. 1 al 399)
+## 4. Asignación Canónica de Plegarias Eucarísticas (IGMR n. 365)
+
+El sistema litúrgico implementa la regla de selección automática de la Plegaria Eucarística según la norma oficial de la Santa Sede:
+
+| Criterio IGMR n. 365 | Plegaria Recomendada | Celebraciones Asignadas |
+| :--- | :--- | :--- |
+| **IGMR 365 a** (Canon Romano por solemnidades con partes propias de *Communicantes* y *Hanc igitur*) | **Plegaria Eucarística I (Canon Romano)** | Vigilia de Navidad, Nochebuena, Misa de la Aurora, Misa del Día, Santa María Madre de Dios, Epifanía, Domingo de Ramos, Misa Crismal, Jueves Santo en la Cena del Señor, Solemne Vigilia Pascual, Domingo de Pascua, Ascensión y Pentecostés. |
+| **IGMR 365 b** (Aconsejada para ferias, días penitenciales y celebraciones entre semana) | **Plegaria Eucarística II** | Miércoles de Ceniza, Lunes Santo, Martes Santo y Miércoles Santo. |
+| **IGMR 365 c** (Preferida para los Domingos y Fiestas por su teología eclesial y de la asamblea) | **Plegaria Eucarística III** | Domingos de Adviento, Navidad, Cuaresma, Pascua, Domingos del Tiempo Ordinario (I al XXXIV), Solemnidades de la Santísima Trinidad, Corpus Christi y Sagrado Corazón. |
+| **IGMR 365 d** (Posee prefacio propio inmutable con resumen de la historia salvífica) | **Plegaria Eucarística IV** | Disponible para libre elección en misas con asambleas homogéneas y catequesis bíblica. |
+
+---
+
+## 5. Distribución Temática de la IGMR Íntegra (1 al 399)
+
+La aplicación contiene el **100% de los 399 numerales oficiales** distribuidos en concordancia exacta:
 
 1. **0. Proemio y Principios Generales**:
    - Proemio (nn. 1-15).
@@ -64,37 +112,35 @@ El proyecto se originó con el siguiente requerimiento explícito:
 2. **1. Ritos Iniciales**:
    - Estructura general y posturas de la asamblea (nn. 27-45).
    - Naturaleza de los Ritos Iniciales (n. 46).
-   - 1.1 Entrada, procesión y reverencia al altar (nn. 47-49) y Disposición del altar e iglesia (nn. 288-318).
-   - 1.2 Saludo Inicial (n. 50).
-   - 1.3 Acto Penitencial (n. 51).
-   - 1.4 Señor, ten piedad (n. 52).
-   - 1.5 Gloria in excelsis (n. 53).
-   - 1.6 Oración Colecta (n. 54).
+   - Entrada, procesión y reverencia al altar (nn. 47-49) y Disposición del presbiterio e iglesia (nn. 288-318).
+   - Saludo Inicial (n. 50), Acto Penitencial (n. 51), Kyrie (n. 52), Gloria (n. 53), Oración Colecta (n. 54).
 3. **2. Liturgia de la Palabra**:
-   - Naturaleza de la Liturgia de la Palabra y silencio (nn. 55-56).
+   - Naturaleza y silencio en la Palabra (nn. 55-56).
    - Ministerios y lectores (nn. 91-111).
-   - 2.1 Primera Lectura (n. 57).
-   - 2.2 Salmo Responsorial (n. 61).
-   - 2.3 Segunda Lectura (nn. 58-59).
-   - 2.4 Aclamación / Aleluya (nn. 62-64).
-   - 2.5 Proclamación del Santo Evangelio (n. 60, 134-135).
-   - 2.6 Homilía y silencio sagrado (nn. 65-66, 136).
-   - 2.7 Profesión de Fe / Credo (nn. 67-68, 137).
-   - 2.8 Oración Universal o de los Fieles (nn. 69-71, 138).
+   - I Lectura (n. 57), Salmo Responsorial (n. 61), II Lectura (nn. 58-59), Aclamación/Aleluya (nn. 62-64).
+   - Proclamación del Evangelio y Ritos de ministros (nn. 60, 134-135).
+   - Homilía (nn. 65-66, 136), Credo y reverencias (nn. 67-68, 137), Oración Universal (nn. 69-71, 138).
 4. **3. Liturgia Eucarística**:
-   - Estructura general de la Liturgia Eucarística (n. 72), Formas de celebrar (nn. 112-133), Pan, Vino y Vasos sagrados (nn. 319-351).
-   - 3.1 Preparación de los Dones / Ofertorio (nn. 73-76, 139-145).
-   - 3.2 Oración sobre las Ofrendas (n. 77, 146).
-   - 3.3 Plegaria Eucarística y Concelebración (nn. 78-79, 147-151, 209-236).
-   - 3.4 Rito de la Comunión y Comunión bajo dos especies (nn. 80-88, 152-163, 281-287).
-   - 3.5 Oración después de la Comunión (n. 89, 164-165).
+   - Estructura de la Liturgia Eucarística (n. 72), Formas de celebración (nn. 112-133), Pan, Vino y Vasos Sagrados (nn. 319-351).
+   - Preparación de Dones y Ofertorio (nn. 73-76, 139-145), Oración sobre Ofrendas (nn. 77, 146).
+   - Plegaria Eucarística y Concelebración (nn. 78-79, 147-151, 209-236).
+   - Rito de la Comunión y Comunión bajo dos especies (nn. 80-88, 152-163, 281-287), Postcomunión (nn. 89, 164-165).
 5. **4. Rito de Conclusión**:
-   - Rito de conclusión, bendición y envío (nn. 90, 166-170).
+   - Despedida y bendición (nn. 90, 166-170).
    - Misa con diácono y otros ministros (nn. 171-208).
-   - Concelebración conclusiones (nn. 237-251).
-   - Misa con un solo ministro (nn. 252-272).
-   - Normas generales: incienso, reverencias, purificaciones (nn. 273-280).
+   - Conclusiones de concelebración (nn. 237-251) y Misa con un solo ministro (nn. 252-272).
+   - Incienso, reverencias y purificaciones (nn. 273-280).
 6. **5. Normas Complementarias de la IGMR**:
    - Cap. VII: Elección de la Misa y de sus partes (nn. 352-367).
    - Cap. VIII: Misas por diversas necesidades y difuntos (nn. 368-385).
-   - Cap. IX: Adaptaciones de los Obispos y Conferencias Episcopales (nn. 386-399).
+   - Cap. IX: Adaptaciones episcopales (nn. 386-399).
+
+---
+
+## 6. Pipeline de Compilación y Publicación
+
+- **Base de datos litúrgica**: Generada por `build_liturgia_data.js` -> `liturgia_db.json`.
+- **Compilador del sitio web**: Ejecutado por `node build_complete_app.js` -> Genera `misal.html` e `index.html`.
+- **Sincronización**: `generate_full_misal.js` se mantiene en paridad con `build_complete_app.js`.
+- **Despliegue y Hosting**: Repositorio Git alojado en GitHub y publicado de forma continua mediante GitHub Pages en:
+  👉 **https://rodrigoquezadab.github.io/MisalIGMR/**
