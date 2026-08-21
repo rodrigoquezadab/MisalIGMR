@@ -1324,9 +1324,9 @@ htmlParts.push(`<!DOCTYPE html>
         <h1 class="app-title">MISAL ROMANO</h1>
         <span class="logo-badge-refresh">↻ Refrescar Catálogo</span>
       </div>
-      <h2 id="headerMassTitle" class="mass-title">Primer Domingo del Tiempo Ordinario</h2>
-      <div class="badge-wrapper">
-        <span id="headerSeasonBadge" class="liturgical-badge">Tiempo Ordinario</span>
+      <h2 id="headerMassTitle" class="mass-title" style="display: none;"></h2>
+      <div id="headerBadgeWrapper" class="badge-wrapper" style="display: none;">
+        <span id="headerSeasonBadge" class="liturgical-badge"></span>
       </div>
       <p class="header-subtitle">Instrucción General del Misal Romano (IGMR) Íntegra (nn. 1 al 399)</p>
     </div>
@@ -1398,11 +1398,8 @@ htmlParts.push(`<!DOCTYPE html>
           Plataforma litúrgica interactiva con el <strong>Ordinario de la Misa</strong>, las <strong>67 celebraciones de todo el Año Litúrgico</strong>, las <strong>4 Plegarias Eucarísticas</strong>, <strong>25 Prefacios</strong> y la totalidad de los <strong>399 numerales de la Instrucción General del Misal Romano (IGMR)</strong> incorporados de forma interactiva.
         </p>
         <div class="home-cta-group">
-          <button type="button" class="btn-hero-primary" onclick="switchView('mass')">
-            <span>📖</span> Comenzar Celebración / Ir a la Misa
-          </button>
-          <button type="button" class="btn-hero-secondary" onclick="toggleDrawer(true)">
-            <span>📑</span> Abrir Catálogo Completo (67 Misas)
+          <button type="button" class="btn-hero-primary" onclick="toggleDrawer(true)">
+            <span>📑</span> Seleccionar Misa del Año Litúrgico
           </button>
           <button type="button" class="btn-hero-secondary" onclick="showIGMR(1)">
             <span>📜</span> Consultar IGMR (n. 1)
@@ -1914,7 +1911,7 @@ const scriptBlock = `
     const liturgiaData = ${JSON.stringify(liturgiaDB)};
     
     let currentView = 'home'; // 'home' | 'mass'
-    let currentMassId = "to-1";
+    let currentMassId = null;
     let currentPrayerId = "3";
     let currentModalNum = null;
 
@@ -2055,10 +2052,17 @@ const scriptBlock = `
         filterDrawer();
       }
 
-      // 2. Refrescar catálogo
+      // 2. Resetear selección de misa y refrescar catálogo
+      currentMassId = null;
       populateSelectors();
 
-      // 3. Volver a la portada de Inicio
+      // 3. Ocultar título y badge de la Misa en el Header
+      const massTitle = document.getElementById('headerMassTitle');
+      const badgeWrap = document.getElementById('headerBadgeWrapper');
+      if (massTitle) massTitle.style.display = 'none';
+      if (badgeWrap) badgeWrap.style.display = 'none';
+
+      // 4. Volver a la portada de Inicio
       switchView('home');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -2085,13 +2089,21 @@ const scriptBlock = `
       quickSelect.innerHTML = '';
       drawerList.innerHTML = '';
 
+      // Opción predeterminada vacía en el selector
+      const placeholderOpt = document.createElement('option');
+      placeholderOpt.value = '';
+      placeholderOpt.disabled = true;
+      placeholderOpt.selected = !currentMassId;
+      placeholderOpt.innerText = '— Seleccionar Misa del Año Litúrgico —';
+      quickSelect.appendChild(placeholderOpt);
+
       // Opción de Portada e Inicio en el Índice
       const homeItem = document.createElement('div');
       homeItem.className = 'drawer-item' + (currentView === 'home' ? ' active' : '');
       homeItem.style.borderLeft = '3px solid var(--primary-color)';
       homeItem.style.marginBottom = '8px';
       homeItem.onclick = () => {
-        switchView('home');
+        refreshIndexAndHome();
         toggleDrawer(false);
       };
       homeItem.innerHTML = '<span>🏠 Portada y Guía de Inicio</span><span style="font-size:0.75rem; opacity:0.8;">Info</span>';
@@ -2103,6 +2115,7 @@ const scriptBlock = `
         // Quick select
         const opt = document.createElement('option');
         opt.value = m.id;
+        opt.selected = (m.id === currentMassId);
         opt.innerText = m.nombre;
         quickSelect.appendChild(opt);
 
@@ -2120,7 +2133,6 @@ const scriptBlock = `
         item.id = 'drawer-item-' + m.id;
         item.onclick = () => {
           selectMass(m.id);
-          switchView('mass');
           toggleDrawer(false);
         };
         item.innerHTML = '<span>' + m.nombre + '</span><span style="font-size:0.75rem; opacity:0.8;">' + m.tiempo + '</span>';
@@ -2138,12 +2150,19 @@ const scriptBlock = `
     }
 
     function selectMass(massId, explicitPrayer = null) {
+      if (!massId) return;
       const m = liturgiaData.misas.find(x => x.id === massId) || liturgiaData.misas[0];
       currentMassId = m.id;
       document.getElementById('quickMassSelect').value = m.id;
 
       // Actualizar Header
-      document.getElementById('headerMassTitle').innerText = m.nombre;
+      const headerTitle = document.getElementById('headerMassTitle');
+      headerTitle.innerText = m.nombre;
+      headerTitle.style.display = 'block';
+
+      const headerBadge = document.getElementById('headerBadgeWrapper');
+      headerBadge.style.display = 'block';
+
       const badge = document.getElementById('headerSeasonBadge');
       badge.innerText = m.tiempo;
       badge.style.background = m.colorHex || '#16a34a';
@@ -2267,10 +2286,9 @@ const scriptBlock = `
 
     // Inicializar selectores y estado
     window.addEventListener('DOMContentLoaded', () => {
+      currentMassId = null;
+      currentView = 'home';
       populateSelectors();
-      const savedMass = localStorage.getItem('misal-mass-id') || 'to-1';
-      selectMass(savedMass);
-      // Comenzar en la vista de Inicio para dar la bienvenida e información completa
       switchView('home');
     });
 
