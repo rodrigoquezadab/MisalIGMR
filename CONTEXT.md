@@ -135,6 +135,11 @@ La aplicación contiene el **100% de los 399 numerales oficiales** distribuidos 
    - Cap. VIII: Misas por diversas necesidades y difuntos (nn. 368-385).
    - Cap. IX: Adaptaciones episcopales (nn. 386-399).
 
+### 5.1. Depuración y Fidelidad Tipográfica de la IGMR
+- **0 Entidades HTML residuales**: Todas las entidades de caracteres (como `&#x201c;`, `&#x201d;`, `&#x2014;`, `&uuml;`, `&ordm;`) han sido convertidas a caracteres tipográficos españoles estándar (`«...»`, `—`, `ü`, `º`, `ö`).
+- **Eliminación de notas al pie en corchetes (`[n]`)**: Se suprimieron las 332 referencias bibliográficas/canónicas numéricas aisladas (ej. `[57]`, `[105]`) que obstaculizaban la lectura continua de las normas.
+- **Supresión de títulos residuales**: Se limpiaron los encabezados de sección y notas de pie de página pegadas indebidamente al final de párrafos precedentes.
+
 ---
 
 ## 6. Pipeline de Compilación y Publicación
