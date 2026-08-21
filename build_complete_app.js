@@ -1408,8 +1408,9 @@ const scriptBlock = `
 
 const finalHTML = linkifiedBody + scriptBlock;
 fs.writeFileSync('misal.html', finalHTML, 'utf8');
+fs.writeFileSync('index.html', finalHTML, 'utf8');
 
-console.log('Total characters in generated misal.html:', finalHTML.length);
+console.log('Total characters in generated misal.html and index.html:', finalHTML.length);
 console.log('Total IGMR numbers used:', usedNumbers.size);
 
 const unused = [];
