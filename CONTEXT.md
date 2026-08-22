@@ -32,15 +32,16 @@ El proyecto tiene como objetivo ofrecer una plataforma litúrgica y pastoral com
 
 ### 3.1. Aislamiento Estricto de Vistas (Home View vs. Mass View)
 - **Portada y Guía de Inicio (`#homeView`)**:
-  - Al iniciar la aplicación, se muestra **únicamente** la portada informativa con la guía del Misal, resumen de características y las 6 tarjetas de exploración por tiempos litúrgicos.
+  - Al iniciar la aplicación, se muestra **únicamente** la portada informativa con la guía del Misal, resumen de características y las tarjetas de exploración por tiempos litúrgicos.
   - La barra de herramientas de la Misa (`#mainToolbar`) y los textos de la celebración permanecen ocultos para evitar confusión o filtración visual de partes de la Misa antes de elegir una celebración.
   - El logotipo superior `MISAL ROMANO ✠` y la opción `🏠 Portada y Guía de Inicio` en el catálogo lateral permiten regresar y resetear el índice en cualquier momento.
 - **Vista de la Celebración (`#massView`)**:
   - Se activa inmediatamente al seleccionar cualquier Misa desde el selector superior, el catálogo desplegable o las tarjetas de la portada.
   - Muestra el título y distintivo litúrgico de la Misa en la cabecera superior y despliega la barra de herramientas de lectura.
+  - **Barra de Salto Rápido Litúrgico (`#sectionJumpNav`)**: Barra flotante sticky que permite desplazarse instantáneamente entre las partes de la celebración (`❖ Ritos Iniciales`, `📖 Palabra`, `🍞 Eucaristía`, `🍷 Comunión`, `✝️ Conclusión`, `📜 IGMR`), adaptándose automáticamente en **Viernes Santo** a sus 4 partes canónicas. Incluye *ScrollSpy* interactivo.
 
-### 3.2. Doble Selector en Cascada (Tiempo Litúrgico ➔ Misa)
-Para facilitar la navegación entre las 74 celebraciones sin necesidad de desplazarse por una lista interminable:
+### 3.2. Doble Selector en Cascada y Catálogo Lateral Optimizado
+Para facilitar la navegación entre las 74 celebraciones:
 1. **Selector de Tiempo Litúrgico (`#quickSeasonSelect`)**:
    - `❖ Todos los Tiempos (74)`
    - `🟣 Adviento (4)`
@@ -51,8 +52,16 @@ Para facilitar la navegación entre las 74 celebraciones sin necesidad de despla
    - `🟢 Tiempo Ordinario (34)`
    - `⚪ Solemnidades (3)`
 2. **Selector de Misa Filtrado (`#quickMassSelect`)**:
-   - Se actualiza automáticamente al cambiar el tiempo litúrgico, mostrando únicamente las celebraciones pertenecientes al tiempo elegido.
-   - Cuenta con sincronización bidireccional: al seleccionar una misa desde el índice lateral, el filtro de tiempo se auto-ajusta a la categoría correspondiente.
+   - Se actualiza y selecciona automáticamente al cambiar el tiempo litúrgico, mostrando únicamente las celebraciones pertenecientes al tiempo elegido.
+   - Sincronización bidireccional entre la cabecera, el catálogo lateral y los selectores.
+3. **Catálogo Lateral (`#liturgyDrawer`)**:
+   - Buscador en tiempo real con botón de limpieza instantánea (`✕`).
+   - Chips de filtrado rápido por tiempo litúrgico.
+   - Contador de celebraciones encontradas en tiempo real.
+4. **Ergonomía de Altar y Lectura**:
+   - Indicador visual del tamaño de letra actual (ej. `18px`).
+   - Atajos de teclado: `/` o `Ctrl+K` para abrir el índice, `T` para alternar tema claro/oscuro, `Esc` para cerrar modales.
+   - Tipografía editorial sagrada: **Cinzel** para títulos sacros y latinos, e **Inter** para oraciones y rúbricas.
 
 ### 3.3. Estructuras Litúrgicas Canónicas Adaptativas
 

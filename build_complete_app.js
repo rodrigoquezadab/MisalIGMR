@@ -26,7 +26,7 @@ function escapeHTML(str) {
 }
 
 function renderIGMR(title, numList) {
-  let html = `      <div class="igmr-container">\n        <details id="igmr-details-${numList[0]}-${numList[numList.length - 1]}">\n          <summary>IGMR: ${escapeHTML(title)} (nn. ${numList[0]}-${numList[numList.length - 1]})</summary>\n          <div class="igmr-content">\n`;
+  let html = `      <div class="igmr-container">\n        <details id="igmr-details-${numList[0]}-${numList[numList.length - 1]}">\n          <summary><span class="igmr-summary-icon">📜</span> <span>IGMR: ${escapeHTML(title)} (nn. ${numList[0]}-${numList[numList.length - 1]})</span></summary>\n          <div class="igmr-content">\n`;
   
   let lastSub = "";
   let lastSec = "";
@@ -34,11 +34,11 @@ function renderIGMR(title, numList) {
     const it = igmrMap[n];
     if (!it) return;
     if (it.section && it.section !== lastSec) {
-      html += `            <h4 style="color: var(--primary-color); border-bottom: 1px dashed var(--border-color); padding-bottom: 4px; margin-top: 1.2rem;">${escapeHTML(it.section)}</h4>\n`;
+      html += `            <h4 class="igmr-sec-title">${escapeHTML(it.section)}</h4>\n`;
       lastSec = it.section;
     }
     if (it.subsection && it.subsection !== lastSub) {
-      html += `            <h4 style="color: var(--secondary-color); margin-top: 1rem;">${escapeHTML(it.subsection)}</h4>\n`;
+      html += `            <h5 class="igmr-subsec-title">${escapeHTML(it.subsection)}</h5>\n`;
       lastSub = it.subsection;
     }
     const paragraphs = it.text.split('\n\n').map(p => p.trim()).filter(Boolean);
@@ -103,53 +103,73 @@ htmlParts.push(`<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0">
-  <meta name="theme-color" content="#111215">
-  <title>Misal Romano - Todas las Misas del Año Litúrgico con IGMR Íntegro (nn. 1-399)</title>
+  <meta name="theme-color" content="#0b0d13">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Misal Romano Digital - Con IGMR Íntegra (1-399) y Año Litúrgico Completo</title>
+  
+  <!-- Tipografía Editorial Sacra y Moderna -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      /* Modo Oscuro (por defecto) */
-      --bg-color: #111215;
-      --card-bg: #1a1c23;
-      --text-color: #e5e9f0;
+      /* Modo Oscuro Ceremonial (por defecto) */
+      --bg-color: #0b0d13;
+      --card-bg: #131722;
+      --card-glass: rgba(19, 23, 34, 0.9);
+      --text-color: #f1f5f9;
       --muted-text: #94a3b8;
-      --border-color: #2b303c;
-      --primary-color: #e63946;       /* Rojo litúrgico */
-      --secondary-color: #f1faee;     /* Texto claro */
-      --accent-color: #38bdf8;        /* Azul litúrgico */
-      --rubric-color: #f87171;        /* Rúbricas en rojo coral litúrgico */
-      --speaker-color: #38bdf8;       /* Sacerdote/Ministro */
-      --header-bg: #0c0d10;
-      --toolbar-bg: rgba(22, 25, 33, 0.95);
-      --igmr-bg: #141720;
-      --igmr-border: #333a48;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --primary-color: #dc2626;       /* Rojo litúrgico solemne */
+      --primary-hover: #ef4444;
+      --primary-glow: rgba(220, 38, 38, 0.35);
+      --gold-accent: #f59e0b;         /* Oro litúrgico */
+      --gold-border: rgba(245, 158, 11, 0.3);
+      --gold-glow: rgba(245, 158, 11, 0.15);
+      --secondary-color: #f8fafc;
+      --accent-color: #38bdf8;        /* Azul mariano */
+      --rubric-color: #f87171;        /* Rúbricas en rojo coral */
+      --speaker-color: #38bdf8;       /* Diálogos y ministros */
+      --header-bg: #07080c;
+      --toolbar-bg: rgba(11, 13, 19, 0.95);
+      --igmr-bg: #0f121a;
+      --igmr-border: #283040;
       --igmr-heading: #60a5fa;
       --igmr-num-color: #38bdf8;
       --footer-text: #64748b;
-      --drawer-bg: #16181f;
-      --surface-hover: rgba(230, 57, 70, 0.12);
+      --drawer-bg: #0f121a;
+      --surface-hover: rgba(220, 38, 38, 0.12);
       --font-scale: 1;
     }
 
     [data-theme="light"] {
       --bg-color: #f8fafc;
       --card-bg: #ffffff;
-      --text-color: #1e293b;
+      --card-glass: rgba(255, 255, 255, 0.95);
+      --text-color: #0f172a;
       --muted-text: #64748b;
       --border-color: #e2e8f0;
       --primary-color: #b91c1c;       /* Rojo carmesí clásico */
+      --primary-hover: #991b1b;
+      --primary-glow: rgba(185, 28, 28, 0.25);
+      --gold-accent: #d97706;         /* Oro clásico */
+      --gold-border: rgba(217, 119, 6, 0.3);
+      --gold-glow: rgba(217, 119, 6, 0.1);
       --secondary-color: #0f172a;
       --accent-color: #0284c7;
       --rubric-color: #c2410c;        /* Rúbricas bermellón */
       --speaker-color: #0369a1;
       --header-bg: #ffffff;
-      --toolbar-bg: rgba(241, 245, 249, 0.96);
+      --toolbar-bg: rgba(248, 250, 252, 0.96);
       --igmr-bg: #f8fafc;
       --igmr-border: #cbd5e1;
       --igmr-heading: #1d4ed8;
       --igmr-num-color: #0284c7;
       --footer-text: #64748b;
       --drawer-bg: #ffffff;
-      --surface-hover: rgba(185, 28, 28, 0.08);
+      --surface-hover: rgba(185, 28, 28, 0.06);
     }
 
     * {
@@ -166,7 +186,7 @@ htmlParts.push(`<!DOCTYPE html>
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
       line-height: 1.75;
@@ -175,84 +195,118 @@ htmlParts.push(`<!DOCTYPE html>
       overflow-x: hidden;
     }
 
+    h1, h2, h3, .app-title, .section-title, .home-hero-title, .drawer-title, .part-title {
+      font-family: 'Cinzel', Georgia, serif;
+    }
+
     /* ============================================================
-       1. ENCABEZADO (MOBILE FIRST)
+       1. ENCABEZADO (MOBILE FIRST & DESKTOP)
        ============================================================ */
     .app-header {
       background-color: var(--header-bg);
       border-bottom: 2px solid var(--primary-color);
-      padding: 1.4rem 1rem 1rem;
+      padding: 1.25rem 1rem 0.9rem;
       text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
       position: relative;
     }
 
     .header-inner {
-      max-width: 800px;
+      max-width: 860px;
       margin: 0 auto;
     }
 
+    .app-logo-clickable {
+      cursor: pointer;
+      display: inline-block;
+      padding: 0.2rem 0.8rem;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .app-logo-clickable:hover {
+      background: var(--surface-hover);
+      transform: translateY(-1px);
+    }
+
     .header-cross {
-      font-size: 1.4rem;
-      color: var(--primary-color);
+      font-size: 1.5rem;
+      color: var(--gold-accent);
       line-height: 1;
-      margin-bottom: 0.2rem;
-      opacity: 0.9;
+      margin-bottom: 0.15rem;
+      text-shadow: 0 0 10px var(--gold-glow);
     }
 
     .app-title {
-      font-size: 1.6rem;
+      font-size: 1.65rem;
       color: var(--primary-color);
-      letter-spacing: 1.5px;
-      margin-bottom: 0.25rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.2rem;
       text-transform: uppercase;
-      font-weight: 800;
+      font-weight: 900;
       line-height: 1.2;
     }
 
+    .logo-badge-refresh {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: var(--muted-text);
+      background: rgba(255,255,255,0.06);
+      padding: 2px 8px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
     .mass-title {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: var(--text-color);
-      margin: 0.3rem 0;
+      margin: 0.4rem 0 0.2rem;
       font-weight: 700;
       line-height: 1.35;
+      font-family: 'Cinzel', serif;
     }
 
     .badge-wrapper {
-      margin: 0.4rem 0;
+      margin: 0.35rem 0;
     }
 
     .liturgical-badge {
       display: inline-block;
       padding: 3px 12px;
       border-radius: 9999px;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
 
     .header-subtitle {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--muted-text);
-      margin-top: 0.4rem;
+      margin-top: 0.35rem;
       line-height: 1.4;
+      letter-spacing: 0.3px;
     }
 
     /* ============================================================
-       2. BARRA DE HERRAMIENTAS STICKY (MOBILE FIRST)
+       2. BARRA DE HERRAMIENTAS STICKY
        ============================================================ */
     .toolbar-nav {
       position: sticky;
       top: 0;
       z-index: 1000;
       background-color: var(--toolbar-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-color);
       padding: 0.45rem 0.6rem;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.22);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
     }
 
     .toolbar-container {
@@ -291,7 +345,7 @@ htmlParts.push(`<!DOCTYPE html>
       gap: 5px;
       flex-shrink: 0;
       min-height: 40px;
-      box-shadow: 0 2px 6px rgba(230, 57, 70, 0.3);
+      box-shadow: 0 2px 8px var(--primary-glow);
       transition: all 0.2s ease;
     }
 
@@ -332,11 +386,12 @@ htmlParts.push(`<!DOCTYPE html>
       white-space: nowrap;
       overflow: hidden;
       outline: none;
-      transition: border-color 0.2s ease;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
     .select-wrapper select:focus {
       border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px var(--primary-glow);
     }
 
     .toolbar-row-secondary {
@@ -349,7 +404,7 @@ htmlParts.push(`<!DOCTYPE html>
     .toolbar-tool-group {
       display: flex;
       align-items: center;
-      gap: 0.25rem;
+      gap: 0.3rem;
     }
 
     .toolbar-label {
@@ -395,6 +450,19 @@ htmlParts.push(`<!DOCTYPE html>
       min-width: 32px;
     }
 
+    .font-size-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold-accent);
+      background: var(--gold-glow);
+      border: 1px solid var(--gold-border);
+      padding: 2px 6px;
+      border-radius: 4px;
+      min-width: 36px;
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+
     .btn-theme {
       min-width: 80px;
     }
@@ -407,6 +475,78 @@ htmlParts.push(`<!DOCTYPE html>
     .btn-igmr-toggle {
       font-size: 0.78rem;
       padding: 0.35rem 0.45rem;
+    }
+
+    /* ============================================================
+       3. BARRA DE SALTO RÁPIDO LITÚRGICO (QUICK-JUMP NAV)
+       ============================================================ */
+    .section-jump-nav {
+      position: sticky;
+      top: 92px;
+      z-index: 950;
+      background: var(--toolbar-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.35rem 0.6rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+      transition: all 0.2s ease;
+    }
+
+    @media (min-width: 600px) {
+      .section-jump-nav {
+        top: 50px;
+      }
+    }
+
+    .jump-nav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .jump-pills-container {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 2px 0;
+    }
+
+    .jump-pills-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .jump-pill {
+      background: var(--card-bg);
+      color: var(--muted-text);
+      border: 1px solid var(--border-color);
+      border-radius: 9999px;
+      padding: 0.28rem 0.75rem;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.18s ease;
+      touch-action: manipulation;
+    }
+
+    .jump-pill:hover {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+      background: var(--surface-hover);
+    }
+
+    .jump-pill.active {
+      background: var(--primary-color);
+      color: #ffffff !important;
+      border-color: var(--primary-color);
+      box-shadow: 0 2px 8px var(--primary-glow);
     }
 
     .sr-only {
@@ -422,43 +562,46 @@ htmlParts.push(`<!DOCTYPE html>
     }
 
     /* ============================================================
-       3. CONTENIDO PRINCIPAL Y SECCIONES (MOBILE FIRST)
+       4. CONTENIDO PRINCIPAL Y SECCIONES
        ============================================================ */
     main {
       width: 100%;
-      max-width: 920px;
+      max-width: 940px;
       margin: 0.8rem auto 2.5rem;
-      padding: 0 0.5rem;
+      padding: 0 0.6rem;
     }
 
     .mass-section {
       background: var(--card-bg);
-      border-radius: 10px;
-      padding: 1.1rem 0.85rem;
-      margin-bottom: 1.2rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      border-radius: 12px;
+      padding: 1.25rem 1rem;
+      margin-bottom: 1.4rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
       border: 1px solid var(--border-color);
       overflow-wrap: break-word;
       word-wrap: break-word;
     }
 
     .section-title {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       line-height: 1.35;
       color: var(--primary-color);
       border-bottom: 2px solid var(--primary-color);
-      padding-bottom: 0.4rem;
-      margin-bottom: 1rem;
+      padding-bottom: 0.45rem;
+      margin-bottom: 1.1rem;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
       font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .part-title {
-      font-size: 1.08rem;
+      font-size: 1.12rem;
       line-height: 1.35;
       color: var(--speaker-color);
-      margin: 1.4rem 0 0.6rem;
+      margin: 1.5rem 0 0.7rem;
       display: flex;
       align-items: baseline;
       gap: 6px;
@@ -467,7 +610,7 @@ htmlParts.push(`<!DOCTYPE html>
 
     .part-title::before {
       content: "§";
-      color: var(--primary-color);
+      color: var(--gold-accent);
       font-weight: 900;
     }
 
@@ -475,20 +618,21 @@ htmlParts.push(`<!DOCTYPE html>
       color: var(--rubric-color);
       font-style: italic;
       font-size: 0.94em;
-      margin: 0.6rem 0;
+      margin: 0.65rem 0;
       display: block;
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     .dialogue {
-      margin: 0.7rem 0;
+      margin: 0.75rem 0;
       padding-left: 0.4rem;
     }
 
     .speaker {
       font-weight: 700;
       color: var(--speaker-color);
-      margin-right: 3px;
+      margin-right: 4px;
+      letter-spacing: 0.2px;
     }
 
     .response {
@@ -497,45 +641,46 @@ htmlParts.push(`<!DOCTYPE html>
     }
 
     .prayer-text {
-      font-size: 1.05em;
-      margin: 0.85rem 0;
-      padding: 0.75rem 0.85rem;
+      font-size: 1.04em;
+      margin: 0.9rem 0;
+      padding: 0.8rem 0.9rem;
       background-color: rgba(255, 255, 255, 0.03);
       border-left: 3px solid var(--speaker-color);
-      border-radius: 0 6px 6px 0;
-      line-height: 1.7;
+      border-radius: 0 8px 8px 0;
+      line-height: 1.72;
     }
 
     .scripture-box {
-      background: rgba(0,0,0,0.12);
+      background: rgba(0,0,0,0.14);
       border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 0.9rem;
-      margin: 1rem 0;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1.1rem 0;
     }
 
     .scripture-citation {
       font-weight: 700;
-      color: var(--speaker-color);
-      font-size: 1.05rem;
-      margin-bottom: 0.5rem;
+      color: var(--gold-accent);
+      font-size: 1.08rem;
+      margin-bottom: 0.6rem;
       line-height: 1.3;
+      font-family: 'Cinzel', serif;
     }
 
     .psalm-response {
       font-weight: 700;
       color: var(--primary-color);
-      margin: 0.5rem 0;
-      padding: 0.45rem 0.7rem;
-      background: rgba(230, 57, 70, 0.1);
+      margin: 0.6rem 0;
+      padding: 0.5rem 0.8rem;
+      background: rgba(220, 38, 38, 0.1);
       border-radius: 6px;
-      font-size: 0.96em;
+      font-size: 0.98em;
       line-height: 1.45;
       border-left: 3px solid var(--primary-color);
     }
 
     /* ============================================================
-       4. PANELES IGMR Y NUMERALES INTERACTIVOS (MOBILE FIRST)
+       5. PANELES IGMR Y NUMERALES INTERACTIVOS
        ============================================================ */
     .igmr-container {
       margin: 1rem 0 1.4rem 0;
@@ -599,6 +744,20 @@ htmlParts.push(`<!DOCTYPE html>
       margin-bottom: 0.8rem;
     }
 
+    .igmr-sec-title {
+      color: var(--primary-color);
+      border-bottom: 1px dashed var(--border-color);
+      padding-bottom: 4px;
+      margin-top: 1.2rem;
+      font-family: 'Cinzel', serif;
+    }
+
+    .igmr-subsec-title {
+      color: var(--gold-accent);
+      margin-top: 1rem;
+      font-family: 'Cinzel', serif;
+    }
+
     .igmr-num-block {
       margin-top: 0.8rem;
       padding-top: 0.5rem;
@@ -609,11 +768,9 @@ htmlParts.push(`<!DOCTYPE html>
     .igmr-num {
       font-weight: 700;
       color: var(--igmr-num-color);
-      font-family: sans-serif;
       margin-right: 4px;
     }
 
-    /* Badges interactivos táctiles para numerales IGMR */
     .igmr-badge {
       display: inline-flex;
       align-items: center;
@@ -644,7 +801,7 @@ htmlParts.push(`<!DOCTYPE html>
     }
 
     /* ============================================================
-       5. MODAL DE INSPECCIÓN IGMR (BOTTOM-SHEET EN MÓVIL)
+       6. MODAL DE INSPECCIÓN IGMR
        ============================================================ */
     .igmr-modal-backdrop {
       display: none;
@@ -653,12 +810,12 @@ htmlParts.push(`<!DOCTYPE html>
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.78);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       z-index: 3000;
       justify-content: center;
-      align-items: flex-end; /* Bottom sheet en móvil */
+      align-items: flex-end;
       padding: 0;
       box-sizing: border-box;
       animation: fadeIn 0.2s ease-out;
@@ -671,7 +828,7 @@ htmlParts.push(`<!DOCTYPE html>
     .igmr-modal-box {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      border-radius: 16px 16px 0 0; /* Sheet en móvil */
+      border-radius: 16px 16px 0 0;
       width: 100%;
       max-width: 100%;
       max-height: 88vh;
@@ -692,11 +849,12 @@ htmlParts.push(`<!DOCTYPE html>
     }
 
     .igmr-modal-title {
-      font-size: 1.02rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--speaker-color);
       margin: 0;
       line-height: 1.3;
+      font-family: 'Cinzel', serif;
     }
 
     .igmr-modal-close {
@@ -759,7 +917,7 @@ htmlParts.push(`<!DOCTYPE html>
     }
 
     /* ============================================================
-       6. DRAWER / PANEL LATERAL DEL ÍNDICE (MOBILE FIRST)
+       7. DRAWER / PANEL LATERAL DEL ÍNDICE
        ============================================================ */
     .liturgy-drawer-backdrop {
       display: none;
@@ -768,7 +926,7 @@ htmlParts.push(`<!DOCTYPE html>
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.72);
+      background: rgba(0, 0, 0, 0.75);
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);
       z-index: 2500;
@@ -782,7 +940,7 @@ htmlParts.push(`<!DOCTYPE html>
       position: fixed;
       top: 0;
       left: -100%;
-      width: min(340px, 86vw);
+      width: min(360px, 88vw);
       height: 100vh;
       background: var(--drawer-bg);
       border-right: 1px solid var(--border-color);
@@ -820,7 +978,7 @@ htmlParts.push(`<!DOCTYPE html>
     .drawer-title {
       color: var(--primary-color);
       margin: 0;
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       font-weight: 700;
     }
 
@@ -840,7 +998,7 @@ htmlParts.push(`<!DOCTYPE html>
     }
 
     .drawer-search {
-      padding: 0.65rem 0.85rem;
+      padding: 0.75rem 0.85rem 0.5rem;
       border-bottom: 1px solid var(--border-color);
       background: var(--toolbar-bg);
     }
@@ -862,16 +1020,78 @@ htmlParts.push(`<!DOCTYPE html>
     .drawer-search input {
       width: 100%;
       height: 38px;
-      padding: 0.4rem 0.8rem 0.4rem 2.2rem;
+      padding: 0.4rem 2rem 0.4rem 2.2rem;
       border-radius: 8px;
       border: 1px solid var(--border-color);
       background: var(--card-bg);
       color: var(--text-color);
       font-size: 0.88rem;
       outline: none;
+      transition: border-color 0.2s ease;
     }
 
     .drawer-search input:focus {
+      border-color: var(--primary-color);
+    }
+
+    .drawer-search-clear {
+      position: absolute;
+      right: 6px;
+      background: transparent;
+      border: none;
+      color: var(--muted-text);
+      font-size: 0.95rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .drawer-search-clear:hover {
+      color: var(--text-color);
+    }
+
+    .drawer-search-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.4rem;
+      font-size: 0.72rem;
+      color: var(--muted-text);
+      font-weight: 600;
+    }
+
+    .drawer-season-chips {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      margin-top: 0.45rem;
+      padding-bottom: 2px;
+    }
+
+    .drawer-season-chips::-webkit-scrollbar {
+      display: none;
+    }
+
+    .drawer-chip {
+      background: var(--card-bg);
+      color: var(--muted-text);
+      border: 1px solid var(--border-color);
+      border-radius: 9999px;
+      padding: 2px 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+
+    .drawer-chip.active, .drawer-chip:hover {
+      background: var(--primary-color);
+      color: #fff;
       border-color: var(--primary-color);
     }
 
@@ -892,6 +1112,7 @@ htmlParts.push(`<!DOCTYPE html>
       display: flex;
       align-items: center;
       gap: 5px;
+      font-family: 'Cinzel', serif;
     }
 
     .drawer-item {
@@ -924,7 +1145,7 @@ htmlParts.push(`<!DOCTYPE html>
     }
 
     /* ============================================================
-       7. BOTÓN FLOTANTE (FAB) VOLVER ARRIBA
+       8. BOTÓN FLOTANTE (FAB) VOLVER ARRIBA
        ============================================================ */
     .fab-scroll-top {
       position: fixed;
@@ -936,7 +1157,7 @@ htmlParts.push(`<!DOCTYPE html>
       background: var(--primary-color);
       color: #ffffff;
       border: none;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
       cursor: pointer;
       font-size: 1.3rem;
       font-weight: 900;
@@ -951,7 +1172,7 @@ htmlParts.push(`<!DOCTYPE html>
     }
 
     .fab-scroll-top.visible {
-      opacity: 0.95;
+      opacity: 1;
       visibility: visible;
       transform: translateY(0);
     }
@@ -960,322 +1181,217 @@ htmlParts.push(`<!DOCTYPE html>
       transform: scale(0.92);
     }
 
-    footer {
-      background-color: var(--header-bg);
-      color: var(--footer-text);
-      text-align: center;
-      padding: 2.2rem 1rem 2rem;
-      margin-top: 2.5rem;
-      font-size: 0.88rem;
-      border-top: 1px solid var(--border-color);
-    }
-
-    footer a {
-      color: var(--secondary-color);
-      text-decoration: underline;
-    }
-
-    @keyframes igmrPulse {
-      0% { background-color: rgba(230, 57, 70, 0.45); }
-      50% { background-color: rgba(56, 189, 248, 0.3); }
-      100% { background-color: transparent; }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes slideUpMobile {
-      from { transform: translateY(100%); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes slideUpDesktop {
-      from { transform: translateY(20px) scale(0.97); opacity: 0; }
-      to { transform: translateY(0) scale(1); opacity: 1; }
-    }
-
     /* ============================================================
-       8. PROGRESSIVE ENHANCEMENT: TABLETS & DESKTOPS
+       9. PORTADA (HOME VIEW) & CARDS
        ============================================================ */
-    @media (min-width: 640px) {
-      .app-header {
-        padding: 2rem 1.5rem 1.4rem;
-      }
-      .app-title {
-        font-size: 2.2rem;
-      }
-      .mass-title {
-        font-size: 1.3rem;
-      }
-      .toolbar-label {
-        display: inline-block;
-      }
-      main {
-        padding: 0 1rem;
-        margin: 1.5rem auto 3rem;
-      }
-      .mass-section {
-        padding: 1.8rem 1.5rem;
-        margin-bottom: 2rem;
-        border-radius: 12px;
-      }
-      .section-title {
-        font-size: 1.55rem;
-      }
-      .part-title {
-        font-size: 1.22rem;
-      }
-      .igmr-modal-backdrop {
-        align-items: center; /* Centrado en pantallas medianas */
-        padding: 1.5rem;
-      }
-      .igmr-modal-box {
-        border-radius: 14px;
-        max-width: 720px;
-        max-height: 85vh;
-        animation: slideUpDesktop 0.25s ease-out;
-      }
-    }
-
-    @media (min-width: 920px) {
-      .toolbar-container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 0.75rem;
-      }
-      .toolbar-row-primary {
-        width: auto;
-        flex: 1.5;
-      }
-      .toolbar-row-secondary {
-        width: auto;
-        flex: 1;
-        justify-content: flex-end;
-        gap: 0.75rem;
-      }
-      .mass-section {
-        padding: 2.2rem 2.2rem;
-      }
-    }
-
-    /* ============================================================
-       9. LOGO INTERACTIVO Y VISTA DE PORTADA / INICIO (HOME)
-       ============================================================ */
-    .app-logo-clickable {
-      cursor: pointer;
-      display: inline-block;
-      user-select: none;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      color: inherit;
-      padding: 0.2rem 0.6rem;
-      border-radius: 12px;
-    }
-    .app-logo-clickable:hover {
-      background: var(--surface-hover);
-      transform: scale(1.02);
-    }
-    .app-logo-clickable:active {
-      transform: scale(0.97);
-    }
-    .logo-badge-refresh {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      margin-top: 0.2rem;
-      padding: 2px 9px;
-      background: rgba(230, 57, 70, 0.12);
-      color: var(--primary-color);
-      border: 1px solid rgba(230, 57, 70, 0.35);
-      border-radius: 9999px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-    }
-
-    /* Control de Vistas (Home vs Misa) */
     .view-panel {
-      display: none !important;
+      display: none;
       animation: fadeIn 0.25s ease-out;
     }
+
     .view-panel.active {
-      display: block !important;
+      display: block;
     }
 
-
-    /* Portada de Inicio (Home Page) */
     .home-hero-card {
-      background: linear-gradient(145deg, var(--card-bg) 0%, rgba(230, 57, 70, 0.09) 100%);
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.15) 0%, rgba(19, 23, 34, 0.95) 100%);
       border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 1.8rem 1.1rem;
-      margin-bottom: 1.8rem;
+      border-left: 4px solid var(--primary-color);
+      border-radius: 12px;
+      padding: 1.6rem 1.2rem;
       text-align: center;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      margin-bottom: 1.8rem;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.2);
     }
+
     .home-hero-icon {
-      font-size: 2.6rem;
-      color: var(--primary-color);
+      font-size: 2.2rem;
+      color: var(--gold-accent);
       margin-bottom: 0.4rem;
-      line-height: 1;
+      text-shadow: 0 0 15px var(--gold-glow);
     }
+
     .home-hero-title {
       font-size: 1.5rem;
+      color: var(--secondary-color);
+      margin-bottom: 0.7rem;
+      line-height: 1.3;
       font-weight: 800;
-      color: var(--primary-color);
-      margin-bottom: 0.6rem;
-      line-height: 1.25;
+      letter-spacing: 0.5px;
     }
+
     .home-hero-desc {
-      font-size: 0.95rem;
-      color: var(--text-color);
-      max-width: 720px;
-      margin: 0 auto 1.4rem;
+      font-size: 0.94rem;
+      color: var(--muted-text);
       line-height: 1.65;
-      opacity: 0.92;
+      max-width: 740px;
+      margin: 0 auto 1.2rem;
     }
-    .home-cta-group {
+
+    .home-stats-chips {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
       justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 1.2rem;
     }
+
+    .home-stat-chip {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 9999px;
+      padding: 3px 10px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-color);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .home-stat-chip span {
+      color: var(--gold-accent);
+    }
+
     .btn-hero-primary {
       background: var(--primary-color);
-      color: #fff !important;
-      font-weight: 700;
-      padding: 0.65rem 1.3rem;
-      border-radius: 8px;
+      color: #ffffff;
       border: 1px solid var(--primary-color);
-      font-size: 0.95rem;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(230, 57, 70, 0.35);
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .btn-hero-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(230, 57, 70, 0.5);
-    }
-    .btn-hero-secondary {
-      background: var(--card-bg);
-      color: var(--text-color);
-      border: 1px solid var(--border-color);
-      font-weight: 700;
-      padding: 0.65rem 1.1rem;
       border-radius: 8px;
+      padding: 0.75rem 1.4rem;
       font-size: 0.95rem;
+      font-weight: 700;
       cursor: pointer;
-      transition: all 0.2s ease;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 16px var(--primary-glow);
+      transition: all 0.2s ease;
+      touch-action: manipulation;
     }
-    .btn-hero-secondary:hover {
-      border-color: var(--primary-color);
-      color: var(--primary-color);
+
+    .btn-hero-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--primary-glow);
     }
 
     .home-section-heading {
       font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--speaker-color);
-      margin: 1.8rem 0 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
+      color: var(--text-color);
+      margin: 1.6rem 0 0.9rem;
       display: flex;
       align-items: center;
       gap: 8px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.4rem;
     }
+
+    .home-section-heading span {
+      color: var(--primary-color);
+    }
+
     .home-features-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 0.9rem;
-      margin-bottom: 2rem;
+      gap: 0.85rem;
+      margin-bottom: 1.8rem;
     }
-    @media (min-width: 640px) {
+
+    @media (min-width: 600px) {
       .home-features-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
       }
     }
+
     .home-feature-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: 10px;
-      padding: 1.15rem;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+      transition: all 0.2s ease;
     }
+
     .home-feature-card:hover {
       border-color: var(--primary-color);
       transform: translateY(-2px);
     }
+
     .feature-card-header {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 0.5rem;
+      gap: 8px;
+      margin-bottom: 0.4rem;
     }
+
     .feature-icon {
-      font-size: 1.4rem;
-      color: var(--primary-color);
+      font-size: 1.2rem;
     }
+
     .feature-title {
-      font-size: 1.02rem;
+      font-size: 0.95rem;
       font-weight: 700;
-      color: var(--text-color);
+      color: var(--speaker-color);
       margin: 0;
     }
+
     .feature-body {
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       color: var(--muted-text);
-      line-height: 1.6;
+      line-height: 1.55;
+      margin: 0;
     }
 
     .home-seasons-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 0.8rem;
-      margin-bottom: 2.5rem;
+      gap: 0.85rem;
+      margin-bottom: 2rem;
     }
-    @media (min-width: 580px) {
+
+    @media (min-width: 600px) {
       .home-seasons-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
       }
     }
-    @media (min-width: 900px) {
-      .home-seasons-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
+
     .season-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
+      border-left-width: 4px;
       border-radius: 10px;
-      padding: 1rem 1.1rem;
+      padding: 1rem;
       cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
       transition: all 0.2s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 110px;
     }
+
     .season-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
     }
+
     .season-card-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 0.4rem;
     }
+
     .season-name {
       font-size: 1rem;
       font-weight: 700;
       color: var(--text-color);
+      font-family: 'Cinzel', serif;
     }
+
     .season-badge {
       font-size: 0.7rem;
       font-weight: 700;
@@ -1283,12 +1399,14 @@ htmlParts.push(`<!DOCTYPE html>
       border-radius: 9999px;
       text-transform: uppercase;
     }
+
     .season-desc {
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       color: var(--muted-text);
-      line-height: 1.4;
-      margin-bottom: 0.5rem;
+      line-height: 1.45;
+      margin-bottom: 0.6rem;
     }
+
     .season-link-text {
       font-size: 0.82rem;
       font-weight: 700;
@@ -1297,15 +1415,17 @@ htmlParts.push(`<!DOCTYPE html>
       align-items: center;
       gap: 4px;
     }
+
     .season-sublinks {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       margin-top: 0.6rem;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
+
     .btn-sub-season {
-      background: var(--surface-color);
+      background: var(--card-bg);
       border: 1px solid var(--border-color);
       color: var(--text-color);
       border-radius: 6px;
@@ -1315,16 +1435,51 @@ htmlParts.push(`<!DOCTYPE html>
       cursor: pointer;
       transition: all 0.2s ease;
     }
+
     .btn-sub-season:hover {
       background: var(--surface-hover);
       border-color: var(--primary-color);
       color: var(--primary-color);
     }
+
     .hidden-liturgy-container {
       display: none !important;
     }
+
     .visible-liturgy-container {
       display: block !important;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUpMobile {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
+    @keyframes igmrPulse {
+      0% { background: rgba(56, 189, 248, 0.4); }
+      50% { background: rgba(56, 189, 248, 0.15); }
+      100% { background: transparent; }
+    }
+
+    @media (min-width: 768px) {
+      .app-title { font-size: 2.1rem; }
+      .mass-title { font-size: 1.35rem; }
+      .section-title { font-size: 1.45rem; }
+      .igmr-modal-box {
+        border-radius: 12px;
+        max-width: 680px;
+        max-height: 80vh;
+        margin: auto;
+      }
+      .igmr-modal-backdrop {
+        align-items: center;
+        padding: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -1336,14 +1491,29 @@ htmlParts.push(`<!DOCTYPE html>
     <div class="drawer-header">
       <div class="drawer-title-group">
         <span class="drawer-icon">📑</span>
-        <h3 class="drawer-title">Índice del Misal Romano</h3>
+        <h3 class="drawer-title">Índice del Misal</h3>
       </div>
       <button class="drawer-close-btn" onclick="toggleDrawer(false)" aria-label="Cerrar índice">&times;</button>
     </div>
     <div class="drawer-search">
       <div class="search-input-wrapper">
         <span class="search-icon">🔍</span>
-        <input type="search" id="drawerSearchInput" placeholder="Buscar misa, domingo, fiesta..." oninput="filterDrawer()" autocomplete="off">
+        <input type="text" id="drawerSearchInput" placeholder="Buscar misa, fiesta, lectura..." oninput="filterDrawer()" autocomplete="off">
+        <button type="button" id="drawerSearchClear" class="drawer-search-clear" onclick="clearDrawerSearch()" title="Limpiar búsqueda" style="display:none;">✕</button>
+      </div>
+      <div class="drawer-search-meta">
+        <span id="drawerResultCount">74 celebraciones</span>
+        <span style="opacity: 0.7;">Atajo: /</span>
+      </div>
+      <div class="drawer-season-chips" id="drawerSeasonChips">
+        <button type="button" class="drawer-chip active" onclick="filterDrawerChip('all', this)">Todos</button>
+        <button type="button" class="drawer-chip" onclick="filterDrawerChip('Tiempo de Adviento', this)">Adviento</button>
+        <button type="button" class="drawer-chip" onclick="filterDrawerChip('Tiempo de Navidad', this)">Navidad</button>
+        <button type="button" class="drawer-chip" onclick="filterDrawerChip('Tiempo de Cuaresma', this)">Cuaresma</button>
+        <button type="button" class="drawer-chip" onclick="filterDrawerChip('Semana Santa & Triduo', this)">Sem. Santa</button>
+        <button type="button" class="drawer-chip" onclick="filterDrawerChip('Tiempo Pascual', this)">Pascua</button>
+        <button type="button" class="drawer-chip" onclick="filterDrawerChip('Tiempo Ordinario', this)">Ordinario</button>
+        <button type="button" class="drawer-chip" onclick="filterDrawerChip('Solemnidades del Señor', this)">Solemnidades</button>
       </div>
     </div>
     <div class="drawer-content" id="drawerList">
@@ -1357,7 +1527,7 @@ htmlParts.push(`<!DOCTYPE html>
       <div class="app-logo-clickable" onclick="refreshIndexAndHome()" title="Click para volver al Inicio y refrescar el Catálogo" role="button" tabindex="0">
         <div class="header-cross">✠</div>
         <h1 class="app-title">MISAL ROMANO</h1>
-        <span class="logo-badge-refresh">↻ Refrescar Catálogo</span>
+        <span class="logo-badge-refresh">↻ Portada / Inicio</span>
       </div>
       <h2 id="headerMassTitle" class="mass-title" style="display: none;"></h2>
       <div id="headerBadgeWrapper" class="badge-wrapper" style="display: none;">
@@ -1372,7 +1542,7 @@ htmlParts.push(`<!DOCTYPE html>
     <div class="toolbar-container">
       <!-- Fila Superior en Móvil: Navegación de Misas y Plegarias -->
       <div class="toolbar-row toolbar-row-primary">
-        <button type="button" class="btn-drawer-toggle" onclick="toggleDrawer(true)" title="Abrir Catálogo de Misas">
+        <button type="button" class="btn-drawer-toggle" onclick="toggleDrawer(true)" title="Abrir Catálogo de Misas (Atajo: /)">
           <span class="btn-icon">📑</span>
           <span class="btn-text">Índice</span>
         </button>
@@ -1408,13 +1578,14 @@ htmlParts.push(`<!DOCTYPE html>
       <div class="toolbar-row toolbar-row-secondary">
         <div class="toolbar-tool-group font-controls">
           <span class="toolbar-label">Letra:</span>
-          <button type="button" class="btn-tool" onclick="changeFontSize(-1)" title="Reducir tamaño de letra" aria-label="Reducir letra">A-</button>
-          <button type="button" class="btn-tool btn-font-reset" onclick="resetFontSize()" title="Tamaño por defecto" aria-label="Restablecer letra">A</button>
+          <button type="button" class="btn-tool" onclick="changeFontSize(-1)" title="Reducir tamaño de letra" aria-label="Reducir letra">A−</button>
+          <button type="button" class="btn-tool btn-font-reset" onclick="resetFontSize()" title="Tamaño por defecto (18px)" aria-label="Restablecer letra">A</button>
           <button type="button" class="btn-tool" onclick="changeFontSize(1)" title="Aumentar tamaño de letra" aria-label="Aumentar letra">A+</button>
+          <span id="fontSizeDisplay" class="font-size-badge" title="Tamaño actual de fuente">18px</span>
         </div>
 
         <div class="toolbar-tool-group view-controls">
-          <button type="button" id="themeToggle" class="btn-tool btn-theme" onclick="toggleTheme()" title="Cambiar tema claro/oscuro">
+          <button type="button" id="themeToggle" class="btn-tool btn-theme" onclick="toggleTheme()" title="Cambiar tema claro/oscuro (Atajo: T)">
             <span class="theme-icon">☀️</span> <span class="theme-label">Claro</span>
           </button>
           <div class="igmr-toggle-buttons">
@@ -1443,11 +1614,17 @@ htmlParts.push(`<!DOCTYPE html>
         <div class="home-hero-icon">✠</div>
         <h2 class="home-hero-title">Misal Romano Digital con IGMR Íntegra</h2>
         <p class="home-hero-desc">
-          Plataforma litúrgica interactiva con el <strong>Ordinario de la Misa</strong>, las <strong>74 celebraciones de todo el Año Litúrgico</strong> con sus días concretos (Semana Santa, Jueves Santo, Viernes Santo, Sábado Santo, Octava de Pascua, Domingos y Solemnidades), las <strong>4 Plegarias Eucarísticas</strong>, <strong>28 Prefacios</strong> y la totalidad de los <strong>399 numerales de la Instrucción General del Misal Romano (IGMR)</strong> incorporados de forma interactiva.
+          Plataforma litúrgica interactiva con el <strong>Ordinario de la Misa</strong>, las <strong>74 celebraciones de todo el Año Litúrgico</strong> con sus días concretos (Semana Santa, Jueves Santo, Viernes Santo, Sábado Santo, Octava de Pascua, Domingos y Solemnidades), las <strong>4 Plegarias Eucarísticas</strong>, <strong>28 Prefacios</strong> y la totalidad de los <strong>399 numerales de la Instrucción General del Misal Romano (IGMR)</strong> integrados canónicamente.
         </p>
+        <div class="home-stats-chips">
+          <div class="home-stat-chip"><span>❖</span> 74 Celebraciones</div>
+          <div class="home-stat-chip"><span>📜</span> 399 Numerales IGMR</div>
+          <div class="home-stat-chip"><span>🕊️</span> 4 Plegarias Eucarísticas</div>
+          <div class="home-stat-chip"><span>📖</span> 28 Prefacios Oficiales</div>
+        </div>
         <div class="home-cta-group">
           <button type="button" class="btn-hero-primary" onclick="toggleDrawer(true)">
-            <span>📑</span> Seleccionar Misa del Año Litúrgico (74 Celebraciones)
+            <span>📑</span> Abrir Catálogo del Año Litúrgico (74 Misas)
           </button>
         </div>
       </div>
@@ -1460,7 +1637,7 @@ htmlParts.push(`<!DOCTYPE html>
             <h4 class="feature-title">IGMR Íntegra (1-399)</h4>
           </div>
           <p class="feature-body">
-            Cada rúbrica y oración contiene insignias interactivas (ej. <em>IGMR 43</em>, <em>IGMR 54</em>) que abren al instante la normativa oficial de la Santa Sede sin abandonar la lectura.
+            Cada rúbrica y oración contiene insignias interactivas (ej. <em>IGMR 43</em>, <em>IGMR 51</em>) que abren al instante la normativa oficial de la Santa Sede sin abandonar la celebración.
           </p>
         </div>
 
@@ -1487,10 +1664,10 @@ htmlParts.push(`<!DOCTYPE html>
         <div class="home-feature-card">
           <div class="feature-card-header">
             <span class="feature-icon">📱</span>
-            <h4 class="feature-title">Mobile-First & Accesible</h4>
+            <h4 class="feature-title">Ergonomía & Salto Rápido</h4>
           </div>
           <p class="feature-body">
-            Diseñado para uso cómodo en el altar, ambón o dispositivos móviles, con escalador de letra, modo oscuro/claro y panel de índice con búsqueda instantánea.
+            Barra de navegación de salto rápido entre partes de la Misa, escalador de letra con indicador, modo oscuro/claro ceremonial y búsqueda en tiempo real.
           </p>
         </div>
       </div>
@@ -1520,7 +1697,7 @@ htmlParts.push(`<!DOCTYPE html>
             <span class="season-name">Tiempo de Cuaresma</span>
             <span class="season-badge" style="background:#9333ea; color:#fff;">Morado</span>
           </div>
-          <p class="season-desc">Miércoles de Ceniza, Domingos I al V y Domingo de Ramos en la Pasión.</p>
+          <p class="season-desc">Miércoles de Ceniza, Domingos I al V de Cuaresma.</p>
           <span class="season-link-text">Ver Misas de Cuaresma →</span>
         </div>
 
@@ -1529,7 +1706,7 @@ htmlParts.push(`<!DOCTYPE html>
             <span class="season-name">Triduo Pascual y Semana Santa</span>
             <span class="season-badge" style="background:#e11d48; color:#fff;">Rojo / Blanco</span>
           </div>
-          <p class="season-desc">Ramos, Lunes a Miércoles Santo, Misa Crismal, Cena del Señor, Viernes Santo, Sábado Santo y Vigilia.</p>
+          <p class="season-desc">Ramos, Lunes a Miércoles Santo, Misa Crismal, Cena del Señor, Viernes Santo, Sábado Santo y Vigilia Pascual.</p>
           <div class="season-sublinks">
             <button type="button" class="btn-sub-season" onclick="event.stopPropagation(); selectSeasonAndMass('Semana Santa & Triduo', 'cua-jueves-santo');">⚪ Jueves Santo</button>
             <button type="button" class="btn-sub-season" onclick="event.stopPropagation(); selectSeasonAndMass('Semana Santa & Triduo', 'pas-viernes-santo');" style="border-color:#dc2626; color:#f87171; background:rgba(220,38,38,0.15);">🔴 Viernes Santo (Pasión)</button>
@@ -1552,23 +1729,53 @@ htmlParts.push(`<!DOCTYPE html>
             <span class="season-name">Tiempo Ordinario</span>
             <span class="season-badge" style="background:#16a34a; color:#fff;">Verde</span>
           </div>
-          <p class="season-desc">34 Domingos completos y Solemnidades del Señor (Trinidad, Corpus, Corazón).</p>
+          <p class="season-desc">34 Semanas de camino cristiano celebrando el misterio de Cristo.</p>
           <span class="season-link-text">Ver Tiempo Ordinario →</span>
         </div>
+
+        <div class="season-card" style="border-left-color: #f59e0b;" onclick="selectSeasonAndMass('Solemnidades del Señor', 'to-trinidad');">
+          <div class="season-card-top">
+            <span class="season-name">Grandes Solemnidades</span>
+            <span class="season-badge" style="background:#f59e0b; color:#fff;">Blanco / Oro</span>
+          </div>
+          <p class="season-desc">Santísima Trinidad, Corpus Christi y Sagrado Corazón de Jesús.</p>
+          <span class="season-link-text">Ver Solemnidades →</span>
+        </div>
       </div>
-    </div>
+    </div><!-- Fin #homeView -->
 
     <!-- ============================================================
          VISTA DE LA CELEBRACIÓN LITÚRGICA COMPLETA (MASS VIEW)
          ============================================================ -->
     <div id="massView" class="view-panel">
+
+      <!-- Barra de Navegación de Salto Rápido Litúrgico -->
+      <nav id="sectionJumpNav" class="section-jump-nav" aria-label="Navegación rápida de partes de la Misa">
+        <div class="jump-nav-inner">
+          <div id="standardJumpPills" class="jump-pills-container">
+            <button type="button" class="jump-pill active" onclick="scrollToSection('ritos-iniciales')"><span>❖</span> Ritos Iniciales</button>
+            <button type="button" class="jump-pill" onclick="scrollToSection('liturgia-palabra')"><span>📖</span> Palabra</button>
+            <button type="button" class="jump-pill" onclick="scrollToSection('liturgia-eucaristica')"><span>🍞</span> Eucaristía</button>
+            <button type="button" class="jump-pill" onclick="scrollToSection('rito-comunion')"><span>🍷</span> Comunión</button>
+            <button type="button" class="jump-pill" onclick="scrollToSection('rito-conclusion')"><span>✝️</span> Conclusión</button>
+            <button type="button" class="jump-pill" onclick="scrollToSection('proemio-cap1')"><span>📜</span> IGMR</button>
+          </div>
+          <div id="goodFridayJumpPills" class="jump-pills-container" style="display:none;">
+            <button type="button" class="jump-pill active" onclick="scrollToSection('vs-parte1')"><span>📖</span> 1. Palabra & Pasión</button>
+            <button type="button" class="jump-pill" onclick="scrollToSection('vs-parte2')"><span>✝️</span> 2. Adoración Cruz</button>
+            <button type="button" class="jump-pill" onclick="scrollToSection('vs-parte3')"><span>🍞</span> 3. Sagrada Comunión</button>
+            <button type="button" class="jump-pill" onclick="scrollToSection('vs-parte4')"><span>🕊️</span> 4. Despedida</button>
+          </div>
+        </div>
+      </nav>
+
       <div id="standardMassContainer">
 `);
 
 // 0. PROEMIO Y CAP. I (1-26)
 htmlParts.push(`
     <section class="mass-section" id="proemio-cap1">
-      <h2 class="section-title">0. Proemio y Principios Generales de la Celebración Eucarística</h2>
+      <h2 class="section-title"><span>❖</span> 0. Proemio y Principios Generales de la Celebración Eucarística</h2>
 `);
 htmlParts.push(useRange("Proemio de la Instrucción General del Misal Romano", range(1, 15)));
 htmlParts.push(useRange("Capítulo I: Importancia y Dignidad de la Celebración Eucarística", range(16, 26)));
@@ -1577,7 +1784,7 @@ htmlParts.push(`    </section>\n`);
 // 1. RITOS INICIALES (27-54)
 htmlParts.push(`
     <section class="mass-section" id="ritos-iniciales">
-      <h2 class="section-title">1. Ritos Iniciales</h2>
+      <h2 class="section-title"><span>❖</span> 1. Ritos Iniciales</h2>
       <p class="rubric">El pueblo se reúne. Estando el pueblo congregado, el sacerdote con los ministros se acerca al altar, mientras se entona el canto de entrada o se recita la antífona (IGMR 47-48, 120-121). El pueblo permanece de pie durante todos los ritos iniciales (IGMR 43, 120, 124).</p>
 `);
 htmlParts.push(useRange("Estructura General y Posturas del Cuerpo", range(27, 45)));
@@ -1712,7 +1919,7 @@ htmlParts.push(`    </section>\n`);
 // 2. LITURGIA DE LA PALABRA (55-71, 91-111, 134-138)
 htmlParts.push(`
     <section class="mass-section" id="liturgia-palabra">
-      <h2 class="section-title">2. Liturgia de la Palabra</h2>
+      <h2 class="section-title"><span>📖</span> 2. Liturgia de la Palabra</h2>
       <p class="rubric">El pueblo se sienta para escuchar las lecturas (IGMR 43, 128). Las lecturas se proclaman siempre desde el ambón (IGMR 58, 309).</p>
 `);
 htmlParts.push(useRange("Naturaleza de la Liturgia de la Palabra y Silencio", range(55, 56)));
@@ -1803,7 +2010,7 @@ htmlParts.push(`    </section>\n`);
 // 3. LITURGIA EUCARÍSTICA (72-89, 112-133, 139-165, 209-236, 281-287, 319-351)
 htmlParts.push(`
     <section class="mass-section" id="liturgia-eucaristica">
-      <h2 class="section-title">3. Liturgia Eucarística</h2>
+      <h2 class="section-title"><span>🍞</span> 3. Liturgia Eucarística</h2>
       <p class="rubric">El pueblo se sienta durante la preparación de las ofrendas (IGMR 43). Se colocan sobre el altar el corporal, el purificador, el cáliz, la palia y el misal (IGMR 73, 139).</p>
 `);
 htmlParts.push(useRange("Estructura de la Liturgia Eucarística", range(72, 72)));
@@ -1878,7 +2085,7 @@ htmlParts.push(useRange("Normas y Ritos de la Plegaria Eucarística", range(147,
 htmlParts.push(useRange("Concelebración de la Eucaristía y sus Ritos", range(209, 236)));
 
 htmlParts.push(`
-      <h3 class="part-title">3.4. Rito de la Comunión</h3>
+      <h3 class="part-title" id="rito-comunion">3.4. Rito de la Comunión</h3>
       <div class="dialogue">
         <p class="rubric">El pueblo permanece de pie (IGMR 43). El sacerdote, con las manos juntas, introduce la oración dominical (IGMR 81, 152):</p>
         <p><span class="speaker">Sacerdote:</span> Fieles a la recomendación del Salvador y siguiendo su divina enseñanza, nos atrevemos a decir:</p>
@@ -1934,59 +2141,64 @@ htmlParts.push(`    </section>\n`);
 // 4. RITO DE CONCLUSIÓN (90, 166-208, 237-280)
 htmlParts.push(`
     <section class="mass-section" id="rito-conclusion">
-      <h2 class="section-title">4. Rito de Conclusión</h2>
+      <h2 class="section-title"><span>✝️</span> 4. Rito de Conclusión</h2>
       <p class="rubric">El pueblo permanece de pie (IGMR 43, 166). Breves avisos al pueblo si son necesarios (IGMR 90a, 166).</p>
 `);
 htmlParts.push(useRange("Naturaleza del Rito de Conclusión", range(90, 90)));
-htmlParts.push(useRange("Bendición y Despedida del Pueblo", range(166, 170)));
-htmlParts.push(useRange("Misa con Diácono y otros Ministros", range(171, 208)));
-htmlParts.push(useRange("Ritos de Conclusión en la Concelebración", range(237, 251)));
-htmlParts.push(useRange("Misa en la que Participa un solo Ministro", range(252, 272)));
-htmlParts.push(useRange("Normas Generales sobre Incienso, Reverencias y Purificaciones", range(273, 280)));
 
 htmlParts.push(`
+      <h3 class="part-title">4.1. Bendición Sacerdotal</h3>
       <div class="dialogue">
-        <p class="rubric">El sacerdote saluda al pueblo con las manos extendidas (IGMR 90b, 167):</p>
+        <p class="rubric">El sacerdote extiende las manos y saluda al pueblo (IGMR 90b, 167):</p>
         <p><span class="speaker">Sacerdote:</span> El Señor esté con vosotros.</p>
         <p><span class="speaker">Pueblo:</span> <span class="response">Y con tu espíritu.</span></p>
         
-        <p class="rubric">Bendición sacerdotal (IGMR 90b, 167):</p>
-        <p><span class="speaker">Sacerdote:</span> La bendición de Dios todopoderoso, Padre, Hijo, + y Espíritu Santo, descienda sobre vosotros y os acompañe siempre.</p>
+        <p class="rubric">El sacerdote bendice al pueblo diciendo (IGMR 90b, 167):</p>
+        <p><span class="speaker">Sacerdote:</span> La bendición de Dios todopoderoso, Padre, Hijo ✠ y Espíritu Santo, descienda sobre vosotros.</p>
         <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
       </div>
+`);
+htmlParts.push(useRange("Ritos de la Bendición y Despedida", range(166, 170)));
+htmlParts.push(useRange("La Misa con Diácono y otros Ministros", range(171, 208)));
 
+htmlParts.push(`
+      <h3 class="part-title">4.2. Despedida y Reverencia Final</h3>
       <div class="dialogue">
-        <p class="rubric">El diácono o el sacerdote despide al pueblo con las manos juntas, de cara al pueblo (IGMR 90c, 168):</p>
-        <p><span class="speaker">Diácono o Sacerdote:</span> Podéis ir en paz.</p>
+        <p class="rubric">El diácono o el sacerdote, con las manos juntas y de cara al pueblo, despide a la asamblea (IGMR 90c, 168):</p>
+        <p><span class="speaker">Diácono o Sacerdote:</span> Podéis ir en paz. (O bien: «La alegría del Señor sea vuestra fuerza. Podéis ir en paz»).</p>
         <p><span class="speaker">Pueblo:</span> <span class="response">Demos gracias a Dios.</span></p>
         
-        <p class="rubric">El sacerdote y el diácono veneran el altar con un beso (IGMR 169), hacen una inclinación profunda con los ministros (IGMR 169, 275a) y se retiran en procesión a la sacristía.</p>
+        <p class="rubric">El sacerdote y el diácono veneran el altar con un beso (IGMR 169) y, hecha la debida reverencia con los demás ministros, se retiran a la sacristía (IGMR 169, 186).</p>
       </div>
-    </section>
 `);
+htmlParts.push(useRange("Conclusiones de la Concelebración y Misas Especiales", range(237, 251)));
+htmlParts.push(useRange("Celebración de la Misa con un Solo Ministro", range(252, 272)));
+htmlParts.push(useRange("Normas Generales para Todas las Formas de Misa (Incienso, Reverencias, Purificaciones)", range(273, 280)));
+htmlParts.push(`    </section>\n`);
 
-// 5. APÉNDICES IGMR: NORMAS LITÚRGICAS COMPLEMENTARIAS (352-399)
+// 5. NORMAS COMPLEMENTARIAS (352-399)
 htmlParts.push(`
-    <section class="mass-section" id="apendice-igmr">
-      <h2 class="section-title">5. Normas Complementarias de la IGMR</h2>
+    <section class="mass-section" id="normas-complementarias">
+      <h2 class="section-title"><span>📜</span> 5. Normas Complementarias de la IGMR</h2>
 `);
 htmlParts.push(useRange("Capítulo VII: Elección de la Misa y de sus Partes", range(352, 367)));
-htmlParts.push(useRange("Capítulo VIII: Misas y Oraciones por Diversas Necesidades y Misas de Difuntos", range(368, 385)));
-htmlParts.push(useRange("Capítulo IX: Adaptaciones que Corresponden a los Obispos y Conferencias Episcopales", range(386, 399)));
-htmlParts.push(`    </section>
-  </div><!-- Fin #standardMassContainer -->
-`);
+htmlParts.push(useRange("Capítulo VIII: Misas y Oraciones por Diversas Necesidades y por los Difuntos", range(368, 385)));
+htmlParts.push(useRange("Capítulo IX: Adaptaciones que Competan a los Obispos y Conferencias Episcopales", range(386, 399)));
+htmlParts.push(`    </section>\n`);
 
+htmlParts.push(`  </div><!-- Fin #standardMassContainer -->\n`);
+
+// CELEBRACIÓN PROPIA DE VIERNES SANTO
 htmlParts.push(`
   <!-- ============================================================
        CELEBRACIÓN PROPIA DE VIERNES SANTO EN LA PASIÓN DEL SEÑOR
        (Sin Liturgia Eucarística, sin consagración, 4 partes canónicas)
        ============================================================ -->
   <div id="goodFridayContainer" class="special-liturgy-container" style="display: none;">
-    <div class="liturgy-special-banner" style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(15, 23, 42, 0.9)); border-left: 4px solid #dc2626; padding: 1.25rem; border-radius: 8px; margin-bottom: 2rem;">
+    <div class="liturgy-special-banner" style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(15, 23, 42, 0.9)); border-left: 4px solid #dc2626; padding: 1.25rem; border-radius: 10px; margin-bottom: 2rem;">
       <div style="display:flex; align-items:center; gap: 0.75rem; margin-bottom: 0.5rem;">
-        <span style="font-size: 1.8rem;">✠</span>
-        <h2 style="margin:0; font-size: 1.4rem; color: #f87171;">Viernes Santo en la Pasión del Señor</h2>
+        <span style="font-size: 1.8rem; color: #dc2626;">✠</span>
+        <h2 style="margin:0; font-size: 1.4rem; color: #f87171; font-family: 'Cinzel', serif;">Viernes Santo en la Pasión del Señor</h2>
       </div>
       <p class="rubric" style="margin: 0; color: var(--text-secondary);">
         <strong>Norma Canónica y Litúrgica:</strong> En este día la Iglesia no celebra el sacrificio de la Misa (no hay consagración, ni ofertorio de pan y vino, ni plegaria eucarística). La celebración consta de cuatro partes: <em>1. Liturgia de la Palabra</em> (con la Proclamación solemne de la Pasión según San Juan y la Gran Oración Universal), <em>2. Adoración de la Santa Cruz</em>, <em>3. Sagrada Comunión</em> (con las formas consagradas en la Misa del Jueves Santo) y <em>4. Rito de Despedida en silencio</em>.
@@ -1995,7 +2207,7 @@ htmlParts.push(`
 
     <!-- PARTE 1: LITURGIA DE LA PALABRA -->
     <section class="mass-section" id="vs-parte1">
-      <h2 class="section-title">Primera Parte: Liturgia de la Palabra</h2>
+      <h2 class="section-title"><span>📖</span> Primera Parte: Liturgia de la Palabra</h2>
       <div class="dialogue">
         <p class="rubric"><strong>Entrada en silencio y postración:</strong> El sacerdote y los ministros sagrados, vestidos de color rojo como para la Misa, se acercan al altar en silencio. Al llegar, hacen una reverencia y se postran rostro en tierra (o se arrodillan). Todos los fieles se arrodillan y oran en silencio durante unos momentos (IGMR 43, 274).</p>
         <p class="rubric">Luego el sacerdote, con los ministros, va a la sede, y vuelto hacia el pueblo dice con las manos extendidas, sin decir «Oremos» ni saludo previo:</p>
@@ -2144,7 +2356,7 @@ htmlParts.push(`
 
     <!-- PARTE 2: ADORACIÓN DE LA SANTA CRUZ -->
     <section class="mass-section" id="vs-parte2">
-      <h2 class="section-title">Segunda Parte: Adoración de la Santa Cruz</h2>
+      <h2 class="section-title"><span>✝️</span> Segunda Parte: Adoración de la Santa Cruz</h2>
       <div class="dialogue">
         <p class="rubric"><strong>Ostensión de la Cruz:</strong> La Santa Cruz, acompañada de dos ministros con cirios encendidos, es presentada ante la asamblea. El sacerdote (o el diácono) la eleva ante el pueblo cantando tres veces en tonos cada vez más altos:</p>
         
@@ -2164,7 +2376,7 @@ htmlParts.push(`
 
     <!-- PARTE 3: SAGRADA COMUNIÓN -->
     <section class="mass-section" id="vs-parte3">
-      <h2 class="section-title">Tercera Parte: Sagrada Comunión</h2>
+      <h2 class="section-title"><span>🍞</span> Tercera Parte: Sagrada Comunión</h2>
       <div class="dialogue">
         <p class="rubric"><strong>Preparación del Altar:</strong> Se extiende sobre el altar desnudo un mantel blanco, el corporal y el misal. No hay ofertorio de pan y vino ni incensación de dones (IGMR 43). El diácono o el sacerdote va al Monumento (lugar de la reserva) y trae el Santísimo Sacramento con las formas consagradas en la Misa del Jueves Santo, acompañado de dos cirios encendidos. Lo coloca sobre el altar sobre el corporal.</p>
 
@@ -2195,7 +2407,7 @@ htmlParts.push(`
 
     <!-- PARTE 4: RITO DE CONCLUSIÓN Y DESPEDIDA -->
     <section class="mass-section" id="vs-parte4">
-      <h2 class="section-title">Cuarta Parte: Despedida en Silencio</h2>
+      <h2 class="section-title"><span>🕊️</span> Cuarta Parte: Despedida en Silencio</h2>
       <div class="dialogue">
         <p class="rubric">El diácono o el sacerdote dice al pueblo: «Inclinaos para recibir la bendición».</p>
         <p class="rubric">El sacerdote, extendiendo las manos sobre el pueblo, dice la Oración sobre el pueblo:</p>
@@ -2214,10 +2426,10 @@ htmlParts.push(`
        SÁBADO SANTO: LA SEPULTURA DEL SEÑOR
        ============================================================ -->
   <div id="holySaturdayContainer" class="special-liturgy-container" style="display: none;">
-    <div class="liturgy-special-banner" style="background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(15, 23, 42, 0.9)); border-left: 4px solid #9333ea; padding: 1.25rem; border-radius: 8px; margin-bottom: 2rem;">
+    <div class="liturgy-special-banner" style="background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(15, 23, 42, 0.9)); border-left: 4px solid #9333ea; padding: 1.25rem; border-radius: 10px; margin-bottom: 2rem;">
       <div style="display:flex; align-items:center; gap: 0.75rem; margin-bottom: 0.5rem;">
         <span style="font-size: 1.8rem;">🕊️</span>
-        <h2 style="margin:0; font-size: 1.4rem; color: #c084fc;">Sábado Santo: La Sepultura del Señor</h2>
+        <h2 style="margin:0; font-size: 1.4rem; color: #c084fc; font-family: 'Cinzel', serif;">Sábado Santo: La Sepultura del Señor</h2>
       </div>
       <p class="rubric" style="margin: 0; color: var(--text-secondary);">
         <strong>Día Alitúrgico de Silencio y Espera:</strong> Durante el Sábado Santo la Iglesia permanece junto al sepulcro del Señor, meditando su pasión y muerte, absteniéndose absolutamente del sacrificio de la Misa (el altar permanece desnudo), hasta que, llegada la noche con la <strong>Solemne Vigilia Pascual</strong>, estallan los gozos de la Resurrección.
@@ -2225,7 +2437,7 @@ htmlParts.push(`
     </div>
 
     <section class="mass-section">
-      <h2 class="section-title">Meditación Litúrgica y Lecturas de la Tradición de la Iglesia</h2>
+      <h2 class="section-title"><span>❖</span> Meditación Litúrgica y Lecturas de la Tradición de la Iglesia</h2>
       <div class="scripture-box" style="margin-bottom: 1.5rem;">
         <div class="scripture-citation">De una antigua Homilía sobre el Santo y Gran Sábado (Oficio de Lecturas)</div>
         <p>«¿Qué es lo que pasa? Un gran silencio envuelve hoy la tierra; un gran silencio y una gran soledad. Un gran silencio, porque el Rey duerme. La tierra está temerosa y sobrecogida, porque Dios se ha dormido en la carne y ha ido a despertar a los que dormían desde antiguo...»</p>
@@ -2255,44 +2467,37 @@ htmlParts.push(`
   <div id="igmrModal" class="igmr-modal-backdrop" onclick="closeIGMRModal(event)">
     <div class="igmr-modal-box" onclick="event.stopPropagation()">
       <div class="igmr-modal-header">
-        <h3 class="igmr-modal-title" id="igmrModalTitle">Instrucción General del Misal Romano</h3>
-        <button class="igmr-modal-close" onclick="closeIGMRModal()" aria-label="Cerrar">&times;</button>
+        <h3 id="igmrModalTitle" class="igmr-modal-title">Instrucción General del Misal Romano</h3>
+        <button class="igmr-modal-close" onclick="closeIGMRModal()">&times;</button>
       </div>
-      <div class="igmr-modal-subtitle" id="igmrModalSubtitle"></div>
-      <div class="igmr-modal-body" id="igmrModalBody"></div>
+      <div id="igmrModalSubtitle" class="igmr-modal-subtitle"></div>
+      <div id="igmrModalBody" class="igmr-modal-body"></div>
       <div class="igmr-modal-footer">
-        <button type="button" onclick="closeIGMRModal()">Cerrar</button>
-        <button type="button" id="igmrModalJumpBtn" onclick="jumpToIGMR()" style="background: var(--primary-color); color: #fff; border-color: var(--primary-color);">📍 Ir a su posición en el Misal</button>
+        <button type="button" class="btn-tool" onclick="jumpToIGMR()"><span>⚓</span> Ver en el texto de la Misa</button>
+        <button type="button" class="btn-hero-primary" onclick="closeIGMRModal()" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Cerrar</button>
       </div>
     </div>
   </div>
 
-  <footer>
-    <p><strong>Misal Romano - Catálogo Completo de Misas del Año Litúrgico</strong></p>
-    <p>Documento enriquecido con la totalidad de los 399 numerales de la <em>Instrucción General del Misal Romano</em> (IGMR) de la Congregación para el Culto Divino y la Disciplina de los Sacramentos.</p>
-    <p style="margin-top: 1rem;">Fuentes oficiales y documentos de referencia:</p>
-    <p>
-      • <a href="https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_sp.html" target="_blank" rel="noopener">IGMR - Sitio Oficial del Vaticano</a><br>
-      • <a href="https://seminariobogota.arquibogota.org.co/sites/default/files/inline-files/misal-romanopdf.pdf" target="_blank" rel="noopener">Misal Romano PDF (Seminario de Bogotá)</a><br>
-      • <a href="https://liturgiapapal.org/index.php/recursos-lit%C3%BArgicos/libros-lit%C3%BArgicos/604-misal-romano.html" target="_blank" rel="noopener">Misal Romano (Recursos Litúrgicos - Liturgia Papal)</a>
-    </p>
-    <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 1.5rem;">Sitio web desarrollado para estudio litúrgico, oración y uso pastoral.</p>
+  <footer style="text-align: center; padding: 2rem 1rem; color: var(--footer-text); font-size: 0.82rem; border-top: 1px solid var(--border-color); background: var(--header-bg);">
+    <p style="font-weight: 700; color: var(--text-color); margin-bottom: 0.3rem;">Misal Romano - Tercera Edición Típica en Español</p>
+    <p>Conforme a la normativa litúrgica oficial y los 399 numerales de la Instrucción General del Misal Romano (IGMR).</p>
+    <p style="margin-top: 0.5rem; opacity: 0.8;">Para uso pastoral, litúrgico y formativo de sacerdotes, diáconos, ministros y fieles.</p>
   </footer>
 `);
 
-// Linkificar el cuerpo HTML antes de anexar el bloque de script
 const linkifiedBody = linkifyIGMR(htmlParts.join(''));
 
-// Construcción del bloque de JavaScript intacto
 const scriptBlock = `
   <script>
     const igmrData = ${JSON.stringify(igmrMap)};
     const liturgiaData = ${JSON.stringify(liturgiaDB)};
-    
-    let currentView = 'home'; // 'home' | 'mass'
+
     let currentMassId = null;
     let currentSeasonFilter = 'all';
-    let currentPrayerId = "3";
+    let currentPrayerId = '3';
+    let currentView = 'home';
+    let currentDrawerSeason = 'all';
     let currentModalNum = null;
 
     function getSeasonCategoryForMass(m) {
@@ -2355,6 +2560,40 @@ const scriptBlock = `
       selectMass(massId);
     }
 
+    // --- SCROLL TO SECTION (BARRA DE SALTO RÁPIDO) ---
+    function scrollToSection(sectionId) {
+      const el = document.getElementById(sectionId);
+      if (!el) return;
+      
+      const toolbar = document.getElementById('mainToolbar');
+      const jumpNav = document.getElementById('sectionJumpNav');
+      const offset = (toolbar ? toolbar.offsetHeight : 0) + (jumpNav ? jumpNav.offsetHeight : 0) + 12;
+      
+      const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: 'smooth'
+      });
+
+      // Actualizar pill activo
+      updateActivePill(sectionId);
+    }
+
+    function updateActivePill(activeId) {
+      const pills = document.querySelectorAll('.jump-pill');
+      pills.forEach(p => {
+        const target = p.getAttribute('onclick');
+        if (target && target.includes(activeId)) {
+          p.classList.add('active');
+        } else {
+          p.classList.remove('active');
+        }
+      });
+    }
+
+    // --- ESCALADOR DE FUENTE ERGONÓMICO ---
     let currentFontSize = 18;
     const content = document.getElementById('content');
     const htmlElement = document.documentElement;
@@ -2362,6 +2601,9 @@ const scriptBlock = `
 
     function applyFontSize() {
       if (content) content.style.fontSize = currentFontSize + 'px';
+      const display = document.getElementById('fontSizeDisplay');
+      if (display) display.innerText = currentFontSize + 'px';
+      localStorage.setItem('misal-font-size', currentFontSize);
     }
 
     function changeFontSize(delta) {
@@ -2376,14 +2618,15 @@ const scriptBlock = `
       applyFontSize();
     }
 
+    // --- GESTIÓN DE TEMAS (OSCURO / CLARO) ---
     function updateThemeButton(theme) {
       if (!themeToggleBtn) return;
       if (theme === 'dark') {
         themeToggleBtn.innerHTML = '<span class="theme-icon">☀️</span> <span class="theme-label">Claro</span>';
-        themeToggleBtn.title = 'Cambiar a Modo Claro';
+        themeToggleBtn.title = 'Cambiar a Modo Claro (Atajo: T)';
       } else {
         themeToggleBtn.innerHTML = '<span class="theme-icon">🌙</span> <span class="theme-label">Oscuro</span>';
-        themeToggleBtn.title = 'Cambiar a Modo Oscuro';
+        themeToggleBtn.title = 'Cambiar a Modo Oscuro (Atajo: T)';
       }
     }
 
@@ -2395,7 +2638,7 @@ const scriptBlock = `
       updateThemeButton(newTheme);
     }
 
-    (function initTheme() {
+    (function initThemeAndFont() {
       const savedTheme = localStorage.getItem('misal-theme');
       if (savedTheme) {
         htmlElement.setAttribute('data-theme', savedTheme);
@@ -2404,18 +2647,43 @@ const scriptBlock = `
         htmlElement.setAttribute('data-theme', 'dark');
         updateThemeButton('dark');
       }
+
+      const savedFontSize = parseInt(localStorage.getItem('misal-font-size'), 10);
+      if (savedFontSize && savedFontSize >= 14 && savedFontSize <= 28) {
+        currentFontSize = savedFontSize;
+      }
+      applyFontSize();
     })();
 
-    // Control de scroll para el botón flotante (FAB)
+    // Control de scroll para el botón flotante (FAB) y ScrollSpy
     window.addEventListener('scroll', () => {
       const fab = document.getElementById('fabScrollTop');
-      if (!fab) return;
-      if (window.scrollY > 300) {
-        fab.classList.add('visible');
-      } else {
-        fab.classList.remove('visible');
+      if (fab) {
+        if (window.scrollY > 300) {
+          fab.classList.add('visible');
+        } else {
+          fab.classList.remove('visible');
+        }
       }
-    });
+      handleScrollSpy();
+    }, { passive: true });
+
+    function handleScrollSpy() {
+      if (currentView !== 'mass') return;
+      const isGoodFriday = (currentMassId === 'pas-viernes-santo');
+      const sections = isGoodFriday
+        ? ['vs-parte1', 'vs-parte2', 'vs-parte3', 'vs-parte4']
+        : ['ritos-iniciales', 'liturgia-palabra', 'liturgia-eucaristica', 'rito-comunion', 'rito-conclusion', 'proemio-cap1'];
+
+      const scrollPos = window.scrollY + 180;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const sec = document.getElementById(sections[i]);
+        if (sec && sec.offsetTop <= scrollPos) {
+          updateActivePill(sections[i]);
+          break;
+        }
+      }
+    }
 
     function toggleAllDetails(openState) {
       const allDetails = document.querySelectorAll('details');
@@ -2431,7 +2699,7 @@ const scriptBlock = `
         return;
       }
       currentModalNum = num;
-      document.getElementById('igmrModalTitle').innerText = 'Instrucción General del Misal Romano — Numeral ' + num;
+      document.getElementById('igmrModalTitle').innerText = 'IGMR — Numeral ' + num;
       let subtitle = '';
       if (it.section) subtitle += it.section;
       if (it.subsection) subtitle += (subtitle ? ' · ' : '') + it.subsection;
@@ -2489,11 +2757,7 @@ const scriptBlock = `
 
     function refreshIndexAndHome() {
       // 1. Limpiar búsqueda del índice
-      const searchInput = document.getElementById('drawerSearchInput');
-      if (searchInput) {
-        searchInput.value = '';
-        filterDrawer();
-      }
+      clearDrawerSearch();
 
       // 2. Resetear selección de misa y filtro de tiempo
       currentMassId = null;
@@ -2542,10 +2806,90 @@ const scriptBlock = `
         drawer.classList.add('open');
         backdrop.classList.add('active');
         document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+          const input = document.getElementById('drawerSearchInput');
+          if (input) input.focus();
+        }, 200);
       } else {
         drawer.classList.remove('open');
         backdrop.classList.remove('active');
         document.body.style.overflow = '';
+      }
+    }
+
+    function filterDrawerChip(season, chipEl) {
+      currentDrawerSeason = season;
+      document.querySelectorAll('.drawer-chip').forEach(c => c.classList.remove('active'));
+      if (chipEl) chipEl.classList.add('active');
+      filterDrawer();
+    }
+
+    function clearDrawerSearch() {
+      const searchInput = document.getElementById('drawerSearchInput');
+      if (searchInput) searchInput.value = '';
+      currentDrawerSeason = 'all';
+      document.querySelectorAll('.drawer-chip').forEach((c, idx) => {
+        if (idx === 0) c.classList.add('active');
+        else c.classList.remove('active');
+      });
+      const clearBtn = document.getElementById('drawerSearchClear');
+      if (clearBtn) clearBtn.style.display = 'none';
+      filterDrawer();
+    }
+
+    function filterDrawer() {
+      const searchInput = document.getElementById('drawerSearchInput');
+      const q = searchInput ? searchInput.value.toLowerCase().trim() : '';
+      const clearBtn = document.getElementById('drawerSearchClear');
+      if (clearBtn) clearBtn.style.display = q ? 'flex' : 'none';
+
+      const items = document.querySelectorAll('.drawer-item');
+      const catTitles = document.querySelectorAll('.drawer-category-title');
+      let matchCount = 0;
+
+      items.forEach(it => {
+        if (it.id === 'drawer-home-item') {
+          it.style.display = q ? 'none' : 'flex';
+          return;
+        }
+
+        const massCat = it.getAttribute('data-cat') || '';
+        const seasonMatch = (currentDrawerSeason === 'all') ||
+          (currentDrawerSeason === 'Semana Santa & Triduo' && (massCat === 'Semana Santa' || massCat === 'Triduo Pascual')) ||
+          (massCat === currentDrawerSeason);
+
+        const txt = it.innerText.toLowerCase();
+        const textMatch = !q || txt.includes(q);
+
+        if (seasonMatch && textMatch) {
+          it.style.display = 'flex';
+          matchCount++;
+        } else {
+          it.style.display = 'none';
+        }
+      });
+
+      // Ocultar categorías vacías
+      catTitles.forEach(ct => {
+        let sibling = ct.nextElementSibling;
+        let hasVisible = false;
+        while (sibling && !sibling.classList.contains('drawer-category-title')) {
+          if (sibling.classList.contains('drawer-item') && sibling.style.display !== 'none') {
+            hasVisible = true;
+            break;
+          }
+          sibling = sibling.nextElementSibling;
+        }
+        ct.style.display = hasVisible ? 'flex' : 'none';
+      });
+
+      const countDisplay = document.getElementById('drawerResultCount');
+      if (countDisplay) {
+        if (q || currentDrawerSeason !== 'all') {
+          countDisplay.innerText = matchCount + ' celebracion' + (matchCount === 1 ? '' : 'es');
+        } else {
+          countDisplay.innerText = liturgiaData.misas.length + ' celebraciones';
+        }
       }
     }
 
@@ -2559,6 +2903,7 @@ const scriptBlock = `
 
       // Opción de Portada e Inicio en el Índice
       const homeItem = document.createElement('div');
+      homeItem.id = 'drawer-home-item';
       homeItem.className = 'drawer-item' + (currentView === 'home' ? ' active' : '');
       homeItem.style.borderLeft = '3px solid var(--primary-color)';
       homeItem.style.marginBottom = '8px';
@@ -2572,18 +2917,18 @@ const scriptBlock = `
       let currentCat = '';
 
       liturgiaData.misas.forEach(m => {
-        // Drawer list grouped by category
         if (m.categoria !== currentCat) {
           currentCat = m.categoria;
           const catTitle = document.createElement('div');
           catTitle.className = 'drawer-category-title';
-          catTitle.innerHTML = '❖ ' + currentCat;
+          catTitle.innerHTML = '<span>❖</span> ' + currentCat;
           drawerList.appendChild(catTitle);
         }
 
         const item = document.createElement('div');
         item.className = 'drawer-item' + (m.id === currentMassId && currentView === 'mass' ? ' active' : '');
         item.id = 'drawer-item-' + m.id;
+        item.setAttribute('data-cat', m.categoria);
         item.onclick = () => {
           selectMass(m.id);
           toggleDrawer(false);
@@ -2591,15 +2936,8 @@ const scriptBlock = `
         item.innerHTML = '<span>' + m.nombre + '</span><span style="font-size:0.75rem; opacity:0.8;">' + m.tiempo + '</span>';
         drawerList.appendChild(item);
       });
-    }
 
-    function filterDrawer() {
-      const q = document.getElementById('drawerSearchInput').value.toLowerCase();
-      const items = document.querySelectorAll('.drawer-item');
-      items.forEach(it => {
-        const txt = it.innerText.toLowerCase();
-        it.style.display = txt.includes(q) ? 'flex' : 'none';
-      });
+      filterDrawer();
     }
 
     function selectMass(massId, explicitPrayer = null) {
@@ -2712,6 +3050,9 @@ const scriptBlock = `
       const goodFridayContainer = document.getElementById('goodFridayContainer');
       const holySaturdayContainer = document.getElementById('holySaturdayContainer');
       const prayerWrapper = document.querySelector('.select-prayer-wrapper');
+      const sectionJumpNav = document.getElementById('sectionJumpNav');
+      const standardJumpPills = document.getElementById('standardJumpPills');
+      const goodFridayJumpPills = document.getElementById('goodFridayJumpPills');
 
       if (m.id === 'pas-viernes-santo') {
         if (standardContainer) {
@@ -2730,6 +3071,9 @@ const scriptBlock = `
           holySaturdayContainer.classList.remove('visible-liturgy-container');
         }
         if (prayerWrapper) prayerWrapper.style.display = 'none';
+        if (sectionJumpNav) sectionJumpNav.style.display = 'block';
+        if (standardJumpPills) standardJumpPills.style.display = 'none';
+        if (goodFridayJumpPills) goodFridayJumpPills.style.display = 'flex';
       } else if (m.id === 'pas-sabado-santo') {
         if (standardContainer) {
           standardContainer.style.display = 'none';
@@ -2747,6 +3091,7 @@ const scriptBlock = `
           holySaturdayContainer.classList.add('visible-liturgy-container');
         }
         if (prayerWrapper) prayerWrapper.style.display = 'none';
+        if (sectionJumpNav) sectionJumpNav.style.display = 'none';
       } else {
         if (standardContainer) {
           standardContainer.style.display = 'block';
@@ -2764,11 +3109,13 @@ const scriptBlock = `
           holySaturdayContainer.classList.remove('visible-liturgy-container');
         }
         if (prayerWrapper) prayerWrapper.style.display = 'block';
+        if (sectionJumpNav) sectionJumpNav.style.display = 'block';
+        if (standardJumpPills) standardJumpPills.style.display = 'flex';
+        if (goodFridayJumpPills) goodFridayJumpPills.style.display = 'none';
       }
 
       // Conmutar a la vista de la Misa
       switchView('mass');
-
       localStorage.setItem('misal-mass-id', m.id);
     }
 
@@ -2786,7 +3133,7 @@ const scriptBlock = `
 
       let html = '<div class="prayer-text" style="border-left-color: var(--primary-color); margin-top: 1.5rem;">';
       html += recBadge;
-      html += '<h4 style="color: var(--primary-color); margin-bottom: 0.3rem;">' + pl.nombre + '</h4>';
+      html += '<h4 style="color: var(--primary-color); margin-bottom: 0.3rem; font-family: Cinzel, serif;">' + pl.nombre + '</h4>';
       html += '<p class="rubric" style="margin-bottom: 1rem;">' + pl.descripcion + '</p>';
 
       pl.contenido.forEach(it => {
@@ -2813,7 +3160,14 @@ const scriptBlock = `
     });
 
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
+      // Atajo para abrir búsqueda: '/' o 'Ctrl+K'
+      if ((e.key === '/' || (e.ctrlKey && e.key.toLowerCase() === 'k')) && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        toggleDrawer(true);
+      } else if (e.key.toLowerCase() === 't' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        toggleTheme();
+      } else if (e.key === 'Escape') {
         closeIGMRModal();
         toggleDrawer(false);
       }
