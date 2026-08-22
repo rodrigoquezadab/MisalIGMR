@@ -45,8 +45,8 @@ Para facilitar la navegación entre las 74 celebraciones sin necesidad de despla
    - `❖ Todos los Tiempos (74)`
    - `🟣 Adviento (4)`
    - `⚪ Navidad y Epifanía (8)`
-   - `🟣 Cuaresma (7)`
-   - `🔴 Semana Santa y Triduo (8)`
+   - `🟣 Cuaresma (6)`
+   - `🔴 Semana Santa y Triduo (9)`
    - `⚪ Pascua (10)`
    - `🟢 Tiempo Ordinario (34)`
    - `⚪ Solemnidades (3)`

@@ -1382,8 +1382,8 @@ htmlParts.push(`<!DOCTYPE html>
             <option value="all">❖ Todos los Tiempos (74)</option>
             <option value="Tiempo de Adviento">🟣 Adviento (4)</option>
             <option value="Tiempo de Navidad">⚪ Navidad y Epifanía (8)</option>
-            <option value="Tiempo de Cuaresma">🟣 Cuaresma (7)</option>
-            <option value="Semana Santa & Triduo">🔴 Semana Santa y Triduo (8)</option>
+            <option value="Tiempo de Cuaresma">🟣 Cuaresma (6)</option>
+            <option value="Semana Santa & Triduo">🔴 Semana Santa y Triduo (9)</option>
             <option value="Tiempo Pascual">⚪ Pascua (10)</option>
             <option value="Tiempo Ordinario">🟢 T. Ordinario (34)</option>
             <option value="Solemnidades del Señor">⚪ Solemnidades (3)</option>
@@ -1608,17 +1608,72 @@ htmlParts.push(useRange("Saludo al Pueblo", range(50, 50)));
 htmlParts.push(`
       <h3 class="part-title">1.3. Acto Penitencial</h3>
       <div class="dialogue">
-        <p class="rubric">El sacerdote invita a los fieles al arrepentimiento, haciéndose una breve pausa de silencio (IGMR 51, 125):</p>
+        <p class="rubric">El sacerdote invita a los fieles al arrepentimiento con una de las siguientes fórmulas u otras semejantes, haciéndose una breve pausa de silencio (IGMR 51, 125):</p>
         <p><span class="speaker">Sacerdote:</span> Hermanos: para celebrar dignamente estos sagrados misterios, reconozcamos nuestros pecados.</p>
+        <p class="rubric"><em>(O bien:)</em></p>
+        <p><span class="speaker">Sacerdote:</span> El Señor Jesús, que nos invita a la mesa de la Palabra y de la Eucaristía, nos llama a la conversión. Reconozcamos, pues, con humildad nuestros pecados.</p>
         
-        <p class="rubric"><strong>Fórmula 1 (Confiteor / Yo confieso - IGMR 51):</strong></p>
-        <p><span class="speaker">Todos:</span> Yo confieso ante Dios todopoderoso y ante vosotros, hermanos, que he pecado mucho de pensamiento, palabra, obra y omisión.</p>
-        <p class="rubric">(Golpeándose el pecho, dicen - IGMR 51:)</p>
-        <p><span class="speaker">Todos:</span> Por mi culpa, por mi culpa, por mi gran culpa. Por eso ruego a santa María, siempre Virgen, a los ángeles, a los santos y a vosotros, hermanos, que intercedáis por mí ante Dios, nuestro Señor.</p>
-        
-        <p class="rubric">Absolución sacerdotal (IGMR 51):</p>
+        <div style="background: var(--card-bg, rgba(255,255,255,0.03)); border-left: 3px solid var(--primary-color); padding: 0.8rem 1rem; border-radius: 4px; margin: 1.2rem 0;">
+          <p class="rubric" style="color: var(--primary-color); font-weight: bold; margin-bottom: 0.4rem;">Fórmula 1 (Confiteor / Yo confieso — IGMR 51):</p>
+          <p><span class="speaker">Todos:</span> Yo confieso ante Dios todopoderoso y ante vosotros, hermanos, que he pecado mucho de pensamiento, palabra, obra y omisión.</p>
+          <p class="rubric">(Golpeándose el pecho, dicen — IGMR 51:)</p>
+          <p><span class="speaker">Todos:</span> Por mi culpa, por mi culpa, por mi gran culpa. Por eso ruego a santa María, siempre Virgen, a los ángeles, a los santos y a vosotros, hermanos, que intercedáis por mí ante Dios, nuestro Señor.</p>
+        </div>
+
+        <div style="background: var(--card-bg, rgba(255,255,255,0.03)); border-left: 3px solid #3b82f6; padding: 0.8rem 1rem; border-radius: 4px; margin: 1.2rem 0;">
+          <p class="rubric" style="color: #3b82f6; font-weight: bold; margin-bottom: 0.4rem;">Fórmula 2 (Diálogo de súplica — IGMR 51):</p>
+          <p><span class="speaker">Sacerdote:</span> Señor, ten misericordia de nosotros.</p>
+          <p><span class="speaker">Pueblo:</span> <span class="response">Porque hemos pecado contra ti.</span></p>
+          <p><span class="speaker">Sacerdote:</span> Muéstranos, Señor, tu misericordia.</p>
+          <p><span class="speaker">Pueblo:</span> <span class="response">Y danos tu salvación.</span></p>
+        </div>
+
+        <div style="background: var(--card-bg, rgba(255,255,255,0.03)); border-left: 3px solid #10b981; padding: 0.8rem 1rem; border-radius: 4px; margin: 1.2rem 0;">
+          <p class="rubric" style="color: #10b981; font-weight: bold; margin-bottom: 0.4rem;">Fórmula 3 (Invocaciones con el Señor, ten piedad / Tropos — IGMR 51, 52):</p>
+          <p class="rubric"><em>(El sacerdote o ministro dice las siguientes o semejantes invocaciones. Si se emplea esta fórmula, omítese el «Señor, ten piedad» posterior):</em></p>
+          
+          <p style="font-weight: 600; margin-top: 0.6rem; color: var(--text-color);">• Forma Común:</p>
+          <p><span class="speaker">V.</span> Tú que has sido enviado a sanar los corazones afligidos: Señor, ten piedad. (o <em>Kyrie, eleison</em>)</p>
+          <p><span class="speaker">R.</span> <span class="response">Señor, ten piedad.</span> (o <em>Kyrie, eleison</em>)</p>
+          <p><span class="speaker">V.</span> Tú que has venido a llamar a los pecadores: Cristo, ten piedad. (o <em>Christe, eleison</em>)</p>
+          <p><span class="speaker">R.</span> <span class="response">Cristo, ten piedad.</span> (o <em>Christe, eleison</em>)</p>
+          <p><span class="speaker">V.</span> Tú que estás sentado a la derecha del Padre para interceder por nosotros: Señor, ten piedad. (o <em>Kyrie, eleison</em>)</p>
+          <p><span class="speaker">R.</span> <span class="response">Señor, ten piedad.</span> (o <em>Kyrie, eleison</em>)</p>
+
+          <details style="margin-top: 0.8rem; background: rgba(0,0,0,0.15); border-radius: 6px; padding: 0.5rem 0.8rem;">
+            <summary style="font-size: 0.9rem; font-weight: 600; cursor: pointer; color: var(--text-secondary);">Ver invocaciones propias para otros Tiempos Litúrgicos (Adviento, Navidad, Cuaresma, Pascua)</summary>
+            <div style="margin-top: 0.8rem; padding-left: 0.4rem; font-size: 0.95rem;">
+              <p style="font-weight: 600; color: #a855f7; margin-top: 0.6rem;">🟣 En Tiempo de Adviento:</p>
+              <p><span class="speaker">V.</span> Tú que viniste a visitar a tu pueblo en la paz: Señor, ten piedad. <span class="speaker">R.</span> <span class="response">Señor, ten piedad.</span></p>
+              <p><span class="speaker">V.</span> Tú que viniste a salvar lo que estaba perdido: Cristo, ten piedad. <span class="speaker">R.</span> <span class="response">Cristo, ten piedad.</span></p>
+              <p><span class="speaker">V.</span> Tú que vendrás un día a juzgar nuestras obras: Señor, ten piedad. <span class="speaker">R.</span> <span class="response">Señor, ten piedad.</span></p>
+
+              <p style="font-weight: 600; color: #38bdf8; margin-top: 0.6rem;">⚪ En Tiempo de Navidad y Epifanía:</p>
+              <p><span class="speaker">V.</span> Palabra eterna de Dios que te hiciste hombre en el seno de María: Señor, ten piedad. <span class="speaker">R.</span> <span class="response">Señor, ten piedad.</span></p>
+              <p><span class="speaker">V.</span> Luz verdadera que viniste al mundo para iluminar nuestras tinieblas: Cristo, ten piedad. <span class="speaker">R.</span> <span class="response">Cristo, ten piedad.</span></p>
+              <p><span class="speaker">V.</span> Hijo unigénito del Padre lleno de gracia y de verdad: Señor, ten piedad. <span class="speaker">R.</span> <span class="response">Señor, ten piedad.</span></p>
+
+              <p style="font-weight: 600; color: #a855f7; margin-top: 0.6rem;">🟣 En Tiempo de Cuaresma:</p>
+              <p><span class="speaker">V.</span> Tú que nos invitas a renovar nuestro corazón con la oración y el ayuno: Señor, ten piedad. <span class="speaker">R.</span> <span class="response">Señor, ten piedad.</span></p>
+              <p><span class="speaker">V.</span> Tú que nos reconcilias con el Padre por tu santa cruz: Cristo, ten piedad. <span class="speaker">R.</span> <span class="response">Cristo, ten piedad.</span></p>
+              <p><span class="speaker">V.</span> Tú que nos purificas de todo pecado por el agua bautismal: Señor, ten piedad. <span class="speaker">R.</span> <span class="response">Señor, ten piedad.</span></p>
+
+              <p style="font-weight: 600; color: #facc15; margin-top: 0.6rem;">⚪ En Tiempo Pascual:</p>
+              <p><span class="speaker">V.</span> Tú que has resucitado victorioso del sepulcro: Señor, ten piedad. <span class="speaker">R.</span> <span class="response">Señor, ten piedad.</span></p>
+              <p><span class="speaker">V.</span> Tú que nos has renovado por tu santa Pascua: Cristo, ten piedad. <span class="speaker">R.</span> <span class="response">Cristo, ten piedad.</span></p>
+              <p><span class="speaker">V.</span> Tú que vives eternamente para interceder por nosotros: Señor, ten piedad. <span class="speaker">R.</span> <span class="response">Señor, ten piedad.</span></p>
+            </div>
+          </details>
+        </div>
+
+        <p class="rubric" style="margin-top: 1.2rem;"><strong>Absolución sacerdotal común (IGMR 51):</strong></p>
+        <p class="rubric">El sacerdote concluye con la súplica de perdón:</p>
         <p><span class="speaker">Sacerdote:</span> Dios todopoderoso tenga misericordia de nosotros, perdone nuestros pecados y nos lleve a la vida eterna.</p>
         <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
+
+        <p class="rubric" style="margin-top: 1rem; border-top: 1px dashed var(--border-color); padding-top: 0.6rem;">
+          <em>(Rito dominical de la aspersión: Los domingos, sobre todo en tiempo pascual, en lugar del acostumbrado acto penitencial, puede hacerse la bendición y aspersión del agua bendita en memoria del Bautismo — IGMR 51).</em>
+        </p>
       </div>
 `);
 htmlParts.push(useRange("Acto Penitencial", range(51, 51)));
@@ -1626,6 +1681,7 @@ htmlParts.push(useRange("Acto Penitencial", range(51, 51)));
 htmlParts.push(`
       <h3 class="part-title">1.4. Señor, ten piedad (Kyrie, eleison)</h3>
       <div class="dialogue">
+        <p class="rubric">Siguen las aclamaciones «Señor, ten piedad», a no ser que se hayan utilizado ya en la Fórmula 3 del Acto Penitencial (IGMR 52):</p>
         <p><span class="speaker">V.</span> Señor, ten piedad. <span class="speaker">R.</span> <span class="response">Señor, ten piedad.</span></p>
         <p><span class="speaker">V.</span> Cristo, ten piedad. <span class="speaker">R.</span> <span class="response">Cristo, ten piedad.</span></p>
         <p><span class="speaker">V.</span> Señor, ten piedad. <span class="speaker">R.</span> <span class="response">Señor, ten piedad.</span></p>
@@ -2246,9 +2302,27 @@ const scriptBlock = `
       return m.categoria;
     }
 
+    function getFilteredMasses(season) {
+      if (season === 'Semana Santa & Triduo') {
+        return liturgiaData.misas.filter(m => m.categoria === 'Semana Santa' || m.categoria === 'Triduo Pascual');
+      } else if (season && season !== 'all') {
+        return liturgiaData.misas.filter(m => m.categoria === season);
+      }
+      return liturgiaData.misas;
+    }
+
     function onSeasonFilterChange(season) {
       currentSeasonFilter = season;
-      updateMassDropdownOptions();
+      const filtered = getFilteredMasses(season);
+
+      const isCurrentInSeason = filtered.some(m => m.id === currentMassId);
+      if (isCurrentInSeason && currentMassId) {
+        updateMassDropdownOptions(currentMassId);
+      } else if (filtered.length > 0) {
+        selectMass(filtered[0].id);
+      } else {
+        updateMassDropdownOptions();
+      }
     }
 
     function updateMassDropdownOptions(selectedId = null) {
@@ -2256,12 +2330,7 @@ const scriptBlock = `
       if (!quickSelect) return;
       quickSelect.innerHTML = '';
 
-      let filtered = liturgiaData.misas;
-      if (currentSeasonFilter === 'Semana Santa & Triduo') {
-        filtered = liturgiaData.misas.filter(m => m.categoria === 'Semana Santa' || m.categoria === 'Triduo Pascual');
-      } else if (currentSeasonFilter !== 'all') {
-        filtered = liturgiaData.misas.filter(m => m.categoria === currentSeasonFilter);
-      }
+      const filtered = getFilteredMasses(currentSeasonFilter);
 
       const placeholderOpt = document.createElement('option');
       placeholderOpt.value = '';
