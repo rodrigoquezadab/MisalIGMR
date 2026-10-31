@@ -64,7 +64,7 @@ const LABELS = [
   ['lectura', /^\+?\s*lectura (del|de la|de los|de las)\b/],
   ['salmo', /^salmo responsoria(l)?\b\s*:?\s*(.*)$/],
   ['secuencia', /^secuencia\b/],
-  ['aclamacion', /^aclamacion (al|antes del) evangelio\b\s*:?\s*(.*)$/],
+  ['aclamacion', /^(aclamacion (al|antes del) evangelio|versiculo antes del evangelio|aclamacion)\b\s*:?\s*(.*)$/],
   ['evangelioLabel', /^evangelio\.?$/],
   ['evangelio', /^\+?\s*evangelio de nuestro senor jesucristo segun san (mateo|marcos|lucas|juan)\b\s*(.*)$/],
   ['palabraDios', /^palabra de dios\.?$/],
@@ -98,7 +98,7 @@ function classify(line) {
 
 // Cita al final del rótulo de una lectura: desde el primer número tras un espacio
 function splitCitation(line) {
-  const m = line.match(/^(.*?)\s+(\d+[\s,.:].*|\d+)$/);
+  const m = line.match(/^(.*?)\s+(\d+[a-z]?[\s,.:\-–].*|\d+[a-z]?)$/);
   return m ? { encabezado: m[1].trim(), cita: m[2].trim() } : { encabezado: line.trim(), cita: '' };
 }
 
@@ -204,6 +204,11 @@ function parseMass(lines) {
       out.gloria = /^se dice/i.test(tail[2]);
       line = tail[1];
     }
+    // «ACLAMACIÓN AL» / «Evangelio Mt 2, 2» partido en dos líneas
+    if (/^aclamacion (al|antes del)$/.test(key(line)) && /^evangelio\b/i.test(lines[i + 1] || '')) {
+      line = line + ' ' + lines[i + 1];
+      i++;
+    }
     const c = classify(line);
 
     if (!started) {
@@ -270,7 +275,7 @@ function parseMass(lines) {
         case 'aclamacion': open('aclamacion', { cita: c.rest, texto: [] }); continue;
         case 'lectura': {
           if (!preTitle.length) preTitle = takeDanglingTitle();
-          let { encabezado, cita } = splitCitation(line);
+          let { encabezado, cita } = splitCitation(line.replace(/^\+\s*/, ''));
           // A veces la cita viene en la línea siguiente
           if (!cita && i + 1 < lines.length && /^\d+[\d\s,.\-–—abcdy;]*$/.test(lines[i + 1])) { cita = lines[i + 1]; i++; }
           let titulo = preTitle.join(' ');

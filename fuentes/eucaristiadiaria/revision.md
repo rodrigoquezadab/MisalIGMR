@@ -1,6 +1,6 @@
 # Revisión de la extracción de Eucaristía Diaria
 
-Generado por `fuentes/extraer_eucaristiadiaria.js`. 183 de 206 pares misa-ciclo sin observaciones.
+Generado por `fuentes/extraer_eucaristiadiaria.js`. 184 de 206 pares misa-ciclo sin observaciones.
 
 | Misa | Ciclo | Página | Observaciones |
 | :-- | :-- | :-- | :-- |
@@ -25,7 +25,6 @@ Generado por `fuentes/extraer_eucaristiadiaria.js`. 183 de 206 pares misa-ciclo 
 | `pas-vigilia` | C | 2025-04-19 | revisión a mano: Vigilia Pascual: lucernario, siete lecturas del Antiguo Testamento con sus salmos y oraciones, epístola, liturgia bautismal.; falta antifonaEntrada; Parte repetida: salmo (se guarda como alternativa); Parte repetida: salmo (se guarda como alternativa); Parte repetida: lectura3 (se guarda como alternativa); Parte repetida: salmo (se guarda como alternativa); Parte repetida: lectura3 (se guarda como alternativa); Parte repetida: salmo (se guarda como alternativa); Parte repetida: lectura3 (se guarda como alternativa); Parte repetida: salmo (se guarda como alternativa); Parte repetida: lectura3 (se guarda como alternativa); Parte repetida: salmo (se guarda como alternativa) |
 | `to-16` | A | 2026-07-19 | La página rotula la oración después de la comunión como «Oración sobre las ofrendas»; se tomó como poscomunión por su lugar. |
 | `to-16` | C | 2025-07-20 | La página rotula la oración después de la comunión como «Oración sobre las ofrendas»; se tomó como poscomunión por su lugar. |
-| `to-23` | C | 2025-09-07 | lectura2 sin cita |
 | `to-33` | A | 2026-11-15 | falta colecta |
 
 ## Antífonas y oraciones que difieren entre ciclos

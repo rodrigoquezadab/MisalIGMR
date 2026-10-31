@@ -147,6 +147,13 @@ En estricto cumplimiento del Misal Romano, se suprime la Liturgia Eucarística, 
 - Muestra en vivo el ciclo dominical, el año I/II y una tabla con las fechas móviles del año (`LiturgicalCalendar.movableDates`, `weekdayCycle`).
 - Los números de la IGMR citados se convierten en enlaces a la ventana de consulta. Lo que no proviene de la IGMR está pendiente de cotejo (`FUENTES_Y_CONSULTAS.md`, D12).
 
+### 3.6. Textos para Chile y Selector de Ciclo (`#cycleBar`)
+- `textos_chile.json` (generado por `fuentes/unir_textos.js` a partir de las páginas de Eucaristía Diaria) trae, para 65 celebraciones, las antífonas y oraciones (comunes a los tres ciclos) y, por ciclo A/B/C, las lecturas, el salmo, la aclamación, la secuencia, el evangelio y la antífona de comunión, cada uno con la URL y fecha de su página de origen.
+- `app_textos.js` (incrustado por el build) dibuja los textos propios de cada misa: usa los de Chile cuando existen y, si no, los anteriores con la etiqueta «texto provisional».
+- Al comienzo de la Liturgia de la Palabra, la barra de ciclo muestra los botones A (Mateo), B (Marcos) y C (Lucas); abre en el ciclo de la próxima vez que se celebre esa misa, indica la fecha y enlaza la página de origen. Si las lecturas no cambian entre ciclos (Ceniza, Navidad), lo dice en lugar de mostrar botones.
+- Aún con textos provisionales: Ramos, Crismal, Jueves Santo, Viernes Santo, Vigilia Pascual; el Ordinario fijo.
+- `node test_textos.js` verifica la estructura, las fuentes, la ausencia de «vosotros» y que el evangelio de cada domingo del Tiempo Ordinario sea del evangelista de su ciclo.
+
 ---
 
 ## 4. Asignación Canónica de Plegarias Eucarísticas (IGMR n. 365)

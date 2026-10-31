@@ -17,7 +17,11 @@ const liturgiaDB = JSON.parse(fs.readFileSync('liturgia_db.json', 'utf8'));
 // 3. Calendario litúrgico (se incrusta tal cual en la página; ver test_calendar.js)
 const calendarSource = fs.readFileSync('liturgical_calendar.js', 'utf8');
 
-// 4. Guía para aprender (vista #learnView)
+// 4. Textos para Chile (fuentes/unir_textos.js) y su presentación (app_textos.js)
+const textosChile = JSON.parse(fs.readFileSync('textos_chile.json', 'utf8'));
+const appTextosSource = fs.readFileSync('app_textos.js', 'utf8');
+
+// 5. Guía para aprender (vista #learnView)
 const learnViewHTML = fs.readFileSync('guia_aprendizaje.html', 'utf8');
 
 function range(start, end) {
@@ -1337,6 +1341,54 @@ htmlParts.push(`<!DOCTYPE html>
       box-shadow: 0 6px 20px var(--primary-glow);
     }
 
+    .cycle-bar {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--gold-accent);
+      border-radius: 10px;
+      padding: 0.7rem 0.9rem;
+      margin: 0 0 1rem;
+    }
+
+    .cycle-bar:empty { display: none; }
+    .cycle-bar-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--muted-text); margin-bottom: 0.4rem; }
+    .cycle-buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 0.5rem; }
+
+    .cycle-btn {
+      background: transparent;
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.45rem 0.3rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .cycle-btn strong { font-size: 1.05rem; margin-right: 2px; }
+    .cycle-btn.active { border-color: var(--gold-accent); box-shadow: 0 0 0 1px var(--gold-accent); }
+    .cycle-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .cycle-bar-note { font-size: 0.8rem; color: var(--muted-text); margin: 0.2rem 0 0; line-height: 1.5; }
+    .cycle-bar-note a { color: inherit; text-decoration: underline; }
+
+    .provisional-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      color: var(--muted-text);
+      border: 1px dashed var(--border-color);
+      border-radius: 9999px;
+      padding: 0 7px;
+      vertical-align: middle;
+    }
+
+    .reading-title { font-style: italic; color: var(--muted-text); }
+    .text-citation { font-size: 0.85em; color: var(--muted-text); white-space: nowrap; }
+    .alt-text { color: var(--muted-text); }
+    .alt-reading { margin-top: 0.8rem; border-top: 1px dashed var(--border-color); padding-top: 0.6rem; }
+    .alt-reading summary { cursor: pointer; font-weight: 600; font-size: 0.9rem; }
+
     .today-card {
       max-width: 560px;
       margin: 0 auto 1.1rem;
@@ -2160,6 +2212,7 @@ htmlParts.push(`    </section>\n`);
 htmlParts.push(`
     <section class="mass-section" id="liturgia-palabra">
       <h2 class="section-title"><span>📖</span> 2. Liturgia de la Palabra</h2>
+      <div id="cycleBar" class="cycle-bar" aria-live="polite"></div>
       <p class="rubric">El pueblo se sienta para escuchar las lecturas (IGMR 43, 128). Las lecturas se proclaman siempre desde el ambón (IGMR 58, 309).</p>
 `);
 htmlParts.push(useMoment("Naturaleza de la Liturgia de la Palabra, Silencio y Ambón", [{ label: "Sentido del rito", nums: [55, 56, 57, 58, 59] }, { label: "Misa concelebrada", nums: [212] }, { label: "Misa con un solo ministro", nums: [260] }]));
@@ -2730,8 +2783,11 @@ const scriptBlock = `
   <script>
     const igmrData = ${JSON.stringify(igmrMap)};
     const liturgiaData = ${JSON.stringify(liturgiaDB)};
+    const textosChile = ${JSON.stringify(textosChile)};
 
 ${calendarSource}
+
+${appTextosSource}
 
     let currentMassId = null;
     let currentSeasonFilter = 'all';
@@ -3222,53 +3278,8 @@ ${calendarSource}
       const activeDrawerItem = document.getElementById('drawer-item-' + m.id);
       if (activeDrawerItem) activeDrawerItem.classList.add('active');
 
-      // Actualizar Textos Propios
-      document.getElementById('dyn-antifona-entrada').innerHTML = '<p><strong>Antífona de Entrada:</strong> ' + m.antifonaEntrada + '</p>';
-      document.getElementById('dyn-colecta').innerHTML = '<p><strong>Oración Colecta:</strong> ' + m.colecta + '</p>';
-      
-      // Lectura 1
-      document.getElementById('dyn-lectura-1').innerHTML = 
-        '<div class="scripture-citation">Primera Lectura (' + m.lectura1.cita + ')</div>' +
-        '<p>' + m.lectura1.texto + '</p>' +
-        '<p class="rubric" style="margin-top:0.8rem;">Palabra de Dios. <span class="response">Te alabamos, Señor.</span></p>';
-
-      // Salmo
-      const stanzas = m.salmo.estrofas.map(s => '<p style="margin-bottom:0.6rem;">' + s + '</p>').join('');
-      document.getElementById('dyn-salmo').innerHTML = 
-        '<div class="scripture-citation">Salmo Responsorial (' + m.salmo.cita + ')</div>' +
-        '<div class="psalm-response">R. ' + m.salmo.respuesta + '</div>' +
-        stanzas;
-
-      // Lectura 2
-      document.getElementById('dyn-lectura-2').innerHTML = 
-        '<div class="scripture-citation">Segunda Lectura (' + m.lectura2.cita + ')</div>' +
-        '<p>' + m.lectura2.texto + '</p>' +
-        '<p class="rubric" style="margin-top:0.8rem;">Palabra de Dios. <span class="response">Te alabamos, Señor.</span></p>';
-
-      // Aclamación antes del Evangelio / Aleluya
-      const isCuaresma = (m.tiempo === 'Cuaresma' || (m.tiempo === 'Semana Santa' && m.id !== 'pas-vigilia'));
-      if (isCuaresma) {
-        document.getElementById('dyn-aleluya').innerHTML = 
-          '<p><span class="speaker">Todos:</span> <span class="response">Honor y gloria a ti, Señor Jesús.</span></p>' +
-          '<p><span class="speaker">V.</span> ' + (m.aleluya ? m.aleluya.versiculo : '') + '</p>' +
-          '<p><span class="speaker">Todos:</span> <span class="response">Honor y gloria a ti, Señor Jesús.</span></p>';
-      } else {
-        document.getElementById('dyn-aleluya').innerHTML = 
-          '<p><span class="speaker">Todos:</span> <span class="response">¡Aleluya, aleluya!</span></p>' +
-          '<p><span class="speaker">V.</span> ' + (m.aleluya ? m.aleluya.versiculo : '') + '</p>' +
-          '<p><span class="speaker">Todos:</span> <span class="response">¡Aleluya!</span></p>';
-      }
-
-      // Evangelio
-      document.getElementById('dyn-evangelio').innerHTML = 
-        '<div class="scripture-citation">Santo Evangelio (' + m.evangelio.cita + ')</div>' +
-        '<p><span class="speaker">Diácono o Sacerdote:</span> El Señor esté con vosotros. <span class="response">Y con tu espíritu.</span></p>' +
-        '<p><span class="speaker">Diácono o Sacerdote:</span> Lectura del santo Evangelio según ' + m.evangelio.cita.split(' ')[0] + '. <span class="response">Gloria a ti, Señor.</span></p>' +
-        '<p style="margin-top: 0.8rem;">' + m.evangelio.texto + '</p>' +
-        '<p class="rubric" style="margin-top:0.8rem;">Palabra del Señor. <span class="response">Gloria a ti, Señor Jesús.</span></p>';
-
-      // Ofrendas
-      document.getElementById('dyn-ofrendas').innerHTML = '<p><strong>Oración sobre las Ofrendas:</strong> ' + m.ofrendas + '</p>';
+      // Textos propios: los de la edición para Chile si existen, con selector de ciclo (app_textos.js)
+      renderPropers(m);
 
       // Prefacio
       const pref = liturgiaData.prefacios[m.prefacioId] || liturgiaData.prefacios["to-1"];
@@ -3277,9 +3288,6 @@ ${calendarSource}
         '<p class="rubric"><em>(' + pref.subtitulo + ')</em></p>' +
         '<p>' + pref.texto + '</p>';
 
-      // Comunión
-      document.getElementById('dyn-antifona-comunion').innerHTML = '<p><strong>Antífona de Comunión:</strong> ' + m.antifonaComunion + '</p>';
-      document.getElementById('dyn-postcomunion').innerHTML = '<p><strong>Oración después de la Comunión:</strong> ' + m.postcomunion + '</p>';
 
       // Actualizar opciones del selector de Plegaria indicando la más adecuada según la IGMR 365
       const rec = m.plegariaRecomendada || "3";

@@ -25,6 +25,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Test liturgical calendar
         run: node test_calendar.js
+      - name: Test Chilean texts
+        run: node test_textos.js
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

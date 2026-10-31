@@ -1,7 +1,7 @@
 {
   "fuente": "Eucaristía Diaria — Departamento de Liturgia del Arzobispado de Santiago",
   "nota": "Extraído automáticamente de las páginas guardadas. Ver revision.md antes de usar.",
-  "generado": "2026-10-31T17:48:56.495Z",
+  "generado": "2026-10-31T17:54:37.892Z",
   "misas": {
     "adv-1": {
       "nombre": "Domingo I de Adviento",
@@ -2879,6 +2879,13 @@
               "Este misterio consiste en que también los paganos participan de una misma herencia, son miembros de un mismo Cuerpo y beneficiarios de la misma promesa en Cristo Jesús, por medio del Evangelio."
             ]
           },
+          "aclamacion": {
+            "cita": "Mt 2, 2",
+            "texto": [
+              "Aleluya.",
+              "Vimos su estrella en Oriente y hemos venido a adorar al Señor. Aleluya."
+            ]
+          },
           "evangelio": {
             "titulo": "Hemos venido de Oriente a adorar al rey.",
             "evangelista": "Mateo",
@@ -3053,7 +3060,7 @@
           },
           "lectura2": {
             "titulo": "El Espíritu, el agua y la sangre.",
-            "encabezado": "+ Lectura de la primera carta de san Juan",
+            "encabezado": "Lectura de la primera carta de san Juan",
             "cita": "5, 1-9",
             "texto": [
               "Queridos hermanos:",
@@ -3261,6 +3268,12 @@
               "Nosotros somos embajadores de Cristo, y es Dios el que exhorta a los hombres por intermedio nuestro. Por eso les suplicamos en nombre de Cristo: déjense reconciliar con Dios. A Aquél que no conoció el pecado, Dios lo identificó con el pecado en favor nuestro, a fin de que nosotros seamos justificados por Él. Y porque somos sus colaboradores, los exhortamos a no recibir en vano la gracia de Dios. Porque Él nos dice en la Escritura: “En el momento favorable te escuché, y en el día de la salvación te socorrí.” Éste es el tiempo favorable, éste es el día de la salvación."
             ]
           },
+          "aclamacion": {
+            "cita": "Sal. 94, 8a. 7d",
+            "texto": [
+              "No endurezcan su corazón, sino escuchen la voz del Señor"
+            ]
+          },
           "evangelio": {
             "titulo": "Tu Padre, que ve en lo secreto, te recompensará",
             "evangelista": "Mateo",
@@ -3351,6 +3364,12 @@
               "Nosotros somos embajadores de Cristo, y es Dios el que exhorta a los hombres por intermedio nuestro. Por eso les suplicamos en nombre de Cristo: déjense reconciliar con Dios. A Aquél que no conoció el pecado, Dios lo identificó con el pecado en favor nuestro, a fin de que nosotros seamos justificados por Él.",
               "Y porque somos sus colaboradores, los exhortamos a no recibir en vano la gracia de Dios. Porque Él nos dice en la Escritura: “En el momento favorable te escuché, y en el día de la salvación te socorrí.”",
               "Éste es el tiempo favorable, éste es el día de la salvación."
+            ]
+          },
+          "aclamacion": {
+            "cita": "Sal. 94, 8a. 7d",
+            "texto": [
+              "No endurezcan su corazón, sino escuchen la voz del Señor."
             ]
           },
           "evangelio": {
@@ -3446,6 +3465,12 @@
               "Nosotros somos embajadores de Cristo, y es Dios el que exhorta a los hombres por intermedio nuestro. Por eso les suplicamos en nombre de Cristo: déjense reconciliar con Dios. A Aquél que no conoció el pecado, Dios lo identificó con el pecado en favor nuestro, a fin de que nosotros seamos justificados por Él.",
               "Y porque somos sus colaboradores, los exhortamos a no recibir en vano la gracia de Dios. Porque Él nos dice en la Escritura: “En el momento favorable te escuché, y en el día de la salvación te socorrí.”",
               "Éste es el tiempo favorable, éste es el día de la salvación."
+            ]
+          },
+          "aclamacion": {
+            "cita": "Sal. 94, 8a. 7d",
+            "texto": [
+              "No endurezcan su corazón, sino escuchen la voz del Señor."
             ]
           },
           "evangelio": {
@@ -13428,6 +13453,13 @@
               "Yo no anulo la gracia de Dios: si la justicia viene de la Ley, Cristo ha muerto inútilmente."
             ]
           },
+          "aclamacion": {
+            "cita": "1Jn 4, 10b",
+            "texto": [
+              "Aleluya.",
+              "Dios nos amó primero, y envió a su Hijo como víctima propiciatoria por nuestros pecados. Aleluya."
+            ]
+          },
           "evangelio": {
             "titulo": "Sus numerosos pecados le han sido perdonados; por eso demuestra mucho amor.",
             "evangelista": "Lucas",
@@ -16838,8 +16870,8 @@
           },
           "lectura2": {
             "titulo": "Recibe a Onésimo, no ya como un esclavo, sino como un hermano querido",
-            "encabezado": "Lectura de la carta del Apóstol san Pablo a Filemón 9b-10. 12-17",
-            "cita": "",
+            "encabezado": "Lectura de la carta del Apóstol san Pablo a Filemón",
+            "cita": "9b-10. 12-17",
             "texto": [
               "Querido hermano: Yo, Pablo, ya anciano y ahora prisionero a causa de Cristo Jesús, te suplico en favor de mi hijo Onésimo, al que engendré en la prisión.",
               "Te lo envío como si fuera una parte de mí mismo ser. Con gusto lo hubiera retenido a mi lado, para que me sirviera en tu nombre mientras estoy prisionero a causa del Evangelio. Pero no he querido realizar nada sin tu consentimiento, para que el beneficio que me haces no sea forzado, sino voluntario.",
@@ -16884,9 +16916,7 @@
           }
         },
         "notas": [],
-        "revisar": [
-          "lectura2 sin cita"
-        ]
+        "revisar": []
       }
     },
     "to-24": {
