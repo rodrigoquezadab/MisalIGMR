@@ -61,9 +61,7 @@ No basta con cambiar «vosotros» por «ustedes»: la edición del Cono Sur es o
 3. **Misal Romano, edición del Cono Sur** — Oficina del Libro de la Conferencia Episcopal Argentina (https://episcopado.org). Es la fuente oficial del Ordinario, las plegarias, los prefacios y los propios; solo impresa (no se encontró versión digital oficial). Las copias en Scribd/Internet Archive no son fuentes confiables.
 4. **IGMR, edición argentina** — https://www.curas.com.ar/Misal3/IGMR3.htm dice ser la 3.ª edición, pero no indica año ni aprobación, y no respondió a descargas directas (503). Pendiente encontrar una fuente con datos de edición; mientras tanto se mantiene la IGMR del Vaticano (traducción colombiana), que no es texto litúrgico proclamado.
 
-**Pendiente — decisión del responsable del proyecto**
-- Pedir autorización para usar los textos de Eucaristía Diaria (o de la Oficina del Libro) en el sitio público, antes de reemplazar los textos.
-- Luego: reemplazar lecturas y propios de las 74 misas (eligiendo un ciclo o guardando los tres), y cotejar el Ordinario contra el Misal impreso.
+**Decisión (31-10-2026)**: seguir trabajando con estos textos hasta tener una app correcta; entonces mostrarla y pedir permiso. El plan de trabajo está en `MEMORIA_DE_TRABAJO.md` y las fuentes, normas y dudas en `FUENTES_Y_CONSULTAS.md`.
 
 ---
 
