@@ -33,6 +33,38 @@ El proyecto tiene como objetivo ofrecer una plataforma litúrgica y pastoral com
 - **Textos propios incompletos**: del IV Domingo del Tiempo Ordinario a Cristo Rey (31 misas), las lecturas de `liturgia_db.json` son textos de relleno («Lectura propia del … Domingo del Tiempo Ordinario») y 30 de ellas comparten la misma Colecta y Antífona de Entrada. El Domingo I del Tiempo Ordinario tiene como I Lectura 1 Samuel 1, 1-8, que es de feria.
 - **Siguiente paso**: obtener una fuente digital de la edición del Cono Sur (Misal Romano y Leccionarios) y reemplazar con ella el Ordinario, la IGMR, las lecturas y los propios. No completar los textos de memoria.
 
+### 2.2. Revisión del «vosotros» y fuentes para Chile (31-10-2026)
+
+**Dónde está el «vosotros»** (formas de 2.ª persona plural: vosotros, os, vuestro, habéis, tomad, mirad…; recuento aproximado):
+
+| Texto | Formas | Fuente que corresponde en Chile |
+| :--- | ---: | :--- |
+| Ordinario fijo en `build_complete_app.js` (saludos, «Orad, hermanos», consagración, despedida) | ~25 | Misal Romano, edición del Cono Sur |
+| II Lectura | ~115 | Leccionario (texto bíblico de *El Libro del Pueblo de Dios*) |
+| Evangelio | ~70 | Leccionario |
+| I Lectura | ~40 | Leccionario |
+| Aleluya / aclamación | ~23 | Leccionario |
+| Salmo responsorial | ~16 | Leccionario |
+| Antífonas de entrada y de comunión, oración sobre las ofrendas | ~31 | Misal Romano, edición del Cono Sur |
+| Colectas, poscomuniones, prefacios | 0 | (sin cambios de persona, pero igual deben cotejarse con la edición del Cono Sur) |
+| IGMR (`igmr_full_399.json`) | pocas, casi todas citas («Tomad y comed») | IGMR de la edición argentina |
+
+No basta con cambiar «vosotros» por «ustedes»: la edición del Cono Sur es otra traducción (p. ej., Gloria «a los hombres que ama el Señor», Confiteor «ante ustedes, hermanos… de pensamiento, palabra, obra y omisión»), y las lecturas usan otra versión bíblica. Hay que reemplazar los textos completos desde la fuente.
+
+**Fuentes encontradas**
+
+1. **Eucaristía Diaria** — https://www.eucaristiadiaria.cl — Departamento de Liturgia del Arzobispado de Santiago; el portal de la Conferencia Episcopal (iglesia.cl, «Evangelio del día») toma sus textos de aquí. Publica para cada día el formulario completo (antífonas, colecta, lecturas, salmo, aclamación, evangelio, ofrendas, prefacio, comunión, poscomunión) ya en la edición chilena («ustedes»).
+   - Día: `https://www.eucaristiadiaria.cl/dia_cal.php?fecha=AAAA-MM-DD`. El calendario (`calendario.php`) lista unos 3.900 días hasta el 30-11-2026, lo que cubre los tres ciclos dominicales.
+   - Ordinario: `https://www.eucaristiadiaria.cl/ordinario.php`. Ojo: es una transcripción con errores; trae «El Señor esté con vosotros» dos veces (diálogo del prefacio de la Plegaria III y de una plegaria para diversas circunstancias), una nota editorial interna («PONER PLEGARIA EUCARÍSTICA I, III…») y no trae todas las plegarias. Sirve para comparar, no como única fuente del Ordinario.
+   - Los textos son de uso pastoral; se venden impresos por Ediciones San José. Antes de copiarlos al sitio público hay que pedir autorización (contacto: pastoralliturgica@iglesiadedesantiago.cl).
+2. **Ordo litúrgico de la Conferencia Episcopal de Chile** — https://www.iglesia.cl/nuestra_liturgia.php (PDF por tiempo, p. ej. `docs/2026-Ordinario-II.pdf`). Sirve para verificar el calendario chileno, no trae los textos.
+3. **Misal Romano, edición del Cono Sur** — Oficina del Libro de la Conferencia Episcopal Argentina (https://episcopado.org). Es la fuente oficial del Ordinario, las plegarias, los prefacios y los propios; solo impresa (no se encontró versión digital oficial). Las copias en Scribd/Internet Archive no son fuentes confiables.
+4. **IGMR, edición argentina** — https://www.curas.com.ar/Misal3/IGMR3.htm dice ser la 3.ª edición, pero no indica año ni aprobación, y no respondió a descargas directas (503). Pendiente encontrar una fuente con datos de edición; mientras tanto se mantiene la IGMR del Vaticano (traducción colombiana), que no es texto litúrgico proclamado.
+
+**Pendiente — decisión del responsable del proyecto**
+- Pedir autorización para usar los textos de Eucaristía Diaria (o de la Oficina del Libro) en el sitio público, antes de reemplazar los textos.
+- Luego: reemplazar lecturas y propios de las 74 misas (eligiendo un ciclo o guardando los tres), y cotejar el Ordinario contra el Misal impreso.
+
 ---
 
 ## 3. Especificaciones Funcionales y de Arquitectura
