@@ -26,6 +26,13 @@ El proyecto tiene como objetivo ofrecer una plataforma litúrgica y pastoral com
 | **Normas Universales sobre el Año Litúrgico y el Calendario Romano General** | Santa Sede | Ordenación canónica de los 8 Tiempos Litúrgicos, precedencias y colores litúrgicos. |
 | **Recursos Litúrgicos - Liturgia Papal** | Liturgia Papal | Cotejo y verificación de rúbricas ceremoniales, oraciones secretas del celebrante y fórmulas alternativas. [Liturgia Papal](https://liturgiapapal.org/index.php/recursos-lit%C3%BArgicos/libros-lit%C3%BArgicos/604-misal-romano.html) |
 
+### 2.1. Pendiente: los textos no corresponden aún a la edición aprobada para Chile
+
+- **Edición vigente en Chile**: por el decreto n.º 438 de la Conferencia Episcopal de Chile, rige la traducción castellana de la Tercera Edición Típica editada en Argentina conjuntamente para Argentina, Bolivia, Chile, Paraguay y Uruguay (edición del Cono Sur), oficial y obligatoria desde el Primer Domingo de Adviento de 2010 ([iglesia.cl, 05-10-2009](https://www.iglesia.cl/detalle_noticia.php?id=10375)). Esa edición usa «ustedes» y deroga «vosotros» ([decreto de la CEA](https://episcopado.org/ver/426)).
+- **Fuentes actuales del proyecto**: la IGMR de `igmr_vatican.html` es la traducción de la Conferencia Episcopal de Colombia (© 2007) y los textos del Misal provienen de la edición colombiana (PDF del Seminario de Bogotá). El Ordinario y las lecturas usan «vosotros» («El Señor esté con vosotros»). Coincide con Chile en «derramada por muchos».
+- **Textos propios incompletos**: del IV Domingo del Tiempo Ordinario a Cristo Rey (31 misas), las lecturas de `liturgia_db.json` son textos de relleno («Lectura propia del … Domingo del Tiempo Ordinario») y 30 de ellas comparten la misma Colecta y Antífona de Entrada. El Domingo I del Tiempo Ordinario tiene como I Lectura 1 Samuel 1, 1-8, que es de feria.
+- **Siguiente paso**: obtener una fuente digital de la edición del Cono Sur (Misal Romano y Leccionarios) y reemplazar con ella el Ordinario, la IGMR, las lecturas y los propios. No completar los textos de memoria.
+
 ---
 
 ## 3. Especificaciones Funcionales y de Arquitectura
