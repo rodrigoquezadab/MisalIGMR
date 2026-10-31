@@ -8,7 +8,7 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 
 ## Dónde quedamos
 
-**Última sesión: 31-10-2026 (cierre).** Todo el trabajo está en la rama `claude/youthful-wozniak-8ooc6f` de GitHub (repositorio privado `rodrigoquezadab/MisalIGMR`), **todavía no unida a `main`** y sin pull request. `main` sigue con la versión anterior (sin los cambios del 31-10-2026 por la tarde y noche).
+**Última sesión: 31-10-2026 (cierre).** Todo el trabajo está en **`main`** del repositorio privado `rodrigoquezadab/MisalIGMR` (unido el 31-10-2026 a pedido del usuario, por avance rápido desde la rama `claude/youthful-wozniak-8ooc6f`, que quedó idéntica).
 
 - **Estado de los textos:** 65 celebraciones ya muestran los textos de la edición para Chile en los tres ciclos (ver paso 3). Siguen con la edición colombiana («vosotros»): el Ordinario fijo, Ramos, Crismal, Jueves Santo, Viernes Santo, Vigilia Pascual y los ciclos sin fuente; la app los marca como «texto provisional».
 - **Paso 1 hecho:** `fuentes/descargar_eucaristiadiaria.js` calcula la fecha de cada misa en los ciclos A, B y C y descarga esas páginas de eucaristiadiaria.cl. Resultado: 195 páginas, 207 pares misa-ciclo, índice en `fuentes/eucaristiadiaria/indice.json` (URL, fecha de descarga, sha256 y título de cada página).
@@ -28,12 +28,12 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 ## Cómo retomar
 
 1. Leer este archivo y `FUENTES_Y_CONSULTAS.md` (dudas D1-D14 para consultar en persona).
-2. Trabajar en la rama `claude/youthful-wozniak-8ooc6f` (`git pull origin claude/youthful-wozniak-8ooc6f`). Las páginas fuente ya están en `fuentes/eucaristiadiaria/paginas/`: no hace falta descargarlas.
+2. Partir de `main` actualizado (`git pull origin main`) y trabajar en una rama nueva; unir a `main` solo cuando el usuario lo pida. Las páginas fuente ya están en `fuentes/eucaristiadiaria/paginas/`: no hace falta descargarlas.
 3. Comprobar que todo funciona: `node test_calendar.js`, `node test_textos.js` y `node build_complete_app.js` (399 numerales, ninguno sin usar ni repetido).
 4. Para ver la app: abrir `index.html` en el navegador (el sitio de GitHub Pages probablemente no está disponible mientras el repositorio sea privado con plan gratuito).
 5. Seguir con el paso 4 de «Próximos pasos» (Ordinario).
 
-**Pendiente de decisión del usuario:** cuándo unir la rama a `main` (cada push a `main` despliega); si mantener GitHub Pages (requiere plan pagado con repositorio privado) o mostrar la app de otra forma al pedir el permiso (D3).
+**Pendiente de decisión del usuario:** cómo mostrar la app al pedir el permiso (D3). GitHub Pages está **desactivado** (la API informa `has_pages: false` con el repositorio privado), así que los textos con derechos de autor no se publican. El workflow de despliegue igual corre al subir a `main`: las pruebas pasan, pero el paso de Pages fallará mientras Pages esté desactivado; es esperable. Si se reactiva Pages (plan pagado), el sitio quedaría **público** con los textos de Chile: decidirlo antes.
 
 ## Decisiones tomadas
 
@@ -43,6 +43,7 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 | 31-10-2026 | Nunca completar ni corregir textos litúrgicos de memoria. |
 | 31-10-2026 | Seguir trabajando con los textos con derechos de autor hasta tener una app correcta; entonces mostrarla y pedir permiso (ver D3 en `FUENTES_Y_CONSULTAS.md`). Mientras tanto, no publicar en `main`: cada push a `main` despliega el sitio público en GitHub Pages. |
 | 31-10-2026 | Registrar toda fuente, norma y duda en `FUENTES_Y_CONSULTAS.md` para llevarla a consultas presenciales. |
+| 31-10-2026 | Unir todo el trabajo a `main` (pedido del usuario). Pages desactivado: no se publica nada. |
 | 31-10-2026 | Lecturas en los **tres ciclos** (A, B, C) con selector; la app abre en el ciclo de la próxima celebración. |
 | 31-10-2026 | El usuario hizo **privado** el repositorio de GitHub; las páginas descargadas se guardan en él (D10). Con el plan gratuito de GitHub, el sitio de GitHub Pages deja de estar disponible mientras el repositorio sea privado; para mostrar la app se puede abrir `index.html` directamente. |
 
@@ -67,4 +68,4 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 | 31-10-2026 (noche, 3.ª parte) | El repositorio pasó a ser privado y se subieron las 195 páginas de eucaristiadiaria.cl. |
 | 31-10-2026 (noche, 4.ª parte) | Extractor de textos (paso 2): 183 de 206 pares sin observaciones, control de consistencia entre ciclos, informe de revisión. Nuevas consultas D13 (errores de la fuente) y D14 (diferencias de texto). |
 | 31-10-2026 (noche, 5.ª parte) | Textos para Chile en la app con los tres ciclos (paso 3): `unir_textos.js`, `textos_chile.json`, `app_textos.js`, selector de ciclo, etiqueta «texto provisional», `test_textos.js`. Guía actualizada con el estado de los textos. |
-| 31-10-2026 (cierre) | Verificado que todo está subido a la rama en GitHub. Memoria actualizada con el estado y cómo retomar. |
+| 31-10-2026 (cierre) | Verificado que todo está subido. Memoria actualizada con el estado y cómo retomar. Rama unida a `main` por avance rápido (8dfd561 → 9569b0e). |

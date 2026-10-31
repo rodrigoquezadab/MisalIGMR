@@ -10,7 +10,7 @@
 
 - Los textos deben ser los de la edición aprobada para Chile (Misal Romano del Cono Sur y sus Leccionarios, con «ustedes»).
 - Nunca completar ni corregir textos litúrgicos de memoria: todo texto sale de una fuente identificada, registrada en `FUENTES_Y_CONSULTAS.md`.
-- No hacer push a `main` sin que el usuario lo pida: cada push a `main` dispara el despliegue en GitHub Pages.
+- No hacer push a `main` sin que el usuario lo pida: cada push a `main` dispara el despliegue en GitHub Pages (hoy desactivado; si se reactiva, el sitio sería público con textos con derechos de autor).
 - El repositorio es privado (desde el 31-10-2026) porque guarda textos con derechos de autor en `fuentes/`. No volver a hacerlo público ni copiar esos textos a otro lugar público sin que el usuario lo decida.
 - Responder al usuario en español.
 
