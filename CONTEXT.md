@@ -103,6 +103,14 @@ En estricto cumplimiento del Misal Romano, se suprime la Liturgia Eucarística, 
 #### C. Sábado Santo (`pas-sabado-santo`)
 - Presenta la meditación litúrgica patrística de la Sepultura del Señor y el Oficio de Lecturas («Un gran silencio envuelve hoy la tierra»), recordando el carácter alitúrgico del día hasta la llegada de la Solemne Vigilia Pascual.
 
+### 3.4. Celebración de Hoy (`#todayCard`)
+- La portada muestra qué Misa del catálogo corresponde hoy; si hoy es una feria sin misa propia en el catálogo, muestra la próxima (siempre dentro de la semana, porque todos los domingos están). Incluye fecha, color, ciclo dominical (A, B o C) y un botón para abrirla.
+- Cuando el día tiene más de una Misa (24 y 25 de diciembre, Jueves Santo, Sábado Santo, Domingo de Pascua) ofrece las demás como botones secundarios.
+- Si una fiesta del Señor o una solemnidad del Calendario Romano General cae en domingo del Tiempo Ordinario (p. ej., Todos los Santos el 1 de noviembre de 2026), avisa que esa misa reemplaza al domingo y que no está en el catálogo.
+- La lógica vive en `liturgical_calendar.js` (Pascua por cómputo gregoriano; Epifanía el domingo entre el 2 y el 8 de enero, Ascensión el VII Domingo de Pascua y Corpus Christi el domingo, como en Chile) y el build la incrusta en la página. No cubre ferias ni el santoral.
+- `node test_calendar.js` la prueba con fechas conocidas y un barrido de 2000 a 2100 (todo domingo tiene misa, todo id existe en `liturgia_db.json`, ningún domingo del Tiempo Ordinario se repite en un año). El workflow de despliegue corre esta prueba antes de publicar.
+- Nunca se llega a `to-1` (el Domingo I lo ocupa el Bautismo del Señor) ni a `pas-7` (en Chile la Ascensión se celebra ese domingo).
+
 ---
 
 ## 4. Asignación Canónica de Plegarias Eucarísticas (IGMR n. 365)
@@ -148,7 +156,8 @@ La aplicación contiene el **100% de los 399 numerales oficiales**, cada uno en 
 ## 6. Pipeline de Compilación y Publicación
 
 - **Base de datos litúrgica**: Generada por `build_liturgia_data.js` -> `liturgia_db.json`.
-- **Compilador del sitio web**: Ejecutado por `node build_complete_app.js` -> Genera `misal.html` e `index.html`.
+- **Compilador del sitio web**: Ejecutado por `node build_complete_app.js` -> Genera `misal.html` e `index.html` (incrusta `liturgical_calendar.js`).
+- **Pruebas**: `node test_calendar.js`.
 - **Sincronización**: `generate_full_misal.js` se mantiene en paridad con `build_complete_app.js`.
 - **Despliegue y Hosting**: Repositorio Git alojado en GitHub y publicado de forma continua mediante GitHub Pages en:
   👉 **https://rodrigoquezadab.github.io/MisalIGMR/**

@@ -14,6 +14,9 @@ igmrItems.forEach(it => {
 // 2. Cargar base de datos litúrgica (Misas, Plegarias, Prefacios)
 const liturgiaDB = JSON.parse(fs.readFileSync('liturgia_db.json', 'utf8'));
 
+// 3. Calendario litúrgico (se incrusta tal cual en la página; ver test_calendar.js)
+const calendarSource = fs.readFileSync('liturgical_calendar.js', 'utf8');
+
 function range(start, end) {
   const arr = [];
   for (let i = start; i <= end; i++) arr.push(i);
@@ -1331,6 +1334,74 @@ htmlParts.push(`<!DOCTYPE html>
       box-shadow: 0 6px 20px var(--primary-glow);
     }
 
+    .today-card {
+      max-width: 560px;
+      margin: 0 auto 1.1rem;
+      padding: 0.9rem 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--today-color, var(--gold-accent));
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    .today-card[hidden] { display: none; }
+
+    .today-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted-text);
+      margin-bottom: 0.25rem;
+    }
+
+    .today-name {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--text-color);
+      line-height: 1.35;
+      margin-bottom: 0.3rem;
+    }
+
+    .today-meta {
+      font-size: 0.8rem;
+      color: var(--muted-text);
+      margin-bottom: 0.6rem;
+    }
+
+    .today-note {
+      font-size: 0.8rem;
+      color: var(--muted-text);
+      line-height: 1.5;
+      margin: 0 0 0.6rem;
+    }
+
+    .today-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .today-actions .btn-hero-primary {
+      padding: 0.5rem 1rem;
+      font-size: 0.88rem;
+    }
+
+    .btn-today-alt {
+      background: transparent;
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.5rem 0.8rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .btn-today-alt:hover { border-color: var(--gold-accent); }
+
     .home-section-heading {
       font-size: 1.15rem;
       color: var(--text-color);
@@ -1676,6 +1747,7 @@ htmlParts.push(`<!DOCTYPE html>
           <div class="home-stat-chip"><span>🕊️</span> 4 Plegarias Eucarísticas</div>
           <div class="home-stat-chip"><span>📖</span> 28 Prefacios Oficiales</div>
         </div>
+        <section id="todayCard" class="today-card" aria-live="polite" hidden></section>
         <div class="home-cta-group">
           <button type="button" class="btn-hero-primary" onclick="toggleDrawer(true)">
             <span>📑</span> Abrir Catálogo del Año Litúrgico (74 Misas)
@@ -2554,6 +2626,8 @@ const scriptBlock = `
     const igmrData = ${JSON.stringify(igmrMap)};
     const liturgiaData = ${JSON.stringify(liturgiaDB)};
 
+${calendarSource}
+
     let currentMassId = null;
     let currentSeasonFilter = 'all';
     let currentPrayerId = '3';
@@ -3218,7 +3292,80 @@ const scriptBlock = `
       currentView = 'home';
       populateSelectors();
       switchView('home');
+      renderTodayCard();
     });
+
+    // --- CELEBRACIÓN DE HOY (liturgical_calendar.js) ---
+    const TODAY_ALT_LABELS = {
+      'nav-vigilia': 'Misa de la Vigilia',
+      'nav-noche': 'Misa de Nochebuena',
+      'nav-aurora': 'Misa de la Aurora',
+      'sem-crismal': 'Misa Crismal',
+      'pas-vigilia': 'Vigilia Pascual'
+    };
+
+    function shortMassName(m) {
+      return TODAY_ALT_LABELS[m.id] || m.nombre;
+    }
+
+    function renderTodayCard() {
+      const card = document.getElementById('todayCard');
+      if (!card || typeof LiturgicalCalendar === 'undefined') return;
+      const c = LiturgicalCalendar.todayOrNext(new Date());
+      const m = c && liturgiaData.misas.find(x => x.id === c.id);
+      if (!m) { card.hidden = true; return; }
+
+      const dateText = c.fecha.toLocaleDateString('es-CL', { weekday: 'long', day: 'numeric', month: 'long' });
+      let label = 'Hoy';
+      if (!c.esHoy) label = c.diasHasta === 1 ? 'Mañana' : 'Próxima celebración';
+
+      card.style.setProperty('--today-color', m.colorHex || '');
+      card.innerHTML = '';
+
+      const labelEl = document.createElement('div');
+      labelEl.className = 'today-label';
+      labelEl.textContent = label + ' · ' + dateText;
+      card.appendChild(labelEl);
+
+      const nameEl = document.createElement('div');
+      nameEl.className = 'today-name';
+      nameEl.textContent = m.nombre;
+      card.appendChild(nameEl);
+
+      const metaEl = document.createElement('div');
+      metaEl.className = 'today-meta';
+      metaEl.textContent = 'Color ' + m.color + ' · Año litúrgico, ciclo dominical ' + c.ciclo;
+      card.appendChild(metaEl);
+
+      if (c.nota) {
+        const noteEl = document.createElement('p');
+        noteEl.className = 'today-note';
+        noteEl.textContent = c.nota;
+        card.appendChild(noteEl);
+      }
+
+      const actions = document.createElement('div');
+      actions.className = 'today-actions';
+      const openBtn = document.createElement('button');
+      openBtn.type = 'button';
+      openBtn.className = 'btn-hero-primary';
+      openBtn.textContent = '✠ Abrir esta Misa';
+      openBtn.addEventListener('click', () => selectMass(m.id));
+      actions.appendChild(openBtn);
+
+      c.alternativas.forEach(altId => {
+        const alt = liturgiaData.misas.find(x => x.id === altId);
+        if (!alt) return;
+        const altBtn = document.createElement('button');
+        altBtn.type = 'button';
+        altBtn.className = 'btn-today-alt';
+        altBtn.textContent = shortMassName(alt);
+        altBtn.addEventListener('click', () => selectMass(alt.id));
+        actions.appendChild(altBtn);
+      });
+      card.appendChild(actions);
+      card.hidden = false;
+    }
 
     window.addEventListener('keydown', (e) => {
       // Atajo para abrir búsqueda: '/' o 'Ctrl+K'
