@@ -1,0 +1,138 @@
+<!--
+  Guía para aprender: vista #learnView. build_complete_app.js la inserta tal cual.
+  Los datos del año en curso (ciclo, año par/impar, fechas móviles) los completa
+  renderLearnView() con liturgical_calendar.js.
+  Fuentes: ver la última sección y FUENTES_Y_CONSULTAS.md.
+-->
+<div id="learnView" class="view-panel">
+  <div class="learn-header">
+    <button type="button" class="btn-today-alt" onclick="refreshIndexAndHome()">← Volver a la portada</button>
+    <h2 class="learn-title">Guía para entender la Misa y el año litúrgico</h2>
+  </div>
+
+  <nav class="learn-toc" aria-label="Contenido de la guía">
+    <a href="#learn-proposito">Para qué es</a>
+    <a href="#learn-participar">Cómo participa la asamblea</a>
+    <a href="#learn-anio">El año litúrgico</a>
+    <a href="#learn-fechas">Fechas fijas y móviles</a>
+    <a href="#learn-ciclos">Ciclos A, B y C</a>
+    <a href="#learn-pares">Años pares e impares</a>
+    <a href="#learn-grados">Solemnidades, fiestas y memorias</a>
+    <a href="#learn-otras">Otras Misas</a>
+    <a href="#learn-fuentes">Fuentes</a>
+  </nav>
+
+  <section id="learn-proposito" class="learn-section">
+    <h3>Para qué es esta aplicación</h3>
+    <p>Es una plataforma de aprendizaje para los fieles. Su propósito es ayudar a conocer las partes de la Misa, entender qué se hace en cada momento y por qué, y saber qué se espera de la asamblea: qué responder, cuándo estar de pie, sentados o de rodillas, y cuándo guardar silencio, según lo que establece la <strong>Instrucción General del Misal Romano (IGMR)</strong>.</p>
+    <p>En cada momento de la Misa encontrará el texto, la postura de la asamblea y, en los recuadros «IGMR», los números de la Instrucción que explican ese momento.</p>
+    <p class="learn-note">No reemplaza los libros litúrgicos oficiales ni las indicaciones de su parroquia. Donde la Conferencia Episcopal o el obispo hayan dispuesto algo propio, eso es lo que rige.</p>
+    <p class="learn-note"><strong>Estado de los textos:</strong> los textos que muestra hoy la aplicación provienen de la edición colombiana del Misal (dicen «vosotros»). En Chile rige la edición para Argentina, Bolivia, Chile, Paraguay y Uruguay, que dice «ustedes». Estamos trabajando para reemplazarlos.</p>
+  </section>
+
+  <section id="learn-participar" class="learn-section">
+    <h3>Cómo participa la asamblea</h3>
+    <ul>
+      <li><strong>Responder.</strong> Las aclamaciones y las respuestas a los saludos y a las oraciones del sacerdote son la participación mínima que se pide a todos los fieles (IGMR 35). A la asamblea se le encomiendan además el acto penitencial, el Credo, la oración universal y el Padre nuestro (IGMR 36).</li>
+      <li><strong>Las posturas.</strong> Estar de pie, sentados o de rodillas expresa y favorece la unidad de todos los que celebran (IGMR 42). La IGMR indica la postura en cada momento (IGMR 43), y la Conferencia Episcopal puede adaptarlas a las tradiciones de cada pueblo.</li>
+      <li><strong>Los gestos.</strong> Las procesiones, la reverencia al altar y al Evangelio y los demás gestos forman parte de la celebración (IGMR 44).</li>
+      <li><strong>El silencio.</strong> El silencio sagrado es parte de la celebración, y su sentido depende del momento: en el acto penitencial y después de «Oremos», cada uno se recoge; después de las lecturas y de la homilía, se medita lo escuchado; después de la Comunión, se alaba y se ora a Dios en el corazón (IGMR 45).</li>
+    </ul>
+  </section>
+
+  <section id="learn-anio" class="learn-section">
+    <h3>El año litúrgico</h3>
+    <p>La Iglesia recorre a lo largo del año el misterio de Cristo. El año litúrgico no empieza el 1 de enero, sino el <strong>I Domingo de Adviento</strong>, y termina con la solemnidad de <strong>Jesucristo, Rey del Universo</strong>. Sus tiempos, en orden:</p>
+    <ol>
+      <li><strong>Adviento</strong> (morado): cuatro domingos de preparación para la venida del Señor.</li>
+      <li><strong>Navidad</strong> (blanco): de la Natividad del Señor al Bautismo del Señor.</li>
+      <li><strong>Tiempo Ordinario</strong> (verde), primera parte: hasta el martes antes del Miércoles de Ceniza.</li>
+      <li><strong>Cuaresma</strong> (morado): del Miércoles de Ceniza hasta la Misa en la Cena del Señor, el Jueves Santo.</li>
+      <li><strong>Triduo Pascual</strong>: Jueves Santo por la tarde, Viernes Santo, Sábado Santo y Domingo de Pascua. Es el centro de todo el año.</li>
+      <li><strong>Tiempo Pascual</strong> (blanco): cincuenta días, del Domingo de Pascua a Pentecostés.</li>
+      <li><strong>Tiempo Ordinario</strong> (verde), segunda parte: hasta Cristo Rey.</li>
+    </ol>
+  </section>
+
+  <section id="learn-fechas" class="learn-section">
+    <h3>Fechas fijas y fechas móviles</h3>
+    <p>Algunas celebraciones son <strong>fijas</strong>: caen siempre el mismo día del calendario civil (solar), aunque cambie el día de la semana. Por ejemplo: Santa María, Madre de Dios (1 de enero), San José (19 de marzo), la Anunciación (25 de marzo), San Pedro y San Pablo (29 de junio), la Asunción (15 de agosto), Todos los Santos (1 de noviembre), la Inmaculada Concepción (8 de diciembre) y la Natividad del Señor (25 de diciembre).</p>
+    <p>Otras son <strong>móviles</strong>: cambian de fecha cada año porque dependen de otra celebración.</p>
+    <ul>
+      <li><strong>Las que dependen de la Pascua.</strong> La Pascua se celebra el domingo siguiente a la primera luna llena de la primavera del hemisferio norte; en Chile corresponde al otoño. La Iglesia fija el equinoccio el 21 de marzo y calcula la luna llena con tablas propias (el «cómputo eclesiástico»), no con la luna que se observa en el cielo. Por eso la Pascua cae siempre entre el 22 de marzo y el 25 de abril. De ella dependen el Miércoles de Ceniza, la Semana Santa, la Ascensión, Pentecostés, la Santísima Trinidad, el Corpus Christi y el Sagrado Corazón.</li>
+      <li><strong>Las que dependen de la Navidad.</strong> El Adviento empieza el cuarto domingo antes del 25 de diciembre. De ahí se cuentan Cristo Rey (el domingo anterior), la Sagrada Familia y el Bautismo del Señor.</li>
+      <li><strong>Las que se trasladan al domingo.</strong> Donde no son días de precepto, la Epifanía, la Ascensión y el Corpus Christi se celebran en domingo. Así ocurre en Chile.</li>
+    </ul>
+    <p>Fechas móviles de <span data-learn="year">este año</span>, calculadas por la aplicación:</p>
+    <div class="learn-table-wrap">
+      <table class="learn-table">
+        <thead><tr><th>Celebración y cómo se calcula</th><th>Fecha</th></tr></thead>
+        <tbody id="learnMovableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="learn-ciclos" class="learn-section">
+    <h3>Ciclos A, B y C: las lecturas de los domingos</h3>
+    <p>Los domingos y las solemnidades tienen tres lecturas: del Antiguo Testamento (en Tiempo Pascual, de los Hechos de los Apóstoles), del Apóstol y del Evangelio (IGMR 357). Para que en la Misa se lea una parte más amplia de la Sagrada Escritura, esas lecturas se ordenan en <strong>tres ciclos de un año cada uno</strong>, y cada ciclo lee principalmente uno de los evangelios sinópticos:</p>
+    <div class="learn-cycles">
+      <div class="learn-cycle"><span class="learn-cycle-letter">A</span><span>San <strong>Mateo</strong></span></div>
+      <div class="learn-cycle"><span class="learn-cycle-letter">B</span><span>San <strong>Marcos</strong></span></div>
+      <div class="learn-cycle"><span class="learn-cycle-letter">C</span><span>San <strong>Lucas</strong></span></div>
+    </div>
+    <p>El evangelio de <strong>San Juan</strong> no tiene un año propio: se lee sobre todo en Cuaresma y en el Tiempo Pascual, también en Navidad, y en el ciclo B completa algunos domingos del Tiempo Ordinario, porque Marcos es el evangelio más breve (el capítulo 6 de Juan, sobre el Pan de Vida). Por ejemplo, los domingos III, IV y V de Cuaresma del ciclo A leen la Samaritana, el ciego de nacimiento y la resurrección de Lázaro.</p>
+    <p><strong>Cómo saber qué ciclo corresponde.</strong> El año litúrgico toma el número del año civil en que termina. Se divide ese número por 3 y se mira el resto:</p>
+    <ul>
+      <li>resto 1 → ciclo <strong>A</strong> (por ejemplo, 2026: el año que empezó en Adviento de 2025);</li>
+      <li>resto 2 → ciclo <strong>B</strong> (2027: empieza el I Domingo de Adviento, 29 de noviembre de 2026);</li>
+      <li>resto 0 → ciclo <strong>C</strong> (2025, 2028).</li>
+    </ul>
+    <p class="learn-now">Hoy estamos en el <strong>ciclo <span data-learn="cycle">—</span></strong>.</p>
+  </section>
+
+  <section id="learn-pares" class="learn-section">
+    <h3>Años pares e impares: las lecturas de los días de semana</h3>
+    <p>En los días de semana (ferias) del <strong>Tiempo Ordinario</strong>, el Evangelio es el mismo todos los años, pero la primera lectura y el salmo siguen un ciclo de dos años:</p>
+    <ul>
+      <li><strong>Año I</strong>: años impares (2025, 2027…).</li>
+      <li><strong>Año II</strong>: años pares (2026, 2028…).</li>
+    </ul>
+    <p>Como con los ciclos, cuenta el año civil en que termina el año litúrgico: el que empieza en Adviento de 2026 corresponde a 2027 y es año I (impar). En las ferias de Adviento, Navidad, Cuaresma y Pascua las lecturas son las mismas todos los años, así que ahí no se usa esta distinción. Los domingos tampoco la usan: siguen los ciclos A, B y C.</p>
+    <p class="learn-now">En este año litúrgico, las ferias del Tiempo Ordinario usan el <strong>año <span data-learn="weekday">—</span></strong>.</p>
+  </section>
+
+  <section id="learn-grados" class="learn-section">
+    <h3>Solemnidades, fiestas, memorias y ferias</h3>
+    <p>No todos los días tienen la misma importancia. De mayor a menor:</p>
+    <ul>
+      <li><strong>Domingo.</strong> Es el día del Señor, la Pascua semanal. Los domingos de Adviento, Cuaresma y Pascua no ceden ante ninguna otra celebración; si una solemnidad cae en uno de ellos, se traslada a otro día. Los domingos de Navidad y del Tiempo Ordinario solo ceden ante las solemnidades y las fiestas del Señor.</li>
+      <li><strong>Solemnidad.</strong> Los días principales, como la Pascua, la Navidad o la Asunción. Tienen tres lecturas (IGMR 357), Gloria (IGMR 53) y Credo (IGMR 68).</li>
+      <li><strong>Fiesta.</strong> Tiene dos lecturas, o tres si se eleva a solemnidad (IGMR 357), y Gloria (IGMR 53).</li>
+      <li><strong>Memoria.</strong> Recuerda a un santo. La <em>memoria obligatoria</em> se celebra, salvo que coincida con un día de mayor rango; la <em>memoria libre</em> se puede celebrar o no (IGMR 355). Si no tiene lecturas propias, se leen las de la feria (IGMR 357).</li>
+      <li><strong>Feria.</strong> Los días de semana sin otra celebración. Se leen las lecturas del Leccionario ferial (IGMR 358).</li>
+    </ul>
+    <p class="learn-note">Este catálogo incluye los domingos, la Semana Santa y las principales solemnidades. Aún no incluye las ferias ni las celebraciones de los santos.</p>
+  </section>
+
+  <section id="learn-otras" class="learn-section">
+    <h3>Otras Misas</h3>
+    <p>Además de la Misa del día, el Misal tiene formularios para otras ocasiones (IGMR, capítulo VIII):</p>
+    <ul>
+      <li><strong>Misas rituales</strong>: unidas a la celebración de un sacramento o sacramental, como el Matrimonio o la Confirmación. No se permiten los domingos de Adviento, Cuaresma y Pascua, en las solemnidades ni en otros días señalados (IGMR 372).</li>
+      <li><strong>Misas por diversas necesidades y circunstancias</strong>: por la Iglesia, por la patria, por la paz, en tiempo de calamidad, etc. (IGMR 368-374).</li>
+      <li><strong>Misas votivas</strong>: en honor de un misterio del Señor, de la Virgen María, de los ángeles o de un santo, según la devoción de los fieles, en las ferias del Tiempo Ordinario (IGMR 375).</li>
+      <li><strong>Misas de difuntos</strong>: la primera es la Misa exequial, o de funeral (IGMR 379-385).</li>
+    </ul>
+  </section>
+
+  <section id="learn-fuentes" class="learn-section">
+    <h3>Fuentes de esta guía</h3>
+    <ul>
+      <li><strong>Instrucción General del Misal Romano</strong> (3.ª edición, 2002). Los números citados se pueden leer completos en esta aplicación: toque cualquier «IGMR» en la Misa.</li>
+      <li><strong>Normas Universales sobre el Año Litúrgico y el Calendario</strong> (1969): tiempos, grados de las celebraciones, fechas y traslados.</li>
+      <li><strong>Ordenación de las Lecturas de la Misa</strong>, Prenotandos (2.ª edición, 1981): ciclos A, B y C y ciclo de dos años de las ferias.</li>
+      <li><strong>Calendario de Chile</strong>: los traslados de la Epifanía, la Ascensión y el Corpus al domingo coinciden con lo que publica el Departamento de Liturgia del Arzobispado de Santiago (eucaristiadiaria.cl). Falta confirmarlo con el Ordo de la Conferencia Episcopal.</li>
+    </ul>
+    <p class="learn-note">Las fechas, el ciclo y el año par o impar se calculan en el teléfono a partir de estas reglas. Si encuentra un error, por favor avísenos.</p>
+  </section>
+</div><!-- Fin #learnView -->

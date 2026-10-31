@@ -17,6 +17,9 @@ const liturgiaDB = JSON.parse(fs.readFileSync('liturgia_db.json', 'utf8'));
 // 3. Calendario litúrgico (se incrusta tal cual en la página; ver test_calendar.js)
 const calendarSource = fs.readFileSync('liturgical_calendar.js', 'utf8');
 
+// 4. Guía para aprender (vista #learnView)
+const learnViewHTML = fs.readFileSync('guia_aprendizaje.html', 'utf8');
+
 function range(start, end) {
   const arr = [];
   for (let i = start; i <= end; i++) arr.push(i);
@@ -1402,6 +1405,103 @@ htmlParts.push(`<!DOCTYPE html>
 
     .btn-today-alt:hover { border-color: var(--gold-accent); }
 
+    .home-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-hero-secondary {
+      background: transparent;
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.75rem 1.2rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      touch-action: manipulation;
+    }
+
+    .btn-hero-secondary:hover { border-color: var(--gold-accent); }
+
+    .learn-header { margin-bottom: 1rem; }
+    .learn-title { font-size: 1.35rem; color: var(--secondary-color); margin: 0.8rem 0 0.4rem; line-height: 1.3; }
+
+    .learn-toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 1.2rem;
+    }
+
+    .learn-toc a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-color);
+      text-decoration: none;
+      border: 1px solid var(--border-color);
+      border-radius: 9999px;
+      padding: 3px 10px;
+    }
+
+    .learn-toc a:hover { border-color: var(--gold-accent); }
+
+    .learn-section {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      margin-bottom: 1rem;
+      line-height: 1.65;
+      scroll-margin-top: 80px;
+    }
+
+    .learn-section h3 { font-size: 1.08rem; color: var(--secondary-color); margin-bottom: 0.6rem; }
+    .learn-section p { margin: 0 0 0.7rem; }
+    .learn-section ul, .learn-section ol { margin: 0 0 0.7rem 1.2rem; }
+    .learn-section li { margin-bottom: 0.4rem; }
+    .learn-note { font-size: 0.86rem; color: var(--muted-text); }
+
+    .learn-now {
+      border-left: 3px solid var(--gold-accent);
+      padding-left: 0.7rem;
+    }
+
+    .learn-cycles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 0.4rem 0 0.9rem;
+    }
+
+    .learn-cycle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.6rem 0.3rem;
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    .learn-cycle.current { border-color: var(--gold-accent); box-shadow: 0 0 0 1px var(--gold-accent); }
+    .learn-cycle-letter { font-size: 1.5rem; font-weight: 800; color: var(--gold-accent); line-height: 1; }
+
+    .learn-table-wrap { overflow-x: auto; margin-bottom: 0.4rem; }
+    .learn-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .learn-table th, .learn-table td { text-align: left; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--border-color); vertical-align: top; }
+    .learn-table th { color: var(--muted-text); font-weight: 700; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .learn-table td:nth-child(2) { white-space: nowrap; }
+    .learn-feast { font-weight: 600; }
+    .learn-rule { font-size: 0.78rem; color: var(--muted-text); }
+
     .home-section-heading {
       font-size: 1.15rem;
       color: var(--text-color);
@@ -1752,6 +1852,9 @@ htmlParts.push(`<!DOCTYPE html>
           <button type="button" class="btn-hero-primary" onclick="toggleDrawer(true)">
             <span>📑</span> Abrir Catálogo del Año Litúrgico (74 Misas)
           </button>
+          <button type="button" class="btn-hero-secondary" onclick="openLearnView()">
+            <span>📘</span> Guía para entender la Misa y el año litúrgico
+          </button>
         </div>
       </div>
 
@@ -1869,6 +1972,8 @@ htmlParts.push(`<!DOCTYPE html>
         </div>
       </div>
     </div><!-- Fin #homeView -->
+
+    ${learnViewHTML}
 
     <!-- ============================================================
          VISTA DE LA CELEBRACIÓN LITÚRGICA COMPLETA (MASS VIEW)
@@ -2878,8 +2983,10 @@ ${calendarSource}
       const massView = document.getElementById('massView');
       const toolbar = document.getElementById('mainToolbar');
 
-      if (viewName === 'home') {
-        if (homeView) homeView.classList.add('active');
+      const learnView = document.getElementById('learnView');
+      if (learnView) learnView.classList.toggle('active', viewName === 'learn');
+      if (viewName === 'home' || viewName === 'learn') {
+        if (homeView) homeView.classList.toggle('active', viewName === 'home');
         if (massView) massView.classList.remove('active');
         if (toolbar) toolbar.style.display = 'none';
       } else {
@@ -3048,6 +3155,14 @@ ${calendarSource}
       };
       homeItem.innerHTML = '<span>🏠 Portada y Guía de Inicio</span><span style="font-size:0.75rem; opacity:0.8;">Info</span>';
       drawerList.appendChild(homeItem);
+
+      const learnItem = document.createElement('div');
+      learnItem.className = 'drawer-item' + (currentView === 'learn' ? ' active' : '');
+      learnItem.style.borderLeft = '3px solid var(--gold-accent)';
+      learnItem.style.marginBottom = '8px';
+      learnItem.onclick = openLearnView;
+      learnItem.innerHTML = '<span>📘 Guía para entender la Misa</span><span style="font-size:0.75rem; opacity:0.8;">Aprender</span>';
+      drawerList.appendChild(learnItem);
 
       let currentCat = '';
 
@@ -3294,6 +3409,51 @@ ${calendarSource}
       switchView('home');
       renderTodayCard();
     });
+
+    // --- GUÍA PARA APRENDER (guia_aprendizaje.html) ---
+    function openLearnView() {
+      renderLearnView();
+      switchView('learn');
+      toggleDrawer(false);
+    }
+
+    function renderLearnView() {
+      if (typeof LiturgicalCalendar === 'undefined') return;
+      const now = new Date();
+      const cycle = LiturgicalCalendar.sundayCycle(now);
+      document.querySelectorAll('[data-learn="cycle"]').forEach(el => { el.textContent = cycle; });
+      document.querySelectorAll('[data-learn="weekday"]').forEach(el => {
+        const w = LiturgicalCalendar.weekdayCycle(now);
+        el.textContent = w + (w === 'I' ? ' (impar)' : ' (par)');
+      });
+      document.querySelectorAll('[data-learn="year"]').forEach(el => { el.textContent = String(now.getFullYear()); });
+      document.querySelectorAll('.learn-cycle').forEach(el => {
+        el.classList.toggle('current', el.querySelector('.learn-cycle-letter').textContent === cycle);
+      });
+      const body = document.getElementById('learnMovableBody');
+      if (body) {
+        body.innerHTML = '';
+        LiturgicalCalendar.movableDates(now.getFullYear()).forEach(x => {
+          const tr = document.createElement('tr');
+          const nameTd = document.createElement('td');
+          const nameEl = document.createElement('div');
+          nameEl.className = 'learn-feast';
+          nameEl.textContent = x.nombre;
+          nameTd.appendChild(nameEl);
+          if (x.regla) {
+            const ruleEl = document.createElement('div');
+            ruleEl.className = 'learn-rule';
+            ruleEl.textContent = x.regla;
+            nameTd.appendChild(ruleEl);
+          }
+          const dateTd = document.createElement('td');
+          dateTd.textContent = x.fecha.toLocaleDateString('es-CL', { weekday: 'short', day: 'numeric', month: 'short' });
+          tr.appendChild(nameTd);
+          tr.appendChild(dateTd);
+          body.appendChild(tr);
+        });
+      }
+    }
 
     // --- CELEBRACIÓN DE HOY (liturgical_calendar.js) ---
     const TODAY_ALT_LABELS = {

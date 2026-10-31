@@ -84,6 +84,28 @@ check('Ciclo 2025-01-05 = C', () => assert.strictEqual(cal.sundayCycle(d(2025, 1
 check('Ciclo 2026-10-31 = A', () => assert.strictEqual(cal.sundayCycle(d(2026, 10, 31)), 'A'));
 check('Ciclo 2026-11-29 = B', () => assert.strictEqual(cal.sundayCycle(d(2026, 11, 29)), 'B'));
 
+// Año par/impar de las ferias (coincide con eucaristiadiaria.cl: «Inicio ciclo B - año impar», 29-11-2026)
+check('Ferias 2026-10-31 = II', () => assert.strictEqual(cal.weekdayCycle(d(2026, 10, 31)), 'II'));
+check('Ferias 2026-11-29 = I', () => assert.strictEqual(cal.weekdayCycle(d(2026, 11, 29)), 'I'));
+check('Ferias 2025-06-10 = I', () => assert.strictEqual(cal.weekdayCycle(d(2025, 6, 10)), 'I'));
+
+// Fechas móviles: coinciden con celebrationFor
+check('Fechas móviles 2026', () => {
+  const ids = { 'Miércoles de Ceniza': 'cua-ceniza', 'Domingo de Pascua': 'pas-domingo', 'Ascensión del Señor': 'pas-ascension',
+    'Pentecostés': 'pas-pentecostes', 'Cuerpo y Sangre de Cristo': 'to-corpus', 'I Domingo de Adviento': 'adv-1',
+    'Jesucristo, Rey del Universo': 'to-34', 'Epifanía del Señor': 'nav-epifania', 'Sagrada Familia': 'nav-sagrada-familia' };
+  const list = cal.movableDates(2026);
+  assert.strictEqual(list.length, 15);
+  for (const x of list) if (ids[x.nombre]) assert.strictEqual(cal.celebrationFor(x.fecha).id, ids[x.nombre], x.nombre);
+  assert.strictEqual(iso(list.find(x => x.nombre === 'Miércoles de Ceniza').fecha), '2026-02-18');
+});
+check('Pascua entre el 22 de marzo y el 25 de abril (1900-2199)', () => {
+  for (let y = 1900; y < 2200; y++) {
+    const e = cal.easter(y), md = (e.getMonth() + 1) * 100 + e.getDate();
+    assert.ok(md >= 322 && md <= 425 && e.getDay() === 0, 'Pascua ' + y + ': ' + iso(e));
+  }
+});
+
 // Hoy o la próxima
 check('Sábado 2026-10-31 -> domingo siguiente', () => {
   const c = cal.todayOrNext(d(2026, 10, 31));

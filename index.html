@@ -1258,6 +1258,103 @@
 
     .btn-today-alt:hover { border-color: var(--gold-accent); }
 
+    .home-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-hero-secondary {
+      background: transparent;
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.75rem 1.2rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      touch-action: manipulation;
+    }
+
+    .btn-hero-secondary:hover { border-color: var(--gold-accent); }
+
+    .learn-header { margin-bottom: 1rem; }
+    .learn-title { font-size: 1.35rem; color: var(--secondary-color); margin: 0.8rem 0 0.4rem; line-height: 1.3; }
+
+    .learn-toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 1.2rem;
+    }
+
+    .learn-toc a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-color);
+      text-decoration: none;
+      border: 1px solid var(--border-color);
+      border-radius: 9999px;
+      padding: 3px 10px;
+    }
+
+    .learn-toc a:hover { border-color: var(--gold-accent); }
+
+    .learn-section {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      margin-bottom: 1rem;
+      line-height: 1.65;
+      scroll-margin-top: 80px;
+    }
+
+    .learn-section h3 { font-size: 1.08rem; color: var(--secondary-color); margin-bottom: 0.6rem; }
+    .learn-section p { margin: 0 0 0.7rem; }
+    .learn-section ul, .learn-section ol { margin: 0 0 0.7rem 1.2rem; }
+    .learn-section li { margin-bottom: 0.4rem; }
+    .learn-note { font-size: 0.86rem; color: var(--muted-text); }
+
+    .learn-now {
+      border-left: 3px solid var(--gold-accent);
+      padding-left: 0.7rem;
+    }
+
+    .learn-cycles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 0.4rem 0 0.9rem;
+    }
+
+    .learn-cycle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.6rem 0.3rem;
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    .learn-cycle.current { border-color: var(--gold-accent); box-shadow: 0 0 0 1px var(--gold-accent); }
+    .learn-cycle-letter { font-size: 1.5rem; font-weight: 800; color: var(--gold-accent); line-height: 1; }
+
+    .learn-table-wrap { overflow-x: auto; margin-bottom: 0.4rem; }
+    .learn-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .learn-table th, .learn-table td { text-align: left; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--border-color); vertical-align: top; }
+    .learn-table th { color: var(--muted-text); font-weight: 700; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .learn-table td:nth-child(2) { white-space: nowrap; }
+    .learn-feast { font-weight: 600; }
+    .learn-rule { font-size: 0.78rem; color: var(--muted-text); }
+
     .home-section-heading {
       font-size: 1.15rem;
       color: var(--text-color);
@@ -1606,6 +1703,9 @@
           <button type="button" class="btn-hero-primary" onclick="toggleDrawer(true)">
             <span>📑</span> Abrir Catálogo del Año Litúrgico (74 Misas)
           </button>
+          <button type="button" class="btn-hero-secondary" onclick="openLearnView()">
+            <span>📘</span> Guía para entender la Misa y el año litúrgico
+          </button>
         </div>
       </div>
 
@@ -1723,6 +1823,146 @@
         </div>
       </div>
     </div><!-- Fin #homeView -->
+
+    <!--
+  Guía para aprender: vista #learnView. build_complete_app.js la inserta tal cual.
+  Los datos del año en curso (ciclo, año par/impar, fechas móviles) los completa
+  renderLearnView() con liturgical_calendar.js.
+  Fuentes: ver la última sección y FUENTES_Y_CONSULTAS.md.
+-->
+<div id="learnView" class="view-panel">
+  <div class="learn-header">
+    <button type="button" class="btn-today-alt" onclick="refreshIndexAndHome()">← Volver a la portada</button>
+    <h2 class="learn-title">Guía para entender la Misa y el año litúrgico</h2>
+  </div>
+
+  <nav class="learn-toc" aria-label="Contenido de la guía">
+    <a href="#learn-proposito">Para qué es</a>
+    <a href="#learn-participar">Cómo participa la asamblea</a>
+    <a href="#learn-anio">El año litúrgico</a>
+    <a href="#learn-fechas">Fechas fijas y móviles</a>
+    <a href="#learn-ciclos">Ciclos A, B y C</a>
+    <a href="#learn-pares">Años pares e impares</a>
+    <a href="#learn-grados">Solemnidades, fiestas y memorias</a>
+    <a href="#learn-otras">Otras Misas</a>
+    <a href="#learn-fuentes">Fuentes</a>
+  </nav>
+
+  <section id="learn-proposito" class="learn-section">
+    <h3>Para qué es esta aplicación</h3>
+    <p>Es una plataforma de aprendizaje para los fieles. Su propósito es ayudar a conocer las partes de la Misa, entender qué se hace en cada momento y por qué, y saber qué se espera de la asamblea: qué responder, cuándo estar de pie, sentados o de rodillas, y cuándo guardar silencio, según lo que establece la <strong>Instrucción General del Misal Romano (IGMR)</strong>.</p>
+    <p>En cada momento de la Misa encontrará el texto, la postura de la asamblea y, en los recuadros «IGMR», los números de la Instrucción que explican ese momento.</p>
+    <p class="learn-note">No reemplaza los libros litúrgicos oficiales ni las indicaciones de su parroquia. Donde la Conferencia Episcopal o el obispo hayan dispuesto algo propio, eso es lo que rige.</p>
+    <p class="learn-note"><strong>Estado de los textos:</strong> los textos que muestra hoy la aplicación provienen de la edición colombiana del Misal (dicen «vosotros»). En Chile rige la edición para Argentina, Bolivia, Chile, Paraguay y Uruguay, que dice «ustedes». Estamos trabajando para reemplazarlos.</p>
+  </section>
+
+  <section id="learn-participar" class="learn-section">
+    <h3>Cómo participa la asamblea</h3>
+    <ul>
+      <li><strong>Responder.</strong> Las aclamaciones y las respuestas a los saludos y a las oraciones del sacerdote son la participación mínima que se pide a todos los fieles (<button type="button" class="igmr-badge" onclick="showIGMR(35)" title="Consultar numeral 35 de la IGMR">IGMR 35</button>). A la asamblea se le encomiendan además el acto penitencial, el Credo, la oración universal y el Padre nuestro (<button type="button" class="igmr-badge" onclick="showIGMR(36)" title="Consultar numeral 36 de la IGMR">IGMR 36</button>).</li>
+      <li><strong>Las posturas.</strong> Estar de pie, sentados o de rodillas expresa y favorece la unidad de todos los que celebran (<button type="button" class="igmr-badge" onclick="showIGMR(42)" title="Consultar numeral 42 de la IGMR">IGMR 42</button>). La IGMR indica la postura en cada momento(<button type="button" class="igmr-badge" onclick="showIGMR(43)" title="Consultar numeral 43 de la IGMR">IGMR 43</button>), y la Conferencia Episcopal puede adaptarlas a las tradiciones de cada pueblo.</li>
+      <li><strong>Los gestos.</strong> Las procesiones, la reverencia al altar y al Evangelio y los demás gestos forman parte de la celebración (<button type="button" class="igmr-badge" onclick="showIGMR(44)" title="Consultar numeral 44 de la IGMR">IGMR 44</button>).</li>
+      <li><strong>El silencio.</strong> El silencio sagrado es parte de la celebración, y su sentido depende del momento: en el acto penitencial y después de «Oremos», cada uno se recoge; después de las lecturas y de la homilía, se medita lo escuchado; después de la Comunión, se alaba y se ora a Dios en el corazón (<button type="button" class="igmr-badge" onclick="showIGMR(45)" title="Consultar numeral 45 de la IGMR">IGMR 45</button>).</li>
+    </ul>
+  </section>
+
+  <section id="learn-anio" class="learn-section">
+    <h3>El año litúrgico</h3>
+    <p>La Iglesia recorre a lo largo del año el misterio de Cristo. El año litúrgico no empieza el 1 de enero, sino el <strong>I Domingo de Adviento</strong>, y termina con la solemnidad de <strong>Jesucristo, Rey del Universo</strong>. Sus tiempos, en orden:</p>
+    <ol>
+      <li><strong>Adviento</strong> (morado): cuatro domingos de preparación para la venida del Señor.</li>
+      <li><strong>Navidad</strong> (blanco): de la Natividad del Señor al Bautismo del Señor.</li>
+      <li><strong>Tiempo Ordinario</strong> (verde), primera parte: hasta el martes antes del Miércoles de Ceniza.</li>
+      <li><strong>Cuaresma</strong> (morado): del Miércoles de Ceniza hasta la Misa en la Cena del Señor, el Jueves Santo.</li>
+      <li><strong>Triduo Pascual</strong>: Jueves Santo por la tarde, Viernes Santo, Sábado Santo y Domingo de Pascua. Es el centro de todo el año.</li>
+      <li><strong>Tiempo Pascual</strong> (blanco): cincuenta días, del Domingo de Pascua a Pentecostés.</li>
+      <li><strong>Tiempo Ordinario</strong> (verde), segunda parte: hasta Cristo Rey.</li>
+    </ol>
+  </section>
+
+  <section id="learn-fechas" class="learn-section">
+    <h3>Fechas fijas y fechas móviles</h3>
+    <p>Algunas celebraciones son <strong>fijas</strong>: caen siempre el mismo día del calendario civil (solar), aunque cambie el día de la semana. Por ejemplo: Santa María, Madre de Dios (1 de enero), San José (19 de marzo), la Anunciación (25 de marzo), San Pedro y San Pablo (29 de junio), la Asunción (15 de agosto), Todos los Santos (1 de noviembre), la Inmaculada Concepción (8 de diciembre) y la Natividad del Señor (25 de diciembre).</p>
+    <p>Otras son <strong>móviles</strong>: cambian de fecha cada año porque dependen de otra celebración.</p>
+    <ul>
+      <li><strong>Las que dependen de la Pascua.</strong> La Pascua se celebra el domingo siguiente a la primera luna llena de la primavera del hemisferio norte; en Chile corresponde al otoño. La Iglesia fija el equinoccio el 21 de marzo y calcula la luna llena con tablas propias (el «cómputo eclesiástico»), no con la luna que se observa en el cielo. Por eso la Pascua cae siempre entre el 22 de marzo y el 25 de abril. De ella dependen el Miércoles de Ceniza, la Semana Santa, la Ascensión, Pentecostés, la Santísima Trinidad, el Corpus Christi y el Sagrado Corazón.</li>
+      <li><strong>Las que dependen de la Navidad.</strong> El Adviento empieza el cuarto domingo antes del 25 de diciembre. De ahí se cuentan Cristo Rey (el domingo anterior), la Sagrada Familia y el Bautismo del Señor.</li>
+      <li><strong>Las que se trasladan al domingo.</strong> Donde no son días de precepto, la Epifanía, la Ascensión y el Corpus Christi se celebran en domingo. Así ocurre en Chile.</li>
+    </ul>
+    <p>Fechas móviles de <span data-learn="year">este año</span>, calculadas por la aplicación:</p>
+    <div class="learn-table-wrap">
+      <table class="learn-table">
+        <thead><tr><th>Celebración y cómo se calcula</th><th>Fecha</th></tr></thead>
+        <tbody id="learnMovableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="learn-ciclos" class="learn-section">
+    <h3>Ciclos A, B y C: las lecturas de los domingos</h3>
+    <p>Los domingos y las solemnidades tienen tres lecturas: del Antiguo Testamento (en Tiempo Pascual, de los Hechos de los Apóstoles), del Apóstol y del Evangelio (<button type="button" class="igmr-badge" onclick="showIGMR(357)" title="Consultar numeral 357 de la IGMR">IGMR 357</button>). Para que en la Misa se lea una parte más amplia de la Sagrada Escritura, esas lecturas se ordenan en <strong>tres ciclos de un año cada uno</strong>, y cada ciclo lee principalmente uno de los evangelios sinópticos:</p>
+    <div class="learn-cycles">
+      <div class="learn-cycle"><span class="learn-cycle-letter">A</span><span>San <strong>Mateo</strong></span></div>
+      <div class="learn-cycle"><span class="learn-cycle-letter">B</span><span>San <strong>Marcos</strong></span></div>
+      <div class="learn-cycle"><span class="learn-cycle-letter">C</span><span>San <strong>Lucas</strong></span></div>
+    </div>
+    <p>El evangelio de <strong>San Juan</strong> no tiene un año propio: se lee sobre todo en Cuaresma y en el Tiempo Pascual, también en Navidad, y en el ciclo B completa algunos domingos del Tiempo Ordinario, porque Marcos es el evangelio más breve (el capítulo 6 de Juan, sobre el Pan de Vida). Por ejemplo, los domingos III, IV y V de Cuaresma del ciclo A leen la Samaritana, el ciego de nacimiento y la resurrección de Lázaro.</p>
+    <p><strong>Cómo saber qué ciclo corresponde.</strong> El año litúrgico toma el número del año civil en que termina. Se divide ese número por 3 y se mira el resto:</p>
+    <ul>
+      <li>resto 1 → ciclo <strong>A</strong> (por ejemplo, 2026: el año que empezó en Adviento de 2025);</li>
+      <li>resto 2 → ciclo <strong>B</strong> (2027: empieza el I Domingo de Adviento, 29 de noviembre de 2026);</li>
+      <li>resto 0 → ciclo <strong>C</strong> (2025, 2028).</li>
+    </ul>
+    <p class="learn-now">Hoy estamos en el <strong>ciclo <span data-learn="cycle">—</span></strong>.</p>
+  </section>
+
+  <section id="learn-pares" class="learn-section">
+    <h3>Años pares e impares: las lecturas de los días de semana</h3>
+    <p>En los días de semana (ferias) del <strong>Tiempo Ordinario</strong>, el Evangelio es el mismo todos los años, pero la primera lectura y el salmo siguen un ciclo de dos años:</p>
+    <ul>
+      <li><strong>Año I</strong>: años impares (2025, 2027…).</li>
+      <li><strong>Año II</strong>: años pares (2026, 2028…).</li>
+    </ul>
+    <p>Como con los ciclos, cuenta el año civil en que termina el año litúrgico: el que empieza en Adviento de 2026 corresponde a 2027 y es año I (impar). En las ferias de Adviento, Navidad, Cuaresma y Pascua las lecturas son las mismas todos los años, así que ahí no se usa esta distinción. Los domingos tampoco la usan: siguen los ciclos A, B y C.</p>
+    <p class="learn-now">En este año litúrgico, las ferias del Tiempo Ordinario usan el <strong>año <span data-learn="weekday">—</span></strong>.</p>
+  </section>
+
+  <section id="learn-grados" class="learn-section">
+    <h3>Solemnidades, fiestas, memorias y ferias</h3>
+    <p>No todos los días tienen la misma importancia. De mayor a menor:</p>
+    <ul>
+      <li><strong>Domingo.</strong> Es el día del Señor, la Pascua semanal. Los domingos de Adviento, Cuaresma y Pascua no ceden ante ninguna otra celebración; si una solemnidad cae en uno de ellos, se traslada a otro día. Los domingos de Navidad y del Tiempo Ordinario solo ceden ante las solemnidades y las fiestas del Señor.</li>
+      <li><strong>Solemnidad.</strong> Los días principales, como la Pascua, la Navidad o la Asunción. Tienen tres lecturas (<button type="button" class="igmr-badge" onclick="showIGMR(357)" title="Consultar numeral 357 de la IGMR">IGMR 357</button>), Gloria (<button type="button" class="igmr-badge" onclick="showIGMR(53)" title="Consultar numeral 53 de la IGMR">IGMR 53</button>) y Credo (<button type="button" class="igmr-badge" onclick="showIGMR(68)" title="Consultar numeral 68 de la IGMR">IGMR 68</button>).</li>
+      <li><strong>Fiesta.</strong> Tiene dos lecturas, o tres si se eleva a solemnidad (<button type="button" class="igmr-badge" onclick="showIGMR(357)" title="Consultar numeral 357 de la IGMR">IGMR 357</button>), y Gloria (<button type="button" class="igmr-badge" onclick="showIGMR(53)" title="Consultar numeral 53 de la IGMR">IGMR 53</button>).</li>
+      <li><strong>Memoria.</strong> Recuerda a un santo. La <em>memoria obligatoria</em> se celebra, salvo que coincida con un día de mayor rango; la <em>memoria libre</em> se puede celebrar o no (<button type="button" class="igmr-badge" onclick="showIGMR(355)" title="Consultar numeral 355 de la IGMR">IGMR 355</button>). Si no tiene lecturas propias, se leen las de la feria (<button type="button" class="igmr-badge" onclick="showIGMR(357)" title="Consultar numeral 357 de la IGMR">IGMR 357</button>).</li>
+      <li><strong>Feria.</strong> Los días de semana sin otra celebración. Se leen las lecturas del Leccionario ferial (<button type="button" class="igmr-badge" onclick="showIGMR(358)" title="Consultar numeral 358 de la IGMR">IGMR 358</button>).</li>
+    </ul>
+    <p class="learn-note">Este catálogo incluye los domingos, la Semana Santa y las principales solemnidades. Aún no incluye las ferias ni las celebraciones de los santos.</p>
+  </section>
+
+  <section id="learn-otras" class="learn-section">
+    <h3>Otras Misas</h3>
+    <p>Además de la Misa del día, el Misal tiene formularios para otras ocasiones (IGMR, capítulo VIII):</p>
+    <ul>
+      <li><strong>Misas rituales</strong>: unidas a la celebración de un sacramento o sacramental, como el Matrimonio o la Confirmación. No se permiten los domingos de Adviento, Cuaresma y Pascua, en las solemnidades ni en otros días señalados (<button type="button" class="igmr-badge" onclick="showIGMR(372)" title="Consultar numeral 372 de la IGMR">IGMR 372</button>).</li>
+      <li><strong>Misas por diversas necesidades y circunstancias</strong>: por la Iglesia, por la patria, por la paz, en tiempo de calamidad, etc. (<button type="button" class="igmr-badge" onclick="showIGMR(368)" title="Consultar numeral 368-374 de la IGMR">IGMR 368-374</button>).</li>
+      <li><strong>Misas votivas</strong>: en honor de un misterio del Señor, de la Virgen María, de los ángeles o de un santo, según la devoción de los fieles, en las ferias del Tiempo Ordinario (<button type="button" class="igmr-badge" onclick="showIGMR(375)" title="Consultar numeral 375 de la IGMR">IGMR 375</button>).</li>
+      <li><strong>Misas de difuntos</strong>: la primera es la Misa exequial, o de funeral (<button type="button" class="igmr-badge" onclick="showIGMR(379)" title="Consultar numeral 379-385 de la IGMR">IGMR 379-385</button>).</li>
+    </ul>
+  </section>
+
+  <section id="learn-fuentes" class="learn-section">
+    <h3>Fuentes de esta guía</h3>
+    <ul>
+      <li><strong>Instrucción General del Misal Romano</strong> (3.ª edición, 2002). Los números citados se pueden leer completos en esta aplicación: toque cualquier «IGMR» en la Misa.</li>
+      <li><strong>Normas Universales sobre el Año Litúrgico y el Calendario</strong> (1969): tiempos, grados de las celebraciones, fechas y traslados.</li>
+      <li><strong>Ordenación de las Lecturas de la Misa</strong>, Prenotandos (2.ª edición, 1981): ciclos A, B y C y ciclo de dos años de las ferias.</li>
+      <li><strong>Calendario de Chile</strong>: los traslados de la Epifanía, la Ascensión y el Corpus al domingo coinciden con lo que publica el Departamento de Liturgia del Arzobispado de Santiago (eucaristiadiaria.cl). Falta confirmarlo con el Ordo de la Conferencia Episcopal.</li>
+    </ul>
+    <p class="learn-note">Las fechas, el ciclo y el año par o impar se calculan en el teléfono a partir de estas reglas. Si encuentra un error, por favor avísenos.</p>
+  </section>
+</div><!-- Fin #learnView -->
+
 
     <!-- ============================================================
          VISTA DE LA CELEBRACIÓN LITÚRGICA COMPLETA (MASS VIEW)
@@ -4430,8 +4670,43 @@ var LiturgicalCalendar = (function () {
     return null;
   }
 
+  // Año de las lecturas de las ferias del Tiempo Ordinario: I en los años
+  // impares y II en los pares, contando el año civil en que termina el año
+  // litúrgico (el que empieza en Adviento de 2026 es el 2027, año I).
+  function weekdayCycle(t) {
+    var y = new Date(t).getUTCFullYear();
+    var endYear = t >= firstAdvent(y) ? y + 1 : y;
+    return endYear % 2 === 1 ? 'I' : 'II';
+  }
+
+  // Fechas de las celebraciones móviles de un año civil (como en Chile:
+  // Epifanía, Ascensión y Corpus Christi en domingo).
+  function movableDates(y) {
+    var E = easter(y), adv1 = firstAdvent(y);
+    var list = [
+      ['Epifanía del Señor', epiphany(y), 'Domingo entre el 2 y el 8 de enero'],
+      ['Bautismo del Señor', baptism(y), 'Domingo después de la Epifanía'],
+      ['Miércoles de Ceniza', addDays(E, -46), '46 días antes de Pascua'],
+      ['Domingo de Ramos', addDays(E, -7), 'Domingo antes de Pascua'],
+      ['Jueves Santo', addDays(E, -3), ''],
+      ['Viernes Santo', addDays(E, -2), ''],
+      ['Domingo de Pascua', E, 'Domingo después de la primera luna llena de primavera (hemisferio norte)'],
+      ['Ascensión del Señor', addDays(E, 42), 'VII Domingo de Pascua'],
+      ['Pentecostés', addDays(E, 49), 'Siete semanas después de Pascua: cierra los cincuenta días del Tiempo Pascual'],
+      ['Santísima Trinidad', addDays(E, 56), 'Domingo después de Pentecostés'],
+      ['Cuerpo y Sangre de Cristo', addDays(E, 63), 'Domingo después de la Trinidad'],
+      ['Sagrado Corazón de Jesús', addDays(E, 68), 'Viernes después del Corpus'],
+      ['Jesucristo, Rey del Universo', addDays(adv1, -7), 'Último domingo del Tiempo Ordinario'],
+      ['I Domingo de Adviento', adv1, 'Cuarto domingo antes de Navidad'],
+      ['Sagrada Familia', holyFamily(y), 'Domingo entre Navidad y Año Nuevo (o 30 de diciembre)']
+    ];
+    return list.map(function (x) { return { nombre: x[0], fecha: toLocalDate(x[1]), regla: x[2] }; });
+  }
+
   return {
     easter: function (y) { return toLocalDate(easter(y)); },
+    weekdayCycle: function (date) { return weekdayCycle(fromLocalDate(date)); },
+    movableDates: movableDates,
     celebrationFor: function (date) { return celebrationFor(fromLocalDate(date)); },
     sundayCycle: function (date) { return sundayCycle(fromLocalDate(date)); },
     todayOrNext: todayOrNext
@@ -4691,8 +4966,10 @@ if (typeof module !== 'undefined' && module.exports) module.exports = Liturgical
       const massView = document.getElementById('massView');
       const toolbar = document.getElementById('mainToolbar');
 
-      if (viewName === 'home') {
-        if (homeView) homeView.classList.add('active');
+      const learnView = document.getElementById('learnView');
+      if (learnView) learnView.classList.toggle('active', viewName === 'learn');
+      if (viewName === 'home' || viewName === 'learn') {
+        if (homeView) homeView.classList.toggle('active', viewName === 'home');
         if (massView) massView.classList.remove('active');
         if (toolbar) toolbar.style.display = 'none';
       } else {
@@ -4861,6 +5138,14 @@ if (typeof module !== 'undefined' && module.exports) module.exports = Liturgical
       };
       homeItem.innerHTML = '<span>🏠 Portada y Guía de Inicio</span><span style="font-size:0.75rem; opacity:0.8;">Info</span>';
       drawerList.appendChild(homeItem);
+
+      const learnItem = document.createElement('div');
+      learnItem.className = 'drawer-item' + (currentView === 'learn' ? ' active' : '');
+      learnItem.style.borderLeft = '3px solid var(--gold-accent)';
+      learnItem.style.marginBottom = '8px';
+      learnItem.onclick = openLearnView;
+      learnItem.innerHTML = '<span>📘 Guía para entender la Misa</span><span style="font-size:0.75rem; opacity:0.8;">Aprender</span>';
+      drawerList.appendChild(learnItem);
 
       let currentCat = '';
 
@@ -5107,6 +5392,51 @@ if (typeof module !== 'undefined' && module.exports) module.exports = Liturgical
       switchView('home');
       renderTodayCard();
     });
+
+    // --- GUÍA PARA APRENDER (guia_aprendizaje.html) ---
+    function openLearnView() {
+      renderLearnView();
+      switchView('learn');
+      toggleDrawer(false);
+    }
+
+    function renderLearnView() {
+      if (typeof LiturgicalCalendar === 'undefined') return;
+      const now = new Date();
+      const cycle = LiturgicalCalendar.sundayCycle(now);
+      document.querySelectorAll('[data-learn="cycle"]').forEach(el => { el.textContent = cycle; });
+      document.querySelectorAll('[data-learn="weekday"]').forEach(el => {
+        const w = LiturgicalCalendar.weekdayCycle(now);
+        el.textContent = w + (w === 'I' ? ' (impar)' : ' (par)');
+      });
+      document.querySelectorAll('[data-learn="year"]').forEach(el => { el.textContent = String(now.getFullYear()); });
+      document.querySelectorAll('.learn-cycle').forEach(el => {
+        el.classList.toggle('current', el.querySelector('.learn-cycle-letter').textContent === cycle);
+      });
+      const body = document.getElementById('learnMovableBody');
+      if (body) {
+        body.innerHTML = '';
+        LiturgicalCalendar.movableDates(now.getFullYear()).forEach(x => {
+          const tr = document.createElement('tr');
+          const nameTd = document.createElement('td');
+          const nameEl = document.createElement('div');
+          nameEl.className = 'learn-feast';
+          nameEl.textContent = x.nombre;
+          nameTd.appendChild(nameEl);
+          if (x.regla) {
+            const ruleEl = document.createElement('div');
+            ruleEl.className = 'learn-rule';
+            ruleEl.textContent = x.regla;
+            nameTd.appendChild(ruleEl);
+          }
+          const dateTd = document.createElement('td');
+          dateTd.textContent = x.fecha.toLocaleDateString('es-CL', { weekday: 'short', day: 'numeric', month: 'short' });
+          tr.appendChild(nameTd);
+          tr.appendChild(dateTd);
+          body.appendChild(tr);
+        });
+      }
+    }
 
     // --- CELEBRACIÓN DE HOY (liturgical_calendar.js) ---
     const TODAY_ALT_LABELS = {

@@ -141,6 +141,12 @@ En estricto cumplimiento del Misal Romano, se suprime la Liturgia Eucarística, 
 - `node test_calendar.js` la prueba con fechas conocidas y un barrido de 2000 a 2100 (todo domingo tiene misa, todo id existe en `liturgia_db.json`, ningún domingo del Tiempo Ordinario se repite en un año). El workflow de despliegue corre esta prueba antes de publicar.
 - Nunca se llega a `to-1` (el Domingo I lo ocupa el Bautismo del Señor) ni a `pas-7` (en Chile la Ascensión se celebra ese domingo).
 
+### 3.5. Guía para Aprender (`#learnView`)
+- Vista propia (`guia_aprendizaje.html`, insertada por el build), accesible desde el botón «📘 Guía para entender la Misa y el año litúrgico» de la portada y desde el índice lateral.
+- Explica la intención de la app (aprender las partes de la Misa y lo que la IGMR espera de la asamblea), cómo participa la asamblea, el año litúrgico, las fechas fijas y móviles, los ciclos A/B/C con su evangelista, los años pares e impares de las ferias, los grados de las celebraciones y las otras Misas del Misal.
+- Muestra en vivo el ciclo dominical, el año I/II y una tabla con las fechas móviles del año (`LiturgicalCalendar.movableDates`, `weekdayCycle`).
+- Los números de la IGMR citados se convierten en enlaces a la ventana de consulta. Lo que no proviene de la IGMR está pendiente de cotejo (`FUENTES_Y_CONSULTAS.md`, D12).
+
 ---
 
 ## 4. Asignación Canónica de Plegarias Eucarísticas (IGMR n. 365)

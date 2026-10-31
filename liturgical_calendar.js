@@ -174,8 +174,43 @@ var LiturgicalCalendar = (function () {
     return null;
   }
 
+  // Año de las lecturas de las ferias del Tiempo Ordinario: I en los años
+  // impares y II en los pares, contando el año civil en que termina el año
+  // litúrgico (el que empieza en Adviento de 2026 es el 2027, año I).
+  function weekdayCycle(t) {
+    var y = new Date(t).getUTCFullYear();
+    var endYear = t >= firstAdvent(y) ? y + 1 : y;
+    return endYear % 2 === 1 ? 'I' : 'II';
+  }
+
+  // Fechas de las celebraciones móviles de un año civil (como en Chile:
+  // Epifanía, Ascensión y Corpus Christi en domingo).
+  function movableDates(y) {
+    var E = easter(y), adv1 = firstAdvent(y);
+    var list = [
+      ['Epifanía del Señor', epiphany(y), 'Domingo entre el 2 y el 8 de enero'],
+      ['Bautismo del Señor', baptism(y), 'Domingo después de la Epifanía'],
+      ['Miércoles de Ceniza', addDays(E, -46), '46 días antes de Pascua'],
+      ['Domingo de Ramos', addDays(E, -7), 'Domingo antes de Pascua'],
+      ['Jueves Santo', addDays(E, -3), ''],
+      ['Viernes Santo', addDays(E, -2), ''],
+      ['Domingo de Pascua', E, 'Domingo después de la primera luna llena de primavera (hemisferio norte)'],
+      ['Ascensión del Señor', addDays(E, 42), 'VII Domingo de Pascua'],
+      ['Pentecostés', addDays(E, 49), 'Siete semanas después de Pascua: cierra los cincuenta días del Tiempo Pascual'],
+      ['Santísima Trinidad', addDays(E, 56), 'Domingo después de Pentecostés'],
+      ['Cuerpo y Sangre de Cristo', addDays(E, 63), 'Domingo después de la Trinidad'],
+      ['Sagrado Corazón de Jesús', addDays(E, 68), 'Viernes después del Corpus'],
+      ['Jesucristo, Rey del Universo', addDays(adv1, -7), 'Último domingo del Tiempo Ordinario'],
+      ['I Domingo de Adviento', adv1, 'Cuarto domingo antes de Navidad'],
+      ['Sagrada Familia', holyFamily(y), 'Domingo entre Navidad y Año Nuevo (o 30 de diciembre)']
+    ];
+    return list.map(function (x) { return { nombre: x[0], fecha: toLocalDate(x[1]), regla: x[2] }; });
+  }
+
   return {
     easter: function (y) { return toLocalDate(easter(y)); },
+    weekdayCycle: function (date) { return weekdayCycle(fromLocalDate(date)); },
+    movableDates: movableDates,
     celebrationFor: function (date) { return celebrationFor(fromLocalDate(date)); },
     sundayCycle: function (date) { return sundayCycle(fromLocalDate(date)); },
     todayOrNext: todayOrNext

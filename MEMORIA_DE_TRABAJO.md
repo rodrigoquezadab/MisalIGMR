@@ -8,7 +8,7 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 
 ## Dónde quedamos
 
-**Última sesión: 31-10-2026 (noche).** Rama `claude/youthful-wozniak-8ooc6f`, todavía no unida a `main`.
+**Última sesión: 31-10-2026 (noche, 2.ª parte).** Rama `claude/youthful-wozniak-8ooc6f`, todavía no unida a `main`.
 
 - La app sigue mostrando los textos de la edición **colombiana** («vosotros»). Ningún texto litúrgico se ha reemplazado todavía.
 - **Paso 1 hecho:** `fuentes/descargar_eucaristiadiaria.js` calcula la fecha de cada misa en los ciclos A, B y C y descarga esas páginas de eucaristiadiaria.cl. Resultado: 195 páginas, 207 pares misa-ciclo, índice en `fuentes/eucaristiadiaria/indice.json` (URL, fecha de descarga, sha256 y título de cada página).
@@ -18,6 +18,7 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
   - Dónde está cada misa en el sitio: la Vigilia de Navidad en la página del 25 de diciembre (con Noche, Aurora y Día); la Vigilia Pascual en la del Sábado Santo; la Misa Crismal en la del Jueves Santo (salvo 2025).
 - La estructura de las páginas varía entre años (títulos en mayúsculas o no, «R/.» o «R.», introducciones antes de los textos). La extracción tiene que tolerarlo.
 - La tarjeta «Celebración de hoy» y su calendario coinciden con lo que publica el sitio en las 195 fechas.
+- **Guía para aprender** (`guia_aprendizaje.html`, vista `#learnView`): propósito de la app como plataforma de aprendizaje, cómo participa la asamblea (IGMR 35-36, 42-45), año litúrgico, fechas fijas y móviles (con tabla del año en curso), ciclos A/B/C y evangelistas, años pares e impares, solemnidades/fiestas/memorias/ferias y otras Misas (IGMR cap. VIII). Se abre desde la portada y desde el índice lateral. Lo que no viene de la IGMR queda por verificar (D12).
 
 ## Decisiones tomadas
 
@@ -31,7 +32,7 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 
 ## Próximos pasos
 
-1. ~~Descargar y guardar las fuentes.~~ Hecho (ver arriba). Al empezar la próxima sesión: `node fuentes/descargar_eucaristiadiaria.js`.
+1. **Guardar las páginas descargadas de forma permanente**, para que no se pierdan al cerrar la sesión, sin publicarlas en el repositorio público. Opciones a decidir con el usuario: hacer privado el repositorio; un segundo repositorio privado solo para las fuentes; o seguir descargándolas en cada sesión (el índice con sha256 permite comprobar que son las mismas). Mientras tanto, al empezar: `node fuentes/descargar_eucaristiadiaria.js`.
 2. **Extraer los textos.** Escribir un extractor que convierta cada página en datos: antífonas, colecta, lecturas con su cita, salmo con respuesta, aclamación, evangelio, ofrendas, prefacio, comunión y poscomunión. Separar las misas de las páginas que traen varias (Navidad, Jueves Santo). Revisar a mano el Triduo. Guardar los datos extraídos fuera de git, igual que las páginas.
 3. **Reemplazar en `liturgia_db.json`**, guardando la fuente de cada texto. Decidir con la consulta D4 si se guardan los tres ciclos.
 4. **Ordinario.** Rehacerlo comparando el de eucaristiadiaria.cl con el Misal impreso del Cono Sur. Anotar en D7 cada diferencia.
@@ -44,4 +45,5 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 | 21/22-08-2026 | Catálogo de 74 misas, Viernes Santo y Sábado Santo, selector por tiempo, portada, limpieza de los 399 numerales de la IGMR, rediseño visual. |
 | 31-10-2026 (madrugada) | IGMR por momento y por ministerio, posturas y silencios de la asamblea, títulos de la IGMR como encabezados. Se anotó que los textos no son la edición para Chile. (Rama `claude/blissful-archimedes-1bkjty`, ya en `main`.) |
 | 31-10-2026 (tarde) | Tarjeta «Celebración de hoy» con su calendario y pruebas. Inventario del «vosotros» y búsqueda de fuentes para Chile. Creación de este archivo, de `FUENTES_Y_CONSULTAS.md` y de `CLAUDE.md`. |
+| 31-10-2026 (noche, 2.ª parte) | Guía para aprender: intención de la app, participación de la asamblea, año litúrgico, fechas fijas y móviles, ciclos A/B/C, años pares e impares, grados de las celebraciones y otras Misas. El calendario ahora calcula las fechas móviles y el año I/II. |
 | 31-10-2026 (noche) | Descarga de las páginas de eucaristiadiaria.cl para las 74 misas en los tres ciclos (paso 1). Comprobación de títulos: corregidos los domingos reemplazados por fiestas y la ubicación de las Vigilias. |
