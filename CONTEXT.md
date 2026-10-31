@@ -140,7 +140,8 @@ La aplicación contiene el **100% de los 399 numerales oficiales**, cada uno en 
 ### 5.1. Depuración y Fidelidad Tipográfica de la IGMR
 - **0 Entidades HTML residuales**: Todas las entidades de caracteres (como `&#x201c;`, `&#x201d;`, `&#x2014;`, `&uuml;`, `&ordm;`) han sido convertidas a caracteres tipográficos españoles estándar (`«...»`, `—`, `ü`, `º`, `ö`).
 - **Eliminación de notas al pie en corchetes (`[n]`)**: Se suprimieron las 332 referencias bibliográficas/canónicas numéricas aisladas (ej. `[57]`, `[105]`) que obstaculizaban la lectura continua de las normas.
-- **Supresión de títulos residuales**: Se limpiaron los encabezados de sección y notas de pie de página pegadas indebidamente al final de párrafos precedentes.
+- **Títulos como encabezado del numeral siguiente**: `build_igmr_399.js` reconoce los títulos del documento («Entrada», «A) Misa sin diácono», «Plegaria Eucarística II»…) y los guarda en el campo `subsection` del numeral que introducen, en vez de dejarlos pegados al final del anterior. La ventana de consulta los muestra como subtítulo (p. ej., n. 47: «III. Cada una de las partes de la Misa · A) Ritos iniciales · Entrada»).
+- **Notas al pie fuera del texto**: la lectura termina en el n. 399; las notas que siguen ya no se agregan a su texto.
 
 ---
 
