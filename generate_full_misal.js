@@ -662,6 +662,21 @@ htmlParts.push(`<!DOCTYPE html>
       line-height: 1.6;
     }
 
+    .posture {
+      font-size: 0.9em;
+      margin: 0.4rem 0 0.8rem;
+      padding: 0.45rem 0.75rem;
+      border-left: 3px solid var(--gold-accent);
+      background: var(--card-bg, rgba(255,255,255,0.03));
+      border-radius: 4px;
+      line-height: 1.55;
+    }
+
+    .posture-label {
+      font-weight: 700;
+      color: var(--gold-accent);
+    }
+
     .dialogue {
       margin: 0.75rem 0;
       padding-left: 0.4rem;
@@ -1835,12 +1850,14 @@ htmlParts.push(useRange("Naturaleza de los Ritos Iniciales", range(46, 46)));
 
 htmlParts.push(`
       <h3 class="part-title">1.1. Entrada y Reverencia al Altar</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> De pie desde el comienzo del canto de entrada, o desde que el sacerdote se dirige al altar (IGMR 43). La Conferencia Episcopal puede adaptar las posturas a las tradiciones de cada pueblo (IGMR 43).</p>
       <div id="dyn-antifona-entrada" class="prayer-text"></div>
 `);
 htmlParts.push(useMoment("Canto de Entrada, Procesión y Veneración del Altar", [{ label: "Sentido del rito", nums: [47, 48, 49] }, { label: "Misa con pueblo: el sacerdote", nums: [120, 121, 122, 123] }, { label: "Con diácono", nums: [172, 173, 174] }, { label: "Lector y acólito", nums: [188, 194, 195, 198] }, { label: "Misa concelebrada", nums: [210, 211] }, { label: "Misa con un solo ministro", nums: [255, 256] }, { label: "Gestos: veneración del altar, genuflexión, inclinación e incienso", nums: [273, 274, 275, 276, 277] }]));
 
 htmlParts.push(`
       <h3 class="part-title">1.2. Saludo Inicial</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> De pie (IGMR 43).</p>
       <div class="dialogue">
         <p class="rubric">Llegado al presbiterio, el sacerdote con los ministros hace una inclinación profunda al altar (o genuflexión si el Santísimo está en el presbiterio - IGMR 49, 274). Sube al altar, lo venera con un beso (IGMR 49, 123) e inciensa el altar y la cruz si se usa incienso (IGMR 49, 123, 276-277). Luego va a la sede (IGMR 124).</p>
         <p class="rubric">Estando todos de pie, el sacerdote y los fieles hacen sobre sí la señal de la cruz (IGMR 50, 124):</p>
@@ -1856,6 +1873,7 @@ htmlParts.push(useMoment("Saludo al Pueblo", [{ label: "Sentido del rito", nums:
 
 htmlParts.push(`
       <h3 class="part-title">1.3. Acto Penitencial</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> De pie. Breve silencio para que cada uno se recoja en sí mismo (IGMR 43, 45).</p>
       <div class="dialogue">
         <p class="rubric">El sacerdote invita a los fieles al arrepentimiento con una de las siguientes fórmulas u otras semejantes, haciéndose una breve pausa de silencio (IGMR 51, 125):</p>
         <p><span class="speaker">Sacerdote:</span> Hermanos: para celebrar dignamente estos sagrados misterios, reconozcamos nuestros pecados.</p>
@@ -1929,6 +1947,7 @@ htmlParts.push(useMoment("Acto Penitencial", [{ label: "Sentido del rito", nums:
 
 htmlParts.push(`
       <h3 class="part-title">1.4. Señor, ten piedad (Kyrie, eleison)</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> De pie (IGMR 43).</p>
       <div class="dialogue">
         <p class="rubric">Siguen las aclamaciones «Señor, ten piedad», a no ser que se hayan utilizado ya en la Fórmula 3 del Acto Penitencial (IGMR 52):</p>
         <p><span class="speaker">V.</span> Señor, ten piedad. <span class="speaker">R.</span> <span class="response">Señor, ten piedad.</span></p>
@@ -1940,6 +1959,7 @@ htmlParts.push(useRange("Señor, ten piedad (Kyrie)", range(52, 52)));
 
 htmlParts.push(`
       <h3 class="part-title">1.5. Gloria a Dios en el cielo</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> De pie (IGMR 43).</p>
       <div class="dialogue">
         <p class="rubric">El sacerdote, o los cantores, o todos juntos, entonan el himno (IGMR 53):</p>
         <p><span class="speaker">Todos:</span> Gloria a Dios en el cielo, y en la tierra paz a los hombres que ama el Señor. Por tu inmensa gloria te alabamos, te bendecimos, te adoramos, te glorificamos, te damos gracias, Señor Dios, Rey celestial, Dios Padre todopoderoso. Señor, Hijo único, Jesucristo. Señor Dios, Cordero de Dios, Hijo del Padre; tú que quitas el pecado del mundo, ten piedad de nosotros; tú que quitas el pecado del mundo, atiende nuestra súplica; tú que estás sentado a la derecha del Padre, ten piedad de nosotros; porque sólo tú eres Santo, sólo tú Señor, sólo tú Altísimo, Jesucristo, con el Espíritu Santo en la gloria de Dios Padre. Amén.</p>
@@ -1949,6 +1969,7 @@ htmlParts.push(useMoment("Himno del Gloria", [{ label: "Sentido del rito", nums:
 
 htmlParts.push(`
       <h3 class="part-title">1.6. Oración Colecta</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> De pie hasta la colecta inclusive. Tras el «Oremos», un momento de silencio para orar (IGMR 43, 45, 54).</p>
       <div class="dialogue">
         <p class="rubric">El sacerdote, con las manos juntas, dice: «Oremos». Y todos, junto con el sacerdote, oran en silencio durante unos momentos (IGMR 54, 127). Luego el sacerdote, con las manos extendidas, proclama la oración colecta:</p>
         <div id="dyn-colecta" class="prayer-text"></div>
@@ -1968,24 +1989,28 @@ htmlParts.push(useMoment("Naturaleza de la Liturgia de la Palabra, Silencio y Am
 
 htmlParts.push(`
       <h3 class="part-title">2.1. Primera Lectura</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> Sentados. Al terminar la lectura, breve silencio para meditar lo escuchado (IGMR 43, 45, 56).</p>
       <div id="dyn-lectura-1" class="scripture-box"></div>
 `);
 htmlParts.push(useMoment("Primera Lectura", [{ label: "Misa con pueblo: el sacerdote", nums: [128, 135] }, { label: "Con diácono", nums: [176] }, { label: "Lector y acólito", nums: [196] }, { label: "Misa con un solo ministro", nums: [261] }]));
 
 htmlParts.push(`
       <h3 class="part-title">2.2. Salmo Responsorial</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> Sentados (IGMR 43).</p>
       <div id="dyn-salmo" class="scripture-box"></div>
 `);
 htmlParts.push(useMoment("Salmo Responsorial", [{ label: "Sentido del rito", nums: [61] }, { label: "Misa con pueblo: el sacerdote", nums: [129] }]));
 
 htmlParts.push(`
       <h3 class="part-title">2.3. Segunda Lectura</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> Sentados (IGMR 43).</p>
       <div id="dyn-lectura-2" class="scripture-box"></div>
 `);
 htmlParts.push(useMoment("Segunda Lectura", [{ label: "Misa con pueblo: el sacerdote", nums: [130] }]));
 
 htmlParts.push(`
       <h3 class="part-title">2.4. Aclamación antes del Evangelio (Aleluya)</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> De pie, desde el canto del Aleluya (IGMR 43).</p>
       <p class="rubric">El pueblo se pone de pie para aclamar el Evangelio (IGMR 43, 131).</p>
       <div id="dyn-aleluya" class="dialogue"></div>
 `);
@@ -1993,18 +2018,21 @@ htmlParts.push(useMoment("Aclamación antes del Evangelio y Secuencia", [{ label
 
 htmlParts.push(`
       <h3 class="part-title">2.5. Proclamación del Santo Evangelio</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> De pie durante la proclamación del Evangelio (IGMR 43).</p>
       <div id="dyn-evangelio" class="scripture-box"></div>
 `);
 htmlParts.push(useMoment("Proclamación del Evangelio", [{ label: "Sentido del rito", nums: [60] }, { label: "Misa con pueblo: el sacerdote", nums: [132, 133, 134] }, { label: "Con diácono", nums: [175] }, { label: "Misa con un solo ministro", nums: [262] }]));
 
 htmlParts.push(`
       <h3 class="part-title">2.6. Homilía</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> Sentados. Después de la homilía, breve silencio para meditar (IGMR 43, 45, 66).</p>
       <p class="rubric">El pueblo se sienta (IGMR 43, 136). El sacerdote o diácono pronuncia la homilía desde la sede o el ambón (IGMR 66, 136). Concluida la homilía, se guarda un breve tiempo de sagrado silencio (IGMR 56, 66).</p>
 `);
 htmlParts.push(useMoment("La Homilía", [{ label: "Sentido del rito", nums: [65, 66] }, { label: "Misa con pueblo: el sacerdote", nums: [136] }, { label: "Misa concelebrada", nums: [213] }]));
 
 htmlParts.push(`
       <h3 class="part-title">2.7. Profesión de Fe (Credo)</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> De pie. En «y por obra del Espíritu Santo se encarnó» (o «que fue concebido por obra y gracia del Espíritu Santo») todos se inclinan profundamente; en la Anunciación y en Navidad se arrodillan (IGMR 43, 137).</p>
       <div class="dialogue">
         <p class="rubric">El pueblo se pone de pie (IGMR 43, 137). El sacerdote con el pueblo recita el Símbolo de la Fe:</p>
         <p class="rubric"><strong>Opción A: Símbolo Niceno-Constantinopolitano (Credo largo)</strong></p>
@@ -2026,6 +2054,7 @@ htmlParts.push(useMoment("El Símbolo o Profesión de Fe", [{ label: "Sentido de
 
 htmlParts.push(`
       <h3 class="part-title">2.8. Oración Universal (Oración de los Fieles)</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> De pie (IGMR 43).</p>
       <div class="dialogue">
         <p class="rubric">Estando el pueblo en pie, el sacerdote dirige la oración desde la sede (IGMR 71, 138):</p>
         <p><span class="speaker">Sacerdote:</span> Oremos, hermanos, a Dios Padre todopoderoso, por las necesidades de la Santa Iglesia y de todo el mundo.</p>
@@ -2054,6 +2083,7 @@ htmlParts.push(useMoment("Estructura de la Liturgia Eucarística", [{ label: "Se
 
 htmlParts.push(`
       <h3 class="part-title">3.1. Preparación de los Dones (Ofertorio)</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> Sentados mientras se preparan los dones (IGMR 43).</p>
       <div class="dialogue">
         <p class="rubric">El sacerdote toma la patena con el pan y dice en voz baja (o en voz alta si no hay canto - IGMR 141):</p>
         <p><span class="speaker">Sacerdote:</span> Bendito seas, Señor, Dios del universo, por este pan, fruto de la tierra y del trabajo del hombre, que recibimos de tu generosidad y ahora te presentamos; él será para nosotros pan de vida.</p>
@@ -2081,6 +2111,7 @@ htmlParts.push(useMoment("Preparación de los Dones", [{ label: "Sentido del rit
 
 htmlParts.push(`
       <h3 class="part-title">3.2. Oración sobre las Ofrendas</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> De pie desde la invitación «Oren, hermanos», y así hasta el final de la Misa, salvo lo que se indica más adelante (IGMR 43).</p>
       <div class="dialogue">
         <p class="rubric">El sacerdote, con las manos extendidas, proclama la oración sobre las ofrendas (IGMR 77, 146):</p>
         <div id="dyn-ofrendas" class="prayer-text"></div>
@@ -2091,6 +2122,7 @@ htmlParts.push(useMoment("Oración sobre las Ofrendas", [{ label: "Sentido del r
 
 htmlParts.push(`
       <h3 class="part-title">3.3. Plegaria Eucarística</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> De pie; de rodillas durante la consagración, salvo que lo impidan la salud, la estrechez del lugar, el gran número de asistentes u otra causa razonable. Quien no se arrodille hace inclinación profunda cuando el sacerdote hace la genuflexión después de la consagración. Donde existe la costumbre de permanecer de rodillas desde que termina el «Santo» hasta el final de la Plegaria, es laudable conservarla (IGMR 43).</p>
       <div class="dialogue">
         <p class="rubric">El sacerdote inicia el diálogo del Prefacio con las manos extendidas (IGMR 79a, 148):</p>
         <p><span class="speaker">Sacerdote:</span> El Señor esté con vosotros.</p>
@@ -2107,7 +2139,7 @@ htmlParts.push(`
       </div>
 
       <div class="dialogue">
-        <p class="rubric">El pueblo se arrodilla durante la consagración (desde la epíclesis hasta la aclamación después de la consagración, a no ser que lo impida la estrechez del lugar o la salud; o bien, según la costumbre laudable permitida por la IGMR 43, pueden permanecer de rodillas desde el Sanctus hasta la doxología final - IGMR 43, 150).</p>
+        <p class="rubric">El pueblo se arrodilla durante la consagración, a no ser que lo impidan la salud, la estrechez del lugar u otra causa razonable; donde existe la costumbre, permanece de rodillas desde que termina el Sanctus hasta el final de la Plegaria Eucarística (IGMR 43). Un poco antes de la consagración, el ministro puede advertir a los fieles con un toque de campanilla (IGMR 150).</p>
       </div>
 
       <!-- Cuerpo dinámico de la Plegaria Eucarística seleccionada -->
@@ -2117,6 +2149,7 @@ htmlParts.push(useMoment("Plegaria Eucarística", [{ label: "Sentido del rito", 
 
 htmlParts.push(`
       <h3 class="part-title" id="rito-comunion">3.4. Rito de la Comunión</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> De pie. Donde existe la costumbre de arrodillarse cuando el sacerdote dice «Éste es el Cordero de Dios», es laudable conservarla (IGMR 43). Se comulga de pie o de rodillas según lo haya determinado la Conferencia Episcopal; quien comulga de pie hace antes la debida reverencia (IGMR 160).</p>
       <div class="dialogue">
         <p class="rubric">El pueblo permanece de pie (IGMR 43). El sacerdote, con las manos juntas, introduce la oración dominical (IGMR 81, 152):</p>
         <p><span class="speaker">Sacerdote:</span> Fieles a la recomendación del Salvador y siguiendo su divina enseñanza, nos atrevemos a decir:</p>
@@ -2157,6 +2190,7 @@ htmlParts.push(useMoment("Rito de la Comunión", [{ label: "Sentido del rito", n
 
 htmlParts.push(`
       <h3 class="part-title">3.5. Oración después de la Comunión</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> Según las circunstancias, sentados durante el sagrado silencio después de la Comunión, en el que todos alaban a Dios en su corazón; de pie para la oración (IGMR 43, 45, 164).</p>
       <div class="dialogue">
         <p class="rubric">El pueblo se pone de pie (IGMR 43, 165). El sacerdote dice: «Oremos». Y todos oran en silencio durante unos momentos. Luego el sacerdote, con las manos extendidas, proclama la oración postcomunión (IGMR 89, 165):</p>
         <div id="dyn-postcomunion" class="prayer-text"></div>
@@ -2176,6 +2210,7 @@ htmlParts.push(useRange("Naturaleza del Rito de Conclusión", range(90, 90)));
 
 htmlParts.push(`
       <h3 class="part-title">4.1. Bendición Sacerdotal</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> De pie (IGMR 43).</p>
       <div class="dialogue">
         <p class="rubric">El sacerdote extiende las manos y saluda al pueblo (IGMR 90b, 167):</p>
         <p><span class="speaker">Sacerdote:</span> El Señor esté con vosotros.</p>
@@ -2190,6 +2225,7 @@ htmlParts.push(useMoment("Avisos y Bendición", [{ label: "Misa con pueblo: el s
 
 htmlParts.push(`
       <h3 class="part-title">4.2. Despedida y Reverencia Final</h3>
+      <p class="posture"><span class="posture-label">Asamblea:</span> De pie hasta el final de la Misa (IGMR 43).</p>
       <div class="dialogue">
         <p class="rubric">El diácono o el sacerdote, con las manos juntas y de cara al pueblo, despide a la asamblea (IGMR 90c, 168):</p>
         <p><span class="speaker">Diácono o Sacerdote:</span> Podéis ir en paz. (O bien: «La alegría del Señor sea vuestra fuerza. Podéis ir en paz»).</p>
