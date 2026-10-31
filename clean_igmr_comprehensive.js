@@ -47,6 +47,7 @@ const trailingHeaders = [
   /\n\s*Las lecturas\s*$/i,
   /\n\s*Las oraciones\s*$/i,
   /\n\s*Plegaria Eucarística\s*$/i,
+  /\n\s*Preparación de los dones\s*$/i,
   /\n\s*El canto\s*$/i,
   /\n\s*© Conferencia Episcopal de Colombia, 2007\s*$/i,
   /\n\s*Missale Romanum, pág XXX\s*$/i

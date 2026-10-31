@@ -26,8 +26,8 @@ for (let i = 0; i < elements.length; i++) {
     continue;
   }
 
-  // Check if it's a numbered paragraph (e.g., "46. ..." or "230 ...")
-  const numMatch = el.match(/^(\d{1,3})\.?\s*([\s\S]*)$/);
+  // Check if it's a numbered paragraph (e.g., "46. ..." or "230 ..."), not a list item like "1) ..." inside one
+  const numMatch = el.match(/^(\d{1,3})(?:\.|\s)\s*([\s\S]*)$/);
   if (numMatch && parseInt(numMatch[1], 10) >= 1 && parseInt(numMatch[1], 10) <= 399) {
     items.push({
       num: parseInt(numMatch[1], 10),
