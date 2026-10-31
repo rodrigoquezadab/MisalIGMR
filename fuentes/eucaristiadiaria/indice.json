@@ -1,0 +1,3424 @@
+{
+  "fuente": "Eucaristía Diaria — Departamento de Liturgia del Arzobispado de Santiago",
+  "sitio": "https://www.eucaristiadiaria.cl",
+  "nota": "Textos con derechos de autor, guardados para preparar la app y pedir permiso (ver FUENTES_Y_CONSULTAS.md, D3). La fecha de cada misa se calculó con liturgical_calendar.js; el campo «encabezado» de cada página permite comprobarla.",
+  "generado": "2026-10-31T17:22:14.446Z",
+  "fechasPublicadas": {
+    "total": 3922,
+    "desde": "2014-10-05",
+    "hasta": "2026-11-30"
+  },
+  "sinFuente": {
+    "pas-sabado-santo": "Día sin misa; la página del Sábado Santo trae la Vigilia Pascual.",
+    "pas-7": "No cayó en ninguna fecha publicada por el sitio.",
+    "to-1": "No cayó en ninguna fecha publicada por el sitio.",
+    "to-9": "No cayó en ninguna fecha publicada por el sitio."
+  },
+  "ciclosFaltantes": {
+    "sem-crismal": [
+      "C"
+    ],
+    "to-7": [
+      "B"
+    ],
+    "to-8": [
+      "B"
+    ],
+    "to-10": [
+      "A"
+    ]
+  },
+  "descartadas": [
+    {
+      "misa": "sem-crismal",
+      "ciclo": "C",
+      "fecha": "2025-04-17",
+      "motivo": "La página no trae esta misa."
+    }
+  ],
+  "misas": {
+    "adv-1": {
+      "nombre": "Domingo I de Adviento",
+      "A": {
+        "fecha": "2025-11-30",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2026-11-29",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2024-12-01",
+        "comoAlternativa": false
+      }
+    },
+    "adv-2": {
+      "nombre": "Domingo II de Adviento",
+      "A": {
+        "fecha": "2025-12-07",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2023-12-10",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2024-12-08",
+        "comoAlternativa": false
+      }
+    },
+    "adv-3": {
+      "nombre": "Domingo III de Adviento (Gaudete)",
+      "A": {
+        "fecha": "2025-12-14",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2023-12-17",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2024-12-15",
+        "comoAlternativa": false
+      }
+    },
+    "adv-4": {
+      "nombre": "Domingo IV de Adviento",
+      "A": {
+        "fecha": "2025-12-21",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2023-12-24",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2024-12-22",
+        "comoAlternativa": false
+      }
+    },
+    "nav-vigilia": {
+      "nombre": "24 de Diciembre: Misa de la Vigilia de Navidad",
+      "A": {
+        "fecha": "2025-12-25",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2023-12-25",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2024-12-25",
+        "comoAlternativa": false
+      }
+    },
+    "nav-noche": {
+      "nombre": "24 de Diciembre: Natividad del Señor (Misa de Medianoche / Nochebuena)",
+      "A": {
+        "fecha": "2025-12-25",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2023-12-25",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2024-12-25",
+        "comoAlternativa": false
+      }
+    },
+    "nav-aurora": {
+      "nombre": "25 de Diciembre: Natividad del Señor (Misa de la Aurora)",
+      "A": {
+        "fecha": "2025-12-25",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2023-12-25",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2024-12-25",
+        "comoAlternativa": false
+      }
+    },
+    "nav-dia": {
+      "nombre": "25 de Diciembre: Natividad del Señor (Misa del Día)",
+      "A": {
+        "fecha": "2025-12-25",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2023-12-25",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2024-12-25",
+        "comoAlternativa": false
+      }
+    },
+    "nav-sagrada-familia": {
+      "nombre": "Domingo en la Octava de Navidad: La Sagrada Familia (Jesús, María y José)",
+      "A": {
+        "fecha": "2025-12-28",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2023-12-31",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2024-12-29",
+        "comoAlternativa": false
+      }
+    },
+    "nav-maria-madre": {
+      "nombre": "1 de Enero: Santa María, Madre de Dios (Octava de Navidad)",
+      "A": {
+        "fecha": "2026-01-01",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-01-01",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-01-01",
+        "comoAlternativa": false
+      }
+    },
+    "nav-epifania": {
+      "nombre": "6 de Enero: La Epifanía del Señor",
+      "A": {
+        "fecha": "2026-01-04",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-01-07",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-01-05",
+        "comoAlternativa": false
+      }
+    },
+    "nav-bautismo": {
+      "nombre": "Domingo después de Epifanía: El Bautismo del Señor",
+      "A": {
+        "fecha": "2026-01-11",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-01-08",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-01-12",
+        "comoAlternativa": false
+      }
+    },
+    "cua-ceniza": {
+      "nombre": "Miércoles de Ceniza (Inicio de la Cuaresma)",
+      "A": {
+        "fecha": "2026-02-18",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-02-14",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-03-05",
+        "comoAlternativa": false
+      }
+    },
+    "cua-1": {
+      "nombre": "Domingo I de Cuaresma (Las Tentaciones en el Desierto)",
+      "A": {
+        "fecha": "2026-02-22",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-02-18",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-03-09",
+        "comoAlternativa": false
+      }
+    },
+    "cua-2": {
+      "nombre": "Domingo II de Cuaresma (La Transfiguración del Señor)",
+      "A": {
+        "fecha": "2026-03-01",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-02-25",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-03-16",
+        "comoAlternativa": false
+      }
+    },
+    "cua-3": {
+      "nombre": "Domingo III de Cuaresma (La Samaritana y el Agua Viva)",
+      "A": {
+        "fecha": "2026-03-08",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-03-03",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-03-23",
+        "comoAlternativa": false
+      }
+    },
+    "cua-4": {
+      "nombre": "Domingo IV de Cuaresma (Laetare - El Ciego de Nacimiento)",
+      "A": {
+        "fecha": "2026-03-15",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-03-10",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-03-30",
+        "comoAlternativa": false
+      }
+    },
+    "cua-5": {
+      "nombre": "Domingo V de Cuaresma (La Resurrección de Lázaro)",
+      "A": {
+        "fecha": "2026-03-22",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-03-17",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-04-06",
+        "comoAlternativa": false
+      }
+    },
+    "cua-ramos": {
+      "nombre": "Domingo de Ramos en la Pasión del Señor",
+      "A": {
+        "fecha": "2026-03-29",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-03-24",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-04-13",
+        "comoAlternativa": false
+      }
+    },
+    "sem-lunes": {
+      "nombre": "Lunes Santo",
+      "A": {
+        "fecha": "2026-03-30",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-03-25",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-04-14",
+        "comoAlternativa": false
+      }
+    },
+    "sem-martes": {
+      "nombre": "Martes Santo",
+      "A": {
+        "fecha": "2026-03-31",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-03-26",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-04-15",
+        "comoAlternativa": false
+      }
+    },
+    "sem-miercoles": {
+      "nombre": "Miércoles Santo",
+      "A": {
+        "fecha": "2026-04-01",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-03-27",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-04-16",
+        "comoAlternativa": false
+      }
+    },
+    "sem-crismal": {
+      "nombre": "Jueves Santo por la mañana: Misa Crismal (Consagración del Crisma y Santos Óleos)",
+      "A": {
+        "fecha": "2026-04-02",
+        "comoAlternativa": true
+      },
+      "B": {
+        "fecha": "2024-03-28",
+        "comoAlternativa": true
+      }
+    },
+    "cua-jueves-santo": {
+      "nombre": "Jueves Santo por la tarde: Misa en la Cena del Señor (In Coena Domini)",
+      "A": {
+        "fecha": "2026-04-02",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-03-28",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-04-17",
+        "comoAlternativa": false
+      }
+    },
+    "pas-viernes-santo": {
+      "nombre": "Viernes Santo en la Pasión del Señor (Celebración de la Pasión y Adoración de la Cruz)",
+      "A": {
+        "fecha": "2026-04-03",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-03-29",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-04-18",
+        "comoAlternativa": false
+      }
+    },
+    "pas-sabado-santo": {
+      "nombre": "Sábado Santo: La Sepultura del Señor (Día de silencio y oración junto al Sepulcro)"
+    },
+    "pas-vigilia": {
+      "nombre": "Sábado Santo por la noche: Solemne Vigilia Pascual en la Noche Santa",
+      "A": {
+        "fecha": "2026-04-04",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-03-30",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-04-19",
+        "comoAlternativa": false
+      }
+    },
+    "pas-domingo": {
+      "nombre": "Domingo de Pascua: Misa de la Resurrección del Señor (Misa del Día)",
+      "A": {
+        "fecha": "2026-04-05",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-03-31",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-04-20",
+        "comoAlternativa": false
+      }
+    },
+    "pas-lunes-octava": {
+      "nombre": "Lunes de la Octava de Pascua",
+      "A": {
+        "fecha": "2026-04-06",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-04-01",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-04-21",
+        "comoAlternativa": false
+      }
+    },
+    "pas-2": {
+      "nombre": "Domingo II de Pascua (o de la Divina Misericordia)",
+      "A": {
+        "fecha": "2026-04-12",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-04-07",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-04-27",
+        "comoAlternativa": false
+      }
+    },
+    "pas-3": {
+      "nombre": "Domingo III de Pascua (Los Discípulos de Emaús)",
+      "A": {
+        "fecha": "2026-04-19",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-04-14",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-05-04",
+        "comoAlternativa": false
+      }
+    },
+    "pas-4": {
+      "nombre": "Domingo IV de Pascua (Domingo del Buen Pastor)",
+      "A": {
+        "fecha": "2026-04-26",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-04-21",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-05-11",
+        "comoAlternativa": false
+      }
+    },
+    "pas-5": {
+      "nombre": "Domingo V de Pascua (La Vid Verdadera)",
+      "A": {
+        "fecha": "2026-05-03",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-04-28",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-05-18",
+        "comoAlternativa": false
+      }
+    },
+    "pas-6": {
+      "nombre": "Domingo VI de Pascua (El Mandamiento del Amor)",
+      "A": {
+        "fecha": "2026-05-10",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-05-05",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-05-25",
+        "comoAlternativa": false
+      }
+    },
+    "pas-ascension": {
+      "nombre": "Domingo VII de Pascua: La Ascensión del Señor",
+      "A": {
+        "fecha": "2026-05-17",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-05-12",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-06-01",
+        "comoAlternativa": false
+      }
+    },
+    "pas-7": {
+      "nombre": "Domingo VII de Pascua (La Oración Sacerdotal)"
+    },
+    "pas-pentecostes": {
+      "nombre": "Domingo de Pentecostés (Conclusión de la Cincuentena Pascual)",
+      "A": {
+        "fecha": "2026-05-24",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-05-19",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-06-08",
+        "comoAlternativa": false
+      }
+    },
+    "to-trinidad": {
+      "nombre": "Domingo después de Pentecostés: La Santísima Trinidad",
+      "A": {
+        "fecha": "2026-05-31",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-05-26",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-06-15",
+        "comoAlternativa": false
+      }
+    },
+    "to-corpus": {
+      "nombre": "Domingo tras la Trinidad: El Santísimo Cuerpo y Sangre de Cristo (Corpus Christi)",
+      "A": {
+        "fecha": "2026-06-07",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-06-02",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-06-22",
+        "comoAlternativa": false
+      }
+    },
+    "to-sagrado-corazon": {
+      "nombre": "Viernes posterior al II Domingo tras Pentecostés: El Sagrado Corazón de Jesús",
+      "A": {
+        "fecha": "2026-06-12",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-06-07",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-06-27",
+        "comoAlternativa": false
+      }
+    },
+    "to-1": {
+      "nombre": "Domingo I del Tiempo Ordinario"
+    },
+    "to-2": {
+      "nombre": "Domingo II del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-01-18",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-01-14",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-01-19",
+        "comoAlternativa": false
+      }
+    },
+    "to-3": {
+      "nombre": "III Domingo del Tiempo Ordinario (Domingo de la Palabra de Dios)",
+      "A": {
+        "fecha": "2026-01-25",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-01-21",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-01-26",
+        "comoAlternativa": false
+      }
+    },
+    "to-4": {
+      "nombre": "IV Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-02-01",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-01-28",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2022-01-30",
+        "comoAlternativa": false
+      }
+    },
+    "to-5": {
+      "nombre": "V Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-02-08",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-02-04",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-02-09",
+        "comoAlternativa": false
+      }
+    },
+    "to-6": {
+      "nombre": "VI Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-02-15",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-02-11",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-02-16",
+        "comoAlternativa": false
+      }
+    },
+    "to-7": {
+      "nombre": "VII Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2023-02-19",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-02-23",
+        "comoAlternativa": false
+      }
+    },
+    "to-8": {
+      "nombre": "VIII Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2017-02-26",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-03-02",
+        "comoAlternativa": false
+      }
+    },
+    "to-9": {
+      "nombre": "IX Domingo del Tiempo Ordinario"
+    },
+    "to-10": {
+      "nombre": "X Domingo del Tiempo Ordinario",
+      "B": {
+        "fecha": "2024-06-09",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2016-06-05",
+        "comoAlternativa": false
+      }
+    },
+    "to-11": {
+      "nombre": "XI Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-06-14",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-06-16",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2016-06-12",
+        "comoAlternativa": false
+      }
+    },
+    "to-12": {
+      "nombre": "XII Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-06-21",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-06-23",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2016-06-19",
+        "comoAlternativa": false
+      }
+    },
+    "to-13": {
+      "nombre": "XIII Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-06-28",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-06-30",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2022-06-26",
+        "comoAlternativa": false
+      }
+    },
+    "to-14": {
+      "nombre": "XIV Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-07-05",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-07-07",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-07-06",
+        "comoAlternativa": false
+      }
+    },
+    "to-15": {
+      "nombre": "XV Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-07-12",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-07-14",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-07-13",
+        "comoAlternativa": false
+      }
+    },
+    "to-16": {
+      "nombre": "XVI Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-07-19",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-07-21",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-07-20",
+        "comoAlternativa": false
+      }
+    },
+    "to-17": {
+      "nombre": "XVII Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-07-26",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-07-28",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-07-27",
+        "comoAlternativa": false
+      }
+    },
+    "to-18": {
+      "nombre": "XVIII Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-08-02",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-08-04",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-08-03",
+        "comoAlternativa": false
+      }
+    },
+    "to-19": {
+      "nombre": "XIX Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-08-09",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-08-11",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-08-10",
+        "comoAlternativa": false
+      }
+    },
+    "to-20": {
+      "nombre": "XX Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-08-16",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-08-18",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-08-17",
+        "comoAlternativa": false
+      }
+    },
+    "to-21": {
+      "nombre": "XXI Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-08-23",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-08-25",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-08-24",
+        "comoAlternativa": false
+      }
+    },
+    "to-22": {
+      "nombre": "XXII Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-08-30",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-09-01",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-08-31",
+        "comoAlternativa": false
+      }
+    },
+    "to-23": {
+      "nombre": "XXIII Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-09-06",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-09-08",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-09-07",
+        "comoAlternativa": false
+      }
+    },
+    "to-24": {
+      "nombre": "XXIV Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-09-13",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-09-15",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2022-09-11",
+        "comoAlternativa": false
+      }
+    },
+    "to-25": {
+      "nombre": "XXV Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-09-20",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-09-22",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-09-21",
+        "comoAlternativa": false
+      }
+    },
+    "to-26": {
+      "nombre": "XXVI Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-09-27",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-09-29",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-09-28",
+        "comoAlternativa": false
+      }
+    },
+    "to-27": {
+      "nombre": "XXVII Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-10-04",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-10-06",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-10-05",
+        "comoAlternativa": false
+      }
+    },
+    "to-28": {
+      "nombre": "XXVIII Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-10-11",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-10-13",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-10-12",
+        "comoAlternativa": false
+      }
+    },
+    "to-29": {
+      "nombre": "XXIX Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-10-18",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-10-20",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-10-19",
+        "comoAlternativa": false
+      }
+    },
+    "to-30": {
+      "nombre": "XXX Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-10-25",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-10-27",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-10-26",
+        "comoAlternativa": false
+      }
+    },
+    "to-31": {
+      "nombre": "XXXI Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2023-11-05",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-11-03",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2022-10-30",
+        "comoAlternativa": false
+      }
+    },
+    "to-32": {
+      "nombre": "XXXII Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-11-08",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-11-10",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2022-11-06",
+        "comoAlternativa": false
+      }
+    },
+    "to-33": {
+      "nombre": "XXXIII Domingo del Tiempo Ordinario",
+      "A": {
+        "fecha": "2026-11-15",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-11-17",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-11-16",
+        "comoAlternativa": false
+      }
+    },
+    "to-34": {
+      "nombre": "XXXIV Domingo del Tiempo Ordinario: Jesucristo, Rey del Universo",
+      "A": {
+        "fecha": "2026-11-22",
+        "comoAlternativa": false
+      },
+      "B": {
+        "fecha": "2024-11-24",
+        "comoAlternativa": false
+      },
+      "C": {
+        "fecha": "2025-11-23",
+        "comoAlternativa": false
+      }
+    }
+  },
+  "paginas": {
+    "2016-06-05": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2016-06-05",
+      "descargado": "2026-10-31T17:16:09.375Z",
+      "bytes": 20810,
+      "sha256": "e3ba659a472534fc1c04f25f0cb1fc0d48f5d294c20ff51cf6b07c720444b17c",
+      "encabezado": [
+        "Décimo domingo del tiempo ordinario",
+        "Salterio II",
+        "Color: verde",
+        "RITOS INICIALES",
+        "(Ver Ordinario de la Misa)"
+      ]
+    },
+    "2016-06-12": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2016-06-12",
+      "descargado": "2026-10-31T17:16:10.652Z",
+      "bytes": 21495,
+      "sha256": "5a8599586033849864c1944310ee00966efa4d08baf6a3fbdfffa89852e967ba",
+      "encabezado": [
+        "Undécimo domingo del tiempo ordinario",
+        "Salterio III",
+        "Color: verde"
+      ]
+    },
+    "2016-06-19": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2016-06-19",
+      "descargado": "2026-10-31T17:16:11.950Z",
+      "bytes": 18887,
+      "sha256": "7b34acaac10127689c29aeae272f36a26aac7989f7ce396a405ea67512e3b47a",
+      "encabezado": [
+        "Duodécimo domingo del tiempo ordinario",
+        "Salterio IV",
+        "Color: verde",
+        "RITOS INICIALES",
+        "(Ver Ordinario de la Misa)"
+      ]
+    },
+    "2017-02-26": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2017-02-26",
+      "descargado": "2026-10-31T17:16:13.164Z",
+      "bytes": 18778,
+      "sha256": "9384074eca8252c91983af5b5c808796d42160d18fc745d343b5c53fe817d95e",
+      "encabezado": [
+        "Salterio IV",
+        "Color: verde"
+      ]
+    },
+    "2022-01-30": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2022-01-30",
+      "descargado": "2026-10-31T17:21:12.571Z",
+      "bytes": 19837,
+      "sha256": "e5e1cee6bab1da7b26dce8df09c70ccd005925af74ea6478ef905b37704e0b45",
+      "encabezado": [
+        "Domingo cuarto del tiempo ordinario",
+        "Salterio IV",
+        "Color: verde"
+      ]
+    },
+    "2022-06-26": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2022-06-26",
+      "descargado": "2026-10-31T17:21:13.821Z",
+      "bytes": 19632,
+      "sha256": "49e074eebcd30848e09803af97e8263c953e8b2907e739592ca0cde0eb2ea987",
+      "encabezado": [
+        "Domingo decimotercero del tiempo ordinario",
+        "Salterio I",
+        "Color: verde"
+      ]
+    },
+    "2022-09-11": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2022-09-11",
+      "descargado": "2026-10-31T17:21:15.067Z",
+      "bytes": 25151,
+      "sha256": "7a1346224b5a795683d8c3f89c3dd9828b3080b63a9102a67e84cef9846f9556",
+      "encabezado": [
+        "Domingo vigesimocuarto del tiempo ordinario",
+        "Salterio IV",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "El amor de Dios hacia los hombres es un amor gratuito, y nosotros no podemos pretender tener derecho sobre ese amor. El amor de Dios sobre los hombres es tan absoluto, que nunca podríamos decir que nos va a faltar.",
+        "Liberado por Dios de la esclavitud en Egipto, Israel ha pecado construyéndose una imagen divina prohibida. Merecería, por esta traición, ser castigado. Pero el Señor perdona, por intercesión de Moisés."
+      ]
+    },
+    "2022-10-30": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2022-10-30",
+      "descargado": "2026-10-31T17:21:16.324Z",
+      "bytes": 20624,
+      "sha256": "1622e190c6b7e06397b8ffdacd16de6aaf89c31f7453d180cef8a77661f0b6b5",
+      "encabezado": [
+        "Domingo trigesimoprimero del tiempo ordinario",
+        "Salterio III",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "La primera lectura describe el amor de Dios por sus creaturas, y en el Evangelio Jesús cumple con las palabras proféticas de la sabiduría, comunica el amor gratuito de Dios al pecador Zaqueo, y éste se convierte, abre el corazón y las manos. El gesto de Zaqueo, que restituye el cuádruple a todos aquellos que había defraudado y da la mitad de sus bienes a los pobres, nace de una conversión interior, de un cambio de ruta que acontece en el encuentro con Jesús.",
+        "Encontrando el amor, descubriendo el ser amado uno llega a ser capaz de encontrarse con los otros, y se comienza a mirar con ojos distintos, no más como sujetos de los cuales gozarse, sino personas a las cuales hay que amar. Cristo, que es huésped de Zaqueo, ilumina este cambio, y lo interpreta en el sentido de la gracia y de la liberación: “Hoy, la salvación, ha entrado en esta casa”. Cristo es, verdaderamente, el evangelizador de todos: pobres y ricos. Pero su preferencia está con los pobres y los últimos: “He sido enviado para anunciar a los pobres un alegre mensaje”."
+      ]
+    },
+    "2022-11-06": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2022-11-06",
+      "descargado": "2026-10-31T17:21:17.522Z",
+      "bytes": 21983,
+      "sha256": "08580a0ea66a599d83138e3b5e066b8afa24c4d03b5ebac25aa95431c8e7676e",
+      "encabezado": [
+        "Domingo trigesimosegundo del tiempo ordinario",
+        "Salterio IV",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "El evangelio de este domingo contiene una importante pregunta sobre la resurrección y la vida. Los cristianos tenemos la certeza de que el Señor se encarga de la vida eterna, pero nos deja a nosotros la tarea de encargarnos de la vida antes de la muerte. Por eso no podemos mirar tranquilos el “más allá” sin hacernos cargo del “más acá”.",
+        "El hombre siempre ha debido enfrentarse al enigma de la muerte. En Cristo esta interrogante ha sido aclarada. Esto no significa que lo comprendamos todo, pero sí que tenemos la certeza de que la muerte ha sido vencida, y lo que Dios nos ofrece es la vida. Este es el punto de partida de nuestra fe cristiana."
+      ]
+    },
+    "2023-02-19": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2023-02-19",
+      "descargado": "2026-10-31T17:16:15.695Z",
+      "bytes": 19486,
+      "sha256": "b672c26afa7c8985eb7d78ecd0262048df265561aaff80094126c72f1bccb18a",
+      "encabezado": [
+        "Domingo séptimo del tiempo ordinario",
+        "Salterio III",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "El mandamiento del amor de Nuestro Señor Jesucristo, no conoce restricciones, ni excepciones. El mandamiento del amor es universal y se dirige a todos los hombres.",
+        "El amor al prójimo al cual estamos llamados, tiene una medida y es la medida del amor que Cristo tiene por nosotros. Estamos invitados a amar por el amor de Dios, por los mismos motivos del Señor; es decir, de manera desinteresada, con amor purísimo, sin sombra de compensación. Amarnos como hermanos, con un amor que busca el bien de quien se ama y no el propio bien. Amar como Dios, que no busca el bien en la persona que ama, sino que crea el bien en ella, amándola. Cristo en su mandamiento del amor eleva el amor al prójimo al mismo nivel del amor a Dios."
+      ]
+    },
+    "2023-11-05": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2023-11-05",
+      "descargado": "2026-10-31T17:21:18.760Z",
+      "bytes": 19752,
+      "sha256": "976a83f4f01d46cf95c4b6e69aae5b113c01d63f5cf154775c835cd4bb50dd7a",
+      "encabezado": [
+        "Domingo trigésimo primer del tiempo ordinario",
+        "Salterio III",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "Dios llama severamente la atención a los sacerdotes que han sido infieles a su misión y han dado escándalo a sus hermanos, traicionando la misión que se les ha encomendado. Ellos han violado la alianza con Dios y han interpretado la ley según sus propios intereses, haciéndose despreciables.",
+        "El Señor Jesucristo deplora la hipocresía de los guías espirituales del pueblo de Israel que no dan ejemplo de coherencia entre aquello que enseñan y lo que hacen. Hacen ostentación de una piedad que no es auténtica y sólo se preocupan de ser respetados y honrados. Nuestro Señor prohíbe a sus discípulos atribuirse honores que solamente corresponden a Dios, nuestro Padre, y a Jesucristo, único maestro de todos. El Señor no se queda en las palabras y se preocupa de formar el espíritu. Lo que importa es que los discípulos estén claramente convencidos de ejercitar su misión en total dependencia de Dios y de Cristo, como humildes servidores de sus hermanos. La tarea que el Señor les encomienda, se realiza en el nombre y por mandato de Jesucristo. El más grande honor, el más alto cargo entre nosotros, es el de ser humildes servidores de nuestros hermanos."
+      ]
+    },
+    "2023-12-10": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2023-12-10",
+      "descargado": "2026-10-31T17:16:16.939Z",
+      "bytes": 20122,
+      "sha256": "ed45bf328851bd7658d06cb0854b12dbfbae92defc7d5256c7a8b887c5514377",
+      "encabezado": [
+        "Domingo segundo de Adviento",
+        "Salterio II",
+        "Color: morado",
+        "INTRODUCCIÓN",
+        "Jerusalén, que en la tradición cristiana, es la imagen de la Iglesia, es invitada por el profeta a alegrarse en el acoger la luz y la gloria de Dios, que obra paz, misericordia y justicia en medio de su pueblo. Para tener un corazón en fiesta, es necesario cubrirse con el manto de la justicia de Dios.",
+        "Juan anuncia que hay que prepararle un camino al Señor. La necesidad de la conversión es urgente, porque el Señor está a la puerta. Las quebradas de nuestro corazón deben ser emparejadas para que transite por él Aquel que viene. Lo que está torcido en nuestra vida tiene que ser enderezado, para que conozcamos la salvación que se manifiesta en Jesucristo."
+      ]
+    },
+    "2023-12-17": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2023-12-17",
+      "descargado": "2026-10-31T17:16:18.225Z",
+      "bytes": 19952,
+      "sha256": "a8b4de8e620c5497466a20946d4f1d894d4ea1313ffa9ec56223d7bc56b7959b",
+      "encabezado": [
+        "Domingo tercero de Adviento",
+        "Salterio III",
+        "Color: morado",
+        "INTRODUCCIÓN",
+        "Juan, el Bautista, que prepara a la gente a reconocer a Cristo, exige las pruebas de una verdadera conversión y ellas son las obras de justicia y de amor. No está en grado de acoger a Dios aquel que cierra el corazón y se atrinchera en su propio egoísmo, ignorando a todos aquellos que están a su alrededor. El niño de Belén, Jesús el Señor, es nuestro salvador y también nuestro Juez, es el Juez del Amor que espera de nosotros un testimonio de fe y de fidelidad a su Mensaje. Es en ese Señor en cual san Pablo nos invita a andar alegres. Ya viene el Señor, tiene la horqueta en su mano, ya viene el que bautizará en el Espíritu Santo. El cristiano sabiendo que ha recibido en Cristo todos los dones de Dios, no tiene motivo para dejarse vencer por la tristeza, incluso cuando la adversidad pareciera autorizar la desesperanza. Nuestra fuerza es la oración, es la certeza de la comunión con Dios que tiene que inundar nuestras almas. Es la paz que viene del Señor que nos hace capaces de resistir todo tipo de asalto y todo tipo de mal."
+      ]
+    },
+    "2023-12-24": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2023-12-24",
+      "descargado": "2026-10-31T17:21:29.137Z",
+      "bytes": 21448,
+      "sha256": "f9194913080c8cf1549ecbdb386ce83f6a14343df991459742e31a40d0400509",
+      "encabezado": [
+        "Domingo cuarto de Adviento",
+        "Salterio IV",
+        "Color: morado",
+        "INTRODUCCIÓN",
+        "David manifestó al profeta Natán el propósito de construir un templo digno de Dios. Dios lo rechazó y le hace al rey una impredecible promesa. Será Él, el Señor, quien construirá a David una casa, asegurándole la gloria y el honor de un descendiente al cual le será destinado un trono eterno. La promesa se cumplirá cuando el Ángel Gabriel anuncia a la Virgen María el nacimiento de Jesús, cuyo reino no tendrá fin, porque no será un reino humano ni terreno. Cristo fundará el reino de Dios, el Reino de la gracia para la humanidad de todos los siglos que obedeciendo a la fe encontrará salvación.",
+        "La Virgen María, que acoge el mensaje del Ángel con fe y abandono total al Señor, es el modelo de la Iglesia que acoge, celebra y vive los divinos misterios conformándose en todo a la voluntad de su Señor. La celebración de la Eucaristía, misterio de fe, nos debe encontrar dispuestos a acoger el Cuerpo de Cristo, alimento de vida eterna y los beneficios espirituales de la inmolación de Jesús sobre el Calvario. No se puede ser solamente espectadores pasivos de Belén y el Calvario."
+      ]
+    },
+    "2023-12-25": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2023-12-25",
+      "descargado": "2026-10-31T17:16:20.716Z",
+      "bytes": 48169,
+      "sha256": "81e4d18a30f291e620ec3aed5a69e110e3c633fc5fd9c0ce9a8fcad36e027482",
+      "encabezado": [
+        "Natividad del Señor",
+        "Solemnidad",
+        "Color: blanco",
+        "TIEMPO DE NAVIDAD",
+        "La solemnidad del nacimiento de Jesús es la celebración cristiana más difundida en el mundo. Después de la Pascua, es la segunda fiesta más importante del año litúrgico. Su origen está en el siglo IV, cuando en Roma se comenzó a celebrar el 25 de diciembre, día de la fiesta civil del Sol invicto, que evocaba la victoria del sol sobre las tinieblas en la fecha del solsticio de invierno. Para los cristianos, Cristo es la verdadera luz del mundo. Condición necesaria para la muerte y la resurrección, la Navidad celebra el nacimiento de Jesús, y con ello la encarnación de Dios. Para redimir al hombre, Dios asumió históricamente la naturaleza humana, que se transformó así en un signo de la redención. En el arco temporal que va del pesebre a la cruz se encierra toda la vida y obra de Jesucristo, el Mesías Hijo de Dios. Su nacimiento es anuncio de paz, causa de alegría y fiesta de la gloria de Dios.",
+        "Hay cuatro misas de Navidad: de la vigilia, de la noche, de la aurora y del día. En todas ellas, el signo del pesebre ayuda a celebrar con mayor sentido la fiesta. La adoración del niño es un hermoso gesto natalicio."
+      ]
+    },
+    "2023-12-31": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2023-12-31",
+      "descargado": "2026-10-31T17:16:21.961Z",
+      "bytes": 23693,
+      "sha256": "d866c2e2c11cc08df2e00544b2ca8315ecbaa1573416ce9bc5e5c39e811f98d1",
+      "encabezado": [
+        "La Sagrada Familia de Jesús, María y José",
+        "Fiesta",
+        "Color: blanco",
+        "INTRODUCCION",
+        "En la familia no todo es idilio, paz y serenidad. Ella pasa muchas veces por el sufrimiento, por las dificultades, por las crisis del trabajo, las inmigraciones. En la Sagrada Familia, como en toda familia, existen alegrías y sufrimientos. La liturgia, al proponernos las dos primeras lecturas, manifiesta la intención de la Iglesia de proponer la Sagrada familia como modelo de la vida cristiana. La primera lectura nos recuerda honrar al padre y a la madre, según la voluntad del Señor.",
+        "A la Sagrada Familia no le fue extraño el sufrimiento. La persecución de Herodes la lleva, en el alba de la vida de Jesús, a tener que enfrentar riesgos, que no dañaron la fe de María y de José y de su obediencia a la voluntad del Señor. Voluntad del Señor que los protege y los guía. Obedeciendo la voluntad de Dios, la Sagrada familia se salvó. El secreto de la cohesión y de la prosperidad de la familia cristiana es una fe intrépida, una esperanza lúcida, una amorosa y sufrida fidelidad a la voluntad que el Señor ha expresado en sus mandamientos."
+      ]
+    },
+    "2024-01-01": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-01-01",
+      "descargado": "2026-10-31T17:16:23.174Z",
+      "bytes": 19577,
+      "sha256": "4779823578ffff9c6b1274d075249484e6f114957ac7e088cf4063d5be1d3675",
+      "encabezado": [
+        "Octava de la Navidad del Señor",
+        "Solemnidad de Santa María, Madre de Dios",
+        "Color: blanco",
+        "Al definir el dogma de la Maternidad divina de María (“Theotokos”), el Concilio de Éfeso (431) afirma la participación de María en el hecho central de la historia de la salvación: la Encarnación del Hijo de Dios en la carne de María.",
+        "La liturgia, desde 1931, celebra ese hecho en la Fiesta de Santa María, Madre de Dios, y nos invita a tomar conciencia de la realidad de la Encarnación de Cristo: su carne fue formada en el seno de una mujer.",
+        "Al ubicar esta fiesta el primer día del año civil, la Iglesia recalca que el Hijo de Dios, encarnado en María, asume el tiempo, recapitula toda la historia humana y le trae la paz y la reconciliación."
+      ]
+    },
+    "2024-01-07": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-01-07",
+      "descargado": "2026-10-31T17:16:24.417Z",
+      "bytes": 22401,
+      "sha256": "24f55a474f2368e1ee691d7b6f8c7388ddc8b50f6e9ff6b6e137771cd04353f1",
+      "encabezado": [
+        "Epifanía del Señor",
+        "Solemnidad",
+        "Salterio I",
+        "Color: blanco",
+        "INTRODUCCIÓN",
+        "Israel fue el encargado de realizar la misión de reunir a todos los pueblos en la descendencia de Abraham, y realizar, de esta manera, la promesa de la universalidad. Israel creyó erróneamente, en hacer esta unidad a partir de un cierto número de prácticas particulares: la ley, el sábado, la circuncisión. Pero sólo la fe de Abraham era la capaz de reunir a todas las naciones. Y los hebreos no supieron desvincular la fe de Abraham de sus prácticas legales."
+      ]
+    },
+    "2024-01-08": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-01-08",
+      "descargado": "2026-10-31T17:16:25.691Z",
+      "bytes": 23074,
+      "sha256": "8356417ebfc76fb3f6e5a75702767ca209ba1b815465e351c41805478eabdebc",
+      "encabezado": [
+        "Lunes de la primera semana del tiempo ordinario",
+        "El Bautismo del Señor",
+        "Fiesta",
+        "Color: blanco",
+        "En las orillas del río Jordán, Juan el Bautista predica la conversión de los pecados para poder acoger el reino de Dios que ya está cerca. Jesús baja con la multitud al agua para hacerse bautizar. El bautismo para los judíos era un rito penitencial, en el cual confesaban sus propios pecados. Pero el bautismo que Jesús recibe no es solamente un bautismo de penitencia. La manifestación del Padre y del Espíritu Santo le dan a este bautismo un significado preciso. Jesús es proclamado “Hijo amado”, y sobre él se posa el Espíritu que lo invisten de la misión del profeta, anuncio del mensaje de la salvación; del sacerdote, único sacrificio aceptado por el Padre; de rey, Mesías esperado como salvador.",
+        "Jesús no toma distancia de una humanidad pecadora, es un hombre entre los hombres, que se ha encarnado en una humanidad pecadora, pero Él no es pecador. Jesús en las aguas del Jordán no confiesa sus pecados porque no los tiene. Él es sin pecado. Él confiesa por cada uno de nosotros."
+      ]
+    },
+    "2024-01-14": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-01-14",
+      "descargado": "2026-10-31T17:16:26.933Z",
+      "bytes": 21703,
+      "sha256": "4f9774a5b8e504422c651ded94fa28de12a2398cacb3a6497328ee79592dfa50",
+      "encabezado": [
+        "Domingo segundo del tiempo ordinario",
+        "Salterio II",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "La primera lectura, del profeta Samuel tiene un claro sentido cristológico, es decir, el niño Samuel es una figura de Jesús, el profeta enviado a las naciones, la Luz de las naciones. Jesús es el Profeta que Dios nos ha enviado. El joven Samuel aprende muy pronto a escuchar la voz de Dios: “habla, Señor, que tu siervo escucha”. Una actitud admirable que el joven Samuel aprende del sacerdote Elí. Posteriormente Samuel hablará a los demás. Pero antes tuvo que aprender a escuchar. En nuestros tiempos cuesta mucho trabajo escuchar, hay demasiados ruidos, señales, frecuencias que no nos dejan escuchar el “suave murmullo de Dios”, por lo tanto, es necesario aprender a escuchar. Debemos es vivir con un espíritu vigilante para descubrir su voz susurrante.",
+        "No olvidemos que Dios siempre nos habla y de muchas maneras, siempre al modo humano, aprovechando los acontecimientos de la vida, las realidades que nos rodean. Domingo a domingo, estamos invitados a la Mesa de la Palabra. Mesa en que se nos comunica la Palabra de Dios, más aún, él mismo se nos da como Palabra viviente que es. Buena ocasión para revisar nuestra actitud de fe ante la Palabra de Dios: escuchar con atención, para que nos encontremos con el Dios que habla en Cristo Jesús; dejarnos interpelar por su Palabra, responderle con decisión y llevar a la práctica, durante la semana, su mensaje."
+      ]
+    },
+    "2024-01-21": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-01-21",
+      "descargado": "2026-10-31T17:16:28.179Z",
+      "bytes": 19681,
+      "sha256": "f0039ad99e295cca0b03f24564899731bd99479ce88401b9f09905c53c545cce",
+      "encabezado": [
+        "Domingo tercero del tiempo ordinario",
+        "Salterio III",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "Hoy comenzamos a escuchar al evangelio de este año: San Marcos y lo primero que nos dice el Maestro enviado por Dios es: “está cerca el Reino de Dios: conviértanse y crean la Buena Noticia”. Hay que convertirse, es decir, volverse a Dios, que continuamente nos llama y que espera de nuestra respuesta. Volvernos a Dios y abrirnos hacia él, programar nuestra vida conforme a su programa.",
+        "La primera lectura de hoy domingo, nos va preparando para esta actitud de aceptación del plan de Dios: Jonás exhorta a los habitantes de Nínive a la conversión; le escuchan, le hacen caso, desde el Rey hasta el último súbdito, y el pueblo se salva. Dios les perdona."
+      ]
+    },
+    "2024-01-28": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-01-28",
+      "descargado": "2026-10-31T17:16:29.388Z",
+      "bytes": 20548,
+      "sha256": "3a33b9008f274880dfd31d245dcc91e8c3b8b83a3585d4e48babddabfb681146",
+      "encabezado": [
+        "Domingo cuarto del tiempo ordinario",
+        "Salterio IV",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "La primera lectura nos anuncia la venida de un Profeta que hablará de parte de Dios: “pondré mis palabras en su boca”. Eso es ser Profeta: el que habla de parte de Dios, que da a conocer los deseos de Dios a sus contemporáneos, y lo hace con autoridad: “a quien no escuche las palabras que pronuncie en mi nombre, yo le pediré cuentas”, dice el Señor.",
+        "En el Evangelio de hoy, Jesús, el Mesías enviado por Dios, habla con autoridad, y no solo con palabras, sino con hechos prodigiosos, ante el asombro de todos. Es la actuación salvadora de Dios: Jesús es el Maestro, el Profeta, el Salvador y Liberador. Debemos asumir nuestro propio papel de ser profetas, en nuestro tiempo, en nuestro medio, ya que un seguidor de Cristo no se debe de conformar con transmitir palabras, sino que debe también comprometerse con obras de salvación y con la liberación integral de las personas. Debemos predicar la Buena Nueva y preocuparnos de la promoción humana, ambas cosas; debe de existir un equilibrio entre ambas."
+      ]
+    },
+    "2024-02-04": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-02-04",
+      "descargado": "2026-10-31T17:16:30.636Z",
+      "bytes": 19255,
+      "sha256": "0a23d532f62db15b45392ae7faaf0e3e194e5c997bc7ee53d786c4646d60e124",
+      "encabezado": [
+        "Domingo quinto del tiempo ordinario",
+        "Salterio I",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "Job era un hombre sabio y justo que sufre en el alma y el cuerpo por las desgracias que se le habían venido encima. Un amigo consideraba que esas desgracias eran el castigo por los pecados de Job. Job reflexiona sobre la condición humana, llena de desilusiones y sufrimientos, encontrando el consuelo en su total confianza en Dios.",
+        "El Evangelio nos presenta a Jesús que en Cafarnaúm realiza varios milagros. Pone su omnipotencia al servicio del dolor humano. Estos milagros no solamente son el signo elocuente de la venida del reino de Dios a la tierra. La llegada de la gracia de Dios da un nuevo significado y valor al sufrimiento humano. A los apóstoles Jesús les recuerda que Él ha venido a la tierra sobre todo para anunciar la Palabra de Dios que ilumina la tierra y el universo interior del hombre. La predicación del Evangelio es el más importante de todos los milagros, porque es necesario para todos y sana las enfermedades del alma. Pablo proclama toda su pasión apostólica en ser fiel a la misión recibida de Jesucristo, que es predicar el Evangelio y hacerse siervo de todos. Compartir las necesidades y los sufrimientos de los otros no debe hacer olvidar a los creyentes que toda acción cristiana es la prolongación de la misión de Cristo."
+      ]
+    },
+    "2024-02-11": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-02-11",
+      "descargado": "2026-10-31T17:16:31.842Z",
+      "bytes": 18136,
+      "sha256": "97eadf24e69e425658619e468c727ac77139ca0decf87da8565ff6ca5e810580",
+      "encabezado": [
+        "Domingo sexto del tiempo ordinario",
+        "Salterio II",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "La lepra era considerada en el Antiguo Testamento un castigo de Dios y el leproso considerado impuro, era apartado de todo contacto social, y por supuesto, también de la asamblea religiosa. Jesús se acerca al leproso, lo sana y lo compromete a observar la Ley cumpliendo con el precepto de presentarse ante el templo. Esta actitud de Cristo nos llama a vivir en la misericordia, a acercarnos al hermano que sufre, al que es marginado por su condición. El Señor Jesús nos llama a vivir una caridad auténtica y, muchas veces, la medicina más eficaz es la mano extendida en signo de acogida y comprensión. El Señor nos",
+        "llama a estar atentos al sufrimiento del prójimo."
+      ]
+    },
+    "2024-02-14": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-02-14",
+      "descargado": "2026-10-31T17:16:33.050Z",
+      "bytes": 18442,
+      "sha256": "d2fefd953955de5b1bc742b96eebecc942b490b6dc0471bf4513614a321bfe1d",
+      "encabezado": [
+        "Miércoles de Ceniza",
+        "Color: morado"
+      ]
+    },
+    "2024-02-18": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-02-18",
+      "descargado": "2026-10-31T17:16:34.282Z",
+      "bytes": 20672,
+      "sha256": "e9d6fb80fdb197802d2337b26b643fe7706bec25f839d0f32f908ab5ea24dda8",
+      "encabezado": [
+        "Domingo primero de Cuaresma",
+        "Salterio I",
+        "Color: morado",
+        "INTRODUCCIÓN",
+        "La Cuaresma es el espacio pastoral ideal para una catequesis bautismal: del sepulcro de piedra resurge el Cristo Glorioso, del sepulcro de agua renace el hombre nuevo (Cfr. Rom 6).",
+        "La eficaz recreación obrada por la gracia no es mágica pero tampoco cae en un terreno neutro. El destinatario de ella es el hombre libre que debe entablar un diálogo con su Dios. A la palabra bautismal de Dios el hombre debe responder con la palabra viva de su conversión: ‘Conviértanse y crean en el Evangelio’. La conversión nos permite liberar nuestra tensión hacia Dios, es la explosión gozosa de nuestro deseo de Dios, de la nostalgia y del abandono en él, es transformación de la vida y del corazón. Pero esta conversión a Dios para ser auténtica exige también la conversión al prójimo, al hombre oprimido, débil y pobre. Conversión significa un radical cambio de sí mismo para adquirir la dimensión de la vida de Cristo."
+      ]
+    },
+    "2024-02-25": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-02-25",
+      "descargado": "2026-10-31T17:16:35.490Z",
+      "bytes": 21376,
+      "sha256": "5e0da11feaef49cfd6a48f70eca2f57aac8985b00c98b2bf6c9121528731ebe7",
+      "encabezado": [
+        "Domingo segundo de Cuaresma",
+        "Salterio II",
+        "Color: morado",
+        "INTRODUCCIÓN",
+        "La ‘agonía’ de Abraham, la ‘agonía’ de Isaac, la ‘agonía’ de Cristo, la ‘agonía’ de cada creyente es la experiencia primera y más común de la fe. La crisis de la Pasión, la soledad de los hombres, el escándalo de la Cruz, son datos constantes de la vida de creyentes. La dinámica de la fe comprende el silencio y la prueba para llegar a la luz.",
+        "Al final, sin embargo, brilla la Pascua - Transfiguración. Jesús sobre la Cruz pronuncia el Salmo 22, oración, por una parte, de desolación, pero por otra, oración que desemboca en un final de gozo y de paz. El grano enterrado en la tierra, muere, pero da fruto. La Pascua nace del terreno de la Pasión, pero es rescatada de la misma Pasión y muerte."
+      ]
+    },
+    "2024-03-03": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-03-03",
+      "descargado": "2026-10-31T17:16:36.727Z",
+      "bytes": 22701,
+      "sha256": "e37bb5dda2e51fcb765cb3810535d3b6bbcff5e719e9aafb4a140937affaa576",
+      "encabezado": [
+        "Domingo tercero de Cuaresma",
+        "Salterio III",
+        "Color: morado",
+        "INTRODUCCIÓN",
+        "‘Sed perfectos como vuestro Padre celestial es perfecto’ (Mt. 5, 48); la Cuaresma es la verificación del propio trabajo espiritual no tanto sobre un modelo de santo, sino sobre Dios mismo. El cristiano tiene, por tanto, un ideal infinito y es por esto que no debe jamás considerar la religión como algo que se paga con un gesto de caridad o con un acto litúrgico.",
+        "Al centro de la espiritualidad cristiana está, como nos recuerda san Pablo, el Cristo crucificado, nuestra sabiduría y fuerza. La autenticidad de la Cuaresma debe comprobarse sobre el Evangelio, como un test ineludible."
+      ]
+    },
+    "2024-03-10": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-03-10",
+      "descargado": "2026-10-31T17:16:38.036Z",
+      "bytes": 22171,
+      "sha256": "be83e844da3c00b332f56a5effedae7731b2697f2e49c406445ddae3e221b8f7",
+      "encabezado": [
+        "Domingo cuarto de Cuaresma",
+        "Salterio IV",
+        "Color: morado",
+        "INTRODUCCIÓN",
+        "En el largo camino de la historia de salvación, el pueblo de Dios tiene duras pero saludables experiencias. El Señor permite que Israel por su infidelidad pierda su tierra y vea destruido el Templo de Jerusalén. Y más aún, tenga que experimentar el exilio. La misericordia de Dios hará que este pueblo vuelva a su tierra haciendo renacer una alegre esperanza.",
+        "También con nosotros que somos el nuevo pueblo de Dios, el Señor se muestra rico en misericordia liberándonos de la muerte del pecado y haciéndonos revivir en la gracia de Cristo Salvador, pero Él exige de nosotros una respuesta de amor, llena de buenas obras que adquieren un valor eterno en nuestra comunión con Él. El Señor Jesús le había mostrado a Nicodemo la necesidad del bautismo que es el nuevo nacimiento del agua y del espíritu, y de esa manera se puede experimentar los efectos de la Redención. Solamente en Cristo en cuyo nombre somos bautizados, es posible encontrar la salvación. Unidos a la muerte del Señor morimos al pecado y unidos a su gloria conseguimos la vida eterna. El pueblo elegido había sido castigado por sus pecados con una invasión de serpientes venenosas. Se salvaban mirando con fe y arrepentimiento una serpiente de bronce que Dios había hecho erigir a Moisés. El Señor no se alegra por la muerte de los vivientes, somos nosotros los que elegimos libremente el pecado. Estamos invitados a levantar nuestras cabezas y encontrar en el crucificado el perdón por nuestros pecados. Mirando a Cristo en la cruz con arrepentimiento, con fe, obtendremos la salvación que anhelamos. De esa Cruz pende la salvación del mundo."
+      ]
+    },
+    "2024-03-17": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-03-17",
+      "descargado": "2026-10-31T17:16:39.345Z",
+      "bytes": 21041,
+      "sha256": "1129b85eead19acb6ba5348a92bcdcde7d3bb3b39bd2d869615846be6fe95476",
+      "encabezado": [
+        "Domingo quinto de Cuaresma",
+        "Salterio I",
+        "Color: morado",
+        "INTRODUCCIÓN",
+        "El Profeta Jeremías anunció que después de haber realizado diferentes alianzas con su pueblo, Dios nos ofrecerá una nueva, en la cual Él se dará a conocer en íntima comunión con el hombre. La profecía se cumplirá en Cristo que sellará la nueva y definitiva alianza y lo hará con su sangre redentora. Cristo es la nueva Alianza. Con Él, es Dios definitivamente nuestro Dios y nosotros su pueblo. Como en la Alianza antigua, también aquí hay un sacrificio que la sella y la confirma: el de Cristo mismo. Era necesario que Cristo muriera, como el grano de trigo, para que nosotros tuviésemos vida. Juan y el autor de la carta a los Hebreos, nos describen la oración del Huerto. La angustia queda superada en ella con la decisión de entregarse a la voluntad del Padre. Sólo cuando el hombre no se busca a sí mismo, es glorificado el Padre.",
+        "La muerte de Cristo fue su gloria, porque hace conocer al mundo el amor infinito y misericordioso del Padre Celeste. Reconocer a Cristo como Salvador, significa vivir en Él y para Él."
+      ]
+    },
+    "2024-03-24": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-03-24",
+      "descargado": "2026-10-31T17:16:40.598Z",
+      "bytes": 48128,
+      "sha256": "26ba82e5996fa18be9fd8063887c9fe694aae0fb4cf33e2e0983be3c7b66468d",
+      "encabezado": [
+        "Domingo de Ramos",
+        "Salterio II",
+        "Color: rojo",
+        "INTRODUCCIÓN",
+        "El profeta Isaías nos presenta al siervo de Dios que afronta terribles sufrimientos con plena confianza en Dios y por amor a sus hermanos pecadores. La profecía se cumple en Cristo, Siervo de Dios, que cumple la voluntad de salvación a costa de su propia vida. El Hijo de Dios, haciéndose hombre, se ha despojado de su gloria en la Pasión y en la muerte en Cruz. En premio de su obediencia el Padre lo exalta exigiendo que su Hijo hecho hombre sea por todos reconocido como único Salvador y mediador entre la humanidad pecadora y el Padre Celeste.",
+        "En este Domingo de Ramos, aclamemos al Señor que con su entrada a Jerusalén abre las puertas de la victoria para todos los que aman a Dios."
+      ]
+    },
+    "2024-03-25": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-03-25",
+      "descargado": "2026-10-31T17:16:41.798Z",
+      "bytes": 16351,
+      "sha256": "62dd600006d85d91f06402a86cff528f22066f0894b5cfaf40b60d9c452208b8",
+      "encabezado": [
+        "Lunes Santo",
+        "Color: morado"
+      ]
+    },
+    "2024-03-26": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-03-26",
+      "descargado": "2026-10-31T17:16:43.014Z",
+      "bytes": 18118,
+      "sha256": "8258bd7b376e3befd57ed5a6e736d69bb8d98c96e9541d7bb633d08f18b09b20",
+      "encabezado": [
+        "Martes Santo",
+        "Color: morado"
+      ]
+    },
+    "2024-03-27": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-03-27",
+      "descargado": "2026-10-31T17:16:44.241Z",
+      "bytes": 16776,
+      "sha256": "b1d03d5c5bceac7c222c4a826471015a1169434830992e52fada0f5e05b875e9",
+      "encabezado": [
+        "Miércoles Santo",
+        "Color: morado"
+      ]
+    },
+    "2024-03-28": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-03-28",
+      "descargado": "2026-10-31T17:16:45.486Z",
+      "bytes": 27885,
+      "sha256": "5e081b8e18a76c5f6462b98e651798bd71e08ed8c223ef61435f60a4044ce871",
+      "encabezado": [
+        "Jueves Santo",
+        "Color: morado"
+      ]
+    },
+    "2024-03-29": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-03-29",
+      "descargado": "2026-10-31T17:16:46.744Z",
+      "bytes": 58237,
+      "sha256": "1306f590ae419a4f22f9c80778ad08128ad16078084bc7dbc62a4ecc3ac11da4",
+      "encabezado": [
+        "Viernes Santo",
+        "Celebración de la Pasión del Señor",
+        "Color: rojo",
+        "El Viernes Santo concentra en la pasión de Cristo todos los pensamientos y la piedad de los fieles. Es un día de ayuno obligado para todos los adultos (excluyendo de ello a los ancianos y a los afectados por alguna enfermedad), y expresa los sentimientos de contrición y penitencia con los cuales se reviven las últimas trágicas horas de Cristo.",
+        "El profeta Isaías contempla con estupor y consternación la violencia hecha al inocente siervo de Dios que se ofrece para la expiación de los pecados de todos. La Segunda Lectura, refiriéndose al sacerdocio y a los sacrificios del antiguo pueblo de Dios, exalta a Cristo como sacerdote y único mediador de la reconciliación de sus hermanos con el Padre celeste, causa de salvación eterna para cuantos en Él creen y a Él obedecen.",
+        "La lectura de la Pasión, según san Juan, constituye el modo privilegiado de acceso al misterio Pascual, que en este día revivimos, sobre todo, como muerte del Señor."
+      ]
+    },
+    "2024-03-30": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-03-30",
+      "descargado": "2026-10-31T17:16:48.067Z",
+      "bytes": 49239,
+      "sha256": "9f6934152a73e2c5e75ba3d808a5038e81c9fe8c7e77cace3be12dad1b650628",
+      "encabezado": [
+        "Sábado Santo",
+        "VIGILIA PASCUAL EN LA NOCHE SANTA",
+        "Color. blanco",
+        "Bendición del fuego y preparación del cirio",
+        "Queridos hermanos:",
+        "En esta noche santa, en la que nuestro Señor Jesucristo pasó de la muerte a la Vida, la Iglesia invita a sus hijos diseminados por toda la tierra a que se reúnan y permanezcan en vela para orar."
+      ]
+    },
+    "2024-03-31": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-03-31",
+      "descargado": "2026-10-31T17:16:49.278Z",
+      "bytes": 25597,
+      "sha256": "bfc8f3313516786e1903fb38c0a6006c70007b550f4adbff3c458eafc20ebb5c",
+      "encabezado": [
+        "Domingo de Pascua de Resurrección",
+        "Salterio I",
+        "Color: blanco",
+        "INTRODUCCIÓN",
+        "La salvación aceptada por la fe es una de las causas más profundas de la alegría humana. La Pascua inaugura un tiempo de gozo. Jesucristo ha resucitado como primicia de la vida que nos espera a todos. Tenemos el futuro garantizado por Dios, por medio de una Alianza eterna.",
+        "En el testimonio de los Apóstoles encontramos sustancialmente el anuncio de la Resurrección del Señor, el cual se ha hecho hombre, ha muerto y resucitado de modo que quien crea en Él, tenga la vida eterna."
+      ]
+    },
+    "2024-04-01": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-04-01",
+      "descargado": "2026-10-31T17:16:50.509Z",
+      "bytes": 17487,
+      "sha256": "02c34fa9c44382774e6745dab8cf301238b11ed02f1c61a831ca42825c7fb6e7",
+      "encabezado": [
+        "Lunes de la octava de Pascua",
+        "Color: blanco"
+      ]
+    },
+    "2024-04-07": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-04-07",
+      "descargado": "2026-10-31T17:16:51.754Z",
+      "bytes": 22384,
+      "sha256": "8273c5313e13dcb2e7f15c9351baa75312e48dbf4c0e547aba2b9173b2dc0b2c",
+      "encabezado": [
+        "Domingo segundo de Pascua",
+        "Salterio II",
+        "Color: blanco",
+        "INTRODUCCIÓN",
+        "Cristo el resucitado, está entre nosotros. Acompaña con su poder la marcha de la historia. El Señor está presente en la comunidad de los creyentes, en la Palabra de Dios, en el servicio fraternal, en el Ministerio y la Eucaristía.",
+        "La unidad de corazón y de alma de la primera comunidad cristiana, encontró concreta expresión en la victoria sobre el egoísmo, en el amor fraterno que Cristo ha mandado a los suyos. Como escuchamos en los Hechos de los Apóstoles, la comunión de los bienes era una elección libre: estaban disponibles para practicar el bien."
+      ]
+    },
+    "2024-04-14": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-04-14",
+      "descargado": "2026-10-31T17:16:52.980Z",
+      "bytes": 20543,
+      "sha256": "c6198f49bd3450643beb35b296d759fe9b719d384f5713d4322bcc9e140aca6f",
+      "encabezado": [
+        "Domingo tercero de Pascua",
+        "Salterio III",
+        "Color: blanco",
+        "INTRODUCCIÓN",
+        "Jesús resucitado ha estrechado su solidaridad con todos los hombres, es el compañero de nuestro caminar. Está presente en el trabajo para construir el mundo según el plan de Dios, y en la misión de anunciar el evangelio. Las apariciones del Señor resucitado se distinguen marcadamente de las escenas de Jesús de Galilea, narrada en los evangelios. El ambiente realista, casi palpable, de éstas, contrasta con el carácter de sorpresa de si es o no es el Señor de llegada súbita y desaparición no puntualizada que ronda las escenas de Jesús resucitado. A ella se asemeja más la presencia de Cristo en nuestras vidas. Percibido en la fe, que -aún en la duda- avanza y es confortada. Esta fe debe, como la de Pedro en sus primeros discursos, ser manifestada con valentía y vivida con la sinceridad del que coordina su obrar con su querer. Los apóstoles serán los testigos del resucitado y lo anunciarán al mundo como el único salvador. El mensaje y los dones de la redención deben llegar a toda la gente dispuesta a aceptarlo con una sincera conversión. Solamente no se salva el que rechaza el ofrecimiento de perdón y de amor de Dios. Hoy también el Señor irrumpe en medio de nosotros y nos saluda deseándonos la paz. Hoy también nos abre el entendimiento y nos hace sus testigos en el mundo."
+      ]
+    },
+    "2024-04-21": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-04-21",
+      "descargado": "2026-10-31T17:16:54.274Z",
+      "bytes": 18916,
+      "sha256": "6a449a93727e4f1b9d70dff6a12869990eb8dca0d1d247e59efab8d082ef1670",
+      "encabezado": [
+        "Domingo cuarto de Pascua",
+        "Salterio IV",
+        "Color: blanco",
+        "INTRODUCCIÓN",
+        "La imagen que domina en esta celebración es la del Pastor, Jesús ha sido constituido pastor de la humanidad y de la Iglesia. Él, como Señor es la norma de todo camino de realización humana, como buen pastor ha dado la vida por los suyos. Él mismo sigue siendo la cabeza y el pastor de la Iglesia. El ministerio del Santo Padre, de los obispos, de los presbíteros es un sacramento que nos proclama que Cristo es hoy nuestro legítimo pastor. Cristo es el buen pastor, el único y verdadero pastor. Él solamente es digno de este nombre, porque libremente y por amor da su vida por su rebaño. El amor del Padre por el Hijo que se ofreció para inmolarse resplandece en la gloria de la resurrección del crucificado. El misterio pascual es la epopeya del amor divino y el creyente no puede dejar de orar y actuar para que esta sea por todos conocida, para que así Cristo sea el único pastor de la entera humanidad redimida en la gracia y en la alegría de una pascua sin fin."
+      ]
+    },
+    "2024-04-28": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-04-28",
+      "descargado": "2026-10-31T17:16:55.486Z",
+      "bytes": 20061,
+      "sha256": "e6c4841483401160e0afa33534d296f4f4e9963c3d19b0da2c2217600c37c9ec",
+      "encabezado": [
+        "Domingo quinto de Pascua",
+        "Salterio I",
+        "Color: blanco",
+        "INTRODUCCIÓN",
+        "La imagen de la vid y de los sarmientos ilumina la unión de los creyentes con Cristo. La savia de Cristo es Dios mismo. Entroncándonos a Él entramos en comunión con Dios. Cristo es el camino, gracias a Él tenemos la puerta abierta para vivir en Dios. De esa manera damos fruto abundante. Si el cristiano quiere amar, no de palabras, sino con obras, deberá permanecer en Cristo, verdadera vid. Pablo ofrece en su vida el mejor ejemplo: alcanzado por Cristo, es podado primero y trasformado en el sufrimiento de una profunda conversión para dar verdadero fruto y, desde entonces, pondrá su vida entera a disposición del que le escogió como instrumento para la salvación de los hombres. La caridad evangélica, fruto del espíritu era y es el signo distintivo de todo cristiano. Una caridad auténtica que prolonga en nosotros el amor de Dios manifestado en el Hijo. Una caridad como la de Cristo muerto por nosotros, a prueba de hechos.",
+        "Permanecer en el amor significa observar los mandamientos divinos y el mandato propio de Cristo es el de la caridad fraterna."
+      ]
+    },
+    "2024-05-05": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-05-05",
+      "descargado": "2026-10-31T17:16:56.715Z",
+      "bytes": 20045,
+      "sha256": "d2a7be1c1fc3656f466b763a7545c0f93a58931c67c5875b7df14a279eeeccc6",
+      "encabezado": [
+        "Domingo sexto de Pascua",
+        "Salterio II",
+        "Color: blanco",
+        "INTRODUCCIÓN",
+        "El amor no hace distinciones, el amor que Dios nos tiene se manifestó en el envío de su Hijo al mundo a todos sin distinciones ni excepciones. El que se sabe así amado por Dios y perdonado, ama y perdona a su vez sin acepción de personas. Pedro supera su propia estrechez y recibe a los paganos y no se siente en ningún modo superior. Sólo amando y practicando la justicia podemos conocer a Dios. Dios no se deja conocer en conceptos, ni donde nosotros queremos, sino como y donde Él dice que está y se le conoce: en el amor que entrega la propia vida a los demás. En la última cena Jesús habla apasionadamente y con insistencia del amor, que es la gran revelación del evangelio. Amor del Padre Celeste por el Hijo, del Hijo por el Padre, de Cristo por nosotros, de nosotros por nuestros hermanos. No existe alegría más grande que la presencia del amor. Un amor que debe ser testimoniado en miles de modos y hacia todos, como el precioso fruto del evangelio, para convencer al mundo de no cerrar las puertas a Cristo, si no queremos llegar a ser como Iglesia un desierto."
+      ]
+    },
+    "2024-05-12": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-05-12",
+      "descargado": "2026-10-31T17:16:57.957Z",
+      "bytes": 22914,
+      "sha256": "ff3223c697694f251dcd3973f025156d0fdc77e32d926da21a379f2a7637e0dd",
+      "encabezado": [
+        "La Ascensión del Señor",
+        "Solemnidad",
+        "Salterio III",
+        "Color: blanco",
+        "INTRODUCCIÓN",
+        "La Ascensión de Cristo al cielo marca el fin de su presencia de manera visible entre nosotros. Desde ahora, hasta el fin de la historia, su presencia en la Iglesia se realizará por medio de los signos sacramentales. Cristo será invisible en el horizonte humano, pero presente y operante en medio de la Iglesia. Los apóstoles, testimonios privilegiados del misterio pascual de Jesucristo anunciarán al mundo el mensaje salvador del Evangelio."
+      ]
+    },
+    "2024-05-19": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-05-19",
+      "descargado": "2026-10-31T17:16:59.171Z",
+      "bytes": 22802,
+      "sha256": "0fa48d443b7eb31e165eb6440741a2e87c6b1c513e8ece1bf898d619ae909080",
+      "encabezado": [
+        "Domingo de Pentecostés",
+        "Solemnidad",
+        "Salterio III",
+        "Color: rojo",
+        "INTRODUCCIÓN",
+        "El Espíritu Santo ha sido derramado sobre el mundo y sobre nuestros corazones, él es el espíritu de la vida, es el espíritu de la santidad, es el espíritu defensor, abogado y maestro. El Espíritu Santo derramado sobre la Iglesia, hace que ésta sea fortalecida y permanecerá para siempre con los discípulos de Cristo."
+      ]
+    },
+    "2024-05-26": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-05-26",
+      "descargado": "2026-10-31T17:17:00.386Z",
+      "bytes": 20986,
+      "sha256": "6cd0cbdc296183b11ffdabb73e401a02fbb83094f652e3ae8614c80902775b19",
+      "encabezado": [
+        "Solemnidad de la Santísima Trinidad",
+        "Salterio IV",
+        "Color: blanco",
+        "INTRODUCCIÓN",
+        "El pueblo elegido en la antigua historia de la Salvación, adoraba al Dios vivo y verdadero, que se da a conocer como un Dios que salva y entra en diálogo con el hombre. El Señor con sus palabras y acciones salvadoras, muestra su favor con el pueblo que Él se ha elegido. Cuando la historia de la Salvación es llevada a cumplimiento por Cristo, los hombres sabrán que el Señor los quiere como sus hijos y herederos de los bienes divinos. El Espíritu Santo, que actúa en nosotros, nos da la conciencia de nuestra filiación divina y quien vive la vida auténticamente cristiana sabe que está en intimidad con la Santísima Trinidad, y que por lo mismo no debemos temer de seguirlo, aún en el camino de la cruz.",
+        "El Bautismo recibido en el nombre del Padre, y del Hijo, y del Espíritu Santo, introduce al creyente en la vida de Dios y nos consagra para siempre a la divinidad, comprometiéndonos a ser fieles a nuestra vocación de hijos, en adhesión a la verdad de los mandamientos del Evangelio. Jesús, Hijo de Dios, ha revelado al mundo el misterio de Dios, uno y trino. Este Dios, que es todo amor, que hace que el hombre no viva solamente de pan, ni de fatigas, ni de miedos, sino que viva en el amor y tenga el gusto pleno de toda la vida."
+      ]
+    },
+    "2024-06-02": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-06-02",
+      "descargado": "2026-10-31T17:17:01.629Z",
+      "bytes": 25734,
+      "sha256": "0a440c3b5040965096705da4bfb1908d332a33f30e4ccc580d7bb99eb2ea90be",
+      "encabezado": [
+        "Domingo noveno del tiempo ordinario",
+        "Solemnidad del Santísimo Cuerpo y Sangre de Cristo",
+        "Salterio I",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "La fiesta de Corpus se remonta al siglo XIII. En la ciudad de Lieja en el 1242 ante la insistencia de la beata Juliana, priora de un convento situado en las afueras de la ciudad, esta fiesta comenzó a celebrarse de manera local en la esta diócesis."
+      ]
+    },
+    "2024-06-07": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-06-07",
+      "descargado": "2026-10-31T17:17:02.840Z",
+      "bytes": 20583,
+      "sha256": "11f3c4ec798f9942738886c036bf9e12b240c0066f6fd0804feaea5b1cf7142e",
+      "encabezado": [
+        "Viernes de la novena semana del tiempo ordinario",
+        "Solemnidad del Sagrado Corazón de Jesús",
+        "Solemnidad",
+        "Color: blanco",
+        "El amor de Dios y el de su Hijo, nuestro Señor Jesucristo, se nos manifiesta desde la Navidad hasta la Pascua, de modo especial en el Triduo pascual de la muerte y vida de Cristo. Pero se creyó conveniente dedicar un día a esta dimensión básica del misterio cristiano: el amor de Dios, significado de modo pleno en el corazón de Jesús.",
+        "En esta solemnidad se nos invita a mirar hacia lo alto y agradecer el amor misericordioso de Jesús hacia nosotros. Se nos invita a mirar al Espíritu. Amor que procede del Padre y del Hijo y que ha sido derramado en nuestros corazones. De este modo, vivir envueltos en el amor del Dios Uno y Trino."
+      ]
+    },
+    "2024-06-09": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-06-09",
+      "descargado": "2026-10-31T17:17:04.088Z",
+      "bytes": 23565,
+      "sha256": "b9a7b30fbdf68a711c3b34dbedf6bb0270b761703295fa9e7d14dc4943a9c45e",
+      "encabezado": [
+        "Domingo décimo del tiempo ordinario",
+        "Salterio II",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "Hay algunas categorías de personas en el Evangelio hacia las cuales pareciera que Jesús tiene una verdadera alergia, una instintiva incompatibilidad de carácter: son aquellos que se tienen por justos. Frente a ellos Jesús se siente desarmado.",
+        "No puede entrar en diálogo con ellos: “No tienen necesidad de salvación ni de perdón”, son personas incapaces de ir más allá de la justicia. Jesús ha hecho una semblanza de su actitud en la parábola de los operarios de la viña que se lamentan por la generosidad del patrón hacia los últimos llegados. En la parábola del hijo prodigo ellos se revisten con las actitudes del hijo mayor: celoso de la bondad del padre que manifiesta su amor hacia el hijo que vuelve a casa. El retrato de estas personas es la del fariseo que paga a Dios hasta la más pequeña de las tasas, pero que desprecia y juzga al publicano que invoca misericordia."
+      ]
+    },
+    "2024-06-16": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-06-16",
+      "descargado": "2026-10-31T17:17:05.304Z",
+      "bytes": 20180,
+      "sha256": "47dcda04ff0b594ef17138e666c9821d704893250af2142b036d0e43d7b804f0",
+      "encabezado": [
+        "Domingo undécimo del tiempo ordinario",
+        "Salterio III",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "Podemos poner un poco de abono, pero el crecimiento de la semilla en definitiva no difiere con la intervención del hombre. La semilla crece y se desarrolla sin que el hombre intervenga de una manera decisiva… que el hombre duerma o que vigile el resultado, es invariable. La semilla seguirá creciendo.",
+        "Tanto la primera lectura como el evangelio, nos hablan de la gratuita iniciativa de Dios en la vida de su Reino."
+      ]
+    },
+    "2024-06-23": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-06-23",
+      "descargado": "2026-10-31T17:17:06.512Z",
+      "bytes": 21186,
+      "sha256": "a4829b850415008fae52b149252307a19c268c62364d2ce7280398d79eaeebc5",
+      "encabezado": [
+        "Domingo duodécimo del tiempo ordinario",
+        "Salterio IV",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "La primera lectura del libro de Job, nos presenta “la discusión” de Job a quien Dios ama, con Dios mismo. Se esconde detrás el tipo de Teología de la retribución, “me porto bien, Dios me cuida”, “no me cuida si me porto mal, o mejor dicho me castiga”. De acuerdo a los primeros capítulos del libro de Job y sus sucesos, Job decide enfrentarse con Dios y pedirle cuentas de su situación personal después que le han sucedido diferentes tragedias. Job no sabe el por qué de estos hechos, siendo que él se considera “justo, obediente, sin pecado”; por lo tanto, Dios no puede tratarlo así. El problema del mal en los justos inocentes, ¿por qué lo permite Dios? La solución la vamos a comprender sólo con el sacrificio de un solo justo, Jesucristo, víctima inocente entregada por todos para que tengan vida y abundante.",
+        "En esta situación es que vemos a Job cuestionando a Dios y tenemos aquí la respuesta de Dios, lo lleva a los inicios de todo, cuando aún nada existía para ver si Job es capaz de contestar por el inicio, los orígenes de la creación. ¿Quién cerró el mar, quién puso límites a…? Tenemos entonces como fondo de esta lectura la razón del sufrimiento humano, además intuye Job que en el mundo entero se muestran los pasos de Alguien en Quien encontramos la respuesta definitiva al sufrimiento, la entenderemos más adelante en Jesús el justo que justifica. La respuesta definitiva la encontramos sólo en quien ha soportado todos los dolores por otros, ahí está la novedad, la Buena Noticia, si por uno todos murieron, por uno todos vivirán, “lo viejo ha pasado, ha llegado lo nuevo”, triunfa la vida para todos."
+      ]
+    },
+    "2024-06-30": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-06-30",
+      "descargado": "2026-10-31T17:17:07.740Z",
+      "bytes": 21871,
+      "sha256": "4b79cacd8174d86d8374fae632e1ec591db0ffe6f1979b4197fe06c2c95781d5",
+      "encabezado": [
+        "Domingo decimotercero del tiempo ordinario",
+        "Salterio I",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "La bondad de Dios nos reconforta siempre. La muerte no ha sido creada por Dios, lo sabemos porque Cristo resucitó venciendo la muerte. La muerte es producto del pecado y la desobediencia del hombre; sin embargo, Dios nos ha rescatado para siempre de sus garras pues Él no quiere “la destrucción de los vivientes” sino que, al revés, quiere la vida. Ha entregado un mundo saludable para que sus criaturas sean de la misma manera. Dios creó al hombre incorruptible y le hizo a imagen de su misma naturaleza. La muerte entró por el pecado y el demonio en el mundo viene del mal que tuerce el destino.",
+        "Con san Pablo reconocemos que la abundancia de unos beneficia a otros necesitados, lo importante es el llamado que se nos hace para compartir. Norma para los cristianos según la escritura, es estar siempre pendientes de los demás para compartir lo que el Señor nos regala hoy y siempre. Los cristianos debemos dar testimonio siempre de la generosidad con que Dios nos favorece."
+      ]
+    },
+    "2024-07-07": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-07-07",
+      "descargado": "2026-10-31T17:17:08.979Z",
+      "bytes": 19935,
+      "sha256": "fe89fc76321dab5775144fc3c134af5e540a2fd7698c2d6cca29f087c5c245ca",
+      "encabezado": [
+        "Domingo decimocuarto del tiempo ordinario",
+        "Salterio II",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "El profeta Ezequiel tiene una misión que lo expone a la contradicción y al rechazo por parte de un pueblo que no quiere escuchar a Dios. Un pueblo rebelde al Señor.",
+        "Pero el profeta no debe callar, para que todos se enteren que Dios está en medio de su pueblo. Los habitantes de Nazaret, entre los cuales Jesús había vivido cerca de treinta años trabajando y viviendo en el silencio sin que nada dejara de revelar en Él un misterio, se maravillan de la sabiduría y del poder salvador de Jesús."
+      ]
+    },
+    "2024-07-14": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-07-14",
+      "descargado": "2026-10-31T17:17:10.386Z",
+      "bytes": 20124,
+      "sha256": "654e6a5a1f5a8c683c1c9e9f4aba58335165a8a61ce8900766e027efb9bc1d2f",
+      "encabezado": [
+        "Domingo decimoquinto del tiempo ordinario",
+        "Salterio III",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "Ser discípulos y misioneros de Jesucristo significa partir, escuchar la palabra del Señor y salir de nosotros mismos para ir al encuentro de los otros. El Señor envió a sus discípulos sin alforja y sin dinero, como signo de que en las cosas del Señor sólo Él basta.",
+        "Ser discípulos del Señor nos llena de alegría, pues sólo en Él encontramos respuesta a todas nuestras inquietudes; nuestros corazones en Él encuentran descanso cuando acogiendo la palabra acogemos su llamado y cumplimos su voluntad."
+      ]
+    },
+    "2024-07-21": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-07-21",
+      "descargado": "2026-10-31T17:17:11.623Z",
+      "bytes": 19639,
+      "sha256": "332d7ce300866b3e0b924ab3f82ba9ccabcb44bba5005a1d03c51c55ea325298",
+      "encabezado": [
+        "Domingo decimosexto del tiempo ordinario",
+        "Salterio IV",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "El profeta Jeremías rechaza a los falsos pastores que llevan a la ruina al pueblo de Dios. Y anuncia que el Señor mandará al Mesías que conducirá a la salvación a su pueblo, y nuevos pastores que guíen al pueblo de Dios a los pastos de la vida. Jesús, buen pastor, siente compasión por la multitud y guarda para ellos lo más precioso, su palabra, que ilumina y abre los caminos de la salvación. Junto con Jesús, están sus apóstoles. Él los quiere a su lado, para prepararlos a la misión de anunciar a todo el mundo el Evangelio de la verdad y la gracia. Los apóstoles de Cristo serán los servidores de la Palabra, comprometidos en plena fidelidad a Cristo, en un ministerio que tiene como finalidad la salvación del mundo.",
+        "El apóstol Pablo nos recuerda que en Jesús hemos sido hecho, todos, un solo pueblo. Que en su propio cuerpo, Él nos ha hecho uno, y que en Él podemos acercarnos al Padre en un mismo espíritu."
+      ]
+    },
+    "2024-07-28": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-07-28",
+      "descargado": "2026-10-31T17:17:12.869Z",
+      "bytes": 19700,
+      "sha256": "248e68c88cdc8a061d5e6730491059e7be88480e73466a0ffd6a58e246d92737",
+      "encabezado": [
+        "Domingo decimoséptimo del tiempo ordinario",
+        "Salterio I",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "Veinte panes de cebada y un poco de trigo, no bastan para alimentar una gran cantidad de personas. Pero, el profeta, hace confianza en la palabra del Señor. El pan será multiplicado y bastará para saciar una multitud. Lo mismo sucede con los apóstoles. Pero el milagro se realiza y una multitud es alimentada. Muchas veces se nos hace difícil saber acoger las iniciativas y los dones de Dios. Quizás, muchas veces, porque estamos encerrados en nuestros horizontes terrenos. Este milagro de la multiplicación de los panes, está relacionado con la promesa de Jesús de ofrecer su cuerpo y su sangre como bebida para la vida eterna.",
+        "San Pablo nos invita a comportarnos de manera digna, de acuerdo a nuestra vocación. Es decir, vivir en la unidad, en la unidad del cuerpo místico de Cristo que es la Iglesia. La Eucaristía se hace signo y lleva a cumplimiento la unidad de los que confiesan un solo Dios y Padre de todos. El milagro de los panes es la realidad de la Iglesia, que se multiplica"
+      ]
+    },
+    "2024-08-04": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-08-04",
+      "descargado": "2026-10-31T17:17:14.107Z",
+      "bytes": 21087,
+      "sha256": "66534e6242588033d3fefce77407b7e9e0fae237b697ba8c9c2e3e305cdc92f6",
+      "encabezado": [
+        "Domingo decimoctavo del tiempo ordinario",
+        "Salterio II",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "Israel durante su peregrinar en el desierto por 40 años, fue llamado a tener plena confianza en su Dios que lo socorre con un alimento milagroso: el maná, el pan del desierto.",
+        "La multitud que escuchaba a Jesús después del milagro de la multiplicación de los panes, está invitada a buscarse un alimento que dure para la vida eterna."
+      ]
+    },
+    "2024-08-11": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-08-11",
+      "descargado": "2026-10-31T17:17:15.357Z",
+      "bytes": 20352,
+      "sha256": "aff028416405b77125f40fb77c9d072ee74c681b22ad0433972fd2ae3ca64287",
+      "encabezado": [
+        "Domingo decimonoveno del tiempo ordinario",
+        "Salterio III",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "El Profeta Elías desalentado hasta el punto de desear la propia muerte, pensando que no ha cumplido bien con la misión que le ha encargado el Señor, ya no puede más, pero el mismo Dios se encarga de alimentarlo. Dios lo alimenta, lo sostiene con un alimento milagroso. En ese alimento la Iglesia siempre ha visto la figura de la Eucaristía. En el fracaso aparente de Elías aprendemos que el Señor nunca deja solo a los que ama, incluso en los momentos más difíciles de nuestra vida.",
+        "La multitud no le cree al Señor Jesús que afirma que ha venido del cielo para hacer la voluntad del Padre. Jesús afirma que Él dará la vida eterna, pero quienes lo escuchan no están abiertos en sus corazones, no están disponibles para acoger la Palabra del Señor. Dios es quien concede la fe. solamente el Padre del cielo da las fuerzas para creer en el Hijo. Cristo confirma su promesa de que dará su propio cuerpo como alimento y ese alimento será vida del mundo."
+      ]
+    },
+    "2024-08-18": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-08-18",
+      "descargado": "2026-10-31T17:17:16.585Z",
+      "bytes": 20070,
+      "sha256": "609cfbbf9cf61c3f77553acd96c5bfe46c7c6f752531eb0e8f4842309a7f5f8f",
+      "encabezado": [
+        "Domingo vigésimo del tiempo ordinario",
+        "Salterio IV",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "Jesús en el Evangelio ofrece un pan y una bebida eterna: su Cuerpo y su Sangre en la celebración Eucarística. Es un alimento que supera con mucho el maná que se comió en el desierto. De esta manera Jesús indica la plenitud que Él entrega en su Muerte y Resurrección. La fuerza de su Resurrección rompe con las condiciones del tiempo y nos arranca y nos lleva a la vida eterna. Incluso nuestro cuerpo entrará en la gloria eterna, de manera que seamos totalmente felices y glorificados. Toda la obra de nuestra redención se cumple en el Señor Jesucristo por medio de la donación de sí mismo. La Eucaristía recapitula toda la historia de salvación y es en ella que la comunidad cristiana encuentra su raíz, su fuerza, la fuente de la vida. No se puede concebir una comunidad sin Eucaristía. Es ella la que alimenta nuestro compromiso cristiano. No se puede concebir un cristiano sin Eucaristía, porque de ella saca la fuerza para vivir en la solidaridad con sus hermanos más necesitados. Alimentarse del Señor en la Eucaristía es alimentarse de la vida eterna, es mirar los dones del cielo, compartiendo con nuestros hermanos más necesitados.",
+        "La Mesa está servida: es el Señor quien se nos ofrece. Vamos con Él que ahí encontraremos el alimento de la vida."
+      ]
+    },
+    "2024-08-25": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-08-25",
+      "descargado": "2026-10-31T17:17:17.799Z",
+      "bytes": 21585,
+      "sha256": "28a2ab58884af1848db1a2a6c5bd737098ae85e9eff3901a6ba4f7ff090ecb5f",
+      "encabezado": [
+        "Domingo vigesimoprimero del tiempo ordinario",
+        "Salterio I",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "Terminado el discurso de la promesa de Eucaristía, que es incomprendido por la multitud, Jesús invita a los apóstoles a hacer su elección después que muchos se han echado para atrás. Pedro responde a nombre de todos.",
+        "Son palabras bellas y la perfecta definición de la enseñanza de Cristo:"
+      ]
+    },
+    "2024-09-01": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-09-01",
+      "descargado": "2026-10-31T17:17:19.007Z",
+      "bytes": 21365,
+      "sha256": "2f01d34bc6f53f9856c88c8cf27b6e95b466a8e5a8a4868865d89fd080f169b1",
+      "encabezado": [
+        "Domingo vigesimosegundo del tiempo ordinario",
+        "Salterio II",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "Después de terminado el discurso del Pan de Vida, en el capítulo 6 de san Juan, volvemos a Marcos, nuestro Evangelista guía de este año.",
+        "El hombre de ayer, de hoy y de siempre se siente tentado a hacer de la ley de Dios, algo insoportable, ya los fariseos habían agregado a los diez mandamientos otros tantos preceptos que ahogaban al pueblo desvirtuando el sentido más profundo de la ley de Dios como medio, un camino para alcanzar la santidad, la verdadera libertad."
+      ]
+    },
+    "2024-09-08": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-09-08",
+      "descargado": "2026-10-31T17:17:20.215Z",
+      "bytes": 21526,
+      "sha256": "b796ecb69baf35b94b5262c0b51324da5bdb745ae2517d61d3c03f36c6ebe40a",
+      "encabezado": [
+        "Domingo vigesimotercero del tiempo ordinario",
+        "Salterio III",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "El Evangelio de este domingo, es un canto a la Esperanza, sobradamente hemos pasado la mitad del año, y tal vez estemos cansados, Cristo quiere ser nuestro descanso, por eso nos ha invitado a celebrar el domingo.",
+        "Jesús viene a nuestro encuentro y marca el inicio de la nueva creación, devolviendo a la vida todo lo que aparece sin vida en la humanidad, la gente de su tiempo dice: “Todo lo ha hecho bien”, palabras que nos recuerdan los días de la creación de Dios en los comienzos, “todo lo ha hecho bien” (Gen. 1, 31)"
+      ]
+    },
+    "2024-09-15": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-09-15",
+      "descargado": "2026-10-31T17:17:21.462Z",
+      "bytes": 21142,
+      "sha256": "4553ec60194adb99ffbe333dffee80a345e4c3aa78b7311cf19d487bebeafebe",
+      "encabezado": [
+        "Domingo vigesimocuarto del tiempo ordinario",
+        "Salterio IV",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "Hemos llegado a la mitad del Evangelio de san Marcos. Con su pedagogía nos pone frente a los tres momentos que centran el misterio de nuestra fe: Confesión de Pedro, anuncio de la Pasión y el escándalo de los discípulos.",
+        "Desde ahora Marcos nos irá revelando a Jesús como el Mesías. Nos irá, poco a poco, adentrando en qué consiste el mesianismo de Jesús."
+      ]
+    },
+    "2024-09-22": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-09-22",
+      "descargado": "2026-10-31T17:17:22.685Z",
+      "bytes": 20393,
+      "sha256": "9019a30086d886d62b8a39a8f60307e730642583c54414189268e4f6e46f1e0d",
+      "encabezado": [
+        "Domingo vigesimoquinto del tiempo ordinario",
+        "Salterio I",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "Los israelitas cuando se encontraban lejos de su tierra, eran por su fe y su manera de vivir un constante cuestionamiento de la mentalidad y de las costumbres de los paganos entre los cuales a ellos les tocaba vivir, esta era una de las razones por la cual eran perseguidos. La vida del justo es el cuestionamiento más radical que pueda recibir un impío, esta situación ya es un anuncio de la condición de Jesús, perseguido por sus contemporáneos, porque afirmaba ser hijo de Dios y con sus actitudes les reprochaba su mentalidad y su manera de actuar. Los discípulos de Jesús se resistían a la idea de la pasión y muerte del maestro, su preocupación se encontraba en saber quién de ellos era el más importante, su tema de discusión de quién “es el primero” se encuentra en total contraste con el espíritu del evangelio, hacerse último, hacerse siervo como Jesús que se inmola por todos. El evangelio nos introduce en el mundo de una nueva mentalidad, un espíritu nuevo, los privilegiados en el reino de Dios, son aquellos que no se comprometen a hacerlo según los criterios humanos, esa es la razón por la cual Jesús se identifica con los niños y con los humildes. Hay una sabiduría terrena que sugiere que hay que hacerse camino a cualquier costo, e incluso sembrando injusticia, maldades, desordenes, dando lugar incluso a las propias pasiones. La sabiduría que tiene origen en Dios quien ha puesto en nuestros corazones la caridad, hace del cristiano un hombre de paz, un hombre y una mujer capaz de obras buenas, que sabe vencerse a sí mismo para ponerse al servicio de los demás. Asumir el evangelio en la propia vida es el primer germen para construir definitivamente la paz en la humanidad."
+      ]
+    },
+    "2024-09-29": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-09-29",
+      "descargado": "2026-10-31T17:17:23.889Z",
+      "bytes": 20911,
+      "sha256": "13656c66c0e11afe1494e307c4bf3aec8d432646ae446cfb12fa5b425a0777c7",
+      "encabezado": [
+        "Domingo vigesimosexto del tiempo ordinario",
+        "Salterio II",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "La alegría de los misioneros que vuelven al encuentro con el Señor, esconde también una incertidumbre clara, “hay otros que actúan como nosotros”.",
+        "El Señor no nos ha encargado exclusivamente la misión a nosotros, “hay otras ovejas que no son de este redil” (Jn 10, 16a) y sin embargo anuncian también la verdad de Cristo. Jesús los consuela frente a esto diciendo que quien está con Él no puede obrar en contrario; sin embargo, la misión no se cambia, sino por el contrario, continúa, pues la confianza en el mandato del Señor no acaba, “hagan discípulos míos a todos los pueblos” (Mt 28, 19a). El anuncio del Reino implica un comportamiento claro y total, no se aceptan parcialidades, el discípulo debe entregarse entero a ella, evitando los escándalos que puedan hacer caer o apartarse de Cristo a otros, así se atesora para el Reino prometido y esperado."
+      ]
+    },
+    "2024-10-06": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-10-06",
+      "descargado": "2026-10-31T17:17:25.105Z",
+      "bytes": 22039,
+      "sha256": "33774a1339d3688b511b11ca07321bec37371918d06c7d1dd0787c8319852ef2",
+      "encabezado": [
+        "Domingo vigesimoséptimo del tiempo ordinario",
+        "Salterio III",
+        "Color: verde",
+        "Hoy el Señor nos propone, en la Liturgia de la Palabra a nuestra contemplación, un tema delicado: matrimonio y divorcio. No puede ser más providencial la delicadeza del Señor, cuando nos invita a mirar el matrimonio, al inicio de la Semana de la Familia.",
+        "Jesús nos invita junto con los suyos a mirar “al principio de la creación”, donde Dios hizo al hombre varón y mujer. ‘Por eso el hombre dejará a su padre y a su madre, y los dos no serán sino una sola carne’. ‘De manera que ya no son dos, sino una sola carne’. ‘Que el hombre no separe lo que Dios ha unido’.",
+        "Siempre la invitación es mirar al principio para descubrir las razones últimas de la existencia, allí encontramos mucho más que el “capricho humano”, encontramos la Voluntad del Creador, por lo que Él ha creado, ha concebido su plan desde el principio, como un plan de Amor."
+      ]
+    },
+    "2024-10-13": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-10-13",
+      "descargado": "2026-10-31T17:17:26.306Z",
+      "bytes": 22001,
+      "sha256": "64becef2235abc2976fee628d76ca36c0aca61507302f944d4acc952b3ef7f65",
+      "encabezado": [
+        "Domingo vigesimoctavo del tiempo ordinario",
+        "Salterio IV",
+        "Color: verde",
+        "Siguiendo la enseñanza de Jesús, nos encontramos con un hombre que con el corres de los años y su apego a las riquezas, ha perdido la actitud humilde y receptiva del niño que nos hablaba el Domingo recién pasado en el Evangelio.",
+        "Es un hombre bueno, piadoso, pero no basta el cumplimiento de la obediencia de la “honestidad natural”, hay que dar un paso más, que lleva necesariamente a la opción fundamental, a poner en práctica la parábola de la perla preciosa.",
+        "El Señor Jesús nos enseña hoy, que la vida eterna no se asegura “añadiendo, sino más bien restando, vendiendo, dando, hasta quedar totalmente despojado, liviano y libre para el seguimiento”."
+      ]
+    },
+    "2024-10-20": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-10-20",
+      "descargado": "2026-10-31T17:17:27.521Z",
+      "bytes": 21049,
+      "sha256": "40eb44d24e9f769f530297df06616bc8a041010cbf9d444df216f297a5e4bf4e",
+      "encabezado": [
+        "Domingo vigesimonoveno del tiempo ordinario",
+        "Salterio I",
+        "Color: verde",
+        "En el contexto del tercer anuncio de la Pasión de Jesús, la Liturgia nos da a contemplar a Jesús servidor.",
+        "Los discípulos siguen a Jesús de manera titubeante, todavía ellos, a pesar de las enseñanzas de los Domingos anteriores, siguen envueltos en los criterios y orientaciones terrenas de sus esperanzas y ensueños de grandeza humana.",
+        "Así Jesús se ve obligado a instruirles en sus enseñanzas, delinea claramente el camino para llegar a compartir la gloria y les formula aquellas bases, que han de ser la ley constitutiva de la comunidad cristiana."
+      ]
+    },
+    "2024-10-27": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-10-27",
+      "descargado": "2026-10-31T17:17:28.756Z",
+      "bytes": 21038,
+      "sha256": "06cbbdf8e512b7e10f3a76a01ddd81944711bb2b3fa4a72f45caaea30293b8bf",
+      "encabezado": [
+        "Domingo trigésimo del tiempo ordinario",
+        "Salterio II",
+        "Color: verde",
+        "En este domingo, contemplamos al Señor que se compadece y manifiesta su misericordia con un ciego.",
+        "El ciego simboliza al hombre de todos los tiempos, que desde su encierro más profundo reconoce en Jesús al Mesías y al Maestro.",
+        "Como el ciego, los discípulos de Jesús necesitan la luz para ver claro el camino de la cruz y del servicio que Jesús les propone, sus seguidores son testigos de un acompañamiento iluminador, la curación del ciego Bartimeo."
+      ]
+    },
+    "2024-11-03": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-11-03",
+      "descargado": "2026-10-31T17:17:30.003Z",
+      "bytes": 20350,
+      "sha256": "ba2fb5d565e037c53287f4f758abbd7f22d752d74e39be6cfad71a5492baf12f",
+      "encabezado": [
+        "Domingo trigésimo primero del tiempo ordinario",
+        "Salterio III",
+        "Color: verde",
+        "INTRODUCCIÓN",
+        "La síntesis propuesta por Jesús como respuesta a la pregunta del maestro de la ley, significaba alejarse completamente de las argucias interpretativas de la ley que presentaban generalmente los fariseos. Solo dos mandamientos son importantes y uno conlleva al otro: “Amarás al Señor tu Dios y al prójimo”. En estos dos mandamientos están resumidas todas las enseñanzas de la escritura. Amar a Dios con todo el ser significa dejar atrás las pequeñeces para dedicarse a lo importante. Siempre se debe tener en cuenta el amor a Dios, se debe traducir también en un amor verdadero a los demás, el prójimo. A Dios no lo vemos, solo vemos a los hermanos en quienes Dios se hace presente. Jesús da esta respuesta con seguridad y autoridad.",
+        "Nuestro Dios, es un Dios de amor, que nos urge a amarlo y servirlo en nuestros hermanos. La Iglesia tiene como misión propia y específica, comunicar la vida de Jesucristo a todas las personas, anunciando la Palabra, administrando los Sacramentos y practicando la caridad. Es oportuno recordar que el amor se muestra en las obras más que en las palabras."
+      ]
+    },
+    "2024-11-10": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-11-10",
+      "descargado": "2026-10-31T17:17:31.239Z",
+      "bytes": 21572,
+      "sha256": "992b70709441d10140e660c70530aed40f241169ecbdafe278bf2f8ae8a0841a",
+      "encabezado": [
+        "Domingo trigésimo segundo del tiempo ordinario",
+        "Salterio IV",
+        "Color: verde",
+        "Abandonarse en Dios hasta el último suspiro de la vida, es el consejo que Jesús muestra a sus discípulos ese día frente al Templo de Jerusalén.  Dependencia absoluta de Dios el cual provee y prevé las necesidades de sus hijos, puesto que actúa como verdadero Padre.  La viuda depositó como ofrenda para el templo todo lo que tenía, su abandono total en Dios la hace merecedora de la alabanza de Jesús es comparación con el aporte de los ricos.  Los ricos dan de aquello que les sobra, sin embargo, siguen confiando en su dinero y posesiones en cambio la viuda da de lo poco que tiene y lo da todo, ¿qué le queda por entregar? Solamente su propia vida.  Los seguidores de Jesús deben aprender una vez más la lección, deben depositar su confianza solo en Dios, de Él depende totalmente su existencia.",
+        "“Jesucristo llamó a todos sus discípulos a ser pobres de espíritu, a abrir su corazón y su vida a los dones de Dios, a ser agradecidos, a no poner su confianza en sí mismos, sino enteramente en el Señor”. “Los primeros discípulos contemplaron a su Maestro cuando Él se presentó, al iniciar su misión, como aquel que venía “a traer la Buena Nueva a los pobres” (Lc 4, 18).  Pero no sólo ellos, sino todos los discípulos –también nosotros- fueron llamados a permanecer en el amor de Cristo; de manera especial, en su amor misericordioso y preferencial por los más pobres y necesitados, destinatarios privilegiados de la evangelización.  Esta es una prioridad irrenunciable para el discípulo de Jesús.  Ha de ser signo de su identidad y de su credibilidad; más aún, es condición necesaria para recibir la herencia del Reino (cf. Mt 25, 31-46). “Por ello, imitar la santidad de Dios... no es otra cosa que prolongar su amor en la historia, especialmente con respecto a los pobres, enfermos e indigentes”. (cf. Lc 10, 25ss)"
+      ]
+    },
+    "2024-11-17": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-11-17",
+      "descargado": "2026-10-31T17:17:32.447Z",
+      "bytes": 18825,
+      "sha256": "5061a22a9cccc735bc27c977dbf081fe41bba61da5fce528c512572296d1f13c",
+      "encabezado": [
+        "Domingo trigésimo tercero del tiempo ordinario",
+        "Salterio I",
+        "Color: verde",
+        "Nadie sabe el día y la hora. Solamente el Padre lo sabe. En ese día el Señor, nuestro Dios, en su Hijo Jesucristo, reunirá a sus escogidos desde los cuatro puntos cardinales. Esa es nuestra esperanza, que después del largo peregrinar seremos gloriosos en Jesús el Señor. Todo lo que podemos decir es que hay que estar alertas. Y eso es todo lo que nos puede interesar. No importan los años ni las hojas del calendario, hay que estar alertas en el amor, amando y sirviendo al prójimo que son el pasaporte para la vida eterna. Todo lo que importa al creyente es ser fiel a las enseñanzas de Jesucristo. Mientras estamos en este camino nos consolamos y alimentamos en la celebración de la Eucaristía, en donde el mismo Señor nos conforta con su Palabra y nos alimenta con su Cuerpo.",
+        "Cristo el Señor, a diferencia de los sacerdotes de la antigua Alianza, se ha ofrecido de una vez para siempre para expiar nuestros pecados y llevarnos santificados a la gloria del Padre."
+      ]
+    },
+    "2024-11-24": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-11-24",
+      "descargado": "2026-10-31T17:17:33.660Z",
+      "bytes": 19153,
+      "sha256": "c74886aae8d5de6b4807ee3e2475b05abd110f9bf8f9d0d6b638d9515f0d00a8",
+      "encabezado": [
+        "Domingo trigésimo cuarto del tiempo ordinario",
+        "Solemnidad de Nuestro Señor Jesucristo, Rey del Universo",
+        "Salterio II",
+        "Color: verde",
+        "En este último domingo del tiempo ordinario, Domingo de Cristo Rey, celebramos a este Jesús que se ha quedado con nosotros, tomando nuestras penas y presentándoselas al Padre, que ha recibido nuestras alegrías y las ha ofrecido como ofrenda agradable al Señor, nuestro Dios.",
+        "Jesucristo es nuestro Rey, pero su Reino no es un reino de esta tierra, porque Él no aspira a un dominio temporal. El Reino de Jesucristo es un Reino para salvar, es el Reino del testimonio de la verdad y Él es la verdad, es decir, la plena manifestación del Padre de los cielos y de su amor salvador."
+      ]
+    },
+    "2024-12-01": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-12-01",
+      "descargado": "2026-10-31T17:17:34.902Z",
+      "bytes": 19670,
+      "sha256": "8d33263ca3b310ff09b1d22517289566a9371c302a66f19ed82c55fb19f51ca4",
+      "encabezado": [
+        "Domingo primero de Adviento",
+        "Salterio I",
+        "Color: morado",
+        "Dios viene. En nuestra existencia cotidiana  se inserta un acontecimiento que nos saca de todas nuestras seguridades, que lanza por el aire todos nuestros proyectos. Al improviso, Dios camina junto a nosotros y hace parte de nuestra historia. Solamente lo reconocen presente aquellos que tienen los ojos abiertos, aquellos que esperan y preparan un mundo nuevo.",
+        "En el Antiguo Testamento, el profeta Isaías anuncia el cumplimiento del plan divino de salvación como la reunión de todos los pueblos en la fe y en el culto, que es simbolizado por el único Templo de Jerusalén sobre el monte santo. Todos conocerán la voluntad de amor del Señor, y todos la seguirán con una alegre obediencia. La salvación siempre está a nuestra disposición  y viene a ser un bien, si es acogida con prontitud. Si movemos nuestros pasos por los caminos de la luz, liberándonos de las obras de las tinieblas.",
+        "En la lectura del Evangelio, Jesús insiste en la necesaria vigilancia sin la cual nos arriesgamos de ser sorprendidos por aquél que viene y que vendrá. Tenemos que estar atentos para que no seamos sorprendidos lejos de Dios, indignos de su amor y del premio eterno."
+      ]
+    },
+    "2024-12-08": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-12-08",
+      "descargado": "2026-10-31T17:17:36.119Z",
+      "bytes": 20731,
+      "sha256": "7a2590ed7ad0a8eaeed428d7af8ba14d525cbac3e3ccdeb2479fee6cdce73bc1",
+      "encabezado": [
+        "Domingo segundo de Adviento",
+        "Salterio II",
+        "Color: morado",
+        "Dios viene y es portador de la salvación para todos. El mensaje que acompaña su venida habla de paz y de reconciliación. Tal cual como es presentado por el relato de Isaías que nos muestra a enemigos naturales que luchan por la sobrevivencia y que los contemplamos viviendo en paz. También es real y simbólica la imagen que nos presenta el Apóstol, en donde nos encontramos  con enemigos culturales que se oponen entre sí por sus religiones diversas.",
+        "La reconciliación que acontece en la comunidad cristiana, entre los creyentes que provienen del hebraísmo y del paganismo, está siempre sujeta a la provisoriedad y al equilibrio inestable. Existe en el presente y se confía en el mañana a la esperanza.",
+        "En el Evangelio, Juan Bautista, el precursor que Jesús indica en la conversión del corazón, en la reencontrada pureza del alma, es la condición necesaria para producir buenos frutos. No basta tener palabras de creyentes, sino que es necesario el testimonio de una vida regenerada en la gracia, fecunda por obras buenas, sobre las cuales seremos juzgadas al fin por Dios. Somos verdaderamente cristianos solamente cuando nos presentamos, al mundo y a Dios, como auténticos testimonios de su amor, llenos de su Espíritu."
+      ]
+    },
+    "2024-12-15": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-12-15",
+      "descargado": "2026-10-31T17:17:37.323Z",
+      "bytes": 21015,
+      "sha256": "93c660e692c85c773ab118142cfcad1990b5b4e75634582cca8f724bd3587e5e",
+      "encabezado": [
+        "Domingo tercero de Adviento",
+        "Salterio III",
+        "Color: morado",
+        "Alegría por el regreso a la Patria, alegría por la salud recuperada, alegría por la libertad reconquistada. Éste es el fruto de la intervención de Dios que nos salva. Anunciado por los profetas como un nuevo éxodo, el retorno del exilio es visto como un acto de la potencia y del amor exclusivo de Dios por su pueblo. Aunque si, después, esto le ha interesado solamente a un pequeño resto de los deportados, pero el anuncio permanece siempre válido, porque éste, proyectado en el tiempo, será plenamente cumplido.",
+        "Cristo viene como aquél que guía a una Humanidad dispersa, cansada y sin esperanza y la toma de la mano para llevarla de vuelta a Dios. Jesús el Mesías es la cabeza de los redimidos, sobre el camino santo de la obediencia y de la fidelidad. Pero éste retorno, debe explicitarse en el curso de las generaciones. La liberación exige tiempo y trabajo.",
+        "La alegría del creyente es una larga y paciente conquista, de la fidelidad de los deberes hacia Dios y hacia los propios hermanos, que esperan de nosotros un comportamiento coherente con nuestra fe y caridad. Para orientar la vida todo depende de la idea que tenemos del Salvador en el cual creemos y de la salvación que aceptamos de él."
+      ]
+    },
+    "2024-12-22": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-12-22",
+      "descargado": "2026-10-31T17:17:38.525Z",
+      "bytes": 19869,
+      "sha256": "e855a6ffd3bf6757c5c30b0f90a0c072c1409e086453dd826909817a3cb52222",
+      "encabezado": [
+        "Domingo cuarto de Adviento",
+        "Salterio IV",
+        "Color: morado",
+        "La Iglesia, a través de la predicación y la Liturgia, anuncia que la salvación verdadera y definitiva es un don que Dios mismo nos trae viniendo en medio de nosotros. En el centro de la Liturgia en este domingo está la revelación de este secreto. De este misterio que ha estado escondido por los siglos. La revelación del plan salvífico, que Dios ha preparado y actuado por nuestro amor.",
+        "El designio de salvación tiene una historia y signos reveladores. EL profeta anuncia un signo que puede ser reconocido y acogido solo en la pobreza y en la humildad de la fe. Habla del nacimiento milagroso del Emmanuel, hijo de una virgen, signo milagroso concedido por Dios al pequeño resto de los creyentes, que por la fe de él serán liberados. Será este nuevo pueblo constituido en orden  de la fe y no a través de privilegios de nacionalidad y de casta.",
+        "La profecía de Isaías se cumple en la maternidad divina de la virgen María. A José, su esposo, le tocará de colaborar con fe y humildad en el designio divino, transmitiendo al hijo de Dios y de María el título mesiánico de la descendencia de David. Esta colaboración no acontece sin sufrimiento, así como nuestra colaboración con Dios para salvarnos no sucede sin renuncia a aquello que en nosotros no es digno de Dios y nos hace resistir a su amor."
+      ]
+    },
+    "2024-12-25": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-12-25",
+      "descargado": "2026-10-31T17:17:41.138Z",
+      "bytes": 48078,
+      "sha256": "ff28db5d08ea0256fbfda497caa641b014bc1181dad50239299d5ef5323787e1",
+      "encabezado": [
+        "Natividad del Señor",
+        "Solemnidad",
+        "Color: blanco",
+        "La solemnidad del nacimiento de Jesús es la celebración cristiana más difundida en el mundo. Después de la Pascua, es la segunda fiesta más importante del año litúrgico. Su origen está en el siglo IV, cuando en Roma se comenzó a celebrar el 25 de diciembre, día de la fiesta civil del Sol invicto, que evocaba la victoria del sol sobre las tinieblas en la fecha del solsticio de invierno. Para los cristianos, Cristo es la verdadera luz del mundo. Condición necesaria para la muerte y la resurrección,",
+        "la Navidad celebra el nacimiento de Jesús, y con ello la encarnación de Dios.",
+        "Para redimir al hombre, Dios asumió históricamente la naturaleza humana, que se transformó así en un signo de la redención. En el arco temporal que va del pesebre a la cruz se encierra toda la vida y obra de Jesucristo, el Mesías Hijo de Dios."
+      ]
+    },
+    "2024-12-29": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2024-12-29",
+      "descargado": "2026-10-31T17:17:42.362Z",
+      "bytes": 21556,
+      "sha256": "4d6313901e12c2a05aed3360bf0df86380249c03aa28b1150ff1a6551c229e52",
+      "encabezado": [
+        "La Sagrada Familia de Jesús, María y José",
+        "Fiesta",
+        "Color: blanco",
+        "En la familia no todo es idilio, paz y serenidad. Ésta pasa muchas veces por el sufrimiento, por las dificultades, por las crisis del trabajo, las inmigraciones. En la Sagrada Familia, como en toda familia, existen alegrías y sufrimientos.",
+        "La liturgia, al proponernos las dos primeras lecturas, manifiesta la intención de la Iglesia de proponer la Sagrada Familia como modelo de la vida cristiana. La primera lectura nos recuerda el honrar al padre y a la madre según la voluntad del Señor.",
+        "A la Sagrada Familia no le fue extraño el sufrimiento. La persecución de Herodes la lleva, al alba de la vida de Jesús, a tener que enfrentar riesgos que no dañaron la fe de María y de José, y de su obediencia a la voluntad del Señor. Voluntad el Señor que los protege y los guía. Obedeciendo la voluntad de Dios, la Sagrada Familia de salvó. El secreto de la cohesión de la prosperidad de la familia cristiana es una fe intrépida, una esperanza lúcida, una amoroso y sufrida fidelidad a la voluntad que el Señor ha expresado en sus mandamientos."
+      ]
+    },
+    "2025-01-01": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-01-01",
+      "descargado": "2026-10-31T17:17:43.594Z",
+      "bytes": 19553,
+      "sha256": "dca5418f2e8bb02e715ae6fd39565fc096294b6a291bde33ee672b2254fe63b0",
+      "encabezado": [
+        "Solemnidad de Santa María, Madre de Dios",
+        "Color: blanco",
+        "Al definir el dogma de la Maternidad divina de María (“Theotokos”), el Concilio de Éfeso (431) afirma la participación de María en el hecho central de la historia de la salvación: la Encarnación del Hijo de Dios en la carne de María.",
+        "La liturgia, desde 1931, celebra ese hecho en la Fiesta de Santa María, Madre de Dios, y nos invita a tomar conciencia de la realidad de la Encarnación de Cristo: su carne fue formada en el seno de una mujer.",
+        "Al ubicar esta fiesta el primer día del año civil, la Iglesia recalca que el Hijo de Dios, encarnado en María, asume el tiempo, recapitula toda la historia humana y le trae la paz y la reconciliación.",
+        "También hoy, a los ocho días de Navidad, se conmemora la Circuncisión del Señor: con esas primeras gotas de sangre que derramó el Hijo de Dios hecho hombre, la Redención ya está presente en el misterio de la Encarnación."
+      ]
+    },
+    "2025-01-05": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-01-05",
+      "descargado": "2026-10-31T17:17:44.803Z",
+      "bytes": 21982,
+      "sha256": "a56e55c3691b80668ed587d032f9445323cc4e625d2f6d6d448a115c3fb13745",
+      "encabezado": [
+        "Epifanía del Señor",
+        "Solemnidad",
+        "Color: blanco",
+        "Israel fue el encargado de realizar la misión de reunir a todos los pueblos en la descendencia de Abraham, y realizar, de esta manera, la promesa de la universalidad.",
+        "Israel creyó erróneamente, hacer esta unidad a partir de un cierto número de prácticas particulares: la ley, el sábado, la circuncisión. Pero sólo la fe de Abraham era la capaz de reunir a todas las naciones. Y los hebreos no supieron desvincular la fe de Abraham de sus prácticas legales.",
+        "El anuncio de un nuevo Pueblo de Dios, de dimensiones universales, que fue prefigurado y preparado en el pueblo elegido, se realiza plenamente en Jesucristo, en quien converge y se recapitula todo el plan de Dios. En Él, todo lo que era división encuentra plena unidad. Convocando a los magos de oriente, Jesús comienza a reunir a los pueblos, y a dar unidad a la gran familia humana, la cual será realizada perfectamente cuando la fe en Jesucristo hará caer las barreras existentes entre todos los hombres."
+      ]
+    },
+    "2025-01-12": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-01-12",
+      "descargado": "2026-10-31T17:17:46.057Z",
+      "bytes": 23137,
+      "sha256": "8bd04aad9a38a07712acccbeb9f78c5b50c93a428ca2a5ac446cebedf3a66a5e",
+      "encabezado": [
+        "El Bautismo del Señor",
+        "Fiesta",
+        "Color: blanco",
+        "En las orillas del río Jordán, Juan el Bautista predica la conversión de los pecados para poder acoger el reino de Dios que ya está cerca. Jesús baja con la multitud al agua para hacerse bautizar. El bautismo para los judíos era un rito penitencial, en el cual confesaban sus propios pecados. Pero el Bautismo que Jesús recibe no es solamente un bautismo de penitencia. La manifestación del Padre y del Espíritu Santo le dan a este Bautismo un significado preciso. Jesús es proclamado “Hijo amado”, y sobre él se posa el Espíritu que lo invisten de la misión del profeta, anuncio del mensaje de la salvación; del sacerdote, único sacrificio aceptado por el Padre; de rey, Mesías esperado como salvador.",
+        "Jesús no toma distancia de una humanidad pecadora, es un hombre entre los hombres, que se ha encarnado en una humanidad pecadora, pero Él no es pecador. Jesús en las aguas del Jordán no confiesa sus pecados porque no los tiene. Él es sin pecado. Él confiesa por cada uno de nosotros. La universalidad de su confesión es la santidad de su existencia, y hace pasar la vieja humanidad a una humanidad nueva.",
+        "Nacidos en la fe de la Iglesia, los fieles tenemos la necesidad de redescubrir la grandeza y la exigencia de nuestra vocación bautismal, es paradojal que el Bautismo que nos hace miembros vivos del Cuerpo de Cristo, no esté en el centro de nuestra conciencia explícita de cristianos, y que no sea el Bautismo un momento decisivo en cada una de nuestras vidas."
+      ]
+    },
+    "2025-01-19": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-01-19",
+      "descargado": "2026-10-31T17:17:47.260Z",
+      "bytes": 20446,
+      "sha256": "3bd5d9dc605dcef1ce4b22401c1f173583fa7e1ba531a328940429558c15a696",
+      "encabezado": [
+        "Domingo segundo del tiempo ordinario",
+        "Salterio II",
+        "Color: verde",
+        "Jesús es un hombre como nosotros. Tiene amigos, y acepta una invitación a un matrimonio. Va con su madre y sus primeros discípulos. Ésta cercanía lo hace accesible, hace posible que lo podamos conocer. Pero Cristo es, también, misterio, y Él manifestará su identidad poco a poco. Con una sabia pedagogía se nos dará a conocer en toda su plenitud.",
+        "Juan, repensando a la luz del Espíritu, todos los hechos que le tocó vivir, descubre que Jesús ha comenzado a revelar su propia identidad en Caná.",
+        "Revelación que vendrá a culminar en la muerte, la hora de Jesús. Cristo comienza a revelar su identidad, no de una forma verbal, sino que a través del lenguaje de los gestos. La fe comienza a desarrollarse en Caná y para los discípulos es ahí donde nace una nueva relación con Cristo."
+      ]
+    },
+    "2025-01-26": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-01-26",
+      "descargado": "2026-10-31T17:17:48.468Z",
+      "bytes": 22938,
+      "sha256": "269caedcc53bb4b082bcd52c4b4d5d9aa4182094a8ee2ded975217a204f2c8e0",
+      "encabezado": [
+        "Domingo tercero del tiempo ordinario",
+        "Salterio III",
+        "Color: verde",
+        "El cristianismo es revelación, Dios se revela y se comunica al hombre histórico. Esta revelación, como unión, se hace presente en la Historia, por medio del signo y de la Palabra, palabra y gesto, cuyo vértice lo encontramos en Jesús de Nazaret, la Palabra de Dios viviente y encarnada.",
+        "No es tanto el esfuerzo que hace el hombre por alcanzar y conocer a Dios, sino el acto de Dios que se da y une al hombre.",
+        "Cada palabra del Evangelio no es una palabra muerta, es una palabra viva que Dios nos dirige a cada uno de nosotros y que se hace presente en el hoy de nuestras vidas. El Evangelio no es solamente un relato sobre la vida de Jesús, sino que también es nuestra vida. El Evangelio nos contiene, nos envuelve. Es por eso que la liturgia de la Palabra no es una simple lección de moral, es la afirmación de la esperanza escatológica que se ha tenido desde los profetas. La Palabra de Dios, el Evangelio, proclama el cumplimiento de la voluntad salvadora del Padre en el hoy de la vida de cada asamblea."
+      ]
+    },
+    "2025-02-09": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-02-09",
+      "descargado": "2026-10-31T17:17:50.890Z",
+      "bytes": 21728,
+      "sha256": "0c3896b8e520f8343732b8f8b835ab0bb0be7363888fd8f41bd58772f2161a3e",
+      "encabezado": [
+        "Domingo quinto del tiempo ordinario",
+        "Color: verde",
+        "Para anunciar a Dios es necesario conocerlo, y para conocer a Dios se hace necesario que Él se revele. No podemos llegar a Dios solamente con nuestros raciocinios humanos. La revelación de Dios es un acto gratuito y es iniciativa absoluta de Dios. El hombre no tiene poder sobre Dios.",
+        "Es por eso que los profetas no anuncian una doctrina abstracta, puramente humana. El profeta anuncia a un Dios viviente y es verdaderamente profeta alguien a quien se ha revelado. El profeta es el que ha sido llamado y el que ha sido mandado por Dios a anunciar una buena noticia de salvación. Revelación, vocación y misión están estrechamente vinculadas.",
+        "Las tres lecturas de este domingo proponen un mismo concepto de vocación. Isaías ha visto la gloria de Dios antes de ser enviado a su misión. Los apóstoles han tenido que ver el cuerpo de Cristo resucitado antes de comenzar a recorrer el mundo anunciando la buena nueva. Los doce impresionados por la pesca milagrosa abandonaron las redes para llegar a ser pescadores de hombres."
+      ]
+    },
+    "2025-02-16": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-02-16",
+      "descargado": "2026-10-31T17:17:52.139Z",
+      "bytes": 19995,
+      "sha256": "1ad3b3f9b2f62c80ba65575688c51ec607d94188af0b5b75fa7fb66c446fddee",
+      "encabezado": [
+        "Domingo sexto del tiempo ordinario",
+        "Color: verde",
+        "Con este domingo se inicia la lectura del discurso del plan con el cual el evangelista Lucas presenta la nueva ley: la vida moral del cristiano. Las bienaventuranzas no son una ley, sino una buena noticia. La ley confía al hombre a sus propias fuerzas y lo lleva a adecuarse hasta el extremo. Sin embargo, el Evangelio pone al hombre de frente al don de Dios y lo lleva a darse totalmente y poner a Dios como fundamento de la propia vida. En una civilización del aprovecharse de los otros, en donde el dinero es el ídolo ante el cual se sacrifica el hombre y todo otro valor, en un mundo en el cual muchas veces no existe espacio para una auténtica libertad, solamente el hombre de las bienaventuranzas, el hombre libre de las cosas puede hacer redescubrir el verdadero rostro del hombre.",
+        "Jesús es el hombre de las bienaventuranzas. Él ha resucitado y nos ha demostrado que son bienaventurados los pobres y que nuestra fe no es vana."
+      ]
+    },
+    "2025-02-23": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-02-23",
+      "descargado": "2026-10-31T17:17:53.345Z",
+      "bytes": 20771,
+      "sha256": "8edeff1ffabd5ccf72656e0e78dcc4adcf885441f8810b82b5d8870bcccdd0ea",
+      "encabezado": [
+        "Domingo séptimo del tiempo ordinario",
+        "Color: verde",
+        "El hombre que ha creído al anuncio a aquello que Dios ha hecho en Jesús, espontáneamente se pregunta: “Ahora, ¿Qué cosa tengo que hacer?”. La respuesta es esta: tiene que existir correspondencia entre lo que Dios ha hecho y entre lo que el hombre debe hacer. Jesús es la expresión histórica y concreta de un acto de amor totalmente gratuito y universal con el cual Dios se dona a la humanidad y en el cual revela aquello que es.",
+        "Es por esto que el cristiano debe amar con un amor gratuito y universal, porque Dios en Cristo nos ha amado así.",
+        "La misma capacidad de amar nos ha sido dada del hecho que primero fuimos objetos del amor. Es claro que el principio de la vida moral del cristiano es el amor gratuito y universal, que no puede ser comprendido desde fuera del Evangelio. Lucas, en el Evangelio de este domingo, no enuncia principios en forma abstracta. Lo hace en forma concreta, recogiendo una serie de dichos de Jesús.",
+        "Los que celebramos la eucaristía somos los que hemos nacido del amor entregado y derramado por Jesús en el acontecimiento de la cruz. Los que celebramos la eucaristía somos los discípulos del que proclamó en la cruz: “Perdónalos porque no saben lo que hacen”. Desde esta perspectiva amar al enemigo es consecuencia evangélica."
+      ]
+    },
+    "2025-03-02": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-03-02",
+      "descargado": "2026-10-31T17:17:54.585Z",
+      "bytes": 19096,
+      "sha256": "c61dd223bc96389b7b01ee45cc0d5f9be6025d99b20e0b760112f0c6c1a6bc4b",
+      "encabezado": [
+        "Domingo octavo del tiempo ordinario",
+        "Color: verde",
+        "Hay textos del Evangelio que hablan por sí solos y que nos llaman la atención por su claridad y sencillez. Es el coro de la historia del Papa y de la Virgen, cuantas veces no hemos sido demasiado rápidos en el juzgar a los hermanos.",
+        "Nos erguimos en jueces del otro sin antes reconocer lo que sucede en nuestras vidas y que la justicia, la verdad, la rectitud y la misericordia, ordenen todos nuestros actos.",
+        "El Señor Jesús no nos invita en primer lugar a vivir una cierta moral, sino que a tener un corazón que se abre a la conversión, porque esta nos hace descubrir a quienes seguir: a sus discípulos, quienes nos llaman a ser santos como el Padre de los cielos es santo.",
+        "Teniendo a Jesús como maestro y haciéndonos discípulos, no caminamos en tinieblas, como lo podría hacer un ciego."
+      ]
+    },
+    "2025-03-05": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-03-05",
+      "descargado": "2026-10-31T17:17:55.791Z",
+      "bytes": 19985,
+      "sha256": "f4d14fc125d88bb335e8cc026a4b7e511e8c59837292f81041297526bbf2a76e",
+      "encabezado": [
+        "Miércoles de Ceniza",
+        "Color: morado",
+        "El profeta advierte al pueblo de Dios, convocado para un rito de penitencia, que ésta no debe ser observada solamente como un rito exterior, sino como un verdadero retorno a Dios. Una conversión total, en respuesta a la infinita misericordia de Dios que perdona los pecados.",
+        "La Cuaresma es un tiempo favorable para reconciliarse con Dios en Cristo, único mediador de nuestra reconciliación, que ha instituido el sacramento de la penitencia para reconciliarnos con Dios, ofendido con nuestros pecados, que también han herido a su Iglesia.",
+        "En la lectura del Evangelio Jesús no deplora los aspectos exteriores de la piedad y de las obras buenas, más bien insiste sobre la rectitud y la humildad interior que deben acompañarlas, con la intención de no practicarlas con ostentación, sino que por amor a Dios, quien lee en los corazones, y de quien solamente debemos esperar una recompensa para la vida eterna.",
+        "El rito de la imposición de las cenizas, que representa todo aquello que es frágil y pasajero, se hace signo de humildad, de dolor y de penitencia. Esta Cuaresma es la oportunidad propicia para hacer penitencia y pedirle al Señor que nos ayude hacer de cada una de nuestras comunidades un ambiente sano y seguro."
+      ]
+    },
+    "2025-03-09": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-03-09",
+      "descargado": "2026-10-31T17:17:57.027Z",
+      "bytes": 23363,
+      "sha256": "d48b0d200996f009e4bceaff79b0a79871ba7ebd26aa3b709f850af8880ad59e",
+      "encabezado": [
+        "Domingo primero de Cuaresma",
+        "Color: morado",
+        "Moisés recuerda al pueblo de Israel la gloriosa intervención divina que lo liberó de la humillación y de la esclavitud en Egipto para introducirlo en la tierra prometida. Aquello que Dios hizo hace más de treinta años atrás por su pueblo elegido, lo ha realizado en una medida nueva y definida, por medio de su hijo que ha liberado a la humanidad de todos los tiempos de la degradación del pecado.",
+        "Nuestra salvación viene de la fe con la cual proclamamos que Jesús es el Señor, es decir, el Hijo de Dios, que nos ha redimido con el sacrificio de sí mismo. La victoria de Cristo, muerto y resucitado, es para nosotros la síntesis del don divino de la fe, con la cual recibimos el bautismo que nos hace cristianos.",
+        "Al comienzo de su misión redentora, Cristo fue agredido por Satanás en su locura de tentarlo para hacerlo fallar, sugiriéndole salvar el mundo, obedeciendo a aspiraciones solamente humanas y no con la voluntad de Dios. Las tentaciones de Cristo en el desierto nos enseñan que es necesario resistir las tentaciones con firmeza, sin permitir que el mal comience a insinuarse en la mente y en el corazón. En los desiertos que nos toca vivir, venzamos la tentación de creernos mejores que los otros y de estar por encima de nuestros hermanos.",
+        "El mal es mentiroso, se presenta como agradable, como correspondiente a nuestras aspiraciones, cuando en realidad es nuestro peor enemigo, ya que no desea para nosotros ningún bien."
+      ]
+    },
+    "2025-03-16": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-03-16",
+      "descargado": "2026-10-31T17:17:58.237Z",
+      "bytes": 22418,
+      "sha256": "15881f5ac759c73b80856ada3a2f491664d973fd197fe73d00ab2054d0730d84",
+      "encabezado": [
+        "Domingo segundo de Cuaresma",
+        "Color: morado",
+        "La salvación es fruto de una íntima comunión con Dios. De esta comunión, es clara",
+        "expresión y elocuente símbolo, la alianza que en la Biblia interviene en los momentos fundamentales de la salvación. Sin ir más lejos, la alianza es un mutuo y solemne compromiso de fidelidad.",
+        "Dios es siempre fiel a su palabra y el hombre no debe faltar a la suya.",
+        "En el antiguo rito de la alianza, quienes la realizaban, pasaban a través de las víctimas descuartizadas sacrificialmente para significar que sabían cuáles eran las graves consecuencias de una traición. Dios, simbolizado por una llama, cumple con el rito y lo hace primero, como para indicar que ofrecía espontáneamente, por gracia, su alianza."
+      ]
+    },
+    "2025-03-23": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-03-23",
+      "descargado": "2026-10-31T17:17:59.466Z",
+      "bytes": 23583,
+      "sha256": "80eb18f9da8b699d3401ceb75248ed98887c82c29da2ae98c4a03445efdedb62",
+      "encabezado": [
+        "Domingo tercero de Cuaresma",
+        "Color: morado",
+        "La urgencia de la conversión, por aproximarse del Juicio de Dios, nos hace salir de nosotros mismos, nos hace salir de nuestro Egipto y cruzar el Mar Rojo para llegar a la tierra prometida que es Cristo.",
+        "La Palabra de Dios siempre quiere llevarnos a la conversión y la urgencia de este llamado asume en Cristo una tonalidad particular. Él es la misericordia del Padre.",
+        "El tiempo de Cristo, es el tiempo de la paciencia del Padre. Un largo tiempo de esterilidad no impide a Dios de dar posibilidad que surja el higo. La paciencia de Dios no es debilidad, es amor.",
+        "La vocación de Moisés, a quien Dios encarga obtener la liberación de su pueblo de la opresión del faraón de Egipto, es una etap os de la historia de Israel nos revelan la intención y la pedagogía divina para guiar al hombre destinado a decisiva de la historia de la salvación."
+      ]
+    },
+    "2025-03-30": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-03-30",
+      "descargado": "2026-10-31T17:18:00.675Z",
+      "bytes": 22926,
+      "sha256": "130710ece9673210589a18f2a8d6de9776c75f779ea698febefb5335962d0e79",
+      "encabezado": [
+        "Domingo cuarto de Cuaresma",
+        "Color: morado",
+        "No es fácil aceptarse como pecador y, muchas veces, tratamos de olvidarlo o de",
+        "rechazarlo. Algunos creen que lo logran, pero la verdad es que somos pecadores,",
+        "y muchas veces sentimos en nuestra vida una misteriosa y profunda culpabilidad:",
+        "guerras, odios raciales, hermanos con hambre, cesantes, incapacidad de ser"
+      ]
+    },
+    "2025-04-06": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-04-06",
+      "descargado": "2026-10-31T17:18:01.892Z",
+      "bytes": 19634,
+      "sha256": "ddfa3768cc2bd6a71783884dbc03cf6ed9f554ecc3cb19fbae7746fe2f96ee57",
+      "encabezado": [
+        "Domingo V de Cuaresma",
+        "Morado"
+      ]
+    },
+    "2025-04-13": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-04-13",
+      "descargado": "2026-10-31T17:18:03.154Z",
+      "bytes": 44370,
+      "sha256": "85c95787c5d05707dd7fb414d1995f0de423d2f4be7243124922794110a93da3",
+      "encabezado": [
+        "Domingo de Ramos en la Pasión del Señor",
+        "Rojo"
+      ]
+    },
+    "2025-04-14": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-04-14",
+      "descargado": "2026-10-31T17:18:04.362Z",
+      "bytes": 17149,
+      "sha256": "9ad75f015b131d0856e8f658d547b45b494df70a31a59b771c11ac85c50275fd",
+      "encabezado": [
+        "Lunes Santo",
+        "Morado"
+      ]
+    },
+    "2025-04-15": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-04-15",
+      "descargado": "2026-10-31T17:18:05.575Z",
+      "bytes": 18352,
+      "sha256": "eea435a166452996b7d3024d6e2e63a13e8f3af72a9763bb20a64bee3b614fc9",
+      "encabezado": [
+        "Martes Santo",
+        "Morado"
+      ]
+    },
+    "2025-04-16": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-04-16",
+      "descargado": "2026-10-31T17:18:06.784Z",
+      "bytes": 17364,
+      "sha256": "ae284c1d0a67f009a31cc408569ca5656e3324c5ad96aa725a09f4ea20f0ef70",
+      "encabezado": [
+        "Miércoles Santo",
+        "Morado"
+      ]
+    },
+    "2025-04-17": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-04-17",
+      "descargado": "2026-10-31T17:18:08.044Z",
+      "bytes": 24951,
+      "sha256": "3f7b593e8655ed31cf4ed8afb22de31e3a9d9646021cc92fc4abfef5344d0976",
+      "encabezado": [
+        "Jueves santo «en la Cena del Señor»",
+        "Blanco"
+      ]
+    },
+    "2025-04-18": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-04-18",
+      "descargado": "2026-10-31T17:18:09.280Z",
+      "bytes": 50806,
+      "sha256": "8a52c465716afef0d67bccec5dcead7c41defc737400432cb02838d96b945e5e",
+      "encabezado": [
+        "Viernes Santo de la Pasión del Señor",
+        "Rojo"
+      ]
+    },
+    "2025-04-19": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-04-19",
+      "descargado": "2026-10-31T17:18:10.511Z",
+      "bytes": 53317,
+      "sha256": "e7c2aa6261716f3c72fdb47414e40bfcd5783e0bdb56fe38a793f4fce5bef5e8",
+      "encabezado": []
+    },
+    "2025-04-20": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-04-20",
+      "descargado": "2026-10-31T17:18:11.794Z",
+      "bytes": 27736,
+      "sha256": "a3db529ec17fae02d1f9dc1aa25117128488a9a42162022d1f11edc936a8c321",
+      "encabezado": []
+    },
+    "2025-04-21": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-04-21",
+      "descargado": "2026-10-31T17:18:13.007Z",
+      "bytes": 16654,
+      "sha256": "83d190ee50a51cece83e9862e85e2237dd3db63a389c50fe9511c4135a10542d",
+      "encabezado": [
+        "Lunes de la octava de Pascua",
+        "Blanco"
+      ]
+    },
+    "2025-04-27": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-04-27",
+      "descargado": "2026-10-31T17:18:14.239Z",
+      "bytes": 23477,
+      "sha256": "71ce297385a9e8f55f3166724c5a0cfd05a0c6d79e3e0fc14aadc1a2657b9536",
+      "encabezado": [
+        "Domingo segundo de Pascua o de La Divina Misericordia",
+        "Blanco"
+      ]
+    },
+    "2025-05-04": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-05-04",
+      "descargado": "2026-10-31T17:18:15.498Z",
+      "bytes": 23069,
+      "sha256": "ea718db1ecf24e5c56e9efed7d7d68c9561ac15d08c8245001c0840f510f2e5e",
+      "encabezado": [
+        "Tercer domingo de Pascua",
+        "Blanco"
+      ]
+    },
+    "2025-05-11": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-05-11",
+      "descargado": "2026-10-31T17:18:16.714Z",
+      "bytes": 21709,
+      "sha256": "6e98ca170313047d67ad2cfac0523556f843e2f40a9d66683e7bef44e42f9382",
+      "encabezado": [
+        "Cuarto domingo de Pascua",
+        "Blanco"
+      ]
+    },
+    "2025-05-18": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-05-18",
+      "descargado": "2026-10-31T17:18:17.961Z",
+      "bytes": 21296,
+      "sha256": "c6580dc1d12828bf889cbd55be5ef752af3172b8a54dfbe345363f8f3889ac02",
+      "encabezado": [
+        "Quinto domingo de Pascua",
+        "Blanco"
+      ]
+    },
+    "2025-05-25": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-05-25",
+      "descargado": "2026-10-31T17:18:19.268Z",
+      "bytes": 22840,
+      "sha256": "8a695e7e078f1e64b832327811c6d447e22459e956049e288b1e7b321db90a75",
+      "encabezado": [
+        "Sexto domingo de Pascua",
+        "Blanco"
+      ]
+    },
+    "2025-06-01": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-06-01",
+      "descargado": "2026-10-31T17:18:20.479Z",
+      "bytes": 27803,
+      "sha256": "9f387e4ea4c6034e886908cd609edabe1f4099cc043a7e70ab1dc9fc63940743",
+      "encabezado": [
+        "La Ascensión del Señor",
+        "Solemnidad",
+        "Blanco"
+      ]
+    },
+    "2025-06-08": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-06-08",
+      "descargado": "2026-10-31T17:18:21.779Z",
+      "bytes": 28919,
+      "sha256": "8656b043071f7c4678e3881cee92594b9cc7a8903d6abd4b4985d70d6d7392c6",
+      "encabezado": [
+        "Pentecostés",
+        "Rojo"
+      ]
+    },
+    "2025-06-15": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-06-15",
+      "descargado": "2026-10-31T17:18:23.007Z",
+      "bytes": 23069,
+      "sha256": "20256c5a6970ae52d9fac488e12ddc0bf5db4ee02f3fd223007b565f645f01ab",
+      "encabezado": [
+        "La Santísima Trinidad",
+        "Blanco"
+      ]
+    },
+    "2025-06-22": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-06-22",
+      "descargado": "2026-10-31T17:18:24.224Z",
+      "bytes": 21915,
+      "sha256": "aac7064b792ced84d3f4bc15f4a6fbb71df256e5ebfd995c45530071190771c3",
+      "encabezado": [
+        "Santísimo cuerpo y sangre de Cristo",
+        "Blanco"
+      ]
+    },
+    "2025-06-27": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-06-27",
+      "descargado": "2026-10-31T17:18:25.449Z",
+      "bytes": 18116,
+      "sha256": "59dfcfefd4fe5c72c76435c7e7b9223f272ab43eb82ff1082166129eb1abca92",
+      "encabezado": [
+        "Sagrado Corazón de Jesús",
+        "Solemnidad",
+        "Blanco"
+      ]
+    },
+    "2025-07-06": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-07-06",
+      "descargado": "2026-10-31T17:18:27.927Z",
+      "bytes": 27315,
+      "sha256": "aa516cb51e3551a3019ee1b7bf2c3c8b21a9c38a359207852f03eb5bb4bc426a",
+      "encabezado": [
+        "XIVº",
+        "DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2025-07-13": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-07-13",
+      "descargado": "2026-10-31T17:18:29.154Z",
+      "bytes": 28543,
+      "sha256": "e33d0a5c77ba97114e9a01cdb1ab67de28d29986218bc09e3eeacd472bd38b5b",
+      "encabezado": [
+        "XV",
+        "º",
+        "DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2025-07-20": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-07-20",
+      "descargado": "2026-10-31T17:18:30.359Z",
+      "bytes": 25452,
+      "sha256": "b82b115ec7f390d1657acd2598748db51446e1d03fcd2effee68f04e8d53b0c8",
+      "encabezado": [
+        "Domingo 20 de julio",
+        "DOMINGO XVI",
+        "º",
+        "DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2025-07-27": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-07-27",
+      "descargado": "2026-10-31T17:18:31.577Z",
+      "bytes": 27634,
+      "sha256": "62d78a025fd706fda328efbdf29fafdda8c94b7b0db30d9e5ad0d997fbc1c1ca",
+      "encabezado": [
+        "XVII",
+        "º",
+        "DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2025-08-03": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-08-03",
+      "descargado": "2026-10-31T17:18:32.788Z",
+      "bytes": 25934,
+      "sha256": "3a290194b306478f5aec498329ed961db5abbf2dbfa658049c64cc24c12ba9b3",
+      "encabezado": [
+        "DOMINGO XVIII",
+        "º",
+        "DEL TIEMPO ORDINARIO",
+        "Verde",
+        "S",
+        "ugerencias para la celebración"
+      ]
+    },
+    "2025-08-10": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-08-10",
+      "descargado": "2026-10-31T17:18:34.013Z",
+      "bytes": 32241,
+      "sha256": "866223d0cf03ad6376d17691409afab9b5b30e1048cd7ac6f2cb59c5aedf5b4b",
+      "encabezado": [
+        "DOMINGO XIX",
+        "º",
+        "DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2025-08-17": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-08-17",
+      "descargado": "2026-10-31T17:18:35.255Z",
+      "bytes": 25467,
+      "sha256": "47635e9ecb7cc057358507ca699c06967c4cbd6eeff7c8ed780223fe308a2539",
+      "encabezado": [
+        "DOMINGO XX",
+        "º",
+        "DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2025-08-24": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-08-24",
+      "descargado": "2026-10-31T17:18:36.485Z",
+      "bytes": 25523,
+      "sha256": "b7a83407e7f15f8b843070c89fe586ac5dcf00d0d687c2835b1f9fc07dc45608",
+      "encabezado": [
+        "DOMINGO XXI",
+        "º",
+        "DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2025-08-31": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-08-31",
+      "descargado": "2026-10-31T17:18:37.738Z",
+      "bytes": 25561,
+      "sha256": "56e2584f79c53aa67db0c7581fc321c4cf503d1526248b29cf91e0e7d9f8fb8e",
+      "encabezado": [
+        "DOMINGO XXII DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2025-09-07": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-09-07",
+      "descargado": "2026-10-31T17:18:38.950Z",
+      "bytes": 22992,
+      "sha256": "1fd64addf647457fa1b8917c09b69e224d6ab0d75fe1d4c0f960979463adb842",
+      "encabezado": [
+        "DOMINGO XXIIIº DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2025-09-21": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-09-21",
+      "descargado": "2026-10-31T17:18:41.503Z",
+      "bytes": 24202,
+      "sha256": "39e51b382d77e3eea6ec77ae5f862eed42d0a66005fde41de839a21cd95383c5",
+      "encabezado": [
+        "DOMINGO XXVº DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2025-09-28": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-09-28",
+      "descargado": "2026-10-31T17:18:42.796Z",
+      "bytes": 22703,
+      "sha256": "93f4eed9303403e2a83854617398a72b0a54fcbc464299ca80d3deba1acb458e",
+      "encabezado": [
+        "DOMINGO XXVIº DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2025-10-05": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-10-05",
+      "descargado": "2026-10-31T17:18:44.001Z",
+      "bytes": 22909,
+      "sha256": "0ea3bad2592c4e1c761fc3e73cee3fd6946404dfefec8e4da1aa042497beb120",
+      "encabezado": [
+        "XXVIIº DOMINGO «DURANTE EL AÑO»",
+        "Verde"
+      ]
+    },
+    "2025-10-12": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-10-12",
+      "descargado": "2026-10-31T17:18:45.212Z",
+      "bytes": 23199,
+      "sha256": "193a9fcc650bb0c322d4edbe0c697488c3d28c629f0d9e1aa7ff49afe76b88ea",
+      "encabezado": [
+        "XXVIII DOMINGO «DURANTE EL AÑO»",
+        "Verde"
+      ]
+    },
+    "2025-10-19": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-10-19",
+      "descargado": "2026-10-31T17:18:46.417Z",
+      "bytes": 22493,
+      "sha256": "0c62f3825aaf882f5d140d791fe04ea863b58bd4c257f79acdc1b1ca92218b9f",
+      "encabezado": [
+        "XXIX DOMINGO «DURANTE EL AÑO»",
+        "Verde"
+      ]
+    },
+    "2025-10-26": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-10-26",
+      "descargado": "2026-10-31T17:18:47.669Z",
+      "bytes": 21499,
+      "sha256": "0dd32f817fd355c3af4b672a577e383f9b295e9879b00cce917a6a56e8135374",
+      "encabezado": [
+        "XXX DOMINGO «DURANTE EL AÑO»",
+        "Verde"
+      ]
+    },
+    "2025-11-16": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-11-16",
+      "descargado": "2026-10-31T17:18:51.368Z",
+      "bytes": 22960,
+      "sha256": "a3d1c844157f6e971c1519e5e1c09cdf051e837a0a09fb148f69b7efc34af083",
+      "encabezado": [
+        "XXXIII domingo del Tiempo Ordinario",
+        "Verde"
+      ]
+    },
+    "2025-11-23": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-11-23",
+      "descargado": "2026-10-31T17:18:52.573Z",
+      "bytes": 24146,
+      "sha256": "ae0ebfaec250ae5ca79c75bc28edd2b897d948d261ab4a068c71a71fcbaebe49",
+      "encabezado": [
+        "Jesucristo Rey del Universo",
+        "Blanco"
+      ]
+    },
+    "2025-11-30": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-11-30",
+      "descargado": "2026-10-31T17:18:53.798Z",
+      "bytes": 24297,
+      "sha256": "ee8fa8efc11f2fb10a29232c93c96c2b14e8bff6357a861cf51281f22bcbfc30",
+      "encabezado": [
+        "I domingo del Tiempo de Adviento",
+        "Morado"
+      ]
+    },
+    "2025-12-07": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-12-07",
+      "descargado": "2026-10-31T17:18:55.016Z",
+      "bytes": 25375,
+      "sha256": "65fdd3e6a31a30833f4864de45bfd61c4e5c8bb73eda4694b1e9f9bf3472cc16",
+      "encabezado": [
+        "Domingo II de Adviento",
+        "Morado"
+      ]
+    },
+    "2025-12-14": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-12-14",
+      "descargado": "2026-10-31T17:18:56.234Z",
+      "bytes": 23149,
+      "sha256": "0f7dbbc2d5482d0f35165861690ee54df39fd05a32c2e4f8ec384b18ad6ebb4d",
+      "encabezado": [
+        "Domingo III de Adviento",
+        "Morado"
+      ]
+    },
+    "2025-12-21": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-12-21",
+      "descargado": "2026-10-31T17:18:57.442Z",
+      "bytes": 22126,
+      "sha256": "4e57ca2b3e5e3526a46aee17398e06849982e06ba19dafd1a93bd57a57cddef8",
+      "encabezado": [
+        "Domingo IV de Adviento",
+        "Morado"
+      ]
+    },
+    "2025-12-25": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-12-25",
+      "descargado": "2026-10-31T17:18:59.858Z",
+      "bytes": 37055,
+      "sha256": "983e8ee8373dcbb9c817e6c3acf224dba6ac28d0717139ea8f522d8f5e469a0a",
+      "encabezado": [
+        "25 de diciembre",
+        "Natividad del Señor (S)",
+        "Blanco"
+      ]
+    },
+    "2025-12-28": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2025-12-28",
+      "descargado": "2026-10-31T17:19:01.106Z",
+      "bytes": 22417,
+      "sha256": "5910a10d2248fd3792332e5e6aa0c3d97c42f8834b8f4b18e3d926f4443af7c4",
+      "encabezado": [
+        "28 de diciembre",
+        "La Sagrada Familia de Jesús, María y José",
+        "Blanco"
+      ]
+    },
+    "2026-01-01": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-01-01",
+      "descargado": "2026-10-31T17:19:02.315Z",
+      "bytes": 16800,
+      "sha256": "e5535977422e14df70936d4256059e767523b70d5b1cdb431b409a58b019b08d",
+      "encabezado": [
+        "SANTA MARÍA, MADRE DE DIOS (S)",
+        "Blanco",
+        "Del Martirologio Romano",
+        "Solemnidad de Santa María, Madre de Dios, en la octava de la Natividad del Señor y en el día de su Circuncisión. Los Padres del Concilio de Éfeso la aclamaron como",
+        "Theotokos",
+        ", porque en ella la Palabra se hizo carne, y acampó entre los hombres el Hijo de Dios, príncipe de la paz, cuyo nombre está por encima de todo otro nombre"
+      ]
+    },
+    "2026-01-04": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-01-04",
+      "descargado": "2026-10-31T17:19:03.527Z",
+      "bytes": 34220,
+      "sha256": "b337a8fceed3b6b9b0b074158559e7f82592b3b474f0a1889c46b1b5c8d259fd",
+      "encabezado": [
+        "EPIFANÍA DEL SEÑOR (S)",
+        "Blanco"
+      ]
+    },
+    "2026-01-11": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-01-11",
+      "descargado": "2026-10-31T17:19:04.735Z",
+      "bytes": 22677,
+      "sha256": "c6a8266a95d637a20a661433cfaadfe9aab4f57d162ba5d05d2f873af463e1a2",
+      "encabezado": [
+        "BAUTISMO DEL SEÑOR (F)",
+        "Blanco"
+      ]
+    },
+    "2026-01-18": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-01-18",
+      "descargado": "2026-10-31T17:19:05.972Z",
+      "bytes": 21712,
+      "sha256": "76947034f9988a160d329f5e8976e653f50640a5ece0417c9bc02c9fc7405bbb",
+      "encabezado": [
+        "II DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-01-25": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-01-25",
+      "descargado": "2026-10-31T17:19:07.211Z",
+      "bytes": 23203,
+      "sha256": "c8676733c1a9429174efda40fde8458cd66ada7be24d3f49e251a5c1f8c50f50",
+      "encabezado": [
+        "III DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-02-01": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-02-01",
+      "descargado": "2026-10-31T17:19:08.421Z",
+      "bytes": 23753,
+      "sha256": "b265258687d4133bb44f27b33270a39e2cdbba86c8c9222c82861fe4ab75e294",
+      "encabezado": [
+        "IV DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-02-08": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-02-08",
+      "descargado": "2026-10-31T17:19:09.641Z",
+      "bytes": 21825,
+      "sha256": "3ff270cd321d28ee3f7ee74ee4f74c15cc37c532bb62107aa6d4ae71f216654c",
+      "encabezado": [
+        "V DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-02-15": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-02-15",
+      "descargado": "2026-10-31T17:19:10.852Z",
+      "bytes": 27078,
+      "sha256": "4e03c6e225baa8debb2c8cb038edebe10b73f6aa06cda8d1e5600e1d9229f9a3",
+      "encabezado": [
+        "VI DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-02-18": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-02-18",
+      "descargado": "2026-10-31T17:19:12.056Z",
+      "bytes": 22143,
+      "sha256": "5d51aae5524b2c51aaa42f18c002abc53186cc6682629d3b0a63f447d5c12030",
+      "encabezado": [
+        "MIÉRCOLES DE CENIZA",
+        "Morado"
+      ]
+    },
+    "2026-02-22": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-02-22",
+      "descargado": "2026-10-31T17:19:13.362Z",
+      "bytes": 30899,
+      "sha256": "a69377d42ac60d467de593b0c2755a1e1f7e5e6faed941e923182c56cb7074c8",
+      "encabezado": [
+        "I DOMINGO DE CUARESMA",
+        "Morado"
+      ]
+    },
+    "2026-03-01": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-03-01",
+      "descargado": "2026-10-31T17:19:14.583Z",
+      "bytes": 29146,
+      "sha256": "f1c17cb5aa2c50a4f9b7d1ffba9785d737696f90bb21a225c781e290b0e9e507",
+      "encabezado": [
+        "II Domingo de Cuaresma",
+        "Morado"
+      ]
+    },
+    "2026-03-08": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-03-08",
+      "descargado": "2026-10-31T17:19:15.827Z",
+      "bytes": 40626,
+      "sha256": "1093aecd314fa473cbdabf553bf26a8d5de80ee567832d0966dd2a3cb666c340",
+      "encabezado": [
+        "III Domingo de Cuaresma",
+        "(",
+        "o san Juan de Dios",
+        ",",
+        "conm.)",
+        "Morado"
+      ]
+    },
+    "2026-03-15": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-03-15",
+      "descargado": "2026-10-31T17:19:17.066Z",
+      "bytes": 41842,
+      "sha256": "e98ea84fb213a428de3cd87f3b91d4c3993eed84439c776e633210737c896e10",
+      "encabezado": [
+        "IV Domingo de Cuaresma",
+        "Morado / Rosa"
+      ]
+    },
+    "2026-03-22": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-03-22",
+      "descargado": "2026-10-31T17:19:18.275Z",
+      "bytes": 39412,
+      "sha256": "ffef4065e69f6c6a95f357559f712c151c49edb85a1437ca5a0b2c5d7dd8bf1f",
+      "encabezado": [
+        "V Domingo de Cuaresma",
+        "Morado"
+      ]
+    },
+    "2026-03-29": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-03-29",
+      "descargado": "2026-10-31T17:19:19.507Z",
+      "bytes": 67914,
+      "sha256": "ac98067ff1d4e464fb23b9f03ec717f15d566d67287670782d81297cfeb919c9",
+      "encabezado": [
+        "Domingo de Ramos en la Pasión del Señor",
+        "Rojo"
+      ]
+    },
+    "2026-03-30": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-03-30",
+      "descargado": "2026-10-31T17:19:20.722Z",
+      "bytes": 18610,
+      "sha256": "5b1c8f0bd155e5ee7bc7c2c86c256210bb6b4e5ee2b705e60d4a1feb1734ed6c",
+      "encabezado": [
+        "Lunes Santo",
+        "Morado"
+      ]
+    },
+    "2026-03-31": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-03-31",
+      "descargado": "2026-10-31T17:19:21.935Z",
+      "bytes": 21201,
+      "sha256": "4ed48928d570df061d7a20ad1cd60ff09604e64925b47698e9ff2c9061fb161b",
+      "encabezado": [
+        "Martes Santo",
+        "Morado"
+      ]
+    },
+    "2026-04-01": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-04-01",
+      "descargado": "2026-10-31T17:19:23.155Z",
+      "bytes": 19655,
+      "sha256": "45e2d6bda019c3bed22d02b83013642800661547a6bcc9880a2f315e1f79b237",
+      "encabezado": [
+        "MIÉRCOLES SANTO",
+        "Morado"
+      ]
+    },
+    "2026-04-02": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-04-02",
+      "descargado": "2026-10-31T17:19:24.386Z",
+      "bytes": 44051,
+      "sha256": "47e0322cb03662e91fa0705ce0a5c26d68a1baf8c488c140ca7b2a7729406490",
+      "encabezado": [
+        "Jueves Santo"
+      ]
+    },
+    "2026-04-03": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-04-03",
+      "descargado": "2026-10-31T17:19:25.622Z",
+      "bytes": 69934,
+      "sha256": "bdbabda629665f5ab17977a4fd0cb4e35bb5a4950a98b29e0b7715f82e431f9d",
+      "encabezado": [
+        "Viernes Santo de la Pasión del Señor",
+        "Rojo"
+      ]
+    },
+    "2026-04-04": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-04-04",
+      "descargado": "2026-10-31T17:19:26.859Z",
+      "bytes": 66119,
+      "sha256": "790357da457d267efd474217ae9c21b929d3cdd3930b5abd7e0d807f6d7d2b32",
+      "encabezado": [
+        "Sábado Santo"
+      ]
+    },
+    "2026-04-05": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-04-05",
+      "descargado": "2026-10-31T17:19:28.086Z",
+      "bytes": 31905,
+      "sha256": "66cd68a82c64e2c4b119272acad81735cf77c8fae0fa56d1f7e7ad516f2d05e6",
+      "encabezado": [
+        "Domingo de Pascua de la Resurrección del Señor"
+      ]
+    },
+    "2026-04-06": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-04-06",
+      "descargado": "2026-10-31T17:19:29.326Z",
+      "bytes": 19102,
+      "sha256": "8d43ca87daa0f67d2dccfcd38f00316c75c49113317a7876394d1d0bd493fa6b",
+      "encabezado": [
+        "Lunes de la Octava de Pascua",
+        "Blanco",
+        "—--------"
+      ]
+    },
+    "2026-04-12": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-04-12",
+      "descargado": "2026-10-31T17:19:30.540Z",
+      "bytes": 28154,
+      "sha256": "0eccec26efc446920d3d3762a2a4e64f20c480207f7abac7216f4212bc098ff3",
+      "encabezado": [
+        "II Domingo de Pascua o de la Divina Misericordia",
+        "Blanco"
+      ]
+    },
+    "2026-04-19": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-04-19",
+      "descargado": "2026-10-31T17:19:31.753Z",
+      "bytes": 28521,
+      "sha256": "f9c9746cd23c0b4bee934bc4f4e44c4888cb17f6c2319a7f0362545c660339ee",
+      "encabezado": [
+        "III Domingo de Pascua",
+        "Blanco"
+      ]
+    },
+    "2026-04-26": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-04-26",
+      "descargado": "2026-10-31T17:19:32.971Z",
+      "bytes": 25167,
+      "sha256": "f63f173b17706004002e6b680d3af8410c8fdce94292aa65eb61b358ea78fbb9",
+      "encabezado": [
+        "IV Domingo de Pascua",
+        "Blanco"
+      ]
+    },
+    "2026-05-03": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-05-03",
+      "descargado": "2026-10-31T17:19:34.184Z",
+      "bytes": 30484,
+      "sha256": "e26a1a8ac0c61821f5618566242a71390eddc23ee29f507b27a024c9670c042b",
+      "encabezado": [
+        "3 de mayo",
+        "V DOMINGO DE PASCUA",
+        "Blanco"
+      ]
+    },
+    "2026-05-10": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-05-10",
+      "descargado": "2026-10-31T17:19:35.394Z",
+      "bytes": 27376,
+      "sha256": "f1557c7b87b976b8c966f772acb2c44c4a96cfeb7eadd36785db721eec906408",
+      "encabezado": [
+        "10 de mayo",
+        "VI DOMINGO DE PASCUA",
+        "Blanco"
+      ]
+    },
+    "2026-05-17": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-05-17",
+      "descargado": "2026-10-31T17:19:36.605Z",
+      "bytes": 40559,
+      "sha256": "b91ad329615351303e05fa9601c02e3242d5f2f8b1d9af6cda248ab52044ca41",
+      "encabezado": [
+        "17 de mayo",
+        "LA ASCENSIÓN DEL SEÑOR (S)",
+        "Blanco"
+      ]
+    },
+    "2026-05-24": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-05-24",
+      "descargado": "2026-10-31T17:19:37.828Z",
+      "bytes": 56417,
+      "sha256": "7882f98c94b3be1af4fb290da531add056ca6e401c50e2f3b0b5becabfa943cf",
+      "encabezado": [
+        "24 de mayo",
+        "PENTECOSTÉS",
+        "Rojo"
+      ]
+    },
+    "2026-05-31": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-05-31",
+      "descargado": "2026-10-31T17:19:39.037Z",
+      "bytes": 28441,
+      "sha256": "41703b1d5507d5bfe50403cae5307cb4fe86dcf251543a3c8e5a552d7dd5b1aa",
+      "encabezado": [
+        "31 de mayo",
+        "SANTÍSIMA TRINIDAD",
+        "Blanco"
+      ]
+    },
+    "2026-06-07": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-06-07",
+      "descargado": "2026-10-31T17:19:40.254Z",
+      "bytes": 33952,
+      "sha256": "7c473233e5875e89d08449fd9af2b3a4784d994b680771247fcd20b9131a6379",
+      "encabezado": [
+        "7 de junio",
+        "EL CUERPO Y LA SANGRE DE NUESTRO SEÑOR JESUCRISTO (S)",
+        "Blanco"
+      ]
+    },
+    "2026-06-12": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-06-12",
+      "descargado": "2026-10-31T17:19:41.477Z",
+      "bytes": 20928,
+      "sha256": "534fbd12ac33c966424bcd28d9026aeeed582d483eeb6c8c73ac249005715ab8",
+      "encabezado": [
+        "12 de junio",
+        "SAGRADO CORAZÓN DE JESÚS (S)",
+        "Blanco"
+      ]
+    },
+    "2026-06-14": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-06-14",
+      "descargado": "2026-10-31T17:19:42.695Z",
+      "bytes": 28603,
+      "sha256": "9ba01d257f5101f5067fc86e263e59304b1d306c3a0452fa77b9b109eedcc7d3",
+      "encabezado": [
+        "14 de junio",
+        "XI DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-06-21": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-06-21",
+      "descargado": "2026-10-31T17:19:43.981Z",
+      "bytes": 28194,
+      "sha256": "f6c492ac1954e83df6d6b81eeccd3c25133b51fda8145eaa202c7afcd244365e",
+      "encabezado": [
+        "21 de junio",
+        "XII DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-06-28": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-06-28",
+      "descargado": "2026-10-31T17:19:45.231Z",
+      "bytes": 27262,
+      "sha256": "a4d1195573e844ee4c91e10743463b8f0dc2d124dc4576a33782c6147039c74d",
+      "encabezado": [
+        "28 de junio",
+        "XIII DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-07-05": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-07-05",
+      "descargado": "2026-10-31T17:19:46.438Z",
+      "bytes": 26524,
+      "sha256": "63b5fed8e072e9a00436780ded439fe24a831758c3a3776921ca413d948d059d",
+      "encabezado": [
+        "5 de julio",
+        "XIV DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-07-12": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-07-12",
+      "descargado": "2026-10-31T17:19:47.677Z",
+      "bytes": 31452,
+      "sha256": "9e507e6fbd4b7fd4730d648449a882ab77b55521fec4e24aae5cc275596dd4ab",
+      "encabezado": [
+        "12 de julio",
+        "XV DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-07-19": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-07-19",
+      "descargado": "2026-10-31T17:19:48.887Z",
+      "bytes": 31486,
+      "sha256": "4a624abd35bbe1a77b5424c3882bc38cb613979a1019c51b94c1a50c492786c3",
+      "encabezado": [
+        "19 de julio",
+        "XVI DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-07-26": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-07-26",
+      "descargado": "2026-10-31T17:19:50.099Z",
+      "bytes": 27991,
+      "sha256": "46828d2a0622f594ff4170d8a56d32f2cdb0b3213c0883e441464cc1f8eec351",
+      "encabezado": [
+        "26 de julio",
+        "XVII DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-08-02": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-08-02",
+      "descargado": "2026-10-31T17:19:51.315Z",
+      "bytes": 25936,
+      "sha256": "283cbe7be306d335b4c1a62e081b0c56033978c1b4ee123df9e6510940a97dea",
+      "encabezado": [
+        "2 de agosto",
+        "XVIII DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-08-09": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-08-09",
+      "descargado": "2026-10-31T17:19:52.530Z",
+      "bytes": 27696,
+      "sha256": "f8b7b1abe6737528d1cf0374a69bdfc4497f53d3c891b3ed0f1b1dfae924f185",
+      "encabezado": [
+        "9 de agosto",
+        "XIX DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-08-16": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-08-16",
+      "descargado": "2026-10-31T17:19:53.742Z",
+      "bytes": 27358,
+      "sha256": "6584c255040c5fc98d12c29fb408b01e31117b1f5a44a132cade5da9d14af5ee",
+      "encabezado": [
+        "16 de agosto",
+        "XX DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-08-23": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-08-23",
+      "descargado": "2026-10-31T17:19:54.962Z",
+      "bytes": 26838,
+      "sha256": "ff015fe141625f4a2f8ce7f67edad0eed7634459e0aef94e2cc07cf57cf2fd31",
+      "encabezado": [
+        "23 de agosto",
+        "XXI DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-08-30": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-08-30",
+      "descargado": "2026-10-31T17:19:56.171Z",
+      "bytes": 28076,
+      "sha256": "4177f49fd4fff44c600445bb2d7b5957e3ceab6b41d5cb29811cd7db66296b69",
+      "encabezado": [
+        "30",
+        "de agosto",
+        "XXII DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-09-06": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-06",
+      "descargado": "2026-10-31T17:19:57.383Z",
+      "bytes": 27986,
+      "sha256": "2051dcdc452cfd713d4b61160aa3a0f899671e2fb1c364c21114a623d2778c36",
+      "encabezado": [
+        "XXIII DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-09-13": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-13",
+      "descargado": "2026-10-31T17:19:58.587Z",
+      "bytes": 28841,
+      "sha256": "a197cf11a341a64734c1092a2914376ba3dddac3174310f581109baa2fd6a75b",
+      "encabezado": [
+        "13 de septiembre",
+        "XXIV DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-09-20": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-20",
+      "descargado": "2026-10-31T17:19:59.865Z",
+      "bytes": 28357,
+      "sha256": "5d8faf856a9168820fc0cfb110a1bb2ca63253063cdbb48e874e9157227f1d0d",
+      "encabezado": [
+        "20 de septiembre",
+        "XXV DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-09-27": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-27",
+      "descargado": "2026-10-31T17:20:01.066Z",
+      "bytes": 28821,
+      "sha256": "6d1b124b1113f892778ef330e47cbebd91fe0d022f94c16e305e7a8740370c78",
+      "encabezado": [
+        "27 de septiembre",
+        "XXVI DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-10-04": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-04",
+      "descargado": "2026-10-31T17:20:02.280Z",
+      "bytes": 30056,
+      "sha256": "62276cc2218d7a158f8d73a7f57b3e20772261e89392bf3936024aad7231f7e9",
+      "encabezado": [
+        "4 de octubre",
+        "XXVII DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-10-11": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-11",
+      "descargado": "2026-10-31T17:20:03.484Z",
+      "bytes": 31670,
+      "sha256": "01e31a3673f5d1fafd45963b40002e2852ae6f77688c997875b0ce29dbfb7f9b",
+      "encabezado": [
+        "11 de octubre",
+        "XXVIII DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-10-18": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-18",
+      "descargado": "2026-10-31T17:20:04.749Z",
+      "bytes": 28812,
+      "sha256": "699031cf887b87c305e879e8b80694d22d33f8d2ee2adbae81633c7c3c2d050f",
+      "encabezado": [
+        "18",
+        "de octubre",
+        "XXIX DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-10-25": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-25",
+      "descargado": "2026-10-31T17:20:05.969Z",
+      "bytes": 27525,
+      "sha256": "75caeed79bd991ff978663f05a1bfe9a1d01260bb1caeee37a2473f89940c1a6",
+      "encabezado": [
+        "25 de octubre",
+        "XXX DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-11-08": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-11-08",
+      "descargado": "2026-10-31T17:20:08.422Z",
+      "bytes": 28478,
+      "sha256": "c03d533bd4f34714a764f7afbdb8880bb7621fc559fce986d3f3fa0425fb0063",
+      "encabezado": [
+        "DOMINGO 8 DE NOVIEMBRE",
+        "XXXII SEMANA DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-11-15": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-11-15",
+      "descargado": "2026-10-31T17:20:09.628Z",
+      "bytes": 30860,
+      "sha256": "5d171e48f54ba11aa7868791c95c8ee54fb735cab366a04f8ff2e36bb72dfc74",
+      "encabezado": [
+        "DOMINGO 15 DE NOVIEMBRE",
+        "XXXIII DOMINGO DEL TIEMPO ORDINARIO",
+        "Verde"
+      ]
+    },
+    "2026-11-22": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-11-22",
+      "descargado": "2026-10-31T17:20:10.862Z",
+      "bytes": 32127,
+      "sha256": "abe4cdb9da06bbe0209bbe37c9375af70f661251cf61326fe79b96050c25a5c7",
+      "encabezado": [
+        "DOMINGO 22 DE NOVIEMBRE",
+        "XXXIV SEMANA DEL TIEMPO ORDINARIO",
+        "NUESTRO SEÑOR JESUCRISTO, REY DEL UNIVERSO",
+        "Solemnidad",
+        "Blanco"
+      ]
+    },
+    "2026-11-29": {
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-11-29",
+      "descargado": "2026-10-31T17:20:12.073Z",
+      "bytes": 31221,
+      "sha256": "11fe9e9a2145dd85a5bac30fc8aca482c93bebaf54dd57f44ce36305475a5483",
+      "encabezado": [
+        "DOMINGO 29 DE NOVIEMBRE",
+        "I SEMANA  DE ADVIENTO",
+        "Morado",
+        "INICIO CICLO B - AÑO IMPAR",
+        "Morado"
+      ]
+    }
+  }
+}

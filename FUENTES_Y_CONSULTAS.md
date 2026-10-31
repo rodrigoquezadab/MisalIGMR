@@ -45,13 +45,14 @@ Cada regla indica de dónde sale y si está confirmada para Chile.
 | Regla | Dónde está en el código | Fundamento | Estado |
 | :-- | :-- | :-- | :-- |
 | Pascua por cómputo gregoriano | `liturgical_calendar.js` | Cálculo estándar; probado contra fechas conocidas | ✅ |
-| Epifanía el domingo entre el 2 y el 8 de enero | `liturgical_calendar.js` | N3, n. 7 (donde no es de precepto) | ❓ D1 |
-| Bautismo del Señor el lunes si la Epifanía cae el 7 u 8 de enero | `liturgical_calendar.js` | N3 | 🔎 |
-| Ascensión el VII Domingo de Pascua | `liturgical_calendar.js` | N3, n. 7 | ❓ D1 |
-| Corpus Christi el domingo después de la Trinidad | `liturgical_calendar.js` | N3, n. 7 | ❓ D1 |
+| Epifanía el domingo entre el 2 y el 8 de enero | `liturgical_calendar.js` | N3, n. 7 (donde no es de precepto). B5 la pone el domingo 05-01-2025 y el domingo 04-01-2026 | 🔎 coincide con B5; confirmar D1 |
+| Bautismo del Señor el lunes si la Epifanía cae el 7 u 8 de enero | `liturgical_calendar.js` | N3. B5 lo pone el lunes 08-01-2024 | 🔎 coincide con B5 |
+| Ascensión el VII Domingo de Pascua | `liturgical_calendar.js` | N3, n. 7. B5 la pone en domingo (12-05-2024, 01-06-2025, 17-05-2026) | 🔎 coincide con B5; confirmar D1 |
+| Corpus Christi el domingo después de la Trinidad | `liturgical_calendar.js` | N3, n. 7. B5 lo pone en domingo (02-06-2024, 22-06-2025, 07-06-2026) | 🔎 coincide con B5; confirmar D1 |
 | Sagrada Familia el domingo de la octava, o el 30 de diciembre | `liturgical_calendar.js` | Calendario Romano General | 🔎 |
-| Fiestas del Señor y solemnidades que reemplazan al domingo del T. O. (2-2, 24-6, 29-6, 6-8, 15-8, 14-9, 1-11, 2-11, 9-11) | `liturgical_calendar.js` | N3, tabla de precedencias | ❓ D1 (traslados en Chile) |
+| Fiestas del Señor y solemnidades que reemplazan al domingo del T. O. (2-2, 24-6, 29-6, 6-8, 15-8, 14-9, 1-11, 2-11, 9-11) | `liturgical_calendar.js` | N3, tabla de precedencias. B5 celebra en domingo, sin trasladar: Presentación (02-02-2025), San Pedro y San Pablo (29-06-2025), Fieles Difuntos (02-11-2025), Letrán (09-11-2025) y Todos los Santos (01-11-2026) | 🔎 coincide con B5; falta ver 24-6, 6-8, 15-8 y 14-9 |
 | Ciclo dominical A/B/C | `liturgical_calendar.js` | Coincide con eucaristiadiaria.cl («Inicio ciclo B», 29-11-2026) | ✅ |
+| Qué misa del catálogo corresponde a cada fecha | `liturgical_calendar.js` | Los títulos de las 195 páginas de B5 descargadas coinciden con la misa calculada (ver `fuentes/eucaristiadiaria/indice.json`, campo `encabezado`) | 🔎 |
 | Plegaria Eucarística sugerida para cada misa | `liturgia_db.json` (`plegariaRecomendada`) | N1, n. 365 | ❓ D5 |
 | Posturas de la asamblea en cada momento | `build_complete_app.js` (`.posture`) | N1, nn. 43, 137, 160 | ❓ D6 |
 | Estructura del Viernes Santo (4 partes, sin Liturgia Eucarística) | `build_complete_app.js` | Misal Romano, Viernes Santo | 🔎 cotejar con B2 |
@@ -64,7 +65,7 @@ Para llevar a la Comisión Nacional de Liturgia (CONALI) de la CECh, al Departam
 
 | # | Pregunta | Por qué importa | A quién | Respuesta |
 | :-- | :-- | :-- | :-- | :-- |
-| D1 | En Chile, ¿Epifanía, Ascensión y Corpus Christi se trasladan al domingo? ¿Se traslada San Pedro y San Pablo (29-6)? ¿Qué solemnidades propias de Chile (p. ej., Virgen del Carmen, 16-7) prevalecen sobre un domingo? | Define qué misa muestra la tarjeta «Celebración de hoy» | CONALI / Ordo CECh | — |
+| D1 | En Chile, ¿Epifanía, Ascensión y Corpus Christi se trasladan al domingo? ¿Se traslada San Pedro y San Pablo (29-6)? ¿Qué solemnidades propias de Chile (p. ej., Virgen del Carmen, 16-7) prevalecen sobre un domingo? | Define qué misa muestra la tarjeta «Celebración de hoy» | CONALI / Ordo CECh | Parcial (31-10-2026, según B5, no oficial): Epifanía, Ascensión y Corpus en domingo; San Pedro y San Pablo y Todos los Santos se celebran el domingo en que caen. Falta confirmar con el Ordo y ver las solemnidades propias de Chile |
 | D2 | ¿Cuál es el texto oficial de la IGMR para Chile? ¿Existe una edición argentina o chilena aprobada, y dónde conseguirla? | Hoy la app usa la traducción colombiana del sitio del Vaticano | CONALI / Oficina del Libro (CEA) | — |
 | D3 | Permiso para usar en la app los textos del Misal (Cono Sur), del Leccionario y de Eucaristía Diaria. ¿A quién se pide cada uno? | Los textos tienen derechos de autor. Decisión del 31-10-2026: seguir trabajando con ellos hasta tener una app correcta y entonces pedir el permiso mostrando la app | Arzobispado de Santiago (pastoralliturgica@iglesiadedesantiago.cl); Oficina del Libro de la CEA | — |
 | D4 | ¿Conviene mostrar las lecturas de los tres ciclos (A, B, C) o solo las del año en curso? | Hoy las lecturas mezclan ciclos (Adviento del C, Cuaresma III-V del A) | Liturgista | — |
@@ -72,4 +73,6 @@ Para llevar a la Comisión Nacional de Liturgia (CONALI) de la CECh, al Departam
 | D6 | ¿Ha determinado la CECh posturas propias para Chile (IGMR 43)? Por ejemplo, ¿de rodillas desde el Santo hasta el final de la Plegaria? ¿Comunión de pie o de rodillas (IGMR 160)? | La app muestra las posturas generales de la IGMR | CONALI | — |
 | D7 | El Ordinario de eucaristiadiaria.cl trae «El Señor esté con vosotros» en dos diálogos del prefacio, una nota interna («PONER PLEGARIA EUCARÍSTICA I, III…») y no trae todas las plegarias. ¿Hay un Ordinario digital fiel al Misal del Cono Sur? ¿Les sirve que les avisemos de esos errores? | Para el Ordinario no hay fuente digital confiable | Arzobispado de Santiago | — |
 | D8 | Del IV al XXXIV Domingo del Tiempo Ordinario, las lecturas son texto de relleno y 30 misas comparten la misma colecta. ¿De dónde tomar los propios correctos? | Contenido incompleto | Se resuelve con B2 y B5 | — |
+| D10 | ¿Se puede guardar copia de las páginas de Eucaristía Diaria en un repositorio público mientras se prepara la app? | El repositorio de GitHub es público; por ahora las páginas se guardan solo en local (fuera de git) | Arzobispado de Santiago (junto con D3) | — |
+| D11 | La página del Jueves Santo de 2025 en Eucaristía Diaria no trae la Misa Crismal (las de 2024 y 2026 sí). ¿Es habitual? ¿Dónde está la Crismal ese año? | Hueco en la fuente | Arzobispado de Santiago | — |
 | D9 | El Sábado Santo, la app muestra una meditación (Oficio de Lecturas) en lugar de una misa. ¿Es adecuado presentarlo así? | Coherencia con el Misal | Liturgista | — |

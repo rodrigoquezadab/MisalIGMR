@@ -8,12 +8,16 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 
 ## Dónde quedamos
 
-**Última sesión: 31-10-2026 (tarde).** Rama `claude/youthful-wozniak-8ooc6f`, todavía no unida a `main`.
+**Última sesión: 31-10-2026 (noche).** Rama `claude/youthful-wozniak-8ooc6f`, todavía no unida a `main`.
 
 - La app sigue mostrando los textos de la edición **colombiana** («vosotros»). Ningún texto litúrgico se ha reemplazado todavía.
-- Ya se sabe dónde está el «vosotros»: unas 340 formas, la mayoría en las lecturas (`CONTEXT.md` §2.2).
-- Fuente digital elegida para Chile: **eucaristiadiaria.cl** (Arzobispado de Santiago). Trae los propios y las lecturas de cada día ya con «ustedes». Su Ordinario tiene errores.
-- La portada muestra la «Celebración de hoy» (`liturgical_calendar.js`, con pruebas en `test_calendar.js`).
+- **Paso 1 hecho:** `fuentes/descargar_eucaristiadiaria.js` calcula la fecha de cada misa en los ciclos A, B y C y descarga esas páginas de eucaristiadiaria.cl. Resultado: 195 páginas, 207 pares misa-ciclo, índice en `fuentes/eucaristiadiaria/indice.json` (URL, fecha de descarga, sha256 y título de cada página).
+  - Las páginas están en `fuentes/eucaristiadiaria/paginas/`, **fuera de git**, porque el repositorio de GitHub es público. Como el contenedor se borra al cerrar la sesión, la próxima sesión debe volver a correr el script (unos 4 minutos) antes de extraer.
+  - Sin página: `pas-sabado-santo` (no tiene misa), `to-1` y `pas-7` (no se celebran en Chile), `to-9` (no cayó en domingo entre 2014 y 2026).
+  - Ciclos sin página: `sem-crismal` C (la página de 2025 no la trae), `to-7` B, `to-8` B, `to-10` A. Para los domingos faltantes habrá que buscar otra fuente (Leccionario impreso).
+  - Dónde está cada misa en el sitio: la Vigilia de Navidad en la página del 25 de diciembre (con Noche, Aurora y Día); la Vigilia Pascual en la del Sábado Santo; la Misa Crismal en la del Jueves Santo (salvo 2025).
+- La estructura de las páginas varía entre años (títulos en mayúsculas o no, «R/.» o «R.», introducciones antes de los textos). La extracción tiene que tolerarlo.
+- La tarjeta «Celebración de hoy» y su calendario coinciden con lo que publica el sitio en las 195 fechas.
 
 ## Decisiones tomadas
 
@@ -23,11 +27,12 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 | 31-10-2026 | Nunca completar ni corregir textos litúrgicos de memoria. |
 | 31-10-2026 | Seguir trabajando con los textos con derechos de autor hasta tener una app correcta; entonces mostrarla y pedir permiso (ver D3 en `FUENTES_Y_CONSULTAS.md`). Mientras tanto, no publicar en `main`: cada push a `main` despliega el sitio público en GitHub Pages. |
 | 31-10-2026 | Registrar toda fuente, norma y duda en `FUENTES_Y_CONSULTAS.md` para llevarla a consultas presenciales. |
+| 31-10-2026 | No subir al repositorio público las páginas descargadas: solo el script y el índice con sus sha256 (ver D10). Pendiente que el usuario confirme si prefiere hacer privado el repositorio. |
 
 ## Próximos pasos
 
-1. **Descargar y guardar las fuentes.** Para cada una de las 74 misas, calcular sus fechas en los ciclos A, B y C con `liturgical_calendar.js`. Descargar esas páginas de eucaristiadiaria.cl y guardarlas en el repositorio con la URL y la fecha de descarga, para poder citar cada texto.
-2. **Extraer los textos.** Pasar a datos cada parte: antífonas, colecta, lecturas con su cita, salmo con respuesta, aclamación, evangelio, ofrendas, prefacio, comunión y poscomunión. Revisar a mano las páginas que tengan otra estructura (Triduo, Navidad).
+1. ~~Descargar y guardar las fuentes.~~ Hecho (ver arriba). Al empezar la próxima sesión: `node fuentes/descargar_eucaristiadiaria.js`.
+2. **Extraer los textos.** Escribir un extractor que convierta cada página en datos: antífonas, colecta, lecturas con su cita, salmo con respuesta, aclamación, evangelio, ofrendas, prefacio, comunión y poscomunión. Separar las misas de las páginas que traen varias (Navidad, Jueves Santo). Revisar a mano el Triduo. Guardar los datos extraídos fuera de git, igual que las páginas.
 3. **Reemplazar en `liturgia_db.json`**, guardando la fuente de cada texto. Decidir con la consulta D4 si se guardan los tres ciclos.
 4. **Ordinario.** Rehacerlo comparando el de eucaristiadiaria.cl con el Misal impreso del Cono Sur. Anotar en D7 cada diferencia.
 5. **Prueba automática** que falle si queda alguna forma de «vosotros» en textos proclamados (fuera de las citas de la IGMR).
@@ -39,3 +44,4 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 | 21/22-08-2026 | Catálogo de 74 misas, Viernes Santo y Sábado Santo, selector por tiempo, portada, limpieza de los 399 numerales de la IGMR, rediseño visual. |
 | 31-10-2026 (madrugada) | IGMR por momento y por ministerio, posturas y silencios de la asamblea, títulos de la IGMR como encabezados. Se anotó que los textos no son la edición para Chile. (Rama `claude/blissful-archimedes-1bkjty`, ya en `main`.) |
 | 31-10-2026 (tarde) | Tarjeta «Celebración de hoy» con su calendario y pruebas. Inventario del «vosotros» y búsqueda de fuentes para Chile. Creación de este archivo, de `FUENTES_Y_CONSULTAS.md` y de `CLAUDE.md`. |
+| 31-10-2026 (noche) | Descarga de las páginas de eucaristiadiaria.cl para las 74 misas en los tres ciclos (paso 1). Comprobación de títulos: corregidos los domingos reemplazados por fiestas y la ubicación de las Vigilias. |
