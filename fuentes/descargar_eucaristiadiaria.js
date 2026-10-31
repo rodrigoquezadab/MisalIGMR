@@ -6,12 +6,12 @@
 //   --forzar  vuelve a descargar páginas que ya están guardadas
 //
 // Resultado:
-//   fuentes/eucaristiadiaria/paginas/AAAA-MM-DD.html  página original (fuera de git)
+//   fuentes/eucaristiadiaria/paginas/AAAA-MM-DD.html  página original
 //   fuentes/eucaristiadiaria/indice.json              de dónde sale cada misa
 //
-// Las páginas no se suben al repositorio porque es público y los textos tienen
-// derechos de autor. El índice guarda el sha256 de cada una: al volver a
-// descargarlas se puede comprobar que son las mismas.
+// Las páginas se guardan en el repositorio, que es privado desde el
+// 31-10-2026 (los textos tienen derechos de autor). El índice guarda el sha256
+// de cada una: al volver a descargarlas se puede comprobar si cambiaron.
 //
 // Para cada misa y ciclo se elige la fecha más reciente que el sitio tenga.
 // La fecha se calcula con liturgical_calendar.js; el título que trae cada
