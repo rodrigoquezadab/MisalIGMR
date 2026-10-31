@@ -120,33 +120,19 @@ El sistema litúrgico implementa la regla de selección automática de la Plegar
 
 ## 5. Distribución Temática de la IGMR Íntegra (1 al 399)
 
-La aplicación contiene el **100% de los 399 numerales oficiales** distribuidos en concordancia exacta:
+La aplicación contiene el **100% de los 399 numerales oficiales**, cada uno en un solo lugar (el build avisa si falta o se repite alguno). Lo general va al comienzo; lo que la IGMR ordena para cada momento va junto a ese momento, agrupado por quién lo hace y en qué forma de celebración.
 
-1. **0. Proemio y Principios Generales**:
-   - Proemio (nn. 1-15).
-   - Cap. I: Importancia y dignidad de la celebración eucarística (nn. 16-26).
-2. **1. Ritos Iniciales**:
-   - Estructura general y posturas de la asamblea (nn. 27-45).
-   - Naturaleza de los Ritos Iniciales (n. 46).
-   - Entrada, procesión y reverencia al altar (nn. 47-49) y Disposición del presbiterio e iglesia (nn. 288-318).
-   - Saludo Inicial (n. 50), Acto Penitencial (n. 51), Kyrie (n. 52), Gloria (n. 53), Oración Colecta (n. 54).
-3. **2. Liturgia de la Palabra**:
-   - Naturaleza y silencio en la Palabra (nn. 55-56).
-   - Ministerios y lectores (nn. 91-111).
-   - I Lectura (n. 57), Salmo Responsorial (n. 61), II Lectura (nn. 58-59), Aclamación/Aleluya (nn. 62-64).
-   - Proclamación del Evangelio y Ritos de ministros (nn. 60, 134-135).
-   - Homilía (nn. 65-66, 136), Credo y reverencias (nn. 67-68, 137), Oración Universal (nn. 69-71, 138).
-4. **3. Liturgia Eucarística**:
-   - Estructura de la Liturgia Eucarística (n. 72), Formas de celebración (nn. 112-133), Pan, Vino y Vasos Sagrados (nn. 319-351).
-   - Preparación de Dones y Ofertorio (nn. 73-76, 139-145), Oración sobre Ofrendas (nn. 77, 146).
-   - Plegaria Eucarística y Concelebración (nn. 78-79, 147-151, 209-236).
-   - Rito de la Comunión y Comunión bajo dos especies (nn. 80-88, 152-163, 281-287), Postcomunión (nn. 89, 164-165).
-5. **4. Rito de Conclusión**:
-   - Despedida y bendición (nn. 90, 166-170).
-   - Misa con diácono y otros ministros (nn. 171-208).
-   - Conclusiones de concelebración (nn. 237-251) y Misa con un solo ministro (nn. 252-272).
-   - Incienso, reverencias y purificaciones (nn. 273-280).
-6. **5. Normas Complementarias de la IGMR**:
+1. **0. Proemio y Principios Generales**: Proemio (nn. 1-15), Cap. I (nn. 16-26), Cap. II: estructura, elementos, posturas y silencio (nn. 27-45), Cap. III: oficios y ministerios (nn. 91-111), Cap. IV: formas de celebrar y preparación (nn. 112-119), funciones generales del diácono y del acólito (nn. 171, 187, 189), normas generales de la concelebración (nn. 199-209) y de la Misa con un solo ministro (nn. 252-254), Cap. V: iglesias (nn. 288-318) y Cap. VI: pan, vino, vasos y vestiduras (nn. 319-351).
+2. **Cada momento de la Misa** (Ritos Iniciales, Liturgia de la Palabra, Liturgia Eucarística y Rito de Conclusión) muestra un bloque IGMR con estos grupos, según lo que diga la IGMR de ese momento:
+   - *Sentido del rito*: Cap. II, nn. 46-90.
+   - *Misa con pueblo: el sacerdote*: Cap. IV, nn. 120-170.
+   - *Con diácono*: nn. 172-186.
+   - *Lector y acólito*: nn. 188-198.
+   - *Misa concelebrada*: nn. 210-251.
+   - *Misa con un solo ministro*: nn. 255-272.
+   - En la Entrada, los *gestos* (beso al altar, genuflexión, inclinación, incienso: nn. 273-277); en la Comunión, *fragmentos y purificación* (nn. 278-280) y *Comunión bajo las dos especies* (nn. 281-287).
+   - El reparto exacto de cada numeral está en las llamadas `useMoment(...)` de `build_complete_app.js`.
+3. **5. Normas Complementarias de la IGMR**:
    - Cap. VII: Elección de la Misa y de sus partes (nn. 352-367).
    - Cap. VIII: Misas por diversas necesidades y difuntos (nn. 368-385).
    - Cap. IX: Adaptaciones episcopales (nn. 386-399).

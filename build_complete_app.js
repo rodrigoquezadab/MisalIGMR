@@ -41,24 +41,63 @@ function renderIGMR(title, numList) {
       html += `            <h5 class="igmr-subsec-title">${escapeHTML(it.subsection)}</h5>\n`;
       lastSub = it.subsection;
     }
-    const paragraphs = it.text.split('\n\n').map(p => p.trim()).filter(Boolean);
-    paragraphs.forEach((p, idx) => {
-      if (idx === 0) {
-        html += `            <div class="igmr-num-block" id="igmr-num-${n}">\n              <p><span class="igmr-num">IGMR ${n}:</span> ${escapeHTML(p)}</p>\n            </div>\n`;
-      } else {
-        html += `            <p>${escapeHTML(p)}</p>\n`;
-      }
-    });
+    html += renderIGMRParagraphs(n);
   });
 
   html += `          </div>\n        </details>\n      </div>\n`;
   return html;
 }
 
+function renderIGMRParagraphs(n) {
+  let html = "";
+  const paragraphs = igmrMap[n].text.split('\n\n').map(p => p.trim()).filter(Boolean);
+  paragraphs.forEach((p, idx) => {
+    if (idx === 0) {
+      html += `            <div class="igmr-num-block" id="igmr-num-${n}">\n              <p><span class="igmr-num">IGMR ${n}:</span> ${escapeHTML(p)}</p>\n            </div>\n`;
+    } else {
+      html += `            <p>${escapeHTML(p)}</p>\n`;
+    }
+  });
+  return html;
+}
+
+// "47-49, 120-123" para una lista ordenada de numerales
+function formatNums(list) {
+  const out = [];
+  for (let i = 0; i < list.length; i++) {
+    let j = i;
+    while (j + 1 < list.length && list[j + 1] === list[j] + 1) j++;
+    out.push(j > i ? `${list[i]}-${list[j]}` : `${list[i]}`);
+    i = j;
+  }
+  return out.join(', ');
+}
+
 const usedNumbers = new Set();
+const repeatedNumbers = [];
+function markUsed(list) {
+  list.forEach(n => {
+    if (usedNumbers.has(n)) repeatedNumbers.push(n);
+    usedNumbers.add(n);
+  });
+}
+
 function useRange(title, list) {
-  list.forEach(n => usedNumbers.add(n));
+  markUsed(list);
   return renderIGMR(title, list);
+}
+
+// Un momento de la Misa: lo que la IGMR dice de él, agrupado por quién lo hace y en qué forma de celebración
+function useMoment(title, groups) {
+  const all = groups.flatMap(g => g.nums);
+  markUsed(all);
+  let html = `      <div class="igmr-container">\n        <details id="igmr-details-${all[0]}-${all[all.length - 1]}">\n          <summary><span class="igmr-summary-icon">📜</span> <span>IGMR: ${escapeHTML(title)} (nn. ${formatNums([...all].sort((a, b) => a - b))})</span></summary>\n          <div class="igmr-content">\n`;
+  groups.forEach(g => {
+    html += `            <h4 class="igmr-sec-title">${escapeHTML(g.label)}</h4>\n`;
+    g.nums.forEach(n => { html += renderIGMRParagraphs(n); });
+  });
+  html += `          </div>\n        </details>\n      </div>\n`;
+  return html;
 }
 
 function linkifyIGMR(str) {
@@ -1779,6 +1818,11 @@ htmlParts.push(`
 `);
 htmlParts.push(useRange("Proemio de la Instrucción General del Misal Romano", range(1, 15)));
 htmlParts.push(useRange("Capítulo I: Importancia y Dignidad de la Celebración Eucarística", range(16, 26)));
+htmlParts.push(useRange("Capítulo II: Estructura General de la Misa, sus Elementos, Posturas y Silencio", range(27, 45)));
+htmlParts.push(useRange("Capítulo III: Oficios y Ministerios en la Misa", range(91, 111)));
+htmlParts.push(useMoment("Capítulo IV: Formas de Celebrar la Misa y lo que se Prepara", [{ label: "Formas de celebración y preparación", nums: [112, 113, 114, 115, 116, 117, 118, 119] }, { label: "El diácono y el acólito: funciones generales", nums: [171, 187, 189] }, { label: "Misa concelebrada: normas generales", nums: [199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209] }, { label: "Misa con un solo ministro: normas generales", nums: [252, 253, 254] }]));
+htmlParts.push(useRange("Capítulo V: Disposición y Ornamentación de las Iglesias", range(288, 318)));
+htmlParts.push(useRange("Capítulo VI: Lo Necesario para Celebrar la Misa (Pan, Vino, Vasos y Vestiduras)", range(319, 351)));
 htmlParts.push(`    </section>\n`);
 
 // 1. RITOS INICIALES (27-54)
@@ -1787,15 +1831,13 @@ htmlParts.push(`
       <h2 class="section-title"><span>❖</span> 1. Ritos Iniciales</h2>
       <p class="rubric">El pueblo se reúne. Estando el pueblo congregado, el sacerdote con los ministros se acerca al altar, mientras se entona el canto de entrada o se recita la antífona (IGMR 47-48, 120-121). El pueblo permanece de pie durante todos los ritos iniciales (IGMR 43, 120, 124).</p>
 `);
-htmlParts.push(useRange("Estructura General y Posturas del Cuerpo", range(27, 45)));
 htmlParts.push(useRange("Naturaleza de los Ritos Iniciales", range(46, 46)));
 
 htmlParts.push(`
       <h3 class="part-title">1.1. Entrada y Reverencia al Altar</h3>
       <div id="dyn-antifona-entrada" class="prayer-text"></div>
 `);
-htmlParts.push(useRange("Canto de Entrada y Procesión", range(47, 49)));
-htmlParts.push(useRange("Disposición y Ornamento del Altar y la Iglesia", range(288, 318)));
+htmlParts.push(useMoment("Canto de Entrada, Procesión y Veneración del Altar", [{ label: "Sentido del rito", nums: [47, 48, 49] }, { label: "Misa con pueblo: el sacerdote", nums: [120, 121, 122, 123] }, { label: "Con diácono", nums: [172, 173, 174] }, { label: "Lector y acólito", nums: [188, 194, 195, 198] }, { label: "Misa concelebrada", nums: [210, 211] }, { label: "Misa con un solo ministro", nums: [255, 256] }, { label: "Gestos: veneración del altar, genuflexión, inclinación e incienso", nums: [273, 274, 275, 276, 277] }]));
 
 htmlParts.push(`
       <h3 class="part-title">1.2. Saludo Inicial</h3>
@@ -1810,7 +1852,7 @@ htmlParts.push(`
         <p><span class="speaker">Pueblo:</span> <span class="response">Y con tu espíritu.</span></p>
       </div>
 `);
-htmlParts.push(useRange("Saludo al Pueblo", range(50, 50)));
+htmlParts.push(useMoment("Saludo al Pueblo", [{ label: "Sentido del rito", nums: [50] }, { label: "Misa con pueblo: el sacerdote", nums: [124] }, { label: "Misa con un solo ministro", nums: [257] }]));
 
 htmlParts.push(`
       <h3 class="part-title">1.3. Acto Penitencial</h3>
@@ -1883,7 +1925,7 @@ htmlParts.push(`
         </p>
       </div>
 `);
-htmlParts.push(useRange("Acto Penitencial", range(51, 51)));
+htmlParts.push(useMoment("Acto Penitencial", [{ label: "Sentido del rito", nums: [51] }, { label: "Misa con pueblo: el sacerdote", nums: [125] }, { label: "Misa con un solo ministro", nums: [258] }]));
 
 htmlParts.push(`
       <h3 class="part-title">1.4. Señor, ten piedad (Kyrie, eleison)</h3>
@@ -1903,7 +1945,7 @@ htmlParts.push(`
         <p><span class="speaker">Todos:</span> Gloria a Dios en el cielo, y en la tierra paz a los hombres que ama el Señor. Por tu inmensa gloria te alabamos, te bendecimos, te adoramos, te glorificamos, te damos gracias, Señor Dios, Rey celestial, Dios Padre todopoderoso. Señor, Hijo único, Jesucristo. Señor Dios, Cordero de Dios, Hijo del Padre; tú que quitas el pecado del mundo, ten piedad de nosotros; tú que quitas el pecado del mundo, atiende nuestra súplica; tú que estás sentado a la derecha del Padre, ten piedad de nosotros; porque sólo tú eres Santo, sólo tú Señor, sólo tú Altísimo, Jesucristo, con el Espíritu Santo en la gloria de Dios Padre. Amén.</p>
       </div>
 `);
-htmlParts.push(useRange("Himno del Gloria", range(53, 53)));
+htmlParts.push(useMoment("Himno del Gloria", [{ label: "Sentido del rito", nums: [53] }, { label: "Misa con pueblo: el sacerdote", nums: [126] }]));
 
 htmlParts.push(`
       <h3 class="part-title">1.6. Oración Colecta</h3>
@@ -1913,7 +1955,7 @@ htmlParts.push(`
         <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
       </div>
 `);
-htmlParts.push(useRange("Oración Colecta", range(54, 54)));
+htmlParts.push(useMoment("Oración Colecta", [{ label: "Sentido del rito", nums: [54] }, { label: "Misa con pueblo: el sacerdote", nums: [127] }, { label: "Misa con un solo ministro", nums: [259] }]));
 htmlParts.push(`    </section>\n`);
 
 // 2. LITURGIA DE LA PALABRA (55-71, 91-111, 134-138)
@@ -1922,47 +1964,44 @@ htmlParts.push(`
       <h2 class="section-title"><span>📖</span> 2. Liturgia de la Palabra</h2>
       <p class="rubric">El pueblo se sienta para escuchar las lecturas (IGMR 43, 128). Las lecturas se proclaman siempre desde el ambón (IGMR 58, 309).</p>
 `);
-htmlParts.push(useRange("Naturaleza de la Liturgia de la Palabra y Silencio", range(55, 56)));
-htmlParts.push(useRange("Ministerios y Funciones Litúrgicas en la Misa", range(91, 111)));
+htmlParts.push(useMoment("Naturaleza de la Liturgia de la Palabra, Silencio y Ambón", [{ label: "Sentido del rito", nums: [55, 56, 57, 58, 59] }, { label: "Misa concelebrada", nums: [212] }, { label: "Misa con un solo ministro", nums: [260] }]));
 
 htmlParts.push(`
       <h3 class="part-title">2.1. Primera Lectura</h3>
       <div id="dyn-lectura-1" class="scripture-box"></div>
 `);
-htmlParts.push(useRange("Primera Lectura Bíblica", range(57, 57)));
+htmlParts.push(useMoment("Primera Lectura", [{ label: "Misa con pueblo: el sacerdote", nums: [128, 135] }, { label: "Con diácono", nums: [176] }, { label: "Lector y acólito", nums: [196] }, { label: "Misa con un solo ministro", nums: [261] }]));
 
 htmlParts.push(`
       <h3 class="part-title">2.2. Salmo Responsorial</h3>
       <div id="dyn-salmo" class="scripture-box"></div>
 `);
-htmlParts.push(useRange("Salmo Responsorial", range(61, 61)));
+htmlParts.push(useMoment("Salmo Responsorial", [{ label: "Sentido del rito", nums: [61] }, { label: "Misa con pueblo: el sacerdote", nums: [129] }]));
 
 htmlParts.push(`
       <h3 class="part-title">2.3. Segunda Lectura</h3>
       <div id="dyn-lectura-2" class="scripture-box"></div>
 `);
-htmlParts.push(useRange("Segunda Lectura Apostólica", range(58, 59)));
+htmlParts.push(useMoment("Segunda Lectura", [{ label: "Misa con pueblo: el sacerdote", nums: [130] }]));
 
 htmlParts.push(`
       <h3 class="part-title">2.4. Aclamación antes del Evangelio (Aleluya)</h3>
       <p class="rubric">El pueblo se pone de pie para aclamar el Evangelio (IGMR 43, 131).</p>
       <div id="dyn-aleluya" class="dialogue"></div>
 `);
-htmlParts.push(useRange("Aclamación antes del Evangelio", range(62, 64)));
+htmlParts.push(useMoment("Aclamación antes del Evangelio y Secuencia", [{ label: "Sentido del rito", nums: [62, 63, 64] }, { label: "Misa con pueblo: el sacerdote", nums: [131] }]));
 
 htmlParts.push(`
       <h3 class="part-title">2.5. Proclamación del Santo Evangelio</h3>
       <div id="dyn-evangelio" class="scripture-box"></div>
 `);
-htmlParts.push(useRange("Proclamación del Santo Evangelio", range(60, 60)));
-htmlParts.push(useRange("Ritos Propios del Evangelio por el Diácono o Sacerdote", range(134, 135)));
+htmlParts.push(useMoment("Proclamación del Evangelio", [{ label: "Sentido del rito", nums: [60] }, { label: "Misa con pueblo: el sacerdote", nums: [132, 133, 134] }, { label: "Con diácono", nums: [175] }, { label: "Misa con un solo ministro", nums: [262] }]));
 
 htmlParts.push(`
       <h3 class="part-title">2.6. Homilía</h3>
       <p class="rubric">El pueblo se sienta (IGMR 43, 136). El sacerdote o diácono pronuncia la homilía desde la sede o el ambón (IGMR 66, 136). Concluida la homilía, se guarda un breve tiempo de sagrado silencio (IGMR 56, 66).</p>
 `);
-htmlParts.push(useRange("La Homilía", range(65, 66)));
-htmlParts.push(useRange("Normas para la Homilía y el Silencio Sagrado", range(136, 136)));
+htmlParts.push(useMoment("La Homilía", [{ label: "Sentido del rito", nums: [65, 66] }, { label: "Misa con pueblo: el sacerdote", nums: [136] }, { label: "Misa concelebrada", nums: [213] }]));
 
 htmlParts.push(`
       <h3 class="part-title">2.7. Profesión de Fe (Credo)</h3>
@@ -1983,8 +2022,7 @@ htmlParts.push(`
         <p><span class="speaker">Todos:</span> padeció bajo el poder de Poncio Pilato, fue crucificado, muerto y sepultado, descendió a los infiernos, al tercer día resucitó de entre los muertos, subió a los cielos y está sentado a la derecha de Dios, Padre todopoderoso. Desde allí ha de venir a juzgar a vivos y muertos. Creo en el Espíritu Santo, la santa Iglesia católica, la comunión de los santos, el perdón de los pecados, la resurrección de la carne y la vida eterna. Amén.</p>
       </div>
 `);
-htmlParts.push(useRange("El Símbolo o Profesión de Fe", range(67, 68)));
-htmlParts.push(useRange("Rúbricas y Reverencias Corporales en el Credo", range(137, 137)));
+htmlParts.push(useMoment("El Símbolo o Profesión de Fe", [{ label: "Sentido del rito", nums: [67, 68] }, { label: "Misa con pueblo: el sacerdote", nums: [137] }, { label: "Misa con un solo ministro", nums: [263] }]));
 
 htmlParts.push(`
       <h3 class="part-title">2.8. Oración Universal (Oración de los Fieles)</h3>
@@ -2003,8 +2041,7 @@ htmlParts.push(`
         <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
       </div>
 `);
-htmlParts.push(useRange("Oración Universal", range(69, 71)));
-htmlParts.push(useRange("Disposición y Moderación de la Oración de los Fieles", range(138, 138)));
+htmlParts.push(useMoment("Oración Universal", [{ label: "Sentido del rito", nums: [69, 70, 71] }, { label: "Misa con pueblo: el sacerdote", nums: [138] }, { label: "Con diácono", nums: [177] }, { label: "Lector y acólito", nums: [197] }, { label: "Misa con un solo ministro", nums: [264] }]));
 htmlParts.push(`    </section>\n`);
 
 // 3. LITURGIA EUCARÍSTICA (72-89, 112-133, 139-165, 209-236, 281-287, 319-351)
@@ -2013,9 +2050,7 @@ htmlParts.push(`
       <h2 class="section-title"><span>🍞</span> 3. Liturgia Eucarística</h2>
       <p class="rubric">El pueblo se sienta durante la preparación de las ofrendas (IGMR 43). Se colocan sobre el altar el corporal, el purificador, el cáliz, la palia y el misal (IGMR 73, 139).</p>
 `);
-htmlParts.push(useRange("Estructura de la Liturgia Eucarística", range(72, 72)));
-htmlParts.push(useRange("Estructura de la Misa y sus Formas de Celebración", range(112, 133)));
-htmlParts.push(useRange("Pan, Vino y Vasos Sagrados para la Eucaristía", range(319, 351)));
+htmlParts.push(useMoment("Estructura de la Liturgia Eucarística", [{ label: "Sentido del rito", nums: [72] }, { label: "Misa con un solo ministro", nums: [265] }]));
 
 htmlParts.push(`
       <h3 class="part-title">3.1. Preparación de los Dones (Ofertorio)</h3>
@@ -2042,8 +2077,7 @@ htmlParts.push(`
         <p><span class="speaker">Pueblo:</span> <span class="response">El Señor reciba de tus manos este sacrificio, para alabanza y gloria de su nombre, para nuestro bien y el de toda su santa Iglesia.</span></p>
       </div>
 `);
-htmlParts.push(useRange("Preparación de las Ofrendas y Ritos del Ofertorio", range(73, 76)));
-htmlParts.push(useRange("Ritos del Sacerdote en la Mesa del Altar", range(139, 145)));
+htmlParts.push(useMoment("Preparación de los Dones", [{ label: "Sentido del rito", nums: [73, 74, 75, 76] }, { label: "Misa con pueblo: el sacerdote", nums: [139, 140, 141, 142, 143, 144, 145] }, { label: "Con diácono", nums: [178] }, { label: "Lector y acólito", nums: [190] }, { label: "Misa concelebrada", nums: [214] }]));
 
 htmlParts.push(`
       <h3 class="part-title">3.2. Oración sobre las Ofrendas</h3>
@@ -2053,8 +2087,7 @@ htmlParts.push(`
         <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
       </div>
 `);
-htmlParts.push(useRange("Oración sobre las Ofrendas", range(77, 77)));
-htmlParts.push(useRange("Conclusión de la Preparación de las Ofrendas", range(146, 146)));
+htmlParts.push(useMoment("Oración sobre las Ofrendas", [{ label: "Sentido del rito", nums: [77] }, { label: "Misa con pueblo: el sacerdote", nums: [146] }, { label: "Misa concelebrada", nums: [215] }]));
 
 htmlParts.push(`
       <h3 class="part-title">3.3. Plegaria Eucarística</h3>
@@ -2080,9 +2113,7 @@ htmlParts.push(`
       <!-- Cuerpo dinámico de la Plegaria Eucarística seleccionada -->
       <div id="dyn-plegaria-body"></div>
 `);
-htmlParts.push(useRange("Elementos y Estructura de la Plegaria Eucarística", range(78, 79)));
-htmlParts.push(useRange("Normas y Ritos de la Plegaria Eucarística", range(147, 151)));
-htmlParts.push(useRange("Concelebración de la Eucaristía y sus Ritos", range(209, 236)));
+htmlParts.push(useMoment("Plegaria Eucarística", [{ label: "Sentido del rito", nums: [78, 79] }, { label: "Misa con pueblo: el sacerdote", nums: [147, 148, 149, 150, 151] }, { label: "Con diácono", nums: [179, 180] }, { label: "Misa concelebrada", nums: [216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236] }]));
 
 htmlParts.push(`
       <h3 class="part-title" id="rito-comunion">3.4. Rito de la Comunión</h3>
@@ -2122,9 +2153,7 @@ htmlParts.push(`
         <p class="rubric">Purificación de los vasos sagrados en la credencia o en el altar (IGMR 163, 278-280) y sagrado silencio o canto de alabanza (IGMR 88, 164). El pueblo se sienta (IGMR 43).</p>
       </div>
 `);
-htmlParts.push(useRange("El Rito de la Comunión", range(80, 88)));
-htmlParts.push(useRange("Ritos de la Comunión del Celebrante y del Pueblo", range(152, 163)));
-htmlParts.push(useRange("Comunión bajo las Dos Especies", range(281, 287)));
+htmlParts.push(useMoment("Rito de la Comunión", [{ label: "Sentido del rito", nums: [80, 81, 82, 83, 84, 85, 86, 87, 88] }, { label: "Misa con pueblo: el sacerdote", nums: [152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163] }, { label: "Con diácono", nums: [181, 182, 183] }, { label: "Lector y acólito", nums: [191, 192] }, { label: "Misa concelebrada", nums: [237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249] }, { label: "Misa con un solo ministro", nums: [266, 267, 268, 269, 270] }, { label: "Fragmentos y purificación de los vasos sagrados", nums: [278, 279, 280] }, { label: "Comunión bajo las dos especies", nums: [281, 282, 283, 284, 285, 286, 287] }]));
 
 htmlParts.push(`
       <h3 class="part-title">3.5. Oración después de la Comunión</h3>
@@ -2134,8 +2163,7 @@ htmlParts.push(`
         <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
       </div>
 `);
-htmlParts.push(useRange("Oración después de la Comunión", range(89, 89)));
-htmlParts.push(useRange("Ritos Finales de la Comunión", range(164, 165)));
+htmlParts.push(useMoment("Oración después de la Comunión", [{ label: "Sentido del rito", nums: [89] }, { label: "Misa con pueblo: el sacerdote", nums: [164, 165] }, { label: "Misa con un solo ministro", nums: [271] }]));
 htmlParts.push(`    </section>\n`);
 
 // 4. RITO DE CONCLUSIÓN (90, 166-208, 237-280)
@@ -2158,8 +2186,7 @@ htmlParts.push(`
         <p><span class="speaker">Pueblo:</span> <span class="response">Amén.</span></p>
       </div>
 `);
-htmlParts.push(useRange("Ritos de la Bendición y Despedida", range(166, 170)));
-htmlParts.push(useRange("La Misa con Diácono y otros Ministros", range(171, 208)));
+htmlParts.push(useMoment("Avisos y Bendición", [{ label: "Misa con pueblo: el sacerdote", nums: [166, 167, 168] }, { label: "Con diácono", nums: [184, 185] }]));
 
 htmlParts.push(`
       <h3 class="part-title">4.2. Despedida y Reverencia Final</h3>
@@ -2171,9 +2198,7 @@ htmlParts.push(`
         <p class="rubric">El sacerdote y el diácono veneran el altar con un beso (IGMR 169) y, hecha la debida reverencia con los demás ministros, se retiran a la sacristía (IGMR 169, 186).</p>
       </div>
 `);
-htmlParts.push(useRange("Conclusiones de la Concelebración y Misas Especiales", range(237, 251)));
-htmlParts.push(useRange("Celebración de la Misa con un Solo Ministro", range(252, 272)));
-htmlParts.push(useRange("Normas Generales para Todas las Formas de Misa (Incienso, Reverencias, Purificaciones)", range(273, 280)));
+htmlParts.push(useMoment("Despedida y Veneración Final del Altar", [{ label: "Misa con pueblo: el sacerdote", nums: [169, 170] }, { label: "Con diácono", nums: [186] }, { label: "Lector y acólito", nums: [193] }, { label: "Misa concelebrada", nums: [250, 251] }, { label: "Misa con un solo ministro", nums: [272] }]));
 htmlParts.push(`    </section>\n`);
 
 // 5. NORMAS COMPLEMENTARIAS (352-399)
@@ -3189,3 +3214,4 @@ for (let n = 1; n <= 399; n++) {
   if (!usedNumbers.has(n)) unused.push(n);
 }
 console.log('Unused IGMR numbers (should be empty []):', unused);
+console.log('IGMR numbers placed twice (should be empty []):', repeatedNumbers);
