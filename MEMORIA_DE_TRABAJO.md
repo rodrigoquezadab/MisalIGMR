@@ -8,7 +8,7 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 
 ## Dónde quedamos
 
-**Última sesión: 11-11-2026.** Lo del 31-10-2026 está en **`main`**; lo del 11-11-2026 («Seguir la Misa») está en la rama `claude/verificador-misa`, sin unir. Antes, todo el trabajo quedó en **`main`** del repositorio privado `rodrigoquezadab/MisalIGMR` (unido el 31-10-2026 a pedido del usuario, por avance rápido desde la rama `claude/youthful-wozniak-8ooc6f`, que quedó idéntica).
+**Última sesión: 11-11-2026.** Lo del 31-10-2026 está en **`main`**; lo del 11-11-2026 («Seguir la Misa») también, unido a `main` a pedido del usuario. Antes, todo el trabajo quedó en **`main`** del repositorio privado `rodrigoquezadab/MisalIGMR` (unido el 31-10-2026 a pedido del usuario, por avance rápido desde la rama `claude/youthful-wozniak-8ooc6f`, que quedó idéntica).
 
 - **Estado de los textos:** 65 celebraciones ya muestran los textos de la edición para Chile en los tres ciclos (ver paso 3). Siguen con la edición colombiana («vosotros»): el Ordinario fijo, Ramos, Crismal, Jueves Santo, Viernes Santo, Vigilia Pascual y los ciclos sin fuente; la app los marca como «texto provisional».
 - **Paso 1 hecho:** `fuentes/descargar_eucaristiadiaria.js` calcula la fecha de cada misa en los ciclos A, B y C y descarga esas páginas de eucaristiadiaria.cl. Resultado: 195 páginas, 207 pares misa-ciclo, índice en `fuentes/eucaristiadiaria/indice.json` (URL, fecha de descarga, sha256 y título de cada página).
@@ -25,7 +25,7 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 - La tarjeta «Celebración de hoy» y su calendario coinciden con lo que publica el sitio en las 195 fechas.
 - **Guía para aprender** (`guia_aprendizaje.html`, vista `#learnView`): propósito de la app como plataforma de aprendizaje, cómo participa la asamblea (IGMR 35-36, 42-45), año litúrgico, fechas fijas y móviles (con tabla del año en curso), ciclos A/B/C y evangelistas, años pares e impares, solemnidades/fiestas/memorias/ferias y otras Misas (IGMR cap. VIII). Se abre desde la portada y desde el índice lateral. Lo que no viene de la IGMR queda por verificar (D12).
 
-- **Seguir la Misa** (11-11-2026, rama `claude/verificador-misa`, aún no unida a `main`): dos Misas genéricas, dominical (36 partes) y de semana (33), como guía y lista de verificación, con la consagración destacada (ver `CONTEXT.md` §3.7). Indicación del usuario: **mantenerla simple** (partes, cómo comienza y termina, casilla); no agregarle explicaciones ni funciones extra. 44 citas comprobadas en el Ordinario guardado (`test_verificador.js`). Pendientes: validez según el Código de Derecho Canónico (D15), frases sin fuente (D16), errores del Ordinario de la fuente (D17).
+- **Seguir la Misa** (11-11-2026, unida a `main`): dos Misas genéricas, dominical (36 partes) y de semana (33), como guía y lista de verificación, con la consagración destacada (ver `CONTEXT.md` §3.7). Indicación del usuario: **mantenerla simple** (partes, cómo comienza y termina, casilla); no agregarle explicaciones ni funciones extra. 44 citas comprobadas en el Ordinario guardado (`test_verificador.js`). Pendientes: validez según el Código de Derecho Canónico (D15), frases sin fuente (D16), errores del Ordinario de la fuente (D17).
 
 ## Cómo retomar
 
