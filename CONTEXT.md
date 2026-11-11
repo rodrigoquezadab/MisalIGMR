@@ -156,9 +156,9 @@ En estricto cumplimiento del Misal Romano, se suprime la Liturgia Eucarística, 
 
 ### 3.7. Seguir la Misa (`#followView`)
 - Dos Misas genéricas, **dominical** y **de semana**, como guía y lista de verificación de sus partes. Se abren con los botones «Misa dominical» y «Misa de semana» bajo el título de la portada (y desde el índice lateral).
-- Cada parte: título, cómo **comienza**, cómo **termina** y una casilla para marcarla. La siguiente pendiente queda resaltada.
+- Partes numeradas (1, 1.1, 1.2… 2, 2.1…; la numeración se recalcula en la Misa de semana). Cada parte: título, aclaración bajo el título si hace falta, **Comienza** y **Termina** con la frase exacta del Misal («…» si continúa) y una casilla. Las partes sin palabras fijas (entrada, salmo, homilía, elevaciones…) solo llevan la aclaración. La siguiente pendiente queda resaltada.
 - La **Consagración** es un bloque propio y destacado: pan y vino sobre el altar y las palabras completas sobre el pan y el cáliz, marcados «Esencial»; al marcarlos aparece «Consagración verificada».
-- Dominical: 36 partes (con Gloria, segunda lectura y Credo). De semana: 33 (sin ellos; homilía y oración universal «si la hay»).
+- Dominical: 36 partes (con Gloria, segunda lectura y Credo). De semana: 33 (sin ellos; homilía y oración universal «si la hay»). Las frases de la Plegaria (epíclesis, inicio de la consagración, intercesiones) son de la Plegaria III, y se indica.
 - El avance se guarda en el navegador durante el día, por separado para cada Misa.
 - Datos: `verificador_datos.js` (cada paso conserva sus números IGMR, aunque no se muestran); HTML: `verificador_build.js`; comportamiento: `verificador_app.js`. `node test_verificador.js` comprueba que cada cita aparezca literalmente en el Ordinario guardado.
 

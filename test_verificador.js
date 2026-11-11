@@ -44,9 +44,15 @@ for (const part of PARTES) {
     for (const k of ['domingo', 'semana']) {
       check(p.id + ': ' + k, () => assert.ok(!p[k] || p[k] === 'no'));
     }
+    check(p.id + ': tiene frase o explicación', () => assert.ok(p.inicio || p.fin || p.nota));
     for (const side of ['inicio', 'fin']) {
       const x = p[side];
-      check(p.id + ' ' + side + ': tiene contenido', () => assert.ok(x && (x.nota || x.cita)));
+      // «Comienza» y «Termina» solo llevan la frase exacta: nada de descripciones ni añadidos
+      check(p.id + ' ' + side + ': solo frase exacta', () => {
+        if (!x) return;
+        assert.ok(x.cita && x.fuente, 'falta la cita o la fuente');
+        assert.deepStrictEqual(Object.keys(x).filter(k => !['cita', 'fuente', 'sigue'].includes(k)), []);
+      });
       if (x && x.cita) {
         quotes++;
         check(p.id + ' ' + side + ': «' + x.cita.slice(0, 50) + '» está en ' + x.fuente, () => {
@@ -55,8 +61,7 @@ for (const part of PARTES) {
       }
     }
     check(p.id + ': sin «vosotros»', () => {
-      const visible = [p.titulo, p.tituloSemana, p.nota, p.inicio.nota, p.inicio.cita, p.inicio.antes, p.inicio.despues,
-        p.fin.nota, p.fin.cita, p.fin.antes, p.fin.despues].filter(Boolean).join(' ');
+      const visible = [p.titulo, p.tituloSemana, p.nota, p.inicio && p.inicio.cita, p.fin && p.fin.cita].filter(Boolean).join(' ');
       const m = visible.match(VOSOTROS);
       assert.ok(!m, 'aparece «' + (m && m[0]) + '»');
     });
@@ -71,6 +76,7 @@ check('consagración: pasos esenciales', () => {
 check('consagración: palabras completas sobre el pan y el cáliz', () => {
   const pan = cons.pasos.find(p => p.id === 'pan').fin.cita;
   const caliz = cons.pasos.find(p => p.id === 'caliz').fin.cita;
+  assert.ok(cons.pasos.find(p => p.id === 'pan').palabras && cons.pasos.find(p => p.id === 'caliz').palabras);
   assert.match(pan, /^TOMEN Y COMAN TODOS DE ÉL, PORQUE ESTO ES MI CUERPO/);
   assert.match(caliz, /^TOMEN Y BEBAN TODOS DE ÉL, PORQUE ÉSTE ES EL CÁLIZ DE MI SANGRE.*HAGAN ESTO EN CONMEMORACIÓN MÍA\.$/);
 });

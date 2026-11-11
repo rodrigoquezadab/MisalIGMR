@@ -18,6 +18,6 @@
 
 - Compilar el sitio: `node build_complete_app.js` (genera `index.html` y `misal.html`; debe informar 399 numerales usados, ninguno sin usar ni repetido).
 - Pruebas: `node test_calendar.js`, `node test_textos.js` y `node test_verificador.js`.
-- «Seguir la Misa»: los pasos están en `verificador_datos.js`; cada cita lleva su fuente y `test_verificador.js` comprueba que aparezca literalmente en ella.
+- «Seguir la Misa»: los pasos están en `verificador_datos.js`. «Comienza» y «Termina» llevan **solo frases exactas del Misal** con su fuente (`test_verificador.js` lo comprueba); toda aclaración va en `nota`, bajo el título. Partes numeradas 1, 1.1, 1.2…
 - Textos para Chile: `node fuentes/extraer_eucaristiadiaria.js` (páginas → `fuentes/eucaristiadiaria/extraido.json` y `revision.md`), luego `node fuentes/unir_textos.js` (→ `textos_chile.json`), luego compilar. `textos_chile.json` es generado: no editarlo a mano.
 - `generate_full_misal.js` debe quedar idéntico a `build_complete_app.js`.

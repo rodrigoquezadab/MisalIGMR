@@ -1437,6 +1437,8 @@ htmlParts.push(`<!DOCTYPE html>
     .step-badge { display: inline-block; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.3px; text-transform: uppercase; border-radius: 9999px; padding: 1px 7px; vertical-align: middle; }
     .step-badge.essential { background: #dc2626; border-color: #dc2626; color: #ffffff; }
 
+    .step-num { color: var(--gold-accent); font-weight: 800; margin-right: 2px; }
+    .step-note { font-size: 0.84rem; color: var(--muted-text); line-height: 1.45; margin-bottom: 0.3rem; }
     .step-line { display: flex; gap: 8px; font-size: 0.88rem; line-height: 1.5; margin-bottom: 0.15rem; }
     .step-label { flex: 0 0 4.6rem; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.4px; text-transform: uppercase; color: var(--muted-text); padding-top: 0.2rem; }
     .step-line q { quotes: none; font-style: italic; }

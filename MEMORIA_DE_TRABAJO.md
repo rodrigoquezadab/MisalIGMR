@@ -45,6 +45,7 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 | 31-10-2026 | Nunca completar ni corregir textos litúrgicos de memoria. |
 | 31-10-2026 | Seguir trabajando con los textos con derechos de autor hasta tener una app correcta; entonces mostrarla y pedir permiso (ver D3 en `FUENTES_Y_CONSULTAS.md`). Mientras tanto, no publicar en `main`: cada push a `main` despliega el sitio público en GitHub Pages. |
 | 31-10-2026 | Registrar toda fuente, norma y duda en `FUENTES_Y_CONSULTAS.md` para llevarla a consultas presenciales. |
+| 11-11-2026 | «Seguir la Misa»: «Comienza» y «Termina» solo con frases exactas del Misal; aclaraciones bajo el título; partes numeradas 1, 1.1, 1.2… (pedido del usuario). |
 | 11-11-2026 | El usuario activó GitHub Pages y dejó el repositorio **público** «mientras lo revisan en mi parroquia». Quedan públicos el sitio y los textos con derechos de autor (`fuentes/`, `textos_chile.json`) antes de tener el permiso (D3). Se le informaron las alternativas (volver a privado con GitHub Pro, o retirar los textos) y eligió dejarlo así. |
 | 31-10-2026 | Unir todo el trabajo a `main` (pedido del usuario). Pages desactivado: no se publica nada. |
 | 31-10-2026 | Lecturas en los **tres ciclos** (A, B, C) con selector; la app abre en el ciclo de la próxima celebración. |
