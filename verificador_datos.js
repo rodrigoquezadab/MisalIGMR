@@ -9,12 +9,12 @@
 //   'dias'   páginas de los días guardadas en fuentes/eucaristiadiaria/paginas/
 // Lo que no tiene una cita respaldada se describe con «nota», sin comillas.
 //
-// cuando: qué pasa en domingo (o solemnidad) y en día de semana:
-//   'si'        se hace siempre
-//   'puede'     se hace si corresponde (se puede marcar «no corresponde»)
-//   'no'        no se hace (el paso no aparece)
+// Dos Misas genéricas: dominical y de semana. domingo / semana: 'no' si el
+// paso no está en esa Misa (por omisión, está). tituloSemana: título para la
+// Misa de semana cuando es distinto.
 // esencial: elemento sin el cual no hay consagración (materia y palabras).
-// obligatorio: la IGMR lo manda siempre; se destaca en el resumen.
+// igmr: números de la IGMR que respaldan el paso (no se muestran en la lista;
+// sirven para revisar los datos).
 
 const PARTES = [
   {
@@ -28,12 +28,10 @@ const PARTES = [
       { id: 'penitencial', titulo: 'Acto penitencial', igmr: [51],
         inicio: { cita: 'Hermanos: para celebrar dignamente estos sagrados misterios, reconozcamos nuestros pecados.', fuente: 'ord-7' },
         fin: { cita: 'Dios todopoderoso tenga misericordia de nosotros, perdone nuestros pecados y nos lleve a la vida eterna.', fuente: 'ord-7' } },
-      { id: 'kyrie', titulo: 'Señor, ten piedad', igmr: [52], domingo: 'puede', semana: 'puede',
-        nota: 'Se omite si ya se dijo dentro del acto penitencial.',
+      { id: 'kyrie', titulo: 'Señor, ten piedad', igmr: [52],
         inicio: { cita: 'Señor, ten piedad', fuente: 'ord-7' },
         fin: { cita: 'Cristo, ten piedad', fuente: 'ord-7', antes: 'Después de ', despues: ', otra vez «Señor, ten piedad».' } },
-      { id: 'gloria', titulo: 'Gloria', igmr: [53], domingo: 'puede', semana: 'puede',
-        nota: 'Los domingos fuera de Adviento y Cuaresma, en las solemnidades y en las fiestas.',
+      { id: 'gloria', titulo: 'Gloria (no en Adviento ni Cuaresma)', igmr: [53], semana: 'no',
         inicio: { cita: 'Gloria a Dios en el cielo, y en la tierra paz a los hombres que ama el Señor.', fuente: 'ord-7' },
         fin: { cita: 'en la gloria de Dios Padre. Amén.', fuente: 'ord-7' } },
       { id: 'colecta', titulo: 'Oración colecta', igmr: [54],
@@ -49,7 +47,7 @@ const PARTES = [
       { id: 'salmo', titulo: 'Salmo responsorial', igmr: [61],
         inicio: { nota: 'El salmista dice la respuesta y todos la repiten.' },
         fin: { nota: 'Última estrofa y la respuesta de todos.' } },
-      { id: 'lectura2', titulo: 'Segunda lectura', igmr: [357], domingo: 'si', semana: 'no',
+      { id: 'lectura2', titulo: 'Segunda lectura', igmr: [357], semana: 'no',
         inicio: { nota: 'Lectura de una carta de los Apóstoles (o del Apocalipsis).' },
         fin: { cita: 'Palabra de Dios.', fuente: 'dias' } },
       { id: 'aclamacion', titulo: 'Aclamación antes del Evangelio', igmr: [62],
@@ -58,14 +56,13 @@ const PARTES = [
       { id: 'evangelio', titulo: 'Evangelio', igmr: [60, 134],
         inicio: { cita: 'Evangelio de nuestro Señor Jesucristo según san', fuente: 'dias', antes: 'Después del saludo, «', despues: '…».', sinComillas: true },
         fin: { cita: 'Palabra del Señor.', fuente: 'dias' } },
-      { id: 'homilia', titulo: 'Homilía', igmr: [65, 66], domingo: 'si', semana: 'puede',
-        nota: 'Obligatoria los domingos y fiestas de precepto; recomendada los demás días.',
+      { id: 'homilia', titulo: 'Homilía', tituloSemana: 'Homilía (si la hay)', igmr: [65, 66],
         inicio: { nota: 'Todos se sientan; el sacerdote o el diácono predica.' },
         fin: { nota: 'Breve silencio.' } },
-      { id: 'credo', titulo: 'Profesión de fe (Credo)', igmr: [67, 68], domingo: 'si', semana: 'no',
+      { id: 'credo', titulo: 'Profesión de fe (Credo)', igmr: [67, 68], semana: 'no',
         inicio: { cita: 'Creo en un solo Dios', fuente: 'ord-9', despues: ' (o el Símbolo de los Apóstoles: «Creo en Dios, Padre todopoderoso»).' },
         fin: { cita: 'y la vida del mundo futuro. Amén.', fuente: 'ord-9' } },
-      { id: 'universal', titulo: 'Oración universal', igmr: [69, 71], domingo: 'si', semana: 'puede',
+      { id: 'universal', titulo: 'Oración universal', tituloSemana: 'Oración universal (si la hay)', igmr: [69, 71],
         inicio: { nota: 'El sacerdote invita a orar; se proponen las intenciones.' },
         fin: { nota: 'Oración final del sacerdote; todos: «Amén».' } }
     ]
@@ -91,21 +88,18 @@ const PARTES = [
   },
   {
     id: 'consagracion', titulo: 'Consagración', destacado: true,
-    intro: 'Relato de la institución y consagración: con las palabras y los gestos de Cristo se realiza el sacrificio que él instituyó en la última Cena (IGMR 79). Verifique cada paso.',
+    intro: 'Verifique con especial atención: pan y vino sobre el altar, y las palabras de Cristo completas sobre cada uno.',
     pasos: [
-      { id: 'materia', titulo: 'Sobre el altar hay pan de trigo y vino de uva', igmr: [320, 322, 72], esencial: true,
-        nota: 'Pan de trigo sin mezcla, ácimo y reciente; vino natural del fruto de la vid, con un poco de agua.',
-        inicio: { nota: 'Se verifica desde la preparación de los dones.' },
-        fin: { nota: 'Si en el cáliz había agua y no vino, el sacerdote debe poner vino y consagrarlo (IGMR 324).' } },
+      { id: 'materia', titulo: 'Pan de trigo y vino de uva sobre el altar', igmr: [320, 322, 324, 72], esencial: true,
+        inicio: { nota: 'Se presentan en la preparación de los dones.' },
+        fin: { nota: 'El vino está en el cáliz, con un poco de agua.' } },
       { id: 'pan', titulo: 'Consagración del pan', igmr: [79, 72], esencial: true,
-        nota: 'El sacerdote dice las palabras completas sobre el pan:',
         inicio: { nota: 'Toma el pan y lo sostiene un poco elevado sobre el altar.' },
         fin: { cita: 'TOMEN Y COMAN TODOS DE ÉL, PORQUE ESTO ES MI CUERPO, QUE SERÁ ENTREGADO POR USTEDES.', fuente: 'ord-7', palabras: true } },
       { id: 'elevacion-pan', titulo: 'Elevación de la Hostia y genuflexión', igmr: [150, 274],
         inicio: { nota: 'Muestra la Hostia consagrada al pueblo (puede tocarse la campanilla).' },
         fin: { nota: 'La deja sobre la patena y hace genuflexión.' } },
       { id: 'caliz', titulo: 'Consagración del vino', igmr: [79, 72], esencial: true,
-        nota: 'El sacerdote dice las palabras completas sobre el cáliz:',
         inicio: { nota: 'Toma el cáliz y lo sostiene un poco elevado sobre el altar.' },
         fin: { cita: 'TOMEN Y BEBAN TODOS DE ÉL, PORQUE ÉSTE ES EL CÁLIZ DE MI SANGRE, SANGRE DE LA ALIANZA NUEVA Y ETERNA, QUE SERÁ DERRAMADA POR USTEDES Y POR MUCHOS PARA EL PERDÓN DE LOS PECADOS. HAGAN ESTO EN CONMEMORACIÓN MÍA.', fuente: 'ord-7', palabras: true } },
       { id: 'elevacion-caliz', titulo: 'Elevación del cáliz y genuflexión', igmr: [150, 274],
@@ -140,8 +134,7 @@ const PARTES = [
       { id: 'invitacion', titulo: 'Invitación a la Comunión', igmr: [84],
         inicio: { cita: 'Este es el Cordero de Dios, que quita el pecado del mundo.', fuente: 'ord-7' },
         fin: { cita: 'Señor, no soy digno de que entres en mi casa, pero una palabra tuya bastará para sanarme.', fuente: 'ord-7' } },
-      { id: 'comunion-sacerdote', titulo: 'Comunión del sacerdote', igmr: [158, 85], obligatorio: true,
-        nota: 'El sacerdote comulga el Cuerpo y la Sangre de Cristo de lo consagrado en la misma Misa.',
+      { id: 'comunion-sacerdote', titulo: 'Comunión del sacerdote', igmr: [158, 85],
         inicio: { nota: 'Comulga el Cuerpo de Cristo.' },
         fin: { nota: 'Bebe la Sangre de Cristo del cáliz.' } },
       { id: 'comunion-fieles', titulo: 'Comunión de los fieles', igmr: [86, 160],
@@ -154,9 +147,6 @@ const PARTES = [
   },
   {
     id: 'conclusion', titulo: 'Rito de conclusión', pasos: [
-      { id: 'avisos', titulo: 'Avisos', igmr: [90], domingo: 'puede', semana: 'puede',
-        inicio: { nota: 'Breves avisos, si fueran necesarios.' },
-        fin: { nota: 'Terminan los avisos.' } },
       { id: 'bendicion', titulo: 'Saludo y bendición', igmr: [90],
         inicio: { cita: 'El Señor esté con ustedes.', fuente: 'ord-7' },
         fin: { cita: 'descienda sobre ustedes y permanezca para siempre.', fuente: 'ord-7', antes: '«La bendición de Dios todopoderoso… ', despues: '» Todos: «Amén».', sinComillas: true } },

@@ -42,7 +42,7 @@ for (const part of PARTES) {
       p.igmr.forEach(n => assert.ok(igmrNums.has(n), 'IGMR ' + n));
     });
     for (const k of ['domingo', 'semana']) {
-      check(p.id + ': ' + k, () => assert.ok(!p[k] || ['si', 'puede', 'no'].includes(p[k])));
+      check(p.id + ': ' + k, () => assert.ok(!p[k] || p[k] === 'no'));
     }
     for (const side of ['inicio', 'fin']) {
       const x = p[side];
@@ -55,7 +55,7 @@ for (const part of PARTES) {
       }
     }
     check(p.id + ': sin «vosotros»', () => {
-      const visible = [p.titulo, p.nota, p.inicio.nota, p.inicio.cita, p.inicio.antes, p.inicio.despues,
+      const visible = [p.titulo, p.tituloSemana, p.nota, p.inicio.nota, p.inicio.cita, p.inicio.antes, p.inicio.despues,
         p.fin.nota, p.fin.cita, p.fin.antes, p.fin.despues].filter(Boolean).join(' ');
       const m = visible.match(VOSOTROS);
       assert.ok(!m, 'aparece «' + (m && m[0]) + '»');
@@ -74,12 +74,13 @@ check('consagración: palabras completas sobre el pan y el cáliz', () => {
   assert.match(pan, /^TOMEN Y COMAN TODOS DE ÉL, PORQUE ESTO ES MI CUERPO/);
   assert.match(caliz, /^TOMEN Y BEBAN TODOS DE ÉL, PORQUE ÉSTE ES EL CÁLIZ DE MI SANGRE.*HAGAN ESTO EN CONMEMORACIÓN MÍA\.$/);
 });
-check('domingo y semana: el domingo tiene segunda lectura y Credo; la semana no', () => {
+check('domingo y semana: el domingo tiene segunda lectura, Gloria y Credo; la semana no', () => {
   const all = PARTES.flatMap(x => x.pasos);
   const get = id => all.find(p => p.id === id);
   assert.strictEqual(get('lectura2').semana, 'no');
   assert.strictEqual(get('credo').semana, 'no');
-  assert.strictEqual(get('homilia').domingo, 'si');
+  assert.strictEqual(get('gloria').semana, 'no');
+  assert.ok(!get('homilia').domingo, 'la homilía está en la Misa dominical');
 });
 
 if (failures) { console.error('\n' + failures + ' prueba(s) fallida(s)'); process.exit(1); }

@@ -1346,31 +1346,29 @@ htmlParts.push(`<!DOCTYPE html>
       box-shadow: 0 6px 20px var(--primary-glow);
     }
 
+    .follow-entry { max-width: 560px; margin: 0 auto 1rem; }
+    .follow-entry-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .follow-entry-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
     .btn-follow-main {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      width: 100%;
-      max-width: 560px;
-      margin: 0 auto 1rem;
-      padding: 0.85rem 1rem;
+      padding: 0.85rem 0.6rem;
       background: #16a34a;
       color: #ffffff;
       border: none;
       border-radius: 12px;
-      text-align: left;
+      font-size: 1rem;
+      font-weight: 800;
       cursor: pointer;
       box-shadow: 0 4px 16px rgba(22, 163, 74, 0.35);
       touch-action: manipulation;
     }
 
     .btn-follow-main:hover { filter: brightness(1.08); }
-    .btn-follow-icon { font-size: 1.6rem; }
-    .btn-follow-text { display: flex; flex-direction: column; gap: 2px; }
-    .btn-follow-text strong { font-size: 1.05rem; }
-    .btn-follow-text span { font-size: 0.82rem; opacity: 0.92; line-height: 1.4; }
+    .follow-mass[hidden] { display: none; }
+    .follow-cons-status { font-weight: 700; color: #16a34a; margin: 0 0 0.4rem; }
+    .follow-cons-status:empty { display: none; }
+    .follow-part.is-highlighted.is-verified { border-color: #16a34a; }
 
-    .follow-lead { font-size: 0.9rem; color: var(--muted-text); line-height: 1.55; margin: 0.2rem 0 0; }
 
     .follow-toolbar {
       position: sticky;
@@ -1387,24 +1385,9 @@ htmlParts.push(`<!DOCTYPE html>
     }
 
     .follow-mode { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; flex: 1 1 100%; }
-    .follow-progress { flex: 1 1 auto; min-width: 160px; }
     .follow-progress-text { font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; }
-    .follow-bar { height: 8px; border-radius: 9999px; background: var(--border-color); overflow: hidden; }
-    #followBarFill { height: 100%; width: 0; background: #16a34a; transition: width 0.25s ease; }
 
-    .follow-essentials {
-      border: 1px solid var(--border-color);
-      border-left: 4px solid var(--gold-accent);
-      border-radius: 10px;
-      padding: 0.6rem 0.8rem;
-      font-size: 0.88rem;
-      line-height: 1.5;
-      margin-bottom: 1rem;
-      background: var(--card-bg);
-    }
 
-    .follow-essentials.ok { border-left-color: #16a34a; }
-    .follow-essentials.warn { border-left-color: #dc2626; color: var(--text-color); font-weight: 600; }
 
     .follow-part {
       background: var(--card-bg);
@@ -1415,10 +1398,8 @@ htmlParts.push(`<!DOCTYPE html>
     }
 
     .follow-part.is-highlighted { border: 2px solid var(--gold-accent); }
-    .follow-part.is-complete .follow-part-count { color: #16a34a; }
     .follow-part-title { display: flex; align-items: center; gap: 8px; font-size: 1.08rem; color: var(--secondary-color); margin-bottom: 0.5rem; }
     .follow-part-num { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--border-color); font-size: 0.85rem; }
-    .follow-part-count { margin-left: auto; font-size: 0.8rem; color: var(--muted-text); font-weight: 700; }
     .follow-part-intro { font-size: 0.86rem; color: var(--muted-text); line-height: 1.5; margin: 0 0 0.6rem; }
     .follow-steps { list-style: none; margin: 0; padding: 0; }
 
@@ -1429,7 +1410,6 @@ htmlParts.push(`<!DOCTYPE html>
       border-top: 1px solid var(--border-color);
     }
 
-    .follow-step[hidden] { display: none; }
 
     .step-check {
       flex: 0 0 auto;
@@ -1449,29 +1429,18 @@ htmlParts.push(`<!DOCTYPE html>
     .follow-step.is-current .step-check { border-color: var(--gold-accent); box-shadow: 0 0 0 2px var(--gold-accent); }
     .follow-step.is-essential .step-check { border-color: #dc2626; }
     .follow-step.is-essential.is-done .step-check { border-color: #16a34a; }
-    .follow-step.is-done .step-body, .follow-step.is-skipped .step-body { opacity: 0.6; }
-    .follow-step.is-skipped .step-title { text-decoration: line-through; }
+    .follow-step.is-done .step-body { opacity: 0.6; }
 
     .step-body { flex: 1 1 auto; min-width: 0; }
     .step-title { font-weight: 700; font-size: 0.98rem; line-height: 1.35; margin-bottom: 0.25rem; }
-    .step-now { display: none; margin-left: 6px; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; color: #0f172a; background: var(--gold-accent); border-radius: 9999px; padding: 1px 7px; vertical-align: middle; }
-    .follow-step.is-current .step-now { display: inline-block; }
 
-    .step-badge { display: inline-block; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.3px; text-transform: uppercase; border-radius: 9999px; padding: 1px 7px; vertical-align: middle; border: 1px solid var(--border-color); color: var(--muted-text); }
-    .step-badge[hidden] { display: none; }
+    .step-badge { display: inline-block; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.3px; text-transform: uppercase; border-radius: 9999px; padding: 1px 7px; vertical-align: middle; }
     .step-badge.essential { background: #dc2626; border-color: #dc2626; color: #ffffff; }
-    .step-badge.required { border-color: #dc2626; color: #dc2626; }
 
-    .step-note { font-size: 0.84rem; color: var(--muted-text); margin-bottom: 0.25rem; line-height: 1.45; }
     .step-line { display: flex; gap: 8px; font-size: 0.88rem; line-height: 1.5; margin-bottom: 0.15rem; }
     .step-label { flex: 0 0 4.6rem; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.4px; text-transform: uppercase; color: var(--muted-text); padding-top: 0.2rem; }
     .step-line q { quotes: none; font-style: italic; }
     .step-line q.step-words { font-style: normal; font-weight: 700; letter-spacing: 0.2px; }
-    .step-foot { display: flex; align-items: center; gap: 8px; margin-top: 0.3rem; flex-wrap: wrap; }
-    .step-igmr { font-size: 0.76rem; color: var(--muted-text); }
-    .step-skip { margin-left: auto; background: transparent; color: var(--muted-text); border: 1px dashed var(--border-color); border-radius: 8px; padding: 0.25rem 0.6rem; font-size: 0.76rem; cursor: pointer; }
-    .step-skip[hidden] { display: none; }
-    .follow-sources ul { margin: 0.3rem 0 0.6rem 1.2rem; }
 
     .cycle-bar {
       background: var(--card-bg);
@@ -2022,10 +1991,13 @@ htmlParts.push(`<!DOCTYPE html>
       <div class="home-hero-card">
         <div class="home-hero-icon">✠</div>
         <h2 class="home-hero-title">Misal Romano Digital con IGMR Íntegra</h2>
-        <button type="button" class="btn-follow-main" onclick="openFollowView()">
-          <span class="btn-follow-icon" aria-hidden="true">✅</span>
-          <span class="btn-follow-text"><strong>Seguir la Misa</strong><span>Verifique paso a paso que se realizan todas las partes, en especial la consagración.</span></span>
-        </button>
+        <div class="follow-entry">
+          <div class="follow-entry-title">✅ Seguir la Misa: guía y verificación de sus partes</div>
+          <div class="follow-entry-buttons">
+            <button type="button" class="btn-follow-main" onclick="openFollowView('domingo')">Misa dominical</button>
+            <button type="button" class="btn-follow-main" onclick="openFollowView('semana')">Misa de semana</button>
+          </div>
+        </div>
         <p class="home-hero-desc">
           Plataforma litúrgica interactiva con el <strong>Ordinario de la Misa</strong>, las <strong>74 celebraciones de todo el Año Litúrgico</strong> con sus días concretos (Semana Santa, Jueves Santo, Viernes Santo, Sábado Santo, Octava de Pascua, Domingos y Solemnidades), las <strong>4 Plegarias Eucarísticas</strong>, <strong>28 Prefacios</strong> y la totalidad de los <strong>399 numerales de la Instrucción General del Misal Romano (IGMR)</strong> integrados canónicamente.
         </p>

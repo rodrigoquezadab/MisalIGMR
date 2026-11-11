@@ -155,13 +155,12 @@ En estricto cumplimiento del Misal Romano, se suprime la Liturgia Eucarística, 
 - `node test_textos.js` verifica la estructura, las fuentes, la ausencia de «vosotros» y que el evangelio de cada domingo del Tiempo Ordinario sea del evangelista de su ciclo.
 
 ### 3.7. Seguir la Misa (`#followView`)
-- Sección principal: botón verde «Seguir la Misa» bajo el título de la portada y primera opción del índice lateral.
-- Herramienta de verificación (no un curso): las partes de la Misa en 7 bloques (Ritos iniciales, Liturgia de la Palabra, Liturgia Eucarística, **Consagración**, Fin de la Plegaria, Rito de la Comunión, Rito de conclusión), 37 pasos. Cada paso dice cómo **comienza** y cómo **termina**, con los números de la IGMR.
-- Cada paso tiene un botón para marcarlo como realizado; el siguiente pendiente queda señalado como «Ahora». Los pasos que dependen del día (Señor ten piedad, Gloria, avisos, homilía y oración universal en semana) tienen «No corresponde».
-- Modo **Domingo o solemnidad** / **Día de semana** (abre según el día): en semana desaparecen la segunda lectura y el Credo.
-- Consagración: materia (pan de trigo, vino de uva) y palabras completas sobre el pan y el cáliz marcadas «Esencial»; comunión del sacerdote «Siempre». Un recuadro avisa si se avanzó después de la consagración sin verificarla.
-- El avance se guarda en el navegador solo durante el día.
-- Datos: `verificador_datos.js`; HTML generado al compilar por `verificador_build.js`; comportamiento en `verificador_app.js`. Las citas salen del Ordinario de Eucaristía Diaria guardado en `fuentes/eucaristiadiaria/ordinario/`; `node test_verificador.js` comprueba que cada una aparezca literalmente en su fuente.
+- Dos Misas genéricas, **dominical** y **de semana**, como guía y lista de verificación de sus partes. Se abren con los botones «Misa dominical» y «Misa de semana» bajo el título de la portada (y desde el índice lateral).
+- Cada parte: título, cómo **comienza**, cómo **termina** y una casilla para marcarla. La siguiente pendiente queda resaltada.
+- La **Consagración** es un bloque propio y destacado: pan y vino sobre el altar y las palabras completas sobre el pan y el cáliz, marcados «Esencial»; al marcarlos aparece «Consagración verificada».
+- Dominical: 36 partes (con Gloria, segunda lectura y Credo). De semana: 33 (sin ellos; homilía y oración universal «si la hay»).
+- El avance se guarda en el navegador durante el día, por separado para cada Misa.
+- Datos: `verificador_datos.js` (cada paso conserva sus números IGMR, aunque no se muestran); HTML: `verificador_build.js`; comportamiento: `verificador_app.js`. `node test_verificador.js` comprueba que cada cita aparezca literalmente en el Ordinario guardado.
 
 ---
 
