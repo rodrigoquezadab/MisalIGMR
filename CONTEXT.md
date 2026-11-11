@@ -154,6 +154,15 @@ En estricto cumplimiento del Misal Romano, se suprime la Liturgia Eucarística, 
 - Aún con textos provisionales: Ramos, Crismal, Jueves Santo, Viernes Santo, Vigilia Pascual; el Ordinario fijo.
 - `node test_textos.js` verifica la estructura, las fuentes, la ausencia de «vosotros» y que el evangelio de cada domingo del Tiempo Ordinario sea del evangelista de su ciclo.
 
+### 3.7. Seguir la Misa (`#followView`)
+- Sección principal: botón verde «Seguir la Misa» bajo el título de la portada y primera opción del índice lateral.
+- Herramienta de verificación (no un curso): las partes de la Misa en 7 bloques (Ritos iniciales, Liturgia de la Palabra, Liturgia Eucarística, **Consagración**, Fin de la Plegaria, Rito de la Comunión, Rito de conclusión), 37 pasos. Cada paso dice cómo **comienza** y cómo **termina**, con los números de la IGMR.
+- Cada paso tiene un botón para marcarlo como realizado; el siguiente pendiente queda señalado como «Ahora». Los pasos que dependen del día (Señor ten piedad, Gloria, avisos, homilía y oración universal en semana) tienen «No corresponde».
+- Modo **Domingo o solemnidad** / **Día de semana** (abre según el día): en semana desaparecen la segunda lectura y el Credo.
+- Consagración: materia (pan de trigo, vino de uva) y palabras completas sobre el pan y el cáliz marcadas «Esencial»; comunión del sacerdote «Siempre». Un recuadro avisa si se avanzó después de la consagración sin verificarla.
+- El avance se guarda en el navegador solo durante el día.
+- Datos: `verificador_datos.js`; HTML generado al compilar por `verificador_build.js`; comportamiento en `verificador_app.js`. Las citas salen del Ordinario de Eucaristía Diaria guardado en `fuentes/eucaristiadiaria/ordinario/`; `node test_verificador.js` comprueba que cada una aparezca literalmente en su fuente.
+
 ---
 
 ## 4. Asignación Canónica de Plegarias Eucarísticas (IGMR n. 365)

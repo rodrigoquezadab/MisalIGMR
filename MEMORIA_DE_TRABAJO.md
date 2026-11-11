@@ -8,7 +8,7 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 
 ## Dónde quedamos
 
-**Última sesión: 31-10-2026 (cierre).** Todo el trabajo está en **`main`** del repositorio privado `rodrigoquezadab/MisalIGMR` (unido el 31-10-2026 a pedido del usuario, por avance rápido desde la rama `claude/youthful-wozniak-8ooc6f`, que quedó idéntica).
+**Última sesión: 11-11-2026.** Lo del 31-10-2026 está en **`main`**; lo del 11-11-2026 («Seguir la Misa») está en la rama `claude/verificador-misa`, sin unir. Antes, todo el trabajo quedó en **`main`** del repositorio privado `rodrigoquezadab/MisalIGMR` (unido el 31-10-2026 a pedido del usuario, por avance rápido desde la rama `claude/youthful-wozniak-8ooc6f`, que quedó idéntica).
 
 - **Estado de los textos:** 65 celebraciones ya muestran los textos de la edición para Chile en los tres ciclos (ver paso 3). Siguen con la edición colombiana («vosotros»): el Ordinario fijo, Ramos, Crismal, Jueves Santo, Viernes Santo, Vigilia Pascual y los ciclos sin fuente; la app los marca como «texto provisional».
 - **Paso 1 hecho:** `fuentes/descargar_eucaristiadiaria.js` calcula la fecha de cada misa en los ciclos A, B y C y descarga esas páginas de eucaristiadiaria.cl. Resultado: 195 páginas, 207 pares misa-ciclo, índice en `fuentes/eucaristiadiaria/indice.json` (URL, fecha de descarga, sha256 y título de cada página).
@@ -24,6 +24,8 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
   - En una misa ya convertida quedan unas 14 formas de «vosotros», todas del Ordinario fijo (paso 4).
 - La tarjeta «Celebración de hoy» y su calendario coinciden con lo que publica el sitio en las 195 fechas.
 - **Guía para aprender** (`guia_aprendizaje.html`, vista `#learnView`): propósito de la app como plataforma de aprendizaje, cómo participa la asamblea (IGMR 35-36, 42-45), año litúrgico, fechas fijas y móviles (con tabla del año en curso), ciclos A/B/C y evangelistas, años pares e impares, solemnidades/fiestas/memorias/ferias y otras Misas (IGMR cap. VIII). Se abre desde la portada y desde el índice lateral. Lo que no viene de la IGMR queda por verificar (D12).
+
+- **Seguir la Misa** (11-11-2026, rama `claude/verificador-misa`, aún no unida a `main`): sección principal de verificación paso a paso (ver `CONTEXT.md` §3.7). 37 pasos, 44 citas comprobadas en el Ordinario guardado (`test_verificador.js`). Pendientes: validez según el Código de Derecho Canónico (D15), frases sin fuente (D16), errores del Ordinario de la fuente (D17).
 
 ## Cómo retomar
 
@@ -52,7 +54,7 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 1. ~~Guardar las páginas descargadas de forma permanente.~~ Hecho: están en el repositorio privado.
 2. ~~Extraer los textos.~~ Hecho para las misas comunes (ver arriba). Pendiente: revisar a mano Ramos, Crismal, Jueves Santo, Viernes Santo y Vigilia Pascual, que tienen estructura propia.
 3. ~~Pasar los textos a la app.~~ Hecho en `textos_chile.json` (no se modificó `liturgia_db.json`, que queda como respaldo de los textos provisionales).
-4. **Ordinario** (lo siguiente). Rehacerlo con el de eucaristiadiaria.cl (`https://www.eucaristiadiaria.cl/ordinario.php`, descargarlo y guardarlo en `fuentes/`), corrigiendo los errores conocidos (D7) solo donde otra fuente lo respalde, y anotar cada diferencia para cotejar con el Misal impreso.
+4. **Ordinario** (lo siguiente). Rehacerlo con el de eucaristiadiaria.cl. Ya están descargadas las 10 ediciones mensuales en `fuentes/eucaristiadiaria/ordinario/` (la de septiembre, `id-7`, es la más completa; la de noviembre está incompleta, D17). Usarlas, corrigiendo los errores conocidos (D7) solo donde otra fuente lo respalde, y anotar cada diferencia para cotejar con el Misal impreso.
 4b. **Revisión a mano** de Ramos, Crismal, Jueves Santo, Viernes Santo y Vigilia Pascual (tienen estructura propia en la app).
 5. **Prueba automática** de «vosotros»: hecha para `textos_chile.json` (`test_textos.js`). Falta extenderla al Ordinario cuando se reemplace.
 
@@ -69,3 +71,4 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 | 31-10-2026 (noche, 4.ª parte) | Extractor de textos (paso 2): 183 de 206 pares sin observaciones, control de consistencia entre ciclos, informe de revisión. Nuevas consultas D13 (errores de la fuente) y D14 (diferencias de texto). |
 | 31-10-2026 (noche, 5.ª parte) | Textos para Chile en la app con los tres ciclos (paso 3): `unir_textos.js`, `textos_chile.json`, `app_textos.js`, selector de ciclo, etiqueta «texto provisional», `test_textos.js`. Guía actualizada con el estado de los textos. |
 | 31-10-2026 (cierre) | Verificado que todo está subido. Memoria actualizada con el estado y cómo retomar. Rama unida a `main` por avance rápido (8dfd561 → 9569b0e). |
+| 11-11-2026 | «Seguir la Misa»: lista de verificación de las partes de la Misa (domingo y semana), con la consagración destacada; descarga de las ediciones mensuales del Ordinario; consultas D15-D17. No se cambió de entorno de red: el Código de Derecho Canónico queda como consulta (D15). |
