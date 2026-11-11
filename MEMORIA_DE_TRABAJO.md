@@ -32,10 +32,10 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 1. Leer este archivo y `FUENTES_Y_CONSULTAS.md` (dudas D1-D14 para consultar en persona).
 2. Partir de `main` actualizado (`git pull origin main`) y trabajar en una rama nueva; unir a `main` solo cuando el usuario lo pida. Las páginas fuente ya están en `fuentes/eucaristiadiaria/paginas/`: no hace falta descargarlas.
 3. Comprobar que todo funciona: `node test_calendar.js`, `node test_textos.js` y `node build_complete_app.js` (399 numerales, ninguno sin usar ni repetido).
-4. Para ver la app: abrir `index.html` en el navegador (el sitio de GitHub Pages probablemente no está disponible mientras el repositorio sea privado con plan gratuito).
+4. Para ver la app: el sitio público (https://rodrigoquezadab.github.io/MisalIGMR/) muestra `main`; en local, abrir `index.html` con Live Server.
 5. Seguir con el paso 4 de «Próximos pasos» (Ordinario).
 
-**Pendiente de decisión del usuario:** cómo mostrar la app al pedir el permiso (D3). GitHub Pages está **desactivado** (la API informa `has_pages: false` con el repositorio privado), así que los textos con derechos de autor no se publican. El workflow de despliegue igual corre al subir a `main`: las pruebas pasan, pero el paso de Pages fallará mientras Pages esté desactivado; es esperable. Si se reactiva Pages (plan pagado), el sitio quedaría **público** con los textos de Chile: decidirlo antes.
+**Publicación:** desde el 11-11-2026 el repositorio es público y el sitio está en GitHub Pages (https://rodrigoquezadab.github.io/MisalIGMR/), para la revisión en la parroquia del usuario. Cada push a `main` lo actualiza. El permiso para los textos (D3) sigue pendiente.
 
 ## Decisiones tomadas
 
@@ -45,6 +45,7 @@ Las fuentes, normas y dudas para consultar están en `FUENTES_Y_CONSULTAS.md`. L
 | 31-10-2026 | Nunca completar ni corregir textos litúrgicos de memoria. |
 | 31-10-2026 | Seguir trabajando con los textos con derechos de autor hasta tener una app correcta; entonces mostrarla y pedir permiso (ver D3 en `FUENTES_Y_CONSULTAS.md`). Mientras tanto, no publicar en `main`: cada push a `main` despliega el sitio público en GitHub Pages. |
 | 31-10-2026 | Registrar toda fuente, norma y duda en `FUENTES_Y_CONSULTAS.md` para llevarla a consultas presenciales. |
+| 11-11-2026 | El usuario activó GitHub Pages y dejó el repositorio **público** «mientras lo revisan en mi parroquia». Quedan públicos el sitio y los textos con derechos de autor (`fuentes/`, `textos_chile.json`) antes de tener el permiso (D3). Se le informaron las alternativas (volver a privado con GitHub Pro, o retirar los textos) y eligió dejarlo así. |
 | 31-10-2026 | Unir todo el trabajo a `main` (pedido del usuario). Pages desactivado: no se publica nada. |
 | 31-10-2026 | Lecturas en los **tres ciclos** (A, B, C) con selector; la app abre en el ciclo de la próxima celebración. |
 | 31-10-2026 | El usuario hizo **privado** el repositorio de GitHub; las páginas descargadas se guardan en él (D10). Con el plan gratuito de GitHub, el sitio de GitHub Pages deja de estar disponible mientras el repositorio sea privado; para mostrar la app se puede abrir `index.html` directamente. |
